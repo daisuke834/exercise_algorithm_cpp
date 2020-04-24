@@ -1,0 +1,120 @@
+/**
+ * @copyright (c) 2020 Daisuke Hashimoto
+ * @brief Part11-3. 動的計画法(Dynamic Programming, DP)、最長共通部分列(Longest Common Subsequence, LCS)。
+ * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
+ */
+
+#include <gtest/gtest.h>
+#include <gtest/internal/gtest-port.h>
+#include <ctime>
+#include <iostream>
+#include <sstream>
+#include "src/C11_3_ALDS1_10_C_lcs.h"
+
+namespace ALDS1_10_C {
+
+class Test_ALDS1_10_C : public ::testing::Test {
+ protected:
+  LCS *lcs_;
+  virtual void SetUp() {
+    lcs_ = new LCS();
+  }
+  virtual void TearDown() {
+    delete lcs_;
+  }
+};
+
+TEST_F(Test_ALDS1_10_C, CallLCS_1) {
+  std::ostringstream answer;
+  answer << "4" << std::endl;
+  answer << "3" << std::endl;
+  answer << "2" << std::endl;
+
+  std::ostringstream input_stream;
+  input_stream << "3" << std::endl;
+  input_stream << "abcbdab" << std::endl;
+  input_stream << "bdcaba" << std::endl;
+  input_stream << "abc" << std::endl;
+  input_stream << "abc" << std::endl;
+  input_stream << "abc" << std::endl;
+  input_stream << "bc" << std::endl;
+  std::istringstream iss(input_stream.str());
+  testing::internal::CaptureStdout();
+  bool success = true;
+  try {
+    CallLCS(iss);
+  } catch (...) {
+    success = false;
+  }
+  const std::string captured_stdout = testing::internal::GetCapturedStdout();
+  EXPECT_TRUE(success);
+  ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
+}
+
+TEST_F(Test_ALDS1_10_C, CalculateLcs) {
+  std::string a, b;
+
+  a = "a";
+  b = "a";
+  ASSERT_EQ(1, lcs_->CalculateLcs(a, b));
+
+  a = "ba";
+  b = "ab";
+  ASSERT_EQ(1, lcs_->CalculateLcs(a, b));
+
+  a = "abc";
+  b = "xyz";
+  ASSERT_EQ(0, lcs_->CalculateLcs(a, b));
+
+  a = "abcdef";
+  b = "fedcba";
+  ASSERT_EQ(1, lcs_->CalculateLcs(a, b));
+
+  a = "zzzzzyyzyy";
+  b = "zzyyyyz";
+  ASSERT_EQ(6, lcs_->CalculateLcs(a, b));
+
+  a = "aizojfeiz";
+  b = "aaaizojifeizz";
+  ASSERT_EQ(9, lcs_->CalculateLcs(a, b));
+
+  a = "zzyiioxizu";
+  b = "zzsyoizuo";
+  ASSERT_EQ(7, lcs_->CalculateLcs(a, b));
+
+  a = "iooooioiooiio";
+  b = "ooiiioioiooooiioio";
+  ASSERT_EQ(11, lcs_->CalculateLcs(a, b));
+
+  a = "ajfoaooieellzljieoaelj";
+  b = "ajoiiffoaolliseellzljieoaelj";
+  ASSERT_EQ(21, lcs_->CalculateLcs(a, b));
+
+  a = "ILCPSKLRYVMCPJNBPBWLLSREHFMXRKECWITRSGLREXVTJMXYPUNBQFGXMUVGFAJCLFVENHYUHUORJOSAMIBDNJDBE"
+      "YHKBSOMBLTOUUJDRBWCRRCGBFLQPOTTPEGRWVGAJCRGWDLPGITYDVHEDTUSIPPYVXSUVBVFENODQASAJOYOMGSQCP"
+      "JLHBMDAHYVIUEMKSSDSLDEBESNNNGPESDNTRRVYSUIPYWATPFOELTHROWHFEXLWDYSVSPWLKFBLFDFULTBWPIQHIY"
+      "MMYALCYEASVXGGFITKNYGYVJXNSPUBQJPPJBRLHUGESMMXWJJLKRMGBNWVFTYVEOLPRFDCAJIUYWTVGFJRWWAAKWY"
+      "PRXNXPYPJGTLHFTEETXBAFKREJSFVRENLEBJTCCGJVRSDOWIIXLIDXDIIXPERVSEAVNWYPDINWDRLACVANHELKOVK"
+      "EDCAXGCTWYSOCDDAGWNJBKJORPCEEYOKESKCANVYORNRUSTEPHPQTBHLRKRXLGJPAVRCJPBYHOSFIMLAVBTQCDEVP"
+      "WUBFGSHCMLOFMPMEKTOYFQUIMNNQUJGRGKYMFJRSUIXIXMOIHDHOVEAJSNANYIHGSIUYROTNWTXWGMHPRQHPVHYQW"
+      "BGVMPEFXAGQQCGOVENFSVUMMECKLEBIHJHTYLCALKSFNYTLFJQAFOOSSSFHWHRFSYBSLDSYONECMANTKHTRVKMQDS"
+      "XDAQKSRLNFPIFEVLIKOXEBFASDKGUOYURBNCVGPKLFUSLRHVEVUJWCJPIWXFNWAFXOJWWYHKHEESXLPDJMMIQXXYW"
+      "WEKVHPWVBTSBDDIHJDGWUJIJXQBXPCVOJGKQYJOADJDGONOBRWXMGHWGAAEPEAGNHTGGDUIHGMPVAEWRBWHJGGPHI"
+      "UYMWIBECJMHHVQNKHLKLKFPIOBQURADOAPLKSSMDHVKFNAPUMDIWIAHWCBTVBYKDOXNKSCPBYCGMCYHQCRQKSXJUB"
+      "FQDEDISDWFWYUAAWIMCHV";
+  b = "SJOJVJKHELMWQQCAMHYREXPGBOPNQWMMJDVFMGPQUCPLTRLIBMAGNROOHEEAEQMNTLUGTKYOPOBLIOTKCVSPOJGXOK"
+      "XUCNIXYFFSSGKIXLVICPUGLPXAAEAORYJTOTTNBBITISEGGAQLRMRECSGCYHSQICMWXHMAIWVSQDBYFSKXFFEJXKM"
+      "YTFQCKFBIOPIXNHSGKUFPNQNUVREVFSUYYNELTHTKXFINMETYYBOORFLPYPLGLJIMWMXSTRETYOJNSDMTFEIYJTPK"
+      "MDTAMCMMOKFKELHEDQRVWFSELDDWAUHMYBOLDBXTLGHRROVUFQTEXMIJRMGRJPGITUUWVUTJBBCVPASWQOCQDMAVY"
+      "INLYUTSPQROMNXPOCNGDHEVVINAUPVWBJIAGCUWVOLIDLARQOYTVFRTNHTKARHBEPDKUXHQMUBPJBIARJVPONKEXG"
+      "OXBYBFOEPLCAEQWHJGLTGDDCTTSGXSMOSNNTUFXLSCNXUKFERQXAWDDQWXWWQLMJCADWHDKBHXYELGJDAJDWNIPKG"
+      "OKWAWIEYNEJQOKAPLFBRQETCJQPUIDBWNBAMLENAIWQAHTPUBSPTYJVIDMDLRHJHKJTVPJVYHPBQLSMMLCGKNEUQS"
+      "YDKIMRUVNQLAPMJHPASIOFTSNEHTAXNBBXLPSGNIYCKOOTVHWQPLXMHLSOGUOVVSVJIORWARYKIPHHYEXPRWEYKWP"
+      "SSFOQALDKCUHEMIPVBWFCDDTUCXUNVKIQRXHRLKDNIMSUXKSBJXDMEXHGXEVTRFMJFWEQJJGRXBNVNIYWJFLPFVXD"
+      "AUARCMEHJIATRILPKBOXMPXVUJNAHLEIIGCKSGTDQVYIFKBPORPBHNYFAMHHXLRHTWTNDOSUKRFREIHSAAVKNUPPJ"
+      "WAILTRFQNUUENRRFWJKITFITCUJWMAHKCRXVLFPYBMGOEXWDHHNBMWUOTFOHHXTLPRJDYYEALKRRIOXQVLTKKPCFW"
+      "QOGOIRGABLYDPCQBTLJI";
+  ASSERT_EQ(324, lcs_->CalculateLcs(a, b));
+}
+
+}  // namespace ALDS1_10_C
