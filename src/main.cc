@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C16_12_CGL_4_A_convex_hull.h"
+#include "src/C17_3_DPL_1_D_3_longest_increasing_subsequence.h"
 
-using CGL_4_A::CallConvexHull;
+using DPL_1_D_3::CallLongestIncreasingSubsequence;
 
-int main(int argc, char *argv[]) {
+int main() {
   try {
-    CallConvexHull(std::cin);
+    CallLongestIncreasingSubsequence(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
