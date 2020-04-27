@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C17_3_DPL_1_D_3_longest_increasing_subsequence.h"
+#include "src/C18_3_NTL_1_B_Power.h"
 
-using DPL_1_D_3::CallLongestIncreasingSubsequence;
+using NTL_1_B::CallCalculatePower;
 
 int main() {
   try {
-    CallLongestIncreasingSubsequence(std::cin);
+    CallCalculatePower(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }

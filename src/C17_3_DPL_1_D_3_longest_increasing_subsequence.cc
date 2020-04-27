@@ -41,6 +41,7 @@ LongestIncreasingSubsequence::~LongestIncreasingSubsequence() noexcept {}
 void LongestIncreasingSubsequence::AppendValue(const int32_t value) {
   if (length_ >= kMaxLength) {
     std::cerr << "ERROR: AppendValue(): length_ exceeded a limit = " << kMaxLength << std::endl;
+    throw 1;
   }
   const int32_t index_stored = length_;
   values_[index_stored] = value;
