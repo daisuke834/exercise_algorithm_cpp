@@ -3,8 +3,8 @@
  * @brief ALDS1_14_B. 文字列検索、BM文字列検索アルゴリズム（Boyer-Moore String Search Algorithm）。
  */
 
-#ifndef SRC_B_ALDS1_14_B_1_BM_STRING_SEARCH_H_
-#define SRC_B_ALDS1_14_B_1_BM_STRING_SEARCH_H_
+#ifndef SRC_B_ALDS1_14_B_1_STRING_SEARCH_BM_H_
+#define SRC_B_ALDS1_14_B_1_STRING_SEARCH_BM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -46,4 +46,4 @@ class BoyerMoore {
 
 }  // namespace ALDS1_14_B_1
 
-#endif  // SRC_B_ALDS1_14_B_1_BM_STRING_SEARCH_H_
+#endif  // SRC_B_ALDS1_14_B_1_STRING_SEARCH_BM_H_

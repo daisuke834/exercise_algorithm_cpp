@@ -8,7 +8,7 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/B_ALDS1_14_B_1_bm_string_search.h"
+#include "src/B_ALDS1_14_B_1_string_search_bm.h"
 
 namespace ALDS1_14_B_1 {
 

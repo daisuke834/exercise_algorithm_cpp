@@ -11,6 +11,9 @@
 #include <iostream>
 
 namespace hoge {
+
+void CallHoge(std::istream &input_stream) noexcept;
+
 class Hoge {
  public:
   Hoge() noexcept;
@@ -26,8 +29,6 @@ class Hoge {
   //  private:
   //   FRIEND_TEST(HogeTest, Test_1);  // Should be removed from production code
 };
-
-int32_t ReadUserInput(std::istream &input_stream) noexcept;
 
 }  // namespace hoge
 #endif  // SRC_A_HOGE_H_

@@ -3,7 +3,7 @@
  * @brief ALDS1_14_B. 文字列検索、BM文字列検索アルゴリズム（Boyer-Moore String Search Algorithm）。
  */
 
-#include "src/B_ALDS1_14_B_1_bm_string_search.h"
+#include "src/B_ALDS1_14_B_1_string_search_bm.h"
 #include <algorithm>
 #include <cstring>
 #include <iostream>

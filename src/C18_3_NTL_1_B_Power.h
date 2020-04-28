@@ -11,7 +11,7 @@
 
 namespace NTL_1_B {
 
-constexpr int64_t kPrime = 1000000007;
+constexpr int64_t kPrime = 1000000007LL;
 
 void CallCalculatePower(std::istream &input_stream) noexcept;
 
