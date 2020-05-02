@@ -71,7 +71,9 @@
         "queue": "cpp",
         "random": "cpp",
         "stack": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "*.tcc": "cpp",
+        "clocale": "cpp"
     },
     "C_Cpp.default.cppStandard": "c++14",
     "cpplint.extensions": [
