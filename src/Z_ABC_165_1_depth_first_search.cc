@@ -18,7 +18,7 @@ void CallDepthFirstSearch(std::istream &input_stream) noexcept {
   for (int32_t index_condition = 0; index_condition < number_of_conditions; ++index_condition) {
     int32_t a, b, c, score;
     input_stream >> a >> b >> c >> score;
-    depth_first_search->AddCondition(a, b, c, score);
+    depth_first_search->AddCondition(a - 1, b - 1, c, score);
   }
   std::cout << depth_first_search->SearchMaxScore() << std::endl;
   delete depth_first_search;
