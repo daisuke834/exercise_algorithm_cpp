@@ -61,7 +61,7 @@ void DepthFirstSearch::DoDepthFirstSearch(const int32_t target_index) {
   }
   int32_t &target_value = array_.values[target_index];
   const int32_t start_value = (target_index == 0) ? kMinArrayValue : array_.values[target_index - 1];
-  for (target_value = start_value; target_value <= kMaxArrayValue; ++target_value) {
+  for (target_value = start_value; target_value <= array_.max_value; ++target_value) {
     DoDepthFirstSearch(target_index + 1);
   }
 }
