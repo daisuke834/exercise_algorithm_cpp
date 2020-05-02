@@ -3,8 +3,8 @@
  * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
  */
 
-#ifndef SRC_B_ABC_165_1_DEPTH_FIRST_SEARCH_H_
-#define SRC_B_ABC_165_1_DEPTH_FIRST_SEARCH_H_
+#ifndef SRC_D_ABC_165_1_DEPTH_FIRST_SEARCH_H_
+#define SRC_D_ABC_165_1_DEPTH_FIRST_SEARCH_H_
 
 // #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -55,4 +55,4 @@ class DepthFirstSearch {
 
 }  // namespace ABC_165_1
 
-#endif  // SRC_B_ABC_165_1_DEPTH_FIRST_SEARCH_H_
+#endif  // SRC_D_ABC_165_1_DEPTH_FIRST_SEARCH_H_

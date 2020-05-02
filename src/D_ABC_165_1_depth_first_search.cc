@@ -3,7 +3,7 @@
  * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
  */
 
-#include "src/Z_ABC_165_1_depth_first_search.h"
+#include "src/D_ABC_165_1_depth_first_search.h"
 #include <iostream>
 
 namespace ABC_165_1 {
@@ -57,7 +57,6 @@ void DepthFirstSearch::DoDepthFirstSearch(const int32_t target_index) {
     if (score_sum > max_score_) {
       max_score_ = score_sum;
     }
-    return;
   }
   int32_t &target_value = array_.values[target_index];
   const int32_t start_value = (target_index == 0) ? kMinArrayValue : array_.values[target_index - 1];
