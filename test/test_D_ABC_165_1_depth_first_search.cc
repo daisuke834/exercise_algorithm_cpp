@@ -88,4 +88,24 @@ TEST_F(Test_ABC_165_1, CallDepthFirstSearch_3) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
+TEST_F(Test_ABC_165_1, CallDepthFirstSearch_4) {
+  std::ostringstream answer;
+  answer << "1" << std::endl;
+
+  std::ostringstream input_stream;
+  input_stream << "10 10 1" << std::endl;
+  input_stream << "1 10 9 1" << std::endl;
+  std::istringstream iss(input_stream.str());
+  testing::internal::CaptureStdout();
+  bool success = true;
+  try {
+    CallDepthFirstSearch(iss);
+  } catch (...) {
+    success = false;
+  }
+  const std::string captured_stdout = testing::internal::GetCapturedStdout();
+  EXPECT_TRUE(success);
+  ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
+}
+
 }  // namespace ABC_165_1

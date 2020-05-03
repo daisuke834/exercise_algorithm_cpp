@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C18_3_NTL_1_B_Power.h"
+#include "src/D_ABC_165_1_depth_first_search.h"
 
 using NTL_1_B::CallCalculatePower;
 
 int main() {
   try {
-    CallCalculatePower(std::cin);
+    CallDepthFirstSearch(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
