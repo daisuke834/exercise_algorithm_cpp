@@ -1,13 +1,14 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
- * 再帰呼び出しによるDFSの実装。
+ * StackによるDFSの実装。
  */
 
-#include "src/D_ABC_165_1_depth_first_search.h"
+#include "src/D_ABC_165_2_depth_first_search.h"
 #include <iostream>
+#include <stack>
 
-namespace ABC_165_1 {
+namespace ABC_165_2 {
 
 void CallDepthFirstSearch(std::istream &input_stream) noexcept {
   input_stream.tie(0);
@@ -26,8 +27,7 @@ void CallDepthFirstSearch(std::istream &input_stream) noexcept {
   delete depth_first_search;
 }
 
-DepthFirstSearch::DepthFirstSearch() noexcept : max_score_(0) {
-  array_.size = 0;
+DepthFirstSearch::DepthFirstSearch() noexcept {
   condition_.size = 0;
 }
 
@@ -65,37 +65,44 @@ void DepthFirstSearch::AddCondition(const int32_t a, const int32_t b, const int3
 }
 
 int64_t DepthFirstSearch::SearchMaxScore() {
+  int64_t max_score = 0;
   try {
-    DoDepthFirstSearch(0);
+    std::stack<int32_t> stack;
+    constexpr int32_t kStartIndex = 0;
+    array_.values[kStartIndex] = kMinArrayValue;
+    stack.push(kStartIndex);
+    constexpr int32_t kMaxLoopCount = 2000000;
+    for (int32_t i = 0; i < kMaxLoopCount; ++i) {
+      if (static_cast<int32_t>(stack.size()) < array_.size) {
+        const int32_t index_top = stack.top();
+        const int32_t index_next = index_top + 1;
+        array_.values[index_next] = array_.values[index_top];
+        stack.push(index_next);
+      } else {
+        const int64_t score = CalculateScore();
+        if (score > max_score) {
+          max_score = score;
+        }
+
+        while (!stack.empty()) {
+          int32_t &value_top = array_.values[stack.top()];
+          if (value_top < array_.max_value) {
+            ++value_top;
+            break;
+          } else {
+            stack.pop();
+          }
+        }
+        if (stack.empty()) {
+          break;
+        }
+      }
+    }
   } catch (...) {
     std::cerr << "ERROR: ConfigureArray()" << std::endl;
     throw;
   }
-  return max_score_;
-}
-
-void DepthFirstSearch::DoDepthFirstSearch(const int32_t target_index) {
-  if (target_index < 0 || target_index > array_.size) {
-    std::cerr << "ERROR: DoDepthFirstSearch(): Invalid arg target_index=" << target_index << std::endl;
-    throw 1;
-  }
-  try {
-    if (target_index == array_.size) {
-      const int64_t score = CalculateScore();
-      if (score > max_score_) {
-        max_score_ = score;
-      }
-    } else {
-      int32_t &target_value = array_.values[target_index];
-      const int32_t start_value = (target_index == 0) ? kMinArrayValue : array_.values[target_index - 1];
-      for (target_value = start_value; target_value <= array_.max_value; ++target_value) {
-        DoDepthFirstSearch(target_index + 1);
-      }
-    }
-  } catch (...) {
-    std::cerr << "ERROR: DoDepthFirstSearch()" << std::endl;
-    throw;
-  }
+  return max_score;
 }
 
 int64_t DepthFirstSearch::CalculateScore() const {
@@ -123,4 +130,4 @@ bool DepthFirstSearch::IsOkay(const int32_t index_condition) const {
   return is_okay;
 }
 
-}  // namespace ABC_165_1
+}  // namespace ABC_165_2

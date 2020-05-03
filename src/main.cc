@@ -3,9 +3,9 @@
  */
 
 #include <iostream>
-#include "src/D_ABC_165_1_depth_first_search.h"
+#include "src/D_ABC_165_2_depth_first_search.h"
 
-using NTL_1_B::CallCalculatePower;
+using ABC_165_2::CallDepthFirstSearch;
 
 int main() {
   try {
