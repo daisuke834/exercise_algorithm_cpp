@@ -6,13 +6,14 @@
 
 #include "src/C04_4_ALDS1_3_D_1_cross_section_diagram.h"
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <string>
 namespace ALDS1_3_D_1 {
 constexpr float kAreaHalfGrid = 0.5F;
 const float kEps = 0.00001F;
 
-CrossSectionDiagram::CrossSectionDiagram() noexcept : number_of_grids_x_(0), grids_{} {}
+CrossSectionDiagram::CrossSectionDiagram() noexcept : number_of_grids_x_(0) {}
 CrossSectionDiagram::~CrossSectionDiagram() noexcept {}
 
 void CrossSectionDiagram::Main(std::istream &input_stream) {
@@ -70,7 +71,7 @@ void CrossSectionDiagram::Load(std::istream &input_stream) {
 }
 
 static bool FloatEq(const float a, const float b) {
-  return ((a < b + kEps) && (a > b - kEps));
+  return (fabsf(a - b) < kEps);
 }
 
 bool CrossSectionDiagram::IsNewPuddle(const int32_t index_grid_x, const std::vector<float> &partial_sum_areas) const
