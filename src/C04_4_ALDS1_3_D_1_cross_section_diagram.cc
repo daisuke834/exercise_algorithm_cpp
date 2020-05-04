@@ -4,11 +4,11 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C04_4_ALDS1_3_D_cross_section_diagram.h"
+#include "src/C04_4_ALDS1_3_D_1_cross_section_diagram.h"
 #include <algorithm>
 #include <iostream>
 #include <string>
-namespace ALDS1_3_D {
+namespace ALDS1_3_D_1 {
 constexpr float kAreaHalfGrid = 0.5F;
 const float kEps = 0.00001F;
 
@@ -190,4 +190,4 @@ int32_t CrossSectionDiagram::GetRelativeHeightOfRightFromLeft(const Slope &curre
   return relative_height;
 }
 
-}  // namespace ALDS1_3_D
+}  // namespace ALDS1_3_D_1

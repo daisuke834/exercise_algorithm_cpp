@@ -8,11 +8,11 @@
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/C04_4_ALDS1_3_D_cross_section_diagram.h"
+#include "src/C04_4_ALDS1_3_D_1_cross_section_diagram.h"
 
-namespace ALDS1_3_D {
+namespace ALDS1_3_D_1 {
 
-class Test_ALDS1_3_D : public ::testing::Test {
+class Test_ALDS1_3_D_1 : public ::testing::Test {
  protected:
   CrossSectionDiagram *diagram_;
   virtual void SetUp() {
@@ -23,7 +23,7 @@ class Test_ALDS1_3_D : public ::testing::Test {
   }
 };
 
-TEST_F(Test_ALDS1_3_D, Load) {
+TEST_F(Test_ALDS1_3_D_1, Load) {
   std::ostringstream input_stream;
   input_stream << "\\\\__//" << std::endl;
   std::istringstream iss(input_stream.str());
@@ -62,7 +62,7 @@ TEST_F(Test_ALDS1_3_D, Load) {
   ASSERT_EQ(0, diagram_->grids_[index_grid_x].height_right);
 }
 
-TEST_F(Test_ALDS1_3_D, CalculateHighestHeightLeftSide) {
+TEST_F(Test_ALDS1_3_D_1, CalculateHighestHeightLeftSide) {
   int32_t index_grid_x = 0;
   diagram_->grids_[index_grid_x].height_left = 0;
   diagram_->grids_[index_grid_x].height_right = -1;
@@ -87,7 +87,7 @@ TEST_F(Test_ALDS1_3_D, CalculateHighestHeightLeftSide) {
   ASSERT_EQ(0, diagram_->grids_[index_grid_x++].highest_height_leftside);
 }
 
-TEST_F(Test_ALDS1_3_D, CalculateHighestHeightRightSide) {
+TEST_F(Test_ALDS1_3_D_1, CalculateHighestHeightRightSide) {
   int32_t index_grid_x = 0;
   diagram_->grids_[index_grid_x].height_left = 0;
   diagram_->grids_[index_grid_x].height_right = -1;
@@ -114,7 +114,7 @@ TEST_F(Test_ALDS1_3_D, CalculateHighestHeightRightSide) {
   ASSERT_EQ(-1, diagram_->grids_[index_grid_x--].highest_height_rightside);
 }
 
-TEST_F(Test_ALDS1_3_D, CalculateAreaPerEachGridX) {
+TEST_F(Test_ALDS1_3_D_1, CalculateAreaPerEachGridX) {
   int32_t index_grid_x = 5;
   GridInformation &cgrid = diagram_->grids_[index_grid_x];
 
@@ -189,7 +189,7 @@ TEST_F(Test_ALDS1_3_D, CalculateAreaPerEachGridX) {
   ASSERT_FLOAT_EQ(0.0F, diagram_->CalculateAreaPerEachGridX(index_grid_x));
 }
 
-TEST_F(Test_ALDS1_3_D, CalculateAreas) {
+TEST_F(Test_ALDS1_3_D_1, CalculateAreas) {
   int32_t index_grid_x = 0;
   diagram_->grids_[index_grid_x].height_left = 0;
   diagram_->grids_[index_grid_x].height_right = -1;
@@ -224,7 +224,7 @@ TEST_F(Test_ALDS1_3_D, CalculateAreas) {
   ASSERT_FLOAT_EQ(2.0F, result);
 }
 
-TEST_F(Test_ALDS1_3_D, Main_1) {
+TEST_F(Test_ALDS1_3_D_1, Main_1) {
   std::ostringstream answer;
   answer << "35" << std::endl;
   answer << "5 4 2 1 19 9" << std::endl;
@@ -238,7 +238,7 @@ TEST_F(Test_ALDS1_3_D, Main_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ALDS1_3_D, Main_2) {
+TEST_F(Test_ALDS1_3_D_1, Main_2) {
   std::ostringstream answer;
   answer << "1" << std::endl;
   answer << "1 1" << std::endl;
@@ -252,7 +252,7 @@ TEST_F(Test_ALDS1_3_D, Main_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ALDS1_3_D, Main_3) {
+TEST_F(Test_ALDS1_3_D_1, Main_3) {
   std::ostringstream answer;
   answer << "25" << std::endl;
   answer << "4 1 20 1 3" << std::endl;
@@ -266,4 +266,4 @@ TEST_F(Test_ALDS1_3_D, Main_3) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-}  // namespace ALDS1_3_D
+}  // namespace ALDS1_3_D_1

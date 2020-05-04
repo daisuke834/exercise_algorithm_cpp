@@ -4,8 +4,8 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C04_4_ALDS1_3_D_CROSS_SECTION_DIAGRAM_H_
-#define SRC_C04_4_ALDS1_3_D_CROSS_SECTION_DIAGRAM_H_
+#ifndef SRC_C04_4_ALDS1_3_D_1_CROSS_SECTION_DIAGRAM_H_
+#define SRC_C04_4_ALDS1_3_D_1_CROSS_SECTION_DIAGRAM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace ALDS1_3_D {
+namespace ALDS1_3_D_1 {
 
 constexpr int32_t kMaxNumberOfGridX = 20000;
 
@@ -54,13 +54,13 @@ class CrossSectionDiagram {
   GridInformation grids_[kMaxNumberOfGridX];
 
  private:
-  FRIEND_TEST(Test_ALDS1_3_D, Load);                             // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_3_D, CalculateHighestHeightLeftSide);   // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_3_D, CalculateHighestHeightRightSide);  // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_3_D, CalculateAreaPerEachGridX);        // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_3_D, CalculateAreas);                   // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_3_D_1, Load);                             // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_3_D_1, CalculateHighestHeightLeftSide);   // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_3_D_1, CalculateHighestHeightRightSide);  // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_3_D_1, CalculateAreaPerEachGridX);        // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_3_D_1, CalculateAreas);                   // Should be removed from production code
 };
 
-}  // namespace ALDS1_3_D
+}  // namespace ALDS1_3_D_1
 
-#endif  // SRC_C04_4_ALDS1_3_D_CROSS_SECTION_DIAGRAM_H_
+#endif  // SRC_C04_4_ALDS1_3_D_1_CROSS_SECTION_DIAGRAM_H_
