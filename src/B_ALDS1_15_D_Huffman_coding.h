@@ -36,11 +36,17 @@ class HuffmanCoding {
  public:
   HuffmanCoding() noexcept;
   ~HuffmanCoding() noexcept;
-  void BuildHuffmanTree(const std::string &text) noexcept;
+  void GenerateHuffmanCode(const std::string &text) noexcept;
+  std::string Encode(const std::string text) const noexcept;
+  void Debug() const noexcept;
 
  private:
   void SetText(const std::string &text) noexcept;
   void GenerateHistogram() noexcept;
+  void BuildHuffmanTree() noexcept;
+  int32_t GetDepth() const noexcept;
+  std::string Encode(const char ch) const noexcept;
+
 
   HuffmanCoding(const HuffmanCoding &obj) = delete;
   HuffmanCoding &operator=(const HuffmanCoding &rhs) = delete;
@@ -52,6 +58,7 @@ class HuffmanCoding {
   int32_t number_of_leaves_;
   int32_t number_of_nodes_;
   char text_[kMaxTextLength + 1];
+  int32_t node_index_lookup_[kNumberOfCharTypes];
   Node nodes_[kMaxNumberOfNodes];
 
 
