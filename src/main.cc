@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/D_ABC_165_2_depth_first_search.h"
+#include "src/B_ALDS1_15_D_Huffman_coding.h"
 
-using ABC_165_2::CallDepthFirstSearch;
+using ALDS1_15_D::CallHuffmanCoding;
 
 int main() {
   try {
-    CallDepthFirstSearch(std::cin);
+    CallHuffmanCoding(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
