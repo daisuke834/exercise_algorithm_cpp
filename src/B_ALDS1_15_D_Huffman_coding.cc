@@ -74,7 +74,7 @@ bool Node1IsLessThanNode2(const Node &node1, const Node &node2) noexcept {
 
 void HuffmanCoding::BuildHuffmanTree() noexcept {
   int32_t top_index = 0;
-  for (int32_t index_selected_leaf = 1; index_selected_leaf < number_of_leaves_; ++number_of_leaves_) {
+  for (int32_t index_selected_leaf = 1; index_selected_leaf < number_of_leaves_; ++index_selected_leaf) {
     const int32_t node_to_be_stored = number_of_nodes_;
     ++number_of_nodes_;
     nodes_[top_index].parent = node_to_be_stored;
@@ -117,14 +117,17 @@ std::string HuffmanCoding::Encode(const char ch) const noexcept {
     }
     current_node_index = nodes_[current_node_index].parent;
   }
+  if (encoded_result == "") {
+    encoded_result = "0";
+  }
   return encoded_result;
 }
 
 void HuffmanCoding::Debug() const noexcept {
   for (int32_t i = 0; i < number_of_nodes_; ++i) {
     const Node &cnode = nodes_[i];
-    std::cerr << i << ", value=" << cnode.value << ", parent" << cnode.parent << ", left=" << cnode.left
-              << ", right=" << cnode.right << std::endl;
+    std::cerr << i << ", count=" << cnode.count << ", value=" << cnode.value << ", parent=" << cnode.parent
+              << ", left=" << cnode.left << ", right=" << cnode.right << std::endl;
   }
 }
 
