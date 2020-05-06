@@ -5,8 +5,8 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C13_3_ALDS1_12_B_2_SINGLE_SOURCE_SHORTEST_PATH_H_
-#define SRC_C13_3_ALDS1_12_B_2_SINGLE_SOURCE_SHORTEST_PATH_H_
+#ifndef SRC_C13_3_ALDS1_12_C_1_SINGLE_SOURCE_SHORTEST_PATH_H_
+#define SRC_C13_3_ALDS1_12_C_1_SINGLE_SOURCE_SHORTEST_PATH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -16,7 +16,7 @@
 #include <utility>
 #include <vector>
 
-namespace ALDS1_12_B_2 {
+namespace ALDS1_12_C_1 {
 
 constexpr int32_t kMaxNumberOfVertices = 10000;
 constexpr int32_t kMaxWeight = 2000;
@@ -81,12 +81,12 @@ class DijkstraAlgorithm {
   std::priority_queue<std::pair<int32_t, int32_t>> priority_queue_;
 
  private:
-  FRIEND_TEST(Test_ALDS1_12_B_2, Constructor);          // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_12_B_2, AddWeight_1);          // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_12_B_2, AddWeight_2);          // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_12_B_2, FindNextVertexToAdd);  // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_12_C_1, Constructor);          // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_12_C_1, AddWeight_1);          // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_12_C_1, AddWeight_2);          // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_12_C_1, FindNextVertexToAdd);  // Should be removed from production code
 };
 
-}  // namespace ALDS1_12_B_2
+}  // namespace ALDS1_12_C_1
 
-#endif  // SRC_C13_3_ALDS1_12_B_2_SINGLE_SOURCE_SHORTEST_PATH_H_
+#endif  // SRC_C13_3_ALDS1_12_C_1_SINGLE_SOURCE_SHORTEST_PATH_H_

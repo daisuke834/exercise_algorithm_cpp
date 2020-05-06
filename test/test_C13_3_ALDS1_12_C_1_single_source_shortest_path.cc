@@ -9,11 +9,11 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/C13_3_ALDS1_12_B_2_single_source_shortest_path.h"
+#include "src/C13_3_ALDS1_12_C_1_single_source_shortest_path.h"
 
-namespace ALDS1_12_B_2 {
+namespace ALDS1_12_C_1 {
 
-class Test_ALDS1_12_B_2 : public ::testing::Test {
+class Test_ALDS1_12_C_1 : public ::testing::Test {
  protected:
   DijkstraAlgorithm *single_source_shortest_path_;
   virtual void SetUp() {
@@ -24,7 +24,7 @@ class Test_ALDS1_12_B_2 : public ::testing::Test {
   }
 };
 
-TEST_F(Test_ALDS1_12_B_2, Constructor) {
+TEST_F(Test_ALDS1_12_C_1, Constructor) {
   for (Vertex &vertex : single_source_shortest_path_->vertices_) {
     ASSERT_EQ(VertexStatus::kUnchecked, vertex.status);
     ASSERT_EQ(INT32_MAX, vertex.distance_from_root);
@@ -32,7 +32,7 @@ TEST_F(Test_ALDS1_12_B_2, Constructor) {
   }
 }
 
-TEST_F(Test_ALDS1_12_B_2, CallDijkstraAlgorithm_1) {
+TEST_F(Test_ALDS1_12_C_1, CallDijkstraAlgorithm_1) {
   std::ostringstream answer;
   answer << "0 0" << std::endl;
   answer << "1 2" << std::endl;
@@ -60,7 +60,7 @@ TEST_F(Test_ALDS1_12_B_2, CallDijkstraAlgorithm_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ALDS1_12_B_2, AddWeight_1) {
+TEST_F(Test_ALDS1_12_C_1, AddWeight_1) {
   int32_t kNumberOfVertices = 5;
   single_source_shortest_path_->SetNumberOfVertices(kNumberOfVertices);
   single_source_shortest_path_->AddWeight(0, 1, 2);
@@ -94,7 +94,7 @@ TEST_F(Test_ALDS1_12_B_2, AddWeight_1) {
   }
 }
 
-TEST_F(Test_ALDS1_12_B_2, FindNextVertexToAdd) {
+TEST_F(Test_ALDS1_12_C_1, FindNextVertexToAdd) {
   int32_t kNumberOfVertices = 5;
   single_source_shortest_path_->SetNumberOfVertices(kNumberOfVertices);
   single_source_shortest_path_->AddWeight(0, 1, 2);
@@ -142,4 +142,4 @@ TEST_F(Test_ALDS1_12_B_2, FindNextVertexToAdd) {
   ASSERT_EQ(kInvalidVertex, single_source_shortest_path_->FindNextVertexToAdd());
 }
 
-}  // namespace ALDS1_12_B_2
+}  // namespace ALDS1_12_C_1

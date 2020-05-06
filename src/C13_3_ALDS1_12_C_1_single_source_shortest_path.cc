@@ -5,11 +5,11 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C13_3_ALDS1_12_B_2_single_source_shortest_path.h"
+#include "src/C13_3_ALDS1_12_C_1_single_source_shortest_path.h"
 #include <iostream>
 #include <string>
 
-namespace ALDS1_12_B_2 {
+namespace ALDS1_12_C_1 {
 
 void CallDijkstraAlgorithm(std::istream &input_stream) {
   input_stream.tie(0);
@@ -272,4 +272,4 @@ bool DijkstraAlgorithm::InvalidVertexIndex(const int32_t vertex_index) const noe
 
 // **********************************************************************
 
-}  // namespace ALDS1_12_B_2
+}  // namespace ALDS1_12_C_1
