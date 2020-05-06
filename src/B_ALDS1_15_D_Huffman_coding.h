@@ -6,9 +6,9 @@
 #ifndef SRC_B_ALDS1_15_D_HUFFMAN_CODING_H_
 #define SRC_B_ALDS1_15_D_HUFFMAN_CODING_H_
 
-// #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
 #include <iostream>
+#include <queue>
 #include <string>
 #include <vector>
 
@@ -18,19 +18,23 @@ constexpr int32_t kMaxTextLength = 100000;
 constexpr int32_t kInvalidIndex = -1;
 constexpr int32_t kInvalidValue = -1;
 constexpr int32_t kMaxNumberOfNodes = 100000;
-constexpr int32_t kNumberOfCharTypes = 256 +1;
+constexpr int32_t kNumberOfCharTypes = 256;
 
 void CallHuffmanCoding(std::istream &input_stream);
 
 struct Node {
-  int32_t count{INT32_MAX};
-  int32_t value{kInvalidValue};
+  int32_t ch_value{kInvalidValue};
   int32_t parent{kInvalidIndex};
   int32_t left{kInvalidIndex};
   int32_t right{kInvalidIndex};
 };
 
-bool Node1IsLessThanNode2(const Node& node1, const Node& node2) noexcept;
+bool Node1IsLessThanNode2(const Node &node1, const Node &node2) noexcept;
+
+struct CharInfo {
+  int32_t count{0};
+  int32_t node_index{kInvalidIndex};
+};
 
 class HuffmanCoding {
  public:
@@ -47,7 +51,6 @@ class HuffmanCoding {
   int32_t GetDepth() const noexcept;
   std::string Encode(const char ch) const noexcept;
 
-
   HuffmanCoding(const HuffmanCoding &obj) = delete;
   HuffmanCoding &operator=(const HuffmanCoding &rhs) = delete;
   HuffmanCoding(HuffmanCoding &&obj) = delete;
@@ -57,13 +60,12 @@ class HuffmanCoding {
   int32_t text_length_;
   int32_t number_of_leaves_;
   int32_t number_of_nodes_;
+  int32_t top_index_;
   char text_[kMaxTextLength + 1];
-  int32_t node_index_lookup_[kNumberOfCharTypes];
+  CharInfo char_info_[kNumberOfCharTypes];
   Node nodes_[kMaxNumberOfNodes];
-
-
- private:
-  // FRIEND_TEST(Test_ALDS1_15_D, dummy);    // Should be removed from production code
+  using Pair = std::pair<int32_t, int32_t>;
+  std::priority_queue<int32_t, std::vector<Pair>, std::greater<Pair>> queue_;
 };
 
 }  // namespace ALDS1_15_D
