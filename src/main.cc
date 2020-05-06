@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/B_GRL_1_A_Dijkstra.h"
+#include "src/B_GRL_1_B_Bellman_Ford.h"
 
-using GRL_1_A::CallDijkstraAlgorithm;
+using GRL_1_B::CallBellmanFordAlgorithm;
 
 int main() {
   try {
-    CallDijkstraAlgorithm(std::cin);
+    CallBellmanFordAlgorithm(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }

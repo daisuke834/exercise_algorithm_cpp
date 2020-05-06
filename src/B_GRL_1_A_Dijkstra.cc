@@ -1,7 +1,7 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief 単一始点最短経路(Single Source Shortest Path)。
- * ダイクストラのアルゴリズム (Dijkstra's algorithm)の、優先度キューによる改善版。
+ * ダイクストラのアルゴリズム (Dijkstra's algorithm)の、優先度キューによる実装。
  * 計算量はO(E*log(V))
  */
 
