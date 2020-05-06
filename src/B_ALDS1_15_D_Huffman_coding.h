@@ -18,7 +18,7 @@ constexpr int32_t kMaxTextLength = 100000;
 constexpr int32_t kInvalidIndex = -1;
 constexpr int32_t kInvalidValue = -1;
 constexpr int32_t kMaxNumberOfNodes = 100000;
-constexpr int32_t kNumberOfCharTypes = 256;
+constexpr int32_t kNumberOfCharTypes = 256 +1;
 
 void CallHuffmanCoding(std::istream &input_stream);
 

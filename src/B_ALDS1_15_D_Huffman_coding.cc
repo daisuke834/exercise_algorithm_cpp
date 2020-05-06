@@ -50,6 +50,13 @@ void HuffmanCoding::GenerateHistogram() noexcept {
     nodes_[value].value = value;
   }
   std::sort(nodes_, nodes_ + kNumberOfCharTypes, Node1IsLessThanNode2);
+  for (int32_t index = 0; index < kNumberOfCharTypes; ++index) {
+    if (nodes_[index].count == INT32_MAX) {
+      number_of_leaves_ = index;
+      break;
+    }
+  }
+  number_of_nodes_ = number_of_leaves_;
 }
 
 bool Node1IsLessThanNode2(const Node &node1, const Node &node2) noexcept {
