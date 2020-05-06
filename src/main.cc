@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/B_ALDS1_15_D_Huffman_coding.h"
+#include "src/B_GRL_1_A_Dijkstra.h"
 
-using ALDS1_15_D::CallHuffmanCoding;
+using GRL_1_A::CallDijkstraAlgorithm;
 
 int main() {
   try {
-    CallHuffmanCoding(std::cin);
+    CallDijkstraAlgorithm(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
