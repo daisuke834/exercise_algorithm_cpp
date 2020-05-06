@@ -2,6 +2,7 @@
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief Part13-3. 重み付きグラフ(Weighted Graph)、単一始点最短経路(Single Source Shortest Path)。
  * ダイクストラのアルゴリズム (Dijkstra's algorithm)の、優先度キューによる改善版。
+ * 計算量はO(E*log(V))
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
