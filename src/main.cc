@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/B_GRL_1_B_Bellman_Ford.h"
+#include "src/C15_2_GRL_4_B_3_topological_sort_dfs.h"
 
-using GRL_1_B::CallBellmanFordAlgorithm;
+using GRL_4_B_3::CallTopologicalSort;
 
 int main() {
   try {
-    CallBellmanFordAlgorithm(std::cin);
+    CallTopologicalSort(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
