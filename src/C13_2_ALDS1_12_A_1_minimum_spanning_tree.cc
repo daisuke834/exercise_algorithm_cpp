@@ -6,8 +6,6 @@
  */
 
 #include "src/C13_2_ALDS1_12_A_1_minimum_spanning_tree.h"
-#include <iostream>
-#include <string>
 
 namespace ALDS1_12_A_1 {
 

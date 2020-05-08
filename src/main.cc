@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C15_1_GRL_1_C_2_Warshall_Floyd.h"
+#include "src/C13_2_ALDS1_12_A_3_Prim.h"
 
-using GRL_1_C_2::CallWarshallFloyd;
+using ALDS1_12_A_3::CallPrimAlgorithm;
 
 int main() {
   try {
-    CallWarshallFloyd(std::cin);
+    CallPrimAlgorithm(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
