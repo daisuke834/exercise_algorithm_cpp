@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C15_2_GRL_4_B_3_topological_sort_dfs.h"
+#include "src/C15_1_GRL_1_C_2_Warshall_Floyd.h"
 
-using GRL_4_B_3::CallTopologicalSort;
+using GRL_1_C_2::CallWarshallFloyd;
 
 int main() {
   try {
-    CallTopologicalSort(std::cin);
+    CallWarshallFloyd(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
