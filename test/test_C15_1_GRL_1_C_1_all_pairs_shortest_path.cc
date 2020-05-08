@@ -9,11 +9,11 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/C15_1_GRL_1_all_pairs_shortest_path.h"
+#include "src/C15_1_GRL_1_C_1_all_pairs_shortest_path.h"
 
-namespace GRL_1 {
+namespace GRL_1_C_1 {
 
-class Test_GRL_1 : public ::testing::Test {
+class Test_GRL_1_C_1 : public ::testing::Test {
  protected:
   WarshallFloyd *all_pairs_shortest_path_;
   virtual void SetUp() {
@@ -24,7 +24,7 @@ class Test_GRL_1 : public ::testing::Test {
   }
 };
 
-TEST_F(Test_GRL_1, AddWeight) {
+TEST_F(Test_GRL_1_C_1, AddWeight) {
   constexpr int32_t kNumberOfVertices = 3;
   all_pairs_shortest_path_->SetNumberOfVertices(kNumberOfVertices);
 
@@ -46,7 +46,7 @@ TEST_F(Test_GRL_1, AddWeight) {
   }
 }
 
-TEST_F(Test_GRL_1, CallWarshallFloyd_1) {
+TEST_F(Test_GRL_1_C_1, CallWarshallFloyd_1) {
   std::ostringstream answer;
   answer << "0 1 3 4" << std::endl;
   answer << "INF 0 2 3" << std::endl;
@@ -74,7 +74,7 @@ TEST_F(Test_GRL_1, CallWarshallFloyd_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_GRL_1, CallWarshallFloyd_2) {
+TEST_F(Test_GRL_1_C_1, CallWarshallFloyd_2) {
   std::ostringstream answer;
   answer << "0 1 -5 -4" << std::endl;
   answer << "INF 0 2 3" << std::endl;
@@ -102,7 +102,7 @@ TEST_F(Test_GRL_1, CallWarshallFloyd_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_GRL_1, CallWarshallFloyd_3) {
+TEST_F(Test_GRL_1_C_1, CallWarshallFloyd_3) {
   std::ostringstream answer;
   answer << "NEGATIVE CYCLE" << std::endl;
 
@@ -127,4 +127,4 @@ TEST_F(Test_GRL_1, CallWarshallFloyd_3) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-}  // namespace GRL_1
+}  // namespace GRL_1_C_1

@@ -1,19 +1,19 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief Part15-1. 高度なグラフアルゴリズム、全点対間最短経路(All Pairs Shortest Path, APSP)。
- * ワーシャルフロイドのアルゴリズム(Warshall-Floyd's algorithm)。計算量=O(|V|^2)。
+ * ワーシャルフロイドのアルゴリズム(Warshall-Floyd's algorithm)。計算量=O(|V|^3)。
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C15_1_GRL_1_ALL_PAIRS_SHORTEST_PATH_H_
-#define SRC_C15_1_GRL_1_ALL_PAIRS_SHORTEST_PATH_H_
+#ifndef SRC_C15_1_GRL_1_C_1_ALL_PAIRS_SHORTEST_PATH_H_
+#define SRC_C15_1_GRL_1_C_1_ALL_PAIRS_SHORTEST_PATH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
 #include <iostream>
 #include <string>
 
-namespace GRL_1 {
+namespace GRL_1_C_1 {
 
 constexpr int32_t kMaxNumberOfVertices = 100;
 constexpr int32_t kMaxNumberOfEdges = 9900;
@@ -50,9 +50,9 @@ class WarshallFloyd {
   int32_t shortest_distances_[kMaxNumberOfVertices][kMaxNumberOfVertices];
 
  private:
-  FRIEND_TEST(Test_GRL_1, AddWeight);  // Should be removed from production code
+  FRIEND_TEST(Test_GRL_1_C_1, AddWeight);  // Should be removed from production code
 };
 
-}  // namespace GRL_1
+}  // namespace GRL_1_C_1
 
-#endif  // SRC_C15_1_GRL_1_ALL_PAIRS_SHORTEST_PATH_H_
+#endif  // SRC_C15_1_GRL_1_C_1_ALL_PAIRS_SHORTEST_PATH_H_
