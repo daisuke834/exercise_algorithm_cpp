@@ -15,6 +15,8 @@
 namespace GRL_1_C_2 {
 
 // ****************************************************
+constexpr int32_t kMaxNumberOfVertices = 100;
+constexpr int32_t kInvalidVertexIndex = -1;
 
 void CallWarshallFloyd(std::istream &input_stream);
 
@@ -24,10 +26,15 @@ class WarshallFloyd {
  public:
   WarshallFloyd() noexcept;
   ~WarshallFloyd() noexcept;
+  void SetNumberOfVertices(const int32_t number_of_vertices) noexcept;
+  void AddEdge(const int32_t vertex_from_index, const int32_t vertex_to_index, const int32_t weight);
+  void CalculateWarshallFloyd() noexcept;
+  void Print() const noexcept;
 
  private:
  private:
-
+  int32_t number_of_vertices_;
+  int32_t distances_[kMaxNumberOfVertices][kMaxNumberOfVertices];
 };
 
 }  // namespace GRL_1_C_2
