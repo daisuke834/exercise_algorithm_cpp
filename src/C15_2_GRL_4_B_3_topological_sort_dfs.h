@@ -10,13 +10,42 @@
 
 #include <cstdint>
 #include <iostream>
+#include <list>
 #include <queue>
 #include <string>
 #include <vector>
 
 namespace GRL_4_B_3 {
 
+constexpr int32_t kMaxNumberOfVertices = 10000;
+constexpr int32_t kInvalidIndex = -1;
+
 void CallTopologicalSort(std::istream &input_stream);
+
+struct Vertex {
+  bool explored{false};
+  std::vector<int32_t> next;
+};
+
+class TopologicalSort {
+ public:
+  TopologicalSort();
+  ~TopologicalSort();
+  void ConfigureVertices(const int32_t number_of_vertices);
+  void AddVertex(const int32_t from_index, const int32_t to_index);
+  void Sort();
+  void Print();
+
+ private:
+  void Dfs(std::vector<int32_t> chain);
+  int32_t GetUnexploredVertexIndex() const;
+
+ private:
+  int32_t number_of_vertices_;
+  Vertex vertices_[kMaxNumberOfVertices];
+  std::vector<int32_t> chain_;
+  std::list<int32_t> sorted_result_;
+};
 
 }  // namespace GRL_4_B_3
 

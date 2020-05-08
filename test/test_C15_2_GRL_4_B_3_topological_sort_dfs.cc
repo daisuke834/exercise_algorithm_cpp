@@ -21,11 +21,11 @@ class Test_GRL_4_B_3 : public ::testing::Test {
 
 TEST_F(Test_GRL_4_B_3, CallTopologicalSort_1) {
   std::ostringstream answer;
-  answer << "0" << std::endl;
   answer << "3" << std::endl;
-  answer << "1" << std::endl;
   answer << "4" << std::endl;
   answer << "5" << std::endl;
+  answer << "0" << std::endl;
+  answer << "1" << std::endl;
   answer << "2" << std::endl;
 
   std::ostringstream input_stream;
