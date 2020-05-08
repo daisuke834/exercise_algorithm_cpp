@@ -32,7 +32,6 @@ class WarshallFloyd {
   void Print() const noexcept;
 
  private:
- private:
   int32_t number_of_vertices_;
   int32_t distances_[kMaxNumberOfVertices][kMaxNumberOfVertices];
 };
