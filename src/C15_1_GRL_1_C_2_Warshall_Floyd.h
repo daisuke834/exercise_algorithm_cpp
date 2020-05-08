@@ -27,7 +27,7 @@ class WarshallFloyd {
   WarshallFloyd() noexcept;
   ~WarshallFloyd() noexcept;
   void SetNumberOfVertices(const int32_t number_of_vertices) noexcept;
-  void AddEdge(const int32_t vertex_from_index, const int32_t vertex_to_index, const int32_t weight);
+  void AddEdge(const int32_t vertex_from_index, const int32_t vertex_to_index, const int32_t weight) noexcept;
   void CalculateWarshallFloyd() noexcept;
   void Print() const noexcept;
 

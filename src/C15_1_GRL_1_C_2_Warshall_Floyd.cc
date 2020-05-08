@@ -50,7 +50,8 @@ void WarshallFloyd::SetNumberOfVertices(const int32_t number_of_vertices) noexce
   }
 }
 
-void WarshallFloyd::AddEdge(const int32_t vertex_from_index, const int32_t vertex_to_index, const int32_t weight) {
+void WarshallFloyd::AddEdge(const int32_t vertex_from_index, const int32_t vertex_to_index,
+                            const int32_t weight) noexcept {
   distances_[vertex_from_index][vertex_to_index] = weight;
 }
 
