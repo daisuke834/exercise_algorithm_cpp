@@ -70,18 +70,28 @@ void WarshallFloyd::CalculateWarshallFloyd() noexcept {
 }
 
 void WarshallFloyd::Print() const noexcept {
-  for (int32_t from = 0; from < number_of_vertices_; ++from) {
-    for (int32_t to = 0; to < number_of_vertices_; ++to) {
-      if (to != 0) {
-        std::cout << " ";
-      }
-      if (distances_[from][to] == INT32_MAX) {
-        std::cout << "INF";
-      } else {
-        std::cout << distances_[from][to];
-      }
+  bool negative_cycle = false;
+  for (int32_t i = 0; i < number_of_vertices_; ++i) {
+    if (distances_[i][i] < 0) {
+      negative_cycle = true;
     }
-    std::cout << std::endl;
+  }
+  if (negative_cycle) {
+    std::cout << "NEGATIVE CYCLE" << std::endl;
+  } else {
+    for (int32_t from = 0; from < number_of_vertices_; ++from) {
+      for (int32_t to = 0; to < number_of_vertices_; ++to) {
+        if (to != 0) {
+          std::cout << " ";
+        }
+        if (distances_[from][to] == INT32_MAX) {
+          std::cout << "INF";
+        } else {
+          std::cout << distances_[from][to];
+        }
+      }
+      std::cout << std::endl;
+    }
   }
 }
 
