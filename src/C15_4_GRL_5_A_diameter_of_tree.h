@@ -9,6 +9,8 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
+#include <utility>
+#include <vector>
 
 namespace GRL_5_A {
 
@@ -17,12 +19,34 @@ constexpr int32_t kInvalidIndex = -1;
 
 void CallTreeDiameter(std::istream &input_stream);
 
+struct Edge {
+  int32_t neighbour{kInvalidIndex};
+  int32_t weight{INT32_MAX};
+};
+
+struct Node {
+  bool discovered{false};
+  std::vector<Edge> edges;
+};
+
+using Pair = std::pair<int32_t, int32_t>;
+
 class TreeDiameter {
  public:
   TreeDiameter() noexcept;
   ~TreeDiameter() noexcept;
+  void SetNumberOfNodes(const int32_t number_of_nodes) noexcept;
+  void AddEdge(const int32_t node_index_1, const int32_t node_index_2, const int32_t weight) noexcept;
+  int32_t CalculateDiameter() noexcept;
 
  private:
+  Pair FindFarthestNode(const int32_t node_index) noexcept;
+  Pair Dfs(const Pair &distance_to_node) noexcept;
+  void ResetDiscoveredFlags() noexcept;
+
+ private:
+  int32_t number_of_nodes_;
+  Node nodes_[kMaxNumberOfNodes];
 };
 
 }  // namespace GRL_5_A
