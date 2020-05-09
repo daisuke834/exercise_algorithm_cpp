@@ -22,7 +22,7 @@ void CallPrimAlgorithm(std::istream &input_stream) {
         int32_t weight;
         input_stream >> weight;
         if (weight >= 0) {
-          minimum_spanning_tree->AddVertex(from, to, weight);
+          minimum_spanning_tree->AddEdge(from, to, weight);
         }
       }
     }
@@ -46,7 +46,7 @@ void PrimAlgorithm::SetNumberOfVertices(const int32_t number_of_vertices) noexce
   number_of_vertices_ = number_of_vertices;
 }
 
-void PrimAlgorithm::AddVertex(const int32_t from, const int32_t to, const int32_t weight) noexcept {
+void PrimAlgorithm::AddEdge(const int32_t from, const int32_t to, const int32_t weight) noexcept {
   Edge edge1;
   edge1.to = to;
   edge1.weight = weight;

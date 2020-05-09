@@ -19,8 +19,8 @@ void CallPrimAlgorithm(std::istream &input_stream) {
     for (int32_t i = 0; i < number_of_edges; ++i) {
       int32_t vertex_index_1, vertex_index_2, weight;
       input_stream >> vertex_index_1 >> vertex_index_2 >> weight;
-      minimum_spanning_tree->AddVertex(vertex_index_1, vertex_index_2, weight);
-      minimum_spanning_tree->AddVertex(vertex_index_2, vertex_index_1, weight);
+      minimum_spanning_tree->AddEdge(vertex_index_1, vertex_index_2, weight);
+      minimum_spanning_tree->AddEdge(vertex_index_2, vertex_index_1, weight);
     }
     constexpr int32_t kStartVertex = 0;
     minimum_spanning_tree->BuildMinimumSpanningTree(kStartVertex);
@@ -42,7 +42,7 @@ void PrimAlgorithm::SetNumberOfVertices(const int32_t number_of_vertices) noexce
   number_of_vertices_ = number_of_vertices;
 }
 
-void PrimAlgorithm::AddVertex(const int32_t from, const int32_t to, const int32_t weight) noexcept {
+void PrimAlgorithm::AddEdge(const int32_t from, const int32_t to, const int32_t weight) noexcept {
   Edge edge1;
   edge1.to = to;
   edge1.weight = weight;

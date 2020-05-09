@@ -38,7 +38,7 @@ class PrimAlgorithm {
   PrimAlgorithm() noexcept;
   ~PrimAlgorithm() noexcept;
   void SetNumberOfVertices(const int32_t number_of_vertices) noexcept;
-  void AddVertex(const int32_t from, const int32_t to, const int32_t weight) noexcept;
+  void AddEdge(const int32_t from, const int32_t to, const int32_t weight) noexcept;
   void BuildMinimumSpanningTree(const int32_t start_vertex_index) noexcept;
   int32_t GetSumOfWeightsOfMst() const noexcept;
 
