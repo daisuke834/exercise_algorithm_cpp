@@ -8,7 +8,7 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/C15_5_GRL_2_A_1_Prim.h"
+#include "src/C15_5_GRL_2_A_1_MST_Prim.h"
 
 namespace GRL_2_A_1 {
 

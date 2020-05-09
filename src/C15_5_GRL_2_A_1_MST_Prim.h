@@ -4,8 +4,8 @@
  * プリム法 (Prim's algorithm)と優先度付きキューによる実装。計算量はO((V+E)*log(V))。
  */
 
-#ifndef SRC_C15_5_GRL_2_A_1_PRIM_H_
-#define SRC_C15_5_GRL_2_A_1_PRIM_H_
+#ifndef SRC_C15_5_GRL_2_A_1_MST_PRIM_H_
+#define SRC_C15_5_GRL_2_A_1_MST_PRIM_H_
 
 #include <algorithm>
 #include <cstdint>
@@ -55,4 +55,4 @@ class PrimAlgorithm {
 
 }  // namespace GRL_2_A_1
 
-#endif  // SRC_C15_5_GRL_2_A_1_PRIM_H_
+#endif  // SRC_C15_5_GRL_2_A_1_MST_PRIM_H_

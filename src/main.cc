@@ -3,7 +3,7 @@
  */
 
 #include <iostream>
-#include "src/C15_5_GRL_2_A_1_Prim.h"
+#include "src/C15_5_GRL_2_A_1_MST_Prim.h"
 
 using GRL_2_A_1::CallPrimAlgorithm;
 

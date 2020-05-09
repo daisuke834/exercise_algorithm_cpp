@@ -4,7 +4,7 @@
  * プリム法 (Prim's algorithm)と優先度付きキューによる実装。計算量はO((V+E)*log(V))。
  */
 
-#include "src/C15_5_GRL_2_A_1_Prim.h"
+#include "src/C15_5_GRL_2_A_1_MST_Prim.h"
 
 namespace GRL_2_A_1 {
 
