@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/B_GRL_4_A_cycle_detection.h"
+#include "src/C15_4_GRL_5_A_diameter_of_tree.h"
 
-using GRL_4_A::CallCycleDetection;
+using GRL_5_A::CallTreeDiameter;
 
 int main() {
   try {
-    CallCycleDetection(std::cin);
+    CallTreeDiameter(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
