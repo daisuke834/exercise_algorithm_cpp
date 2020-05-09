@@ -3,9 +3,9 @@
  */
 
 #include <iostream>
-#include "src/C13_2_ALDS1_12_A_3_Prim.h"
+#include "src/C15_5_GRL_2_A_1_Prim.h"
 
-using ALDS1_12_A_3::CallPrimAlgorithm;
+using GRL_2_A_1::CallPrimAlgorithm;
 
 int main() {
   try {
