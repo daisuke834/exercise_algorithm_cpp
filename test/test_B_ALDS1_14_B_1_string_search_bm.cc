@@ -5,7 +5,6 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
-#include <ctime>
 #include <iostream>
 #include <sstream>
 #include "src/B_ALDS1_14_B_1_string_search_bm.h"
