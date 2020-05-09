@@ -5,7 +5,7 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C13_2_ALDS1_12_A_1_minimum_spanning_tree.h"
+#include "src/C13_2_ALDS1_12_A_1_MST_Kruskal.h"
 
 namespace ALDS1_12_A_1 {
 

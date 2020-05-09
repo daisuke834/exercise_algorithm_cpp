@@ -9,7 +9,7 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/C13_2_ALDS1_12_A_1_minimum_spanning_tree.h"
+#include "src/C13_2_ALDS1_12_A_1_MST_Kruskal.h"
 
 namespace ALDS1_12_A_1 {
 

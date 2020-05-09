@@ -5,8 +5,8 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C13_2_ALDS1_12_A_2_MINIMUM_SPANNING_TREE_H_
-#define SRC_C13_2_ALDS1_12_A_2_MINIMUM_SPANNING_TREE_H_
+#ifndef SRC_C13_2_ALDS1_12_A_2_MST_PRIM_H_
+#define SRC_C13_2_ALDS1_12_A_2_MST_PRIM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -79,4 +79,4 @@ class MinimumSpanningTree {
 
 }  // namespace ALDS1_12_A_2
 
-#endif  // SRC_C13_2_ALDS1_12_A_2_MINIMUM_SPANNING_TREE_H_
+#endif  // SRC_C13_2_ALDS1_12_A_2_MST_PRIM_H_
