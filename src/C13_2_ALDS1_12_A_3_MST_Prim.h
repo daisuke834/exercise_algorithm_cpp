@@ -5,8 +5,8 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C13_2_ALDS1_12_A_3_PRIM_H_
-#define SRC_C13_2_ALDS1_12_A_3_PRIM_H_
+#ifndef SRC_C13_2_ALDS1_12_A_3_MST_PRIM_H_
+#define SRC_C13_2_ALDS1_12_A_3_MST_PRIM_H_
 
 #include <algorithm>
 #include <cstdint>
@@ -56,4 +56,4 @@ class PrimAlgorithm {
 
 }  // namespace ALDS1_12_A_3
 
-#endif  // SRC_C13_2_ALDS1_12_A_3_PRIM_H_
+#endif  // SRC_C13_2_ALDS1_12_A_3_MST_PRIM_H_

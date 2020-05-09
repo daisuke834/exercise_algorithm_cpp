@@ -5,7 +5,7 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C13_2_ALDS1_12_A_3_Prim.h"
+#include "src/C13_2_ALDS1_12_A_3_MST_Prim.h"
 
 namespace ALDS1_12_A_3 {
 
