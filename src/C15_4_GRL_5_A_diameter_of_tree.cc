@@ -10,7 +10,7 @@ namespace GRL_5_A {
 void CallTreeDiameter(std::istream &input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  TreeDiameter *minimum_spanning_tree = new TreeDiameter();
+  TreeDiameter *tree_diameter = new TreeDiameter();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -24,7 +24,7 @@ void CallTreeDiameter(std::istream &input_stream) {
     std::cerr << "ERROR: CallTreeDiameter()" << std::endl;
     throw;
   }
-  delete minimum_spanning_tree;
+  delete tree_diameter;
 }
 
 // ****************************************************
