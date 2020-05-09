@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C15_5_GRL_2_A_2_MST_Kruskal.h"
+#include "src/B_GRL_4_A_cycle_detection.h"
 
-using GRL_2_A_2::CallKruskalAlgorithm;
+using GRL_4_A::CallCycleDetection;
 
 int main() {
   try {
-    CallKruskalAlgorithm(std::cin);
+    CallCycleDetection(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
