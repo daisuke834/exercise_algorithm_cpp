@@ -2,14 +2,13 @@
  * @copyright (c) 2020 Daisuke Hashimoto
  */
 
-#include <iostream>
-#include "src/D_ABC_167_D_2_teleporter_doubling.h"
+#include "src/D_ABC_167_C_bit_search.h"
 
-using ABC_167_D_2::CallTeleporter;
+using ABC_167_C::CallBitSearch;
 
 int main() {
   try {
-    CallTeleporter(std::cin);
+    CallBitSearch(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
