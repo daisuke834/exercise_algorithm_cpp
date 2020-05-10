@@ -1,17 +1,17 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
- * StackによるDFSの実装。
+ * @brief AtCoder Beginner Contest 165-C. Depth First Search (DFS).
+ * 再帰呼び出しによるDFSの実装。
  */
 
-#ifndef SRC_D_ABC_165_2_DEPTH_FIRST_SEARCH_H_
-#define SRC_D_ABC_165_2_DEPTH_FIRST_SEARCH_H_
+#ifndef SRC_D_ABC_165_C_1_DEPTH_FIRST_SEARCH_H_
+#define SRC_D_ABC_165_C_1_DEPTH_FIRST_SEARCH_H_
 
 #include <cstdint>
 #include <iostream>
 #include <string>
 
-namespace ABC_165_2 {
+namespace ABC_165_1 {
 
 constexpr int32_t kMaxArraySize = 10;
 constexpr int32_t kMinArrayValue = 1;
@@ -48,10 +48,11 @@ class DepthFirstSearch {
   bool IsOkay(const int32_t index_condition) const;
 
  private:
+  int64_t max_score_;
   Condition condition_;
   Array array_;
 };
 
-}  // namespace ABC_165_2
+}  // namespace ABC_165_1
 
-#endif  // SRC_D_ABC_165_2_DEPTH_FIRST_SEARCH_H_
+#endif  // SRC_D_ABC_165_C_1_DEPTH_FIRST_SEARCH_H_

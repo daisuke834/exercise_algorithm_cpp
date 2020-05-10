@@ -1,10 +1,10 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
+ * @brief AtCoder Beginner Contest 165-C. Depth First Search (DFS).
  * StackによるDFSの実装。
  */
 
-#include "src/D_ABC_165_2_depth_first_search.h"
+#include "src/D_ABC_165_C_2_depth_first_search.h"
 #include <iostream>
 #include <stack>
 

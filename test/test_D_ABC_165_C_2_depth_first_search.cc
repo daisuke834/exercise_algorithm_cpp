@@ -1,23 +1,23 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 165. Depth First Search (DFS).
+ * @brief AtCoder Beginner Contest 165-C. Depth First Search (DFS).
  */
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/D_ABC_165_1_depth_first_search.h"
+#include "src/D_ABC_165_C_2_depth_first_search.h"
 
-namespace ABC_165_1 {
+namespace ABC_165_2 {
 
-class Test_ABC_165_1 : public ::testing::Test {
+class Test_ABC_165_2 : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
 };
 
-TEST_F(Test_ABC_165_1, CallDepthFirstSearch_1) {
+TEST_F(Test_ABC_165_2, CallDepthFirstSearch_1) {
   std::ostringstream answer;
   answer << "110" << std::endl;
 
@@ -38,8 +38,8 @@ TEST_F(Test_ABC_165_1, CallDepthFirstSearch_1) {
   EXPECT_TRUE(success);
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
-
-TEST_F(Test_ABC_165_1, CallDepthFirstSearch_2) {
+/*
+TEST_F(Test_ABC_165_2, CallDepthFirstSearch_2) {
   std::ostringstream answer;
   answer << "357500" << std::endl;
 
@@ -68,7 +68,7 @@ TEST_F(Test_ABC_165_1, CallDepthFirstSearch_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ABC_165_1, CallDepthFirstSearch_3) {
+TEST_F(Test_ABC_165_2, CallDepthFirstSearch_3) {
   std::ostringstream answer;
   answer << "1" << std::endl;
 
@@ -87,5 +87,6 @@ TEST_F(Test_ABC_165_1, CallDepthFirstSearch_3) {
   EXPECT_TRUE(success);
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
+*/
 
-}  // namespace ABC_165_1
+}  // namespace ABC_165_2
