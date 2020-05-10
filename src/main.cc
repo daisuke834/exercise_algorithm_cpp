@@ -3,9 +3,9 @@
  */
 
 #include <iostream>
-#include "src/D_ABC_167_D_1_teleporter_cycle.h"
+#include "src/D_ABC_167_D_2_teleporter_doubling.h"
 
-using ABC_167_D_1::CallTeleporter;
+using ABC_167_D_2::CallTeleporter;
 
 int main() {
   try {
