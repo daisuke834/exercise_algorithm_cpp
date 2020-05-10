@@ -3,13 +3,13 @@
  */
 
 #include <iostream>
-#include "src/C15_4_GRL_5_A_diameter_of_tree.h"
+#include "src/D_ABC_167_D_1_teleporter.h"
 
-using GRL_5_A::CallTreeDiameter;
+using ABC_167_D_1::CallTeleporter;
 
 int main() {
   try {
-    CallTreeDiameter(std::cin);
+    CallTeleporter(std::cin);
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }
