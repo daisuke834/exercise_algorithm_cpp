@@ -3,7 +3,7 @@
  */
 
 #include <iostream>
-#include "src/D_ABC_167_D_1_teleporter.h"
+#include "src/D_ABC_167_D_1_teleporter_cycle.h"
 
 using ABC_167_D_1::CallTeleporter;
 

@@ -3,8 +3,8 @@
  * @brief AtCoder Beginner Contest 167-D. Teleporter.
  */
 
-#ifndef SRC_D_ABC_167_D_1_TELEPORTER_H_
-#define SRC_D_ABC_167_D_1_TELEPORTER_H_
+#ifndef SRC_D_ABC_167_D_1_TELEPORTER_CYCLE_H_
+#define SRC_D_ABC_167_D_1_TELEPORTER_CYCLE_H_
 
 #include <cstdint>
 #include <iostream>
@@ -32,4 +32,4 @@ class Teleporter {
 
 }  // namespace ABC_167_D_1
 
-#endif  // SRC_D_ABC_167_D_1_TELEPORTER_H_
+#endif  // SRC_D_ABC_167_D_1_TELEPORTER_CYCLE_H_

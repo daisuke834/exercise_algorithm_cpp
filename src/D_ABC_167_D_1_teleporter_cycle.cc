@@ -4,7 +4,7 @@
  * 計算量はO(number_of_towns_)
  */
 
-#include "src/D_ABC_167_D_1_teleporter.h"
+#include "src/D_ABC_167_D_1_teleporter_cycle.h"
 
 namespace ABC_167_D_1 {
 
