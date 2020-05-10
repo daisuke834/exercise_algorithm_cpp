@@ -1,6 +1,7 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief AtCoder Beginner Contest 167-D. Teleporter.
+ * 計算量はO(number_of_towns_)
  */
 
 #include "src/D_ABC_167_D_1_teleporter.h"
