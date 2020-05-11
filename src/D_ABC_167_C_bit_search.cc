@@ -17,18 +17,17 @@ void CallBitSearch(std::istream &input_stream) noexcept {
   input_stream >> number_of_books >> number_of_areas >> threshold;
   bit_search->SetParameters(number_of_books, number_of_areas, threshold);
 
-  for (int32_t index_book = 0; index_book < number_of_books; ++index_book) {
+  for (int32_t book = 0; book < number_of_books; ++book) {
     int32_t cost;
     input_stream >> cost;
-    bit_search->SetCostOfBook(index_book, cost);
+    bit_search->SetCostOfBook(book, cost);
     for (int32_t area = 0; area < number_of_areas; ++area) {
       int32_t knowledge;
       input_stream >> knowledge;
-      input_stream >> knowledge;
-      bit_search->SetKnowledgeOfBook(index_book, area, knowledge);
+      bit_search->SetKnowledgeOfBook(book, area, knowledge);
     }
   }
-
+  std::cout << bit_search->SearchMinimumCost() << std::endl;
   delete bit_search;
 }
 
@@ -49,6 +48,36 @@ void BitSearch::SetCostOfBook(const int32_t index_book, const int32_t cost) noex
 
 void BitSearch::SetKnowledgeOfBook(const int32_t index_book, const int32_t area, const int32_t knowledge) noexcept {
   knowledge_[index_book][area] = knowledge;
+}
+
+int32_t BitSearch::SearchMinimumCost() noexcept {
+  int32_t minimum_cost = INT32_MAX;
+  for (int32_t s = 0; s < (1 << number_of_books_); ++s) {
+    int32_t cost = 0;
+    std::vector<int32_t> understandings(number_of_areas_);
+    for (int32_t book = 0; book < number_of_books_; ++book) {
+      if ((s >> book) & 1) {
+        cost += cost_[book];
+        for (int32_t area = 0; area < number_of_areas_; ++area) {
+          understandings[area] += knowledge_[book][area];
+        }
+      }
+    }
+    bool ok = true;
+    for (int32_t area = 0; area < number_of_areas_; ++area) {
+      if (understandings[area] < threshold_) {
+        ok = false;
+        break;
+      }
+    }
+    if (ok) {
+      minimum_cost = std::min(minimum_cost, cost);
+    }
+  }
+  if (minimum_cost == INT32_MAX) {
+    minimum_cost = -1;
+  }
+  return minimum_cost;
 }
 
 }  // namespace ABC_167_C
