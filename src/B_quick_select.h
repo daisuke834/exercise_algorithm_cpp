@@ -16,7 +16,7 @@
 namespace my_quick_select {
 
 constexpr int32_t kMaxNumberOfElements = 100000;
-constexpr int32_t KMaxLoopCount = 2000000;
+constexpr int32_t kMaxLoopCount = 2000000;
 
 struct Element {
   int32_t value{INT32_MAX};
