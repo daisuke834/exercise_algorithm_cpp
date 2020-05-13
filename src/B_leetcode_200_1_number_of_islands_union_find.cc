@@ -69,7 +69,7 @@ void NumberOfIslands::Unite(std::vector<int32_t> &parents, const int32_t index1,
   parents[GetRoot(parents, index2)] = GetRoot(parents, parents[index1]);
 }
 
-int NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) {
+int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) {
   if (grid.size() == 0 || grid[0].size() == 0) {
     return 0;
   }
