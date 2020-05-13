@@ -53,56 +53,56 @@ bool NumberOfIslands::IsLand(std::vector<std::vector<char>> &grid, const int32_t
   return (grid[y][x] == '1');
 }
 
-int32_t NumberOfIslands::GetRoot(std::vector<int32_t> &parents, const int32_t index) const noexcept {
-  if (parents[index] < 0) {
+int32_t NumberOfIslands::GetRoot(const int32_t index) noexcept {
+  if (parents_[index] < 0) {
     return -1;
   }
   int32_t c_index = index;
-  while (parents[c_index] != c_index) {
-    c_index = parents[c_index];
+  while (parents_[c_index] != c_index) {
+    c_index = parents_[c_index];
   }
   const int32_t root = c_index;
-  parents[index] = root;
+  parents_[index] = root;
   return root;
 }
 
-void NumberOfIslands::Unite(std::vector<int32_t> &parents, const int32_t index1, const int32_t index2) const noexcept {
-  parents[GetRoot(parents, index2)] = GetRoot(parents, parents[index1]);
+void NumberOfIslands::Unite(const int32_t index1, const int32_t index2) noexcept {
+  parents_[GetRoot(index2)] = GetRoot(parents_[index1]);
 }
 
 int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) noexcept {
-  if (grid.size() == 0 || grid[0].size() == 0) {
+  if (static_cast<int32_t>(grid.size()) == 0 || static_cast<int32_t>(grid[0].size()) == 0) {
     return 0;
   }
   height_ = static_cast<int32_t>(grid.size());
   width_ = static_cast<int32_t>(grid[0].size());
 
-  std::vector<int32_t> parents(height_ * width_);
+  parents_ = std::vector<int32_t>(height_ * width_);
 
   for (int32_t y = 0; y < height_; ++y) {
     for (int32_t x = 0; x < width_; ++x) {
       const int32_t index = GetIndex(x, y);
       if (IsLand(grid, x, y)) {
-        parents[index] = index;
+        parents_[index] = index;
         if (x - 1 >= 0 && IsLand(grid, x - 1, y)) {
-          Unite(parents, GetIndex(x - 1, y), GetIndex(x, y));
+          Unite(GetIndex(x - 1, y), GetIndex(x, y));
         }
         if (y - 1 >= 0 && IsLand(grid, x, y - 1)) {
-          Unite(parents, GetIndex(x, y - 1), GetIndex(x, y));
+          Unite(GetIndex(x, y - 1), GetIndex(x, y));
         }
       } else {
-        parents[index] = -1;
+        parents_[index] = -1;
       }
     }
   }
   std::set<int32_t> islands;
   for (int32_t index = 0; index < width_ * height_; ++index) {
-    const int32_t parent = GetRoot(parents, index);
+    const int32_t parent = GetRoot(index);
     if (parent >= 0) {
       islands.insert(parent);
     }
   }
-  return islands.size();
+  return static_cast<int32_t>(islands.size());
 }
 
 }  // namespace LC_200_1

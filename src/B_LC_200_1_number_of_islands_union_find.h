@@ -28,12 +28,13 @@ class NumberOfIslands {
   int32_t GetX(const int32_t index) const noexcept;
   int32_t GetY(const int32_t index) const noexcept;
   bool IsLand(std::vector<std::vector<char>> &grid, const int32_t x, const int32_t y) const noexcept;
-  int32_t GetRoot(std::vector<int32_t> &parents, const int32_t index) const noexcept;
-  void Unite(std::vector<int32_t> &parents, const int32_t index1, const int32_t index2) const noexcept;
+  int32_t GetRoot(const int32_t index) noexcept;
+  void Unite(const int32_t index1, const int32_t index2) noexcept;
 
  private:
   int32_t height_;
   int32_t width_;
+  std::vector<int32_t> parents_;
 };
 
 }  // namespace LC_200_1
