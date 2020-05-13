@@ -60,16 +60,16 @@ bool NumberOfIslands::NotExploredYet(const int32_t x, const int32_t y) const noe
 
 void NumberOfIslands::Dfs(std::vector<std::vector<char>> &grid, const int32_t x, const int32_t y) noexcept {
   explored_[GetIndex(x, y)] = true;
-  if (x - 1 >= 0 && IsLand(grid, x, y) && NotExploredYet(x - 1, y)) {
+  if (x - 1 >= 0 && IsLand(grid, x - 1, y) && NotExploredYet(x - 1, y)) {
     Dfs(grid, x - 1, y);
   }
-  if (y - 1 >= 0 && IsLand(grid, x, y) && NotExploredYet(x, y - 1)) {
+  if (y - 1 >= 0 && IsLand(grid, x, y - 1) && NotExploredYet(x, y - 1)) {
     Dfs(grid, x, y - 1);
   }
-  if (x + 1 < width_ && IsLand(grid, x, y) && NotExploredYet(x + 1, y)) {
+  if (x + 1 < width_ && IsLand(grid, x + 1, y) && NotExploredYet(x + 1, y)) {
     Dfs(grid, x + 1, y);
   }
-  if (y + 1 < height_ && IsLand(grid, x, y) && NotExploredYet(x, y + 1)) {
+  if (y + 1 < height_ && IsLand(grid, x, y + 1) && NotExploredYet(x, y + 1)) {
     Dfs(grid, x, y + 1);
   }
 }
