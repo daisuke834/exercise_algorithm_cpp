@@ -13,8 +13,6 @@ namespace LC_200_1 {
 void CallNumberOfIslands(std::istream &input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  input_stream.tie(0);
-  std::ios::sync_with_stdio(false);
   NumberOfIslands *number_of_islands = new NumberOfIslands();
   constexpr int32_t kMaxLoopCount = 20000000;
   std::vector<std::vector<char>> grid;
@@ -22,7 +20,6 @@ void CallNumberOfIslands(std::istream &input_stream) noexcept {
     std::vector<char> row;
     std::string text;
     input_stream >> text;
-    std::cerr << text << std::endl;
     if (text.length() > 0) {
       const int32_t length = static_cast<int32_t>(text.length());
       for (int32_t index = 0; index < length; ++index) {
@@ -37,6 +34,10 @@ void CallNumberOfIslands(std::istream &input_stream) noexcept {
   std::cout << number_of_islands->GetNumberOfIslands(grid) << std::endl;
   delete number_of_islands;
 }
+
+NumberOfIslands::NumberOfIslands() noexcept {}
+
+NumberOfIslands::~NumberOfIslands() noexcept {}
 
 int32_t NumberOfIslands::GetIndex(const int32_t x, const int32_t y) const noexcept {
   return (x + y * width_);
@@ -67,7 +68,17 @@ int32_t NumberOfIslands::GetRoot(const int32_t index) noexcept {
 }
 
 void NumberOfIslands::Unite(const int32_t index1, const int32_t index2) noexcept {
-  parents_[GetRoot(index2)] = GetRoot(parents_[index1]);
+  const int32_t root_1 = GetRoot(index1);
+  const int32_t root_2 = GetRoot(index2);
+  if (root_1 != root_2) {
+    parents_[root_2] = root_1;
+    --number_of_islands_;
+  }
+}
+
+void NumberOfIslands::InitializeTree(const int32_t index) noexcept {
+  parents_[index] = index;
+  ++number_of_islands_;
 }
 
 int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) noexcept {
@@ -76,6 +87,7 @@ int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid
   }
   height_ = static_cast<int32_t>(grid.size());
   width_ = static_cast<int32_t>(grid[0].size());
+  number_of_islands_ = 0;
 
   parents_ = std::vector<int32_t>(height_ * width_);
 
@@ -83,7 +95,7 @@ int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid
     for (int32_t x = 0; x < width_; ++x) {
       const int32_t index = GetIndex(x, y);
       if (IsLand(grid, x, y)) {
-        parents_[index] = index;
+        InitializeTree(index);
         if (x - 1 >= 0 && IsLand(grid, x - 1, y)) {
           Unite(GetIndex(x - 1, y), GetIndex(x, y));
         }
@@ -95,14 +107,7 @@ int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid
       }
     }
   }
-  std::set<int32_t> islands;
-  for (int32_t index = 0; index < width_ * height_; ++index) {
-    const int32_t parent = GetRoot(index);
-    if (parent >= 0) {
-      islands.insert(parent);
-    }
-  }
-  return static_cast<int32_t>(islands.size());
+  return number_of_islands_;
 }
 
 }  // namespace LC_200_1
