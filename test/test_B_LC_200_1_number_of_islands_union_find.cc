@@ -16,7 +16,7 @@ class Test_LC_200 : public ::testing::Test {
   virtual void TearDown() {}
 };
 
-TEST_F(Test_LC_200, CallQuickSort_1) {
+TEST_F(Test_LC_200, CallNumberOfIsland_1) {
   std::ostringstream answer;
   answer << "1" << std::endl;
 
@@ -38,7 +38,7 @@ TEST_F(Test_LC_200, CallQuickSort_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_LC_200, CallQuickSort_2) {
+TEST_F(Test_LC_200, CallNumberOfIsland_2) {
   std::ostringstream answer;
   answer << "3" << std::endl;
 
@@ -60,7 +60,7 @@ TEST_F(Test_LC_200, CallQuickSort_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_LC_200, CallQuickSort_3) {
+TEST_F(Test_LC_200, CallNumberOfIsland_3) {
   std::ostringstream answer;
   answer << "1" << std::endl;
 
