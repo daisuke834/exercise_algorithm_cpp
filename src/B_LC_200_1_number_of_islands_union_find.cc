@@ -1,13 +1,14 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
+ * @brief LeetCode 200. Number of Islands
+ * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
  * You may assume all four edges of the grid are all surrounded by water.
  */
 
-#include "src/B_leetcode_200_1_number_of_islands_union_find.h"
+#include "src/B_LC_200_1_number_of_islands_union_find.h"
 
-namespace leetcode_200_1 {
+namespace LC_200_1 {
 
 void CallNumberOfIslands(std::istream &input_stream) noexcept {
   input_stream.tie(0);
@@ -37,22 +38,22 @@ void CallNumberOfIslands(std::istream &input_stream) noexcept {
   delete number_of_islands;
 }
 
-int32_t NumberOfIslands::GetIndex(const int32_t x, const int32_t y) {
+int32_t NumberOfIslands::GetIndex(const int32_t x, const int32_t y) const noexcept {
   return (x + y * width_);
 }
 
-int32_t NumberOfIslands::GetX(const int32_t index) {
+int32_t NumberOfIslands::GetX(const int32_t index) const noexcept {
   return index % width_;
 }
-int32_t NumberOfIslands::GetY(const int32_t index) {
+int32_t NumberOfIslands::GetY(const int32_t index) const noexcept {
   return index / width_;
 }
 
-bool NumberOfIslands::IsLand(std::vector<std::vector<char>> &grid, const int32_t x, const int32_t y) {
+bool NumberOfIslands::IsLand(std::vector<std::vector<char>> &grid, const int32_t x, const int32_t y) const noexcept {
   return (grid[y][x] == '1');
 }
 
-int32_t NumberOfIslands::GetRoot(std::vector<int32_t> &parents, const int32_t index) {
+int32_t NumberOfIslands::GetRoot(std::vector<int32_t> &parents, const int32_t index) const noexcept {
   if (parents[index] < 0) {
     return -1;
   }
@@ -65,11 +66,11 @@ int32_t NumberOfIslands::GetRoot(std::vector<int32_t> &parents, const int32_t in
   return root;
 }
 
-void NumberOfIslands::Unite(std::vector<int32_t> &parents, const int32_t index1, const int32_t index2) {
+void NumberOfIslands::Unite(std::vector<int32_t> &parents, const int32_t index1, const int32_t index2) const noexcept {
   parents[GetRoot(parents, index2)] = GetRoot(parents, parents[index1]);
 }
 
-int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) {
+int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) noexcept {
   if (grid.size() == 0 || grid[0].size() == 0) {
     return 0;
   }
@@ -104,4 +105,4 @@ int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid
   return islands.size();
 }
 
-}  // namespace leetcode_200_1
+}  // namespace LC_200_1
