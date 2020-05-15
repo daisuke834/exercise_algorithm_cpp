@@ -24,7 +24,30 @@ void CallDijkstraAlgorithm(std::istream &input_stream);
 
 // ****************************************************
 
-class DijkstraAlgorithm {};
+using Edge = std::pair<int32_t, int32_t>;
+using DistanceAndVertexPair = std::pair<int32_t, int32_t>;
+
+struct Vertex {
+  bool explored_{false};
+  int32_t distance{INT32_MAX};
+  std::vector<Edge> edges_from_this;
+};
+
+class DijkstraAlgorithm {
+ public:
+  DijkstraAlgorithm() noexcept;
+  ~DijkstraAlgorithm() noexcept;
+  void SetNumberOfVertices(const int32_t number_of_vertices) noexcept;
+  void AddEdge(const int32_t vertex_from, const int32_t vertex_to, const int32_t weight) noexcept;
+  void CalculateShortestPaths(const int32_t vertex_start) noexcept;
+  void Print() noexcept;
+
+ private:
+  int32_t number_of_vertices_;
+  Vertex vertices_[kMaxNumberOfVertices];
+  std::priority_queue<DistanceAndVertexPair, std::vector<DistanceAndVertexPair>, std::greater<DistanceAndVertexPair>>
+      pqueue_;
+};
 
 }  // namespace GRL_1_A_2
 
