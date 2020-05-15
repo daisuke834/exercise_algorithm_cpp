@@ -5,9 +5,9 @@
  * 計算量はO(E*log(V))
  */
 
-#include "src/B_GRL_1_A_Dijkstra.h"
+#include "src/B_GRL_1_A_1_Dijkstra.h"
 
-namespace GRL_1_A {
+namespace GRL_1_A_1 {
 
 void CallDijkstraAlgorithm(std::istream &input_stream) {
   input_stream.tie(0);
@@ -83,4 +83,4 @@ void DijkstraAlgorithm::Print() noexcept {
 
 // **********************************************************************
 
-}  // namespace GRL_1_A
+}  // namespace GRL_1_A_1

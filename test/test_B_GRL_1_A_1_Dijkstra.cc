@@ -7,11 +7,11 @@
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/B_GRL_1_A_Dijkstra.h"
+#include "src/B_GRL_1_A_1_Dijkstra.h"
 
-namespace GRL_1_A {
+namespace GRL_1_A_1 {
 
-class Test_GRL_1_A : public ::testing::Test {
+class Test_GRL_1_A_1 : public ::testing::Test {
  protected:
   DijkstraAlgorithm *single_source_shortest_path_;
   virtual void SetUp() {
@@ -22,7 +22,7 @@ class Test_GRL_1_A : public ::testing::Test {
   }
 };
 
-TEST_F(Test_GRL_1_A, CallDijkstraAlgorithm_1) {
+TEST_F(Test_GRL_1_A_1, CallDijkstraAlgorithm_1) {
   std::ostringstream answer;
   answer << "0" << std::endl;
   answer << "1" << std::endl;
@@ -49,7 +49,7 @@ TEST_F(Test_GRL_1_A, CallDijkstraAlgorithm_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_GRL_1_A, CallDijkstraAlgorithm_2) {
+TEST_F(Test_GRL_1_A_1, CallDijkstraAlgorithm_2) {
   std::ostringstream answer;
   answer << "3" << std::endl;
   answer << "0" << std::endl;
@@ -77,4 +77,4 @@ TEST_F(Test_GRL_1_A, CallDijkstraAlgorithm_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-}  // namespace GRL_1_A
+}  // namespace GRL_1_A_1

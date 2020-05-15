@@ -4,8 +4,8 @@
  * ダイクストラのアルゴリズム (Dijkstra's algorithm)の、優先度キューによる実装。
  */
 
-#ifndef SRC_C13_3_GRL_1_A_DIIKSTRA_H_
-#define SRC_C13_3_GRL_1_A_DIIKSTRA_H_
+#ifndef SRC_C13_3_GRL_1_A_1_DIIKSTRA_H_
+#define SRC_C13_3_GRL_1_A_1_DIIKSTRA_H_
 
 #include <cstdint>
 #include <iostream>
@@ -13,7 +13,7 @@
 #include <string>
 #include <vector>
 
-namespace GRL_1_A {
+namespace GRL_1_A_1 {
 
 constexpr int32_t kMaxNumberOfVertices = 100000;
 constexpr int32_t kInvalidIndex = -1;
@@ -50,6 +50,6 @@ class DijkstraAlgorithm {
   std::priority_queue<Pair, std::vector<Pair>, std::greater<Pair>> priority_queue_;
 };
 
-}  // namespace GRL_1_A
+}  // namespace GRL_1_A_1
 
-#endif  // SRC_C13_3_GRL_1_A_DIIKSTRA_H_
+#endif  // SRC_C13_3_GRL_1_A_1_DIIKSTRA_H_
