@@ -3,9 +3,10 @@
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode Problem #146. Design and implement a data structure for Least Recently Used (LRU) cache.
  * It should support the following operations: get and put. Time complexities of both operations should be O(1).
+ * Implemented by hashmap and Doubly-linked-list.
  */
 
-#include "src/B_LC_146_1_LRU_cache.h"
+#include "src/B_LC_146_1_LRU_cache_hashmap_and_double_linked_list.h"
 
 namespace LC_146_1 {
 

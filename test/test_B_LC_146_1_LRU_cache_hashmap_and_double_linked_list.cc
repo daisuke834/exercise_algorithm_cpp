@@ -7,7 +7,7 @@
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/B_LC_146_1_LRU_cache.h"
+#include "src/B_LC_146_1_LRU_cache_hashmap_and_double_linked_list.h"
 
 namespace LC_146_1 {
 
