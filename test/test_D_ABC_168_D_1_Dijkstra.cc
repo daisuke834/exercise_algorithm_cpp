@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 167-D. Teleporter.
+ * @brief AtCoder Beginner Contest 168-D.
  */
 
 #include <gtest/gtest.h>

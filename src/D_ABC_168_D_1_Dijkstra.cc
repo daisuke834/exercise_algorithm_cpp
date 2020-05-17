@@ -1,7 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 167-D. Doubling.
- * ダブリング(doubling)による解法。計算量はO(number_of_towns*log(number_of_teleportations))
+ * @brief AtCoder Beginner Contest 168-D.
  */
 
 #include "src/D_ABC_168_D_1_Dijkstra.h"
