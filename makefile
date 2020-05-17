@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=gnu++11 -Wall -Werror
+CXXFLAGS = -std=gnu++17 -Wall -Werror
 
 TARGET = main.exe
 TESTTARGET = test.exe
