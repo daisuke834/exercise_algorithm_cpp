@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 167-D. Teleporter.
+ * @brief AtCoder Beginner Contest(ABC) 167-D. Teleporter.
  * graphの周期性を用いた解法。計算量はO(number_of_towns_)
  */
 

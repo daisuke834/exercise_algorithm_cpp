@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Grand Contest 044-A. Pay To Win.
+ * @brief AtCoder Grand Contest(AGC) 044-A. Pay To Win.
  */
 
 #include <gtest/gtest.h>

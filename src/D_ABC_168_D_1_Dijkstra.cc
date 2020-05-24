@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 168-D.
+ * @brief AtCoder Beginner Contest(ABC) 168-D.
  */
 
 #include "src/D_ABC_168_D_1_Dijkstra.h"

@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 150-C.
+ * @brief AtCoder Beginner Contest(ABC) 150-C.
  */
 
 #include "src/D_ABC_150_C_permutation.h"

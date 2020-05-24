@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 167-D. Doubling.
+ * @brief AtCoder Beginner Contest(ABC) 167-D. Doubling.
  */
 
 #ifndef SRC_D_ABC_167_D_2_TELEPORTER_DOUBLING_H_

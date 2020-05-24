@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 165-B. ビット全探索(bit全探索).
+ * @brief AtCoder Beginner Contest(ABC) 165-B. ビット全探索(bit全探索).
  */
 
 #include "src/D_ABC_167_C_bit_search.h"

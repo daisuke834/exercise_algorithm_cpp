@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 165-C. Depth First Search (DFS).
+ * @brief AtCoder Beginner Contest(ABC) 165-C. Depth First Search (DFS).
  */
 
 #include <gtest/gtest.h>

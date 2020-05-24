@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Beginner Contest 150-C.
+ * @brief AtCoder Beginner Contest(ABC) 150-C.
  */
 
 #ifndef SRC_D_ABC_150_C_DIJKSTRA_H_
