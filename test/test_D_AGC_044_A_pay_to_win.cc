@@ -38,7 +38,6 @@ TEST_F(Test_AGC_044_A, test_3) {
   delete solution;
 }
 
-/*
 TEST_F(Test_AGC_044_A, test_4) {
   Solution *solution = new Solution(454353412, 332423423, 934923490, 1);
   const int64_t result = solution->CalculateMinimumAmountOfCoins(29384293847243);
@@ -52,6 +51,5 @@ TEST_F(Test_AGC_044_A, test_5) {
   ASSERT_EQ(23441258666, result);
   delete solution;
 }
-*/
 
 }  // namespace AGC_044_A

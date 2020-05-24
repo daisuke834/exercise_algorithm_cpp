@@ -35,20 +35,31 @@ int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
   for (int32_t o = kDouble; o <= kQuintuple; ++o) {
     const Operation &operation = operations_[o];
     if (goal % operation.ratio == 0) {
-      const int64_t temp_result = operation.coins + CalculateMinimumAmountOfCoins(goal / operation.ratio);
-      result = std::min(temp_result, result);
+      int64_t temp_result = CalculateMinimumAmountOfCoins(goal / operation.ratio);
+      if (temp_result != INT64_MAX) {
+        temp_result += operation.coins;
+        result = std::min(temp_result, result);
+      }
     } else {
       const int64_t r = goal / operation.ratio;
 
-      const int64_t lower_bound = r * operation.ratio;
-      const int64_t temp_result_1 = operation.coins + (goal - lower_bound) * operations_[kDecrement].coins +
-                                    CalculateMinimumAmountOfCoins(lower_bound / operation.ratio);
-      result = std::min(temp_result_1, result);
+      {
+        const int64_t lower_bound = r * operation.ratio;
+        int64_t temp_result_1 = CalculateMinimumAmountOfCoins(lower_bound / operation.ratio);
+        if (temp_result_1 != INT64_MAX) {
+          temp_result_1 += operation.coins + (goal - lower_bound) * operations_[kIncrement].coins;
+          result = std::min(temp_result_1, result);
+        }
+      }
 
-      const int64_t upper_bound = (r + 1) * operation.ratio;
-      const int64_t temp_result_2 = operation.coins + (upper_bound - goal) * operations_[kIncrement].coins +
-                                    CalculateMinimumAmountOfCoins(upper_bound / operation.ratio);
-      result = std::min(temp_result_2, result);
+      {
+        const int64_t upper_bound = (r + 1) * operation.ratio;
+        int64_t temp_result_2 = CalculateMinimumAmountOfCoins(upper_bound / operation.ratio);
+        if (temp_result_2 != INT64_MAX) {
+          temp_result_2 += operation.coins + (upper_bound - goal) * operations_[kDecrement].coins;
+          result = std::min(temp_result_2, result);
+        }
+      }
     }
   }
   min_coins_[goal] = result;
