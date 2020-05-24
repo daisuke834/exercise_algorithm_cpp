@@ -30,7 +30,11 @@ int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
   if (min_coins_.count(goal) > 0) {
     return min_coins_[goal];
   }
+
   int64_t result = INT64_MAX;
+  if (goal < result / operations_[kIncrement].coins) {
+    result = goal * operations_[kIncrement].coins;
+  }
 
   const OperationType next_operations[] = {kDouble, kTriple, kQuintuple};
   for (const OperationType next : next_operations) {
@@ -44,21 +48,21 @@ int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
     } else {
       const int64_t r = goal / operation.ratio;
 
-      {
+      {  // Lower Bound
         const int64_t lower_bound = r * operation.ratio;
-        int64_t temp_result_1 = CalculateMinimumAmountOfCoins(lower_bound / operation.ratio);
-        if (temp_result_1 != INT64_MAX) {
-          temp_result_1 += operation.coins + (goal - lower_bound) * operations_[kIncrement].coins;
-          result = std::min(temp_result_1, result);
+        int64_t temp_result = CalculateMinimumAmountOfCoins(lower_bound / operation.ratio);
+        if (temp_result != INT64_MAX) {
+          temp_result += operation.coins + (goal - lower_bound) * operations_[kIncrement].coins;
+          result = std::min(temp_result, result);
         }
       }
 
-      {
-        const int64_t upper_bound = (r + 1) * operation.ratio;
-        int64_t temp_result_2 = CalculateMinimumAmountOfCoins(upper_bound / operation.ratio);
-        if (temp_result_2 != INT64_MAX) {
-          temp_result_2 += operation.coins + (upper_bound - goal) * operations_[kDecrement].coins;
-          result = std::min(temp_result_2, result);
+      {  // Upper Bound
+        const int64_t upper_bound = (r + 1LL) * operation.ratio;
+        int64_t temp_result = CalculateMinimumAmountOfCoins(upper_bound / operation.ratio);
+        if (temp_result != INT64_MAX) {
+          temp_result += operation.coins + (upper_bound - goal) * operations_[kDecrement].coins;
+          result = std::min(temp_result, result);
         }
       }
     }
