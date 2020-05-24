@@ -32,8 +32,9 @@ int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
   }
   int64_t result = INT64_MAX;
 
-  for (int32_t o = kDouble; o <= kQuintuple; ++o) {
-    const Operation &operation = operations_[o];
+  const OperationType next_operations[] = {kDouble, kTriple, kQuintuple};
+  for (const OperationType next : next_operations) {
+    const Operation &operation = operations_[next];
     if (goal % operation.ratio == 0) {
       int64_t temp_result = CalculateMinimumAmountOfCoins(goal / operation.ratio);
       if (temp_result != INT64_MAX) {
