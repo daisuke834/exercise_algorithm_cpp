@@ -8,34 +8,51 @@
 
 namespace AGC_044_A {
 
-Solution::Solution(const int64_t N, const int64_t A, const int64_t B, const int64_t C, const int64_t D)
-    : N_(N), A_(A), B_(B), C_(C), D_(D), array_max_(2 * N) {
-  min_coins_ = std::vector<int64_t>(array_max_ + 1, INT64_MAX);
+Solution::Solution(const int64_t A, const int64_t B, const int64_t C, const int64_t D) noexcept {
+  operations_[kDouble].coins = A;
+  operations_[kDouble].ratio = 2;
+
+  operations_[kTriple].coins = B;
+  operations_[kTriple].ratio = 3;
+
+  operations_[kQuintuple].coins = C;
+  operations_[kQuintuple].ratio = 5;
+
+  operations_[kIncrement].coins = D;
+
+  operations_[kDecrement].coins = D;
+
   min_coins_[0] = 0;
+  min_coins_[1] = operations_[kDecrement].coins;
 }
 
-int64_t Solution::Calculate() {
-  for (int64_t score = 1LL; score <= array_max_; ++score) {
-    min_coins_[score] = std::min(min_coins_[score - 1LL] + D_, min_coins_[score]);
-    if (score % 2LL == 0LL) {
-      min_coins_[score] = std::min(min_coins_[score / 2LL] + A_, min_coins_[score]);
-    }
-    if (score % 3LL == 0LL) {
-      min_coins_[score] = std::min(min_coins_[score / 3LL] + B_, min_coins_[score]);
-    }
-    if (score % 5LL == 0LL) {
-      min_coins_[score] = std::min(min_coins_[score / 5LL] + C_, min_coins_[score]);
-    }
-    for (int64_t temp_score = score - 1; temp_score >= 1LL; --temp_score) {
-      const int64_t temp_coins = min_coins_[temp_score + 1LL] + D_;
-      if (temp_coins < min_coins_[temp_score]) {
-        min_coins_[temp_score] = temp_coins;
-      } else {
-        break;
-      }
+int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
+  if (min_coins_.count(goal) > 0) {
+    return min_coins_[goal];
+  }
+  int64_t result = INT64_MAX;
+
+  for (int32_t o = kDouble; o <= kQuintuple; ++o) {
+    const Operation &operation = operations_[o];
+    if (goal % operation.ratio == 0) {
+      const int64_t temp_result = operation.coins + CalculateMinimumAmountOfCoins(goal / operation.ratio);
+      result = std::min(temp_result, result);
+    } else {
+      const int64_t r = goal / operation.ratio;
+
+      const int64_t lower_bound = r * operation.ratio;
+      const int64_t temp_result_1 = operation.coins + (goal - lower_bound) * operations_[kDecrement].coins +
+                                    CalculateMinimumAmountOfCoins(lower_bound / operation.ratio);
+      result = std::min(temp_result_1, result);
+
+      const int64_t upper_bound = (r + 1) * operation.ratio;
+      const int64_t temp_result_2 = operation.coins + (upper_bound - goal) * operations_[kIncrement].coins +
+                                    CalculateMinimumAmountOfCoins(upper_bound / operation.ratio);
+      result = std::min(temp_result_2, result);
     }
   }
-  return min_coins_[N_];
+  min_coins_[goal] = result;
+  return result;
 }
 
 }  // namespace AGC_044_A
