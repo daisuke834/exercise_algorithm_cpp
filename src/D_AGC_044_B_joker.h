@@ -15,6 +15,8 @@
 
 namespace AGC_044_B {
 
+int CallMain(std::istream &input_stream);
+
 using Position = std::pair<int32_t, int32_t>;  // row, column
 
 struct Audience {

@@ -56,4 +56,24 @@ TEST_F(Test_AGC_044_B, test_3) {
   delete solution;
 }
 
+TEST_F(Test_AGC_044_B, CallMain_1) {
+  std::ostringstream answer;
+  answer << "1" << std::endl;
+
+  std::ostringstream input_stream;
+  input_stream << "3" << std::endl;
+  input_stream << "1 3 7 9 5 4 8 6 2" << std::endl;
+  std::istringstream iss(input_stream.str());
+  testing::internal::CaptureStdout();
+  bool success = true;
+  try {
+    CallMain(iss);
+  } catch (...) {
+    success = false;
+  }
+  const std::string captured_stdout = testing::internal::GetCapturedStdout();
+  EXPECT_TRUE(success);
+  ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
+}
+
 }  // namespace AGC_044_B

@@ -8,6 +8,24 @@
 
 namespace AGC_044_B {
 
+int CallMain(std::istream &input_stream) {
+  input_stream.tie(0);
+  std::ios::sync_with_stdio(false);
+
+  int32_t N;
+  input_stream >> N;
+  std::vector<int32_t> P(N * N);
+  Solution *solution = new Solution(N);
+  for (int32_t i = 0; i < N * N; ++i) {
+    input_stream >> P[i];
+  }
+  const int64_t result = solution->CalculateNumberOfPairs(P);
+  std::cout << result << std::endl;
+  delete solution;
+
+  return 0;
+}
+
 const int32_t neighbours[][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 
 Solution::Solution(const int32_t N) noexcept : N_(N), number_of_dislike_(0) {
@@ -36,7 +54,6 @@ int32_t Solution::CalculateNumberOfPairs(const std::vector<int32_t> &people_to_e
 
 void Solution::ExitOneAudience(const Position &position) noexcept {
   number_of_dislike_ += GetDistance(position);
-  std::cerr << "exit: +=" << GetDistance(position) << std::endl;
   audiences_[position.first][position.second].exited = true;
   audiences_[position.first][position.second].distance_to_exit = GetDistanceWhenEmpty(position);
   q_.push(position);
