@@ -101,7 +101,7 @@ std::vector<std::pair<int64_t, int64_t>> FactorizeIntoPrimeFactors(const int64_t
     return result;
   }
   int64_t remaining = N;
-  for (int64_t i = 2LL; i <= remaining; ++i) {
+  for (int64_t i = 2LL; i * i <= remaining; ++i) {
     int64_t count = 0LL;
     while (remaining % i == 0LL) {
       ++count;
@@ -110,6 +110,9 @@ std::vector<std::pair<int64_t, int64_t>> FactorizeIntoPrimeFactors(const int64_t
     if (count > 0LL) {
       result.push_back(std::pair<int64_t, int64_t>(i, count));
     }
+  }
+  if (remaining > 1) {
+    result.push_back(std::pair<int64_t, int64_t>(remaining, 1));
   }
   return result;
 }

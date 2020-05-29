@@ -78,6 +78,11 @@ TEST_F(Test_Utils, FactorizeIntoPrimeFactors) {
   ASSERT_EQ(2, result_1[0].second);
   ASSERT_EQ(5, result_1[1].first);
   ASSERT_EQ(1, result_1[1].second);
+
+  const std::vector<std::pair<int64_t, int64_t>> result_2 = FactorizeIntoPrimeFactors(999993031);
+  ASSERT_EQ(1U, result_2.size());
+  ASSERT_EQ(999993031, result_2[0].first);
+  ASSERT_EQ(1, result_2[0].second);
 }
 
 }  // namespace utils
