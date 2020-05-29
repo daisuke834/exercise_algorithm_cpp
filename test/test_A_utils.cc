@@ -62,6 +62,22 @@ TEST_F(Test_Utils, IsPrime) {
   ASSERT_FALSE(IsPrime(1000000008LL));
 }
 
-TEST_F(Test_Utils, CalculatePower) {}
+TEST_F(Test_Utils, CalculatePower) {
+  ASSERT_EQ(0, CalculatePower(0, 1000000000LL));
+  ASSERT_EQ(1, CalculatePower(1, 1000000000LL));
+  ASSERT_EQ(1024, CalculatePower(2, 10));
+  ASSERT_EQ(27, CalculatePower(3, 3));
+  ASSERT_EQ(390625, CalculatePower(5, 8));
+  ASSERT_EQ(891031477, CalculatePower(31, 8));
+}
+
+TEST_F(Test_Utils, FactorizeIntoPrimeFactors) {
+  const std::vector<std::pair<int64_t, int64_t>> result_1 = FactorizeIntoPrimeFactors(20);
+  ASSERT_EQ(2U, result_1.size());
+  ASSERT_EQ(2, result_1[0].first);
+  ASSERT_EQ(2, result_1[0].second);
+  ASSERT_EQ(5, result_1[1].first);
+  ASSERT_EQ(1, result_1[1].second);
+}
 
 }  // namespace utils
