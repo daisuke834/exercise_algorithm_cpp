@@ -50,13 +50,18 @@ TEST_F(Test_Utils, SplitStringToFloatVector) {
   }
 }
 
-TEST_F(Test_Utils, CalculatePower) {
-  ASSERT_EQ(0, CalculatePower(0, 1000000000LL));
-  ASSERT_EQ(1, CalculatePower(1, 1000000000LL));
-  ASSERT_EQ(1024, CalculatePower(2, 10));
-  ASSERT_EQ(27, CalculatePower(3, 3));
-  ASSERT_EQ(390625, CalculatePower(5, 8));
-  ASSERT_EQ(891031477, CalculatePower(31, 8));
+TEST_F(Test_Utils, IsPrime) {
+  ASSERT_FALSE(IsPrime(-1));
+  ASSERT_FALSE(IsPrime(0));
+  ASSERT_FALSE(IsPrime(1));
+  ASSERT_TRUE(IsPrime(2));
+  ASSERT_TRUE(IsPrime(3));
+  ASSERT_FALSE(IsPrime(4));
+  ASSERT_FALSE(IsPrime(1000000006LL));
+  ASSERT_TRUE(IsPrime(1000000007LL));
+  ASSERT_FALSE(IsPrime(1000000008LL));
 }
+
+TEST_F(Test_Utils, CalculatePower) {}
 
 }  // namespace utils

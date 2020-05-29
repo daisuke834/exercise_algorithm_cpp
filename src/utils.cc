@@ -64,6 +64,7 @@ std::vector<double> SplitStringToDoubleVector(const std::string &text, const cha
 }
 
 int64_t CalculatePower(const int64_t x, const int64_t n) noexcept {
+  // log(n) order
   if (n == 0LL) {
     return 1LL;
   } else if (n == 1LL) {
@@ -75,6 +76,21 @@ int64_t CalculatePower(const int64_t x, const int64_t n) noexcept {
   int64_t result = CalculatePower((x * x) % kPrime, n / 2LL);
   if (n % 2LL == 1LL) {
     result = (result * x) % kPrime;
+  }
+  return result;
+}
+
+bool IsPrime(const int64_t N) {
+  // root N order
+  if (N <= 0LL || N == 1LL) {
+    return false;
+  }
+  bool result = true;
+  for (int64_t i = 2LL; i * i <= N; ++i) {
+    if (N % i == 0LL) {
+      result = false;
+      break;
+    }
   }
   return result;
 }

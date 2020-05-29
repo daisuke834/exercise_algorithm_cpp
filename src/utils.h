@@ -21,5 +21,7 @@ std::vector<double> SplitStringToDoubleVector(const std::string &text, const cha
 
 int64_t CalculatePower(const int64_t x, const int64_t n) noexcept;
 
+bool IsPrime(const int64_t N);
+
 }  // namespace utils
 #endif  // SRC_UTILS_H_
