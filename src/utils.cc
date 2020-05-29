@@ -4,6 +4,7 @@
  */
 
 #include "src/utils.h"
+#include <algorithm>
 #include <iostream>
 namespace utils {
 
@@ -113,6 +114,27 @@ std::vector<std::pair<int64_t, int64_t>> FactorizeIntoPrimeFactors(const int64_t
   }
   if (remaining > 1) {
     result.push_back(std::pair<int64_t, int64_t>(remaining, 1));
+  }
+  return result;
+}
+
+int64_t GreatestCommonDivisor(const int64_t a, const int64_t b) {
+  // GCD. O(log(min(a, b)))
+  int64_t result = -1LL;
+  if (a < 0) {
+    std::cerr << "ERROR: GreatestCommonDivisor(): a is out of range: " << a << std::endl;
+    throw 1;
+  } else if (b < 0LL) {
+    std::cerr << "ERROR: GreatestCommonDivisor(): b is out of range: " << b << std::endl;
+    throw 1;
+  } else if (a == 0LL) {
+    result = b;
+  } else if (b == 0LL) {
+    result = a;
+  } else {
+    const int64_t new_a = std::min(a, b);
+    const int64_t new_b = std::max(a, b) % new_a;  // Euclidean Algorithm
+    result = GreatestCommonDivisor(new_a, new_b);
   }
   return result;
 }

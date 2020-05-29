@@ -26,5 +26,7 @@ bool IsPrime(const int64_t N);
 
 std::vector<std::pair<int64_t, int64_t>> FactorizeIntoPrimeFactors(const int64_t N);
 
+int64_t GreatestCommonDivisor(const int64_t a, const int64_t b);
+
 }  // namespace utils
 #endif  // SRC_UTILS_H_

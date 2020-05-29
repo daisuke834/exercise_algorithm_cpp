@@ -85,4 +85,19 @@ TEST_F(Test_Utils, FactorizeIntoPrimeFactors) {
   ASSERT_EQ(1, result_2[0].second);
 }
 
+TEST_F(Test_Utils, GreatestCommonDivisor) {
+  ASSERT_ANY_THROW(GreatestCommonDivisor(-1, 2));
+  ASSERT_ANY_THROW(GreatestCommonDivisor(3, -2));
+  ASSERT_EQ(147, GreatestCommonDivisor(147, 0));
+  ASSERT_EQ(105, GreatestCommonDivisor(0, 105));
+  ASSERT_EQ(21, GreatestCommonDivisor(147, 105));
+  ASSERT_EQ(2, GreatestCommonDivisor(54, 20));
+  ASSERT_EQ(2, GreatestCommonDivisor(20, 54));
+  ASSERT_EQ(97, GreatestCommonDivisor(12707, 12319));
+  ASSERT_EQ(97, GreatestCommonDivisor(12319, 12707));
+  ASSERT_EQ(2000, GreatestCommonDivisor(1246000, 28972000));
+  ASSERT_EQ(62500000, GreatestCommonDivisor(812500000, 1000000000));
+  ASSERT_EQ(6, GreatestCommonDivisor(923490024, 825000390));
+}
+
 }  // namespace utils
