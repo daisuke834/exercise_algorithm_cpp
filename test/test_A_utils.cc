@@ -50,4 +50,13 @@ TEST_F(Test_Utils, SplitStringToFloatVector) {
   }
 }
 
+TEST_F(Test_Utils, CalculatePower) {
+  ASSERT_EQ(0, CalculatePower(0, 1000000000LL));
+  ASSERT_EQ(1, CalculatePower(1, 1000000000LL));
+  ASSERT_EQ(1024, CalculatePower(2, 10));
+  ASSERT_EQ(27, CalculatePower(3, 3));
+  ASSERT_EQ(390625, CalculatePower(5, 8));
+  ASSERT_EQ(891031477, CalculatePower(31, 8));
+}
+
 }  // namespace utils

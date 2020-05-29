@@ -63,4 +63,20 @@ std::vector<double> SplitStringToDoubleVector(const std::string &text, const cha
   return values;
 }
 
+int64_t CalculatePower(const int64_t x, const int64_t n) noexcept {
+  if (n == 0LL) {
+    return 1LL;
+  } else if (n == 1LL) {
+    return x;
+  } else if (x == 1LL) {
+    return 1LL;
+  }
+  constexpr int64_t kPrime = 1000000007LL;
+  int64_t result = CalculatePower((x * x) % kPrime, n / 2LL);
+  if (n % 2LL == 1LL) {
+    result = (result * x) % kPrime;
+  }
+  return result;
+}
+
 }  // namespace utils
