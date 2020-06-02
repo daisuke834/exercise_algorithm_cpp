@@ -20,13 +20,15 @@ struct Mint {
     return Mint(-value);
   }
   Mint &operator+=(const Mint rhs) {
-    if ((value += rhs.value) >= kMod)
+    if ((value += rhs.value) >= kMod) {
       value -= kMod;
+    }
     return *this;
   }
   Mint &operator-=(const Mint rhs) {
-    if ((value += kMod - rhs.value) >= kMod)
+    if ((value += kMod - rhs.value) >= kMod) {
       value -= kMod;
+    }
     return *this;
   }
   Mint &operator*=(const Mint rhs) {
