@@ -45,20 +45,20 @@ struct Mint {
     return Mint(*this) *= rhs;
   }
   Mint Pow(int64_t p) const {
-    if (p == 0) {
+    if (p == 0LL) {
       return 1LL;
-    } else if (p < 0) {
-      return Pow(-p).Pow(kMod - 2);
+    } else if (p < 0LL) {
+      return Pow(-p).Pow(kMod - 2LL);
     }
     Mint temp = Pow(p >> 1LL);
     temp *= temp;
-    if (p & 1) {
+    if (p & 1LL) {
       temp *= (*this);
     }
     return temp;
   }
   Mint Inv() const {
-    return Pow(kMod - 2);
+    return Pow(kMod - 2LL);
   }
   Mint &operator/=(const Mint a) {
     return *this *= a.Inv();
