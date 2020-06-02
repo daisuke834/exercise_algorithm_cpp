@@ -28,6 +28,8 @@ std::vector<std::pair<int64_t, int64_t>> FactorizeIntoPrimeFactors(const int64_t
 
 int64_t GreatestCommonDivisor(const int64_t a, const int64_t b);
 
+int64_t LeastCommonMultiple(const int64_t a, const int64_t b);
+
 class UnionFind {
  public:
   explicit UnionFind(const int32_t n) : parents_(n, -1) {}

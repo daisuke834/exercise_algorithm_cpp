@@ -100,4 +100,19 @@ TEST_F(Test_Utils, GreatestCommonDivisor) {
   ASSERT_EQ(6, GreatestCommonDivisor(923490024, 825000390));
 }
 
+TEST_F(Test_Utils, LeastCommonMultiple) {
+  ASSERT_ANY_THROW(LeastCommonMultiple(-1, 100000000));
+  ASSERT_ANY_THROW(LeastCommonMultiple(100000000, -1));
+  ASSERT_EQ(0, LeastCommonMultiple(100000000, 0));
+  ASSERT_EQ(0, LeastCommonMultiple(0, 100000000));
+  ASSERT_EQ(1, LeastCommonMultiple(1, 1));
+  ASSERT_EQ(2, LeastCommonMultiple(2, 1));
+  ASSERT_EQ(2, LeastCommonMultiple(1, 2));
+  ASSERT_EQ(4, LeastCommonMultiple(4, 2));
+  ASSERT_EQ(4, LeastCommonMultiple(2, 4));
+  ASSERT_EQ(90, LeastCommonMultiple(15, 18));
+  ASSERT_EQ(90, LeastCommonMultiple(18, 15));
+  ASSERT_EQ(187, LeastCommonMultiple(11, 17));
+}
+
 }  // namespace utils
