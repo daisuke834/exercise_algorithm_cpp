@@ -115,4 +115,22 @@ TEST_F(Test_Utils, LeastCommonMultiple) {
   ASSERT_EQ(187, LeastCommonMultiple(11, 17));
 }
 
+TEST_F(Test_Utils, GetNumberOfDigits) {
+  ASSERT_EQ(1, GetNumberOfDigits(0));
+  ASSERT_EQ(1, GetNumberOfDigits(3));
+  ASSERT_EQ(1, GetNumberOfDigits(-5));
+  ASSERT_EQ(1, GetNumberOfDigits(9));
+  ASSERT_EQ(2, GetNumberOfDigits(10));
+  ASSERT_EQ(2, GetNumberOfDigits(-10));
+  ASSERT_EQ(2, GetNumberOfDigits(99));
+  ASSERT_EQ(2, GetNumberOfDigits(-99));
+  ASSERT_EQ(10, GetNumberOfDigits(1000000000));
+  ASSERT_EQ(10, GetNumberOfDigits(-1000000000));
+  ASSERT_EQ(17, GetNumberOfDigits(10000000000000000));
+  ASSERT_EQ(17, GetNumberOfDigits(-10000000000000000));
+  ASSERT_EQ(17, GetNumberOfDigits(99999999999999999));
+  ASSERT_EQ(19, GetNumberOfDigits(INT64_MAX));
+  ASSERT_EQ(19, GetNumberOfDigits(INT64_MIN));
+}
+
 }  // namespace utils

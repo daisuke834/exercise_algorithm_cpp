@@ -30,6 +30,8 @@ int64_t GreatestCommonDivisor(const int64_t a, const int64_t b);
 
 int64_t LeastCommonMultiple(const int64_t a, const int64_t b);
 
+int64_t GetNumberOfDigits(const int64_t N);
+
 class UnionFind {
  public:
   explicit UnionFind(const int32_t n) : parents_(n, -1) {}

@@ -160,4 +160,21 @@ int64_t LeastCommonMultiple(const int64_t a, const int64_t b) {
   return result;
 }
 
+int64_t GetNumberOfDigits(const int64_t N) {
+  // 桁数の取得
+  constexpr int64_t kBase = 10;
+  int64_t result;
+  if (N == 0) {
+    result = 1;
+  } else {
+    result = 0;
+    int64_t temp = N;
+    while (temp != 0) {
+      ++result;
+      temp /= kBase;
+    }
+  }
+  return result;
+}
+
 }  // namespace utils
