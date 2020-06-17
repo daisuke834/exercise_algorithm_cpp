@@ -4,8 +4,8 @@
  * C. Strawberry Cakes.
  */
 
-#ifndef SRC_D_DDCC2020_QUAL_C_1_MULTISET_H_
-#define SRC_D_DDCC2020_QUAL_C_1_MULTISET_H_
+#ifndef SRC_D_DDCC2020_QUAL_C_1_STRAWBERRY_H_
+#define SRC_D_DDCC2020_QUAL_C_1_STRAWBERRY_H_
 
 #include <cstdint>
 #include <iostream>
@@ -16,4 +16,4 @@ int CallMain(std::istream &input_stream);
 
 }  // namespace D_ddcc2020_qual_C_1
 
-#endif  // SRC_D_DDCC2020_QUAL_C_1_MULTISET_H_
+#endif  // SRC_D_DDCC2020_QUAL_C_1_STRAWBERRY_H_
