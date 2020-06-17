@@ -69,8 +69,6 @@ void Strawberry::Dfs(const Pair &top_left, const Pair &bottom_right) {
   int64_t number_of_filled_rows = 0;
   int64_t total_count = 0;
   int64_t last_filled_row = -1;
-  // cerr << top_left.first << ", " << top_left.second << " :: " << bottom_right.first << ", " << bottom_right.second
-  //      << endl;
   for (int64_t row = top_left.first; row <= bottom_right.first; ++row) {
     const int64_t count = SumOfRow(row, top_left.second, bottom_right.second);
     if (count > 0) {
