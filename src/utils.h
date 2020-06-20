@@ -32,7 +32,7 @@ int64_t LeastCommonMultiple(const int64_t a, const int64_t b);
 
 int64_t GetNumberOfDigits(const int64_t N);
 
-std::vector<bool> GeneratePrimeTable(int64_t max_value);
+std::vector<bool> GeneratePrimeTable(const int64_t max_value);
 
 class UnionFind {
  public:

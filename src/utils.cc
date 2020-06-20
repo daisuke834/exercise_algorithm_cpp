@@ -177,7 +177,7 @@ int64_t GetNumberOfDigits(const int64_t N) {
   return result;
 }
 
-std::vector<bool> GeneratePrimeTable(int64_t max_value) {
+std::vector<bool> GeneratePrimeTable(const int64_t max_value) {
   // 素数の真偽表を返却する。
   // エラトステネスの篩(Sieve of Eratosthenes). O(n * log(log(n)))
   const int64_t upper_limit = static_cast<int64_t>(sqrt(static_cast<double>(max_value)));
