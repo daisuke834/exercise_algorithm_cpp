@@ -133,4 +133,32 @@ TEST_F(Test_Utils, GetNumberOfDigits) {
   ASSERT_EQ(19, GetNumberOfDigits(INT64_MIN));
 }
 
+TEST_F(Test_Utils, GeneratePrimeTable) {
+  std::vector<bool> is_prime = GeneratePrimeTable(2017);
+  ASSERT_EQ(2018U, is_prime.size());
+
+  ASSERT_FALSE(is_prime[0]);
+  ASSERT_FALSE(is_prime[1]);
+  ASSERT_FALSE(is_prime[4]);
+  ASSERT_FALSE(is_prime[6]);
+  ASSERT_FALSE(is_prime[8]);
+  ASSERT_FALSE(is_prime[9]);
+  ASSERT_FALSE(is_prime[10]);
+  ASSERT_FALSE(is_prime[12]);
+  ASSERT_FALSE(is_prime[15]);
+  ASSERT_FALSE(is_prime[195]);
+  ASSERT_FALSE(is_prime[2015]);
+
+  ASSERT_TRUE(is_prime[2]);
+  ASSERT_TRUE(is_prime[3]);
+  ASSERT_TRUE(is_prime[5]);
+  ASSERT_TRUE(is_prime[7]);
+  ASSERT_TRUE(is_prime[11]);
+  ASSERT_TRUE(is_prime[13]);
+  ASSERT_TRUE(is_prime[179]);
+  ASSERT_TRUE(is_prime[193]);
+  ASSERT_TRUE(is_prime[1009]);
+  ASSERT_TRUE(is_prime[2017]);
+}
+
 }  // namespace utils
