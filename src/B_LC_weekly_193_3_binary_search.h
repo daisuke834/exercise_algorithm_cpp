@@ -1,6 +1,7 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode weekly-193-3. 5455. Minimum Number of Days to Make m Bouquets.
+ * https://leetcode.com/contest/weekly-contest-193/problems/minimum-number-of-days-to-make-m-bouquets/
  */
 
 #ifndef SRC_B_LC_WEEKLY_189_3_SUBSEQUENCE_H_

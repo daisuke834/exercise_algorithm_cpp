@@ -2,6 +2,7 @@
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode weekly-190-4. 1458. Max Dot Product of Two Subsequences.
  * Return the maximum dot product between non-empty subsequences of nums1 and nums2 with the same length.
+ * https://leetcode.com/contest/weekly-contest-190/problems/max-dot-product-of-two-subsequences/
  */
 
 #ifndef SRC_B_LC_WEEKLY_189_3_SUBSEQUENCE_H_
