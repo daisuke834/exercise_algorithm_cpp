@@ -5,8 +5,8 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C17_2_DPL_1_B_KNAPSACK_PROBLEM_H_
-#define SRC_C17_2_DPL_1_B_KNAPSACK_PROBLEM_H_
+#ifndef SRC_C17_2_DPL_1_B_01KNAPSACK_PROBLEM_H_
+#define SRC_C17_2_DPL_1_B_01KNAPSACK_PROBLEM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
@@ -18,7 +18,7 @@ constexpr int32_t kMaxNumberOfItems = 100;
 constexpr int32_t kMaxWeight = 1000;
 constexpr int32_t kMaxCapacity = 10000;
 
-void CallKnapsackProblem(std::istream &input_stream);
+void Call01KnapsackProblem(std::istream &input_stream);
 
 struct Item {
   int32_t value{0};
@@ -51,4 +51,4 @@ class KnapsackProblem {
 
 }  // namespace DPL_1_B
 
-#endif  // SRC_C17_2_DPL_1_B_KNAPSACK_PROBLEM_H_
+#endif  // SRC_C17_2_DPL_1_B_01KNAPSACK_PROBLEM_H_

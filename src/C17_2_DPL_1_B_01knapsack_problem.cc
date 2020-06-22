@@ -5,14 +5,14 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C17_2_DPL_1_B_knapsack_problem.h"
+#include "src/C17_2_DPL_1_B_01knapsack_problem.h"
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace DPL_1_B {
 
-void CallKnapsackProblem(std::istream &input_stream) {
+void Call01KnapsackProblem(std::istream &input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   KnapsackProblem *knapsack = new KnapsackProblem();
@@ -26,7 +26,7 @@ void CallKnapsackProblem(std::istream &input_stream) {
     }
     std::cout << knapsack->FindMaxValue(capacity_of_knapsack) << std::endl;
   } catch (...) {
-    std::cerr << "ERROR: CallKnapsackProblem()" << std::endl;
+    std::cerr << "ERROR: Call01KnapsackProblem()" << std::endl;
     delete knapsack;
     throw;
   }

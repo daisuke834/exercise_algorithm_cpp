@@ -8,7 +8,7 @@
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/C17_2_DPL_1_B_knapsack_problem.h"
+#include "src/C17_2_DPL_1_B_01knapsack_problem.h"
 
 namespace DPL_1_B {
 
@@ -23,7 +23,7 @@ class Test_DPL_1_B : public ::testing::Test {
   }
 };
 
-TEST_F(Test_DPL_1_B, CallKnapsackProblem_1) {
+TEST_F(Test_DPL_1_B, Call01KnapsackProblem_1) {
   std::ostringstream answer;
   answer << "13" << std::endl;
 
@@ -37,7 +37,7 @@ TEST_F(Test_DPL_1_B, CallKnapsackProblem_1) {
   testing::internal::CaptureStdout();
   bool success = true;
   try {
-    CallKnapsackProblem(iss);
+    Call01KnapsackProblem(iss);
   } catch (...) {
     success = false;
   }
@@ -46,7 +46,7 @@ TEST_F(Test_DPL_1_B, CallKnapsackProblem_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_DPL_1_B, CallKnapsackProblem_2) {
+TEST_F(Test_DPL_1_B, Call01KnapsackProblem_2) {
   std::ostringstream answer;
   answer << "9" << std::endl;
 
@@ -58,7 +58,7 @@ TEST_F(Test_DPL_1_B, CallKnapsackProblem_2) {
   testing::internal::CaptureStdout();
   bool success = true;
   try {
-    CallKnapsackProblem(iss);
+    Call01KnapsackProblem(iss);
   } catch (...) {
     success = false;
   }
