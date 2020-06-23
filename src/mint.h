@@ -72,5 +72,35 @@ std::ostream &operator<<(std::ostream &os, const Mint &a) {
   return os;
 }
 
+class Combination {
+ public:
+  Combination(const int64_t max_n) : max_n_(max_n), fact_(max_n + 1L), ifact_(max_n + 1L) {
+    if (max_n >= kMod) {
+      std::cerr << "Combination::Combination: Invalid arg: max_n=" << max_n << ", kMod=" << kMod << std::endl;
+      assert(0);
+    }
+    fact_[0] = 1L;
+    for (int64_t i = 1L; i <= max_n; ++i) {
+      fact_[i] = fact_[i - 1L] * i;
+    }
+    ifact_[max_n] = fact_[max_n].Inv();
+    for (int64_t i = max_n; i >= 1L; --i) {
+      ifact_[i - 1L] = ifact_[i] * i;
+    }
+  }
+  Mint operator()(const int64_t n, const int64_t k) const {
+    if (n > max_n_) {
+      std::cerr << "Combination::operator(): Invalid arg: n=" << n << ", max_n=" << max_n_ << std::endl;
+      throw 1;
+    }
+    const Mint result = (k < 0L || k > n) ? 0L : (fact_[n] * ifact_[k] * ifact_[n - k]);
+    return result;
+  }
+
+ private:
+  const int64_t max_n_;
+  std::vector<Mint> fact_;
+  std::vector<Mint> ifact_;
+};
 }  // namespace mint
 #endif  // SRC_MINT_H_

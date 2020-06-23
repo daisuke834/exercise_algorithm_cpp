@@ -102,4 +102,18 @@ TEST_F(Test_Mint, Pow) {
   ASSERT_EQ(1LL, (x.Pow(3) * x.Pow(-3)).value);
 }
 
+TEST_F(Test_Mint, Combination) {
+  const Combination combination(100);
+
+  ASSERT_EQ(1L, combination(1, 0).value);
+  ASSERT_EQ(1L, combination(100, 0).value);
+
+  ASSERT_EQ(15L, combination(15, 1).value);
+  ASSERT_EQ(100L, combination(100, 1).value);
+  ASSERT_EQ(252L, combination(10, 5).value);
+  ASSERT_EQ(386206920L, combination(60, 53).value);
+
+  ASSERT_ANY_THROW(combination(kMod + 1, 1).value);
+}
+
 }  // namespace mint
