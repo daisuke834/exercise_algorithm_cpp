@@ -98,6 +98,9 @@ class Combination {
   }
 
  private:
+  Combination() = delete;
+
+ private:
   const int64_t max_n_;
   std::vector<Mint> fact_;
   std::vector<Mint> ifact_;
