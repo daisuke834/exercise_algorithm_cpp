@@ -74,7 +74,7 @@ std::ostream &operator<<(std::ostream &os, const Mint &a) {
 
 class Combination {
  public:
-  Combination(const int64_t max_n) : max_n_(max_n), fact_(max_n + 1L), ifact_(max_n + 1L) {
+  explicit Combination(const int64_t max_n) : max_n_(max_n), fact_(max_n + 1L), ifact_(max_n + 1L) {
     if (max_n >= kMod) {
       std::cerr << "Combination::Combination: Invalid arg: max_n=" << max_n << ", kMod=" << kMod << std::endl;
       assert(0);
