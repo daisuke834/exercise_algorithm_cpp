@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief AtCoder Educational DP Contest. LCS(Longest-common subsequence, 最長共通部分列).
+ * @brief AtCoder Educational DP Contest. F. LCS(Longest-common subsequence, 最長共通部分列).
  * https://atcoder.jp/contests/dp/tasks/dp_f
  */
 
