@@ -70,7 +70,7 @@ std::ostream &operator<<(std::ostream &os, const Mint &a) {
 
 int Solution::numSubseq(std::vector<int> &nums, int target) {
   const int64_t N = static_cast<int64_t>(nums.size());
-  sort(nums.begin(), nums.end());
+  std::sort(nums.begin(), nums.end());
   int64_t ma = N - 1;
   Mint result = 0;
   for (int64_t mi = 0; mi < N; ++mi) {
