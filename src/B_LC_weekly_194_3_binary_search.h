@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief LeetCode weekly-193-3. 1488. Avoid Flood in The City.
+ * @brief LeetCode weekly-194-3. 1488. Avoid Flood in The City.
  * https://leetcode.com/contest/weekly-contest-194/problems/avoid-flood-in-the-city/
  */
 
