@@ -4,8 +4,8 @@
  * https://leetcode.com/contest/weekly-contest-194/problems/avoid-flood-in-the-city/
  */
 
-#ifndef SRC_B_LC_WEEKLY_189_3_SUBSEQUENCE_H_
-#define SRC_B_LC_WEEKLY_189_3_SUBSEQUENCE_H_
+#ifndef SRC_B_LC_WEEKLY_194_3_BINARY_SEARCH_H_
+#define SRC_B_LC_WEEKLY_194_3_BINARY_SEARCH_H_
 
 #include <algorithm>
 #include <cstdint>
@@ -22,4 +22,4 @@ class Solution {
 
 }  // namespace LC_weekly_194_3
 
-#endif  // SRC_B_LC_WEEKLY_189_3_SUBSEQUENCE_H_
+#endif  // SRC_B_LC_WEEKLY_194_3_BINARY_SEARCH_H_
