@@ -3,12 +3,12 @@
  * @brief AtCoder Practical Algorithm Skill Test (PAST) 003-J. 回転寿司.
  */
 
-#include "src/D_PAST_003_J_upper_bound.h"
+#include "src/D_PAST_003_J_1_upper_bound.h"
 #include <algorithm>
 #include <functional>
 #include <vector>
 
-namespace PAST_003_J {
+namespace PAST_003_J_1 {
 
 int CallMain(std::istream &input_stream) {
   input_stream.tie(0);
@@ -35,4 +35,4 @@ int CallMain(std::istream &input_stream) {
   return 0;
 }
 
-}  // namespace PAST_003_J
+}  // namespace PAST_003_J_1

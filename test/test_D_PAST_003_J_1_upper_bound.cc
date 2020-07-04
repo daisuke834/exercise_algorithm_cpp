@@ -7,18 +7,18 @@
 #include <gtest/internal/gtest-port.h>
 #include <iostream>
 #include <sstream>
-#include "src/D_PAST_003_J_upper_bound.h"
+#include "src/D_PAST_003_J_1_upper_bound.h"
 
-namespace PAST_003_J {
+namespace PAST_003_J_1 {
 
-class Test_PAST_003_J : public ::testing::Test {
+class Test_PAST_003_J_1 : public ::testing::Test {
  protected:
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
 };
 
-TEST_F(Test_PAST_003_J, test_1) {
+TEST_F(Test_PAST_003_J_1, test_1) {
   std::ostringstream answer;
   answer << "1" << std::endl;
   answer << "2" << std::endl;
@@ -42,7 +42,7 @@ TEST_F(Test_PAST_003_J, test_1) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_PAST_003_J, test_2) {
+TEST_F(Test_PAST_003_J_1, test_2) {
   std::ostringstream answer;
   answer << "1" << std::endl;
   answer << "1" << std::endl;
@@ -71,7 +71,7 @@ TEST_F(Test_PAST_003_J, test_2) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_PAST_003_J, test_3) {
+TEST_F(Test_PAST_003_J_1, test_3) {
   std::ostringstream answer;
   answer << "1" << std::endl;
   answer << "2" << std::endl;
@@ -120,4 +120,4 @@ TEST_F(Test_PAST_003_J, test_3) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-}  // namespace PAST_003_J
+}  // namespace PAST_003_J_1
