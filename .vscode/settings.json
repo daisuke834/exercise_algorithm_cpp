@@ -73,7 +73,18 @@
         "stack": "cpp",
         "numeric": "cpp",
         "*.tcc": "cpp",
-        "clocale": "cpp"
+        "clocale": "cpp",
+        "cfenv": "cpp",
+        "cinttypes": "cpp",
+        "condition_variable": "cpp",
+        "csetjmp": "cpp",
+        "csignal": "cpp",
+        "future": "cpp",
+        "scoped_allocator": "cpp",
+        "thread": "cpp",
+        "regex": "cpp",
+        "typeindex": "cpp",
+        "valarray": "cpp"
     },
     "C_Cpp.default.cppStandard": "c++14",
     "cpplint.extensions": [
