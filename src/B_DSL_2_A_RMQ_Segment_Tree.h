@@ -9,10 +9,33 @@
 
 #include <cstdint>
 #include <iostream>
+#include <vector>
 
 namespace DSL_2_A {
 
 void CallCycleDetection(std::istream &input_stream);
+
+class SegmentTree {
+ public:
+  explicit SegmentTree(const int64_t array_size);
+  explicit SegmentTree(const std::vector<int64_t> array);
+  void Update(const int64_t array_index, const int64_t value);
+  int64_t Find(const int64_t start, const int64_t end);  // [start, end)
+
+ private:
+  SegmentTree() = delete;
+  int64_t LeafNodeIndex(const int64_t array_index) const;
+  static int64_t Parent(const int64_t node_index);
+  static int64_t ChildLeft(const int64_t node_index);
+  static int64_t ChildRight(const int64_t node_index);
+  int64_t Query(const int64_t start, const int64_t end, const int64_t node_index, const int64_t start_of_node,
+                const int64_t end_of_node) const;
+
+ private:
+  int64_t array_size_;
+  int64_t node_size_;
+  std::vector<int64_t> nodes_;
+};
 
 }  // namespace DSL_2_A
 

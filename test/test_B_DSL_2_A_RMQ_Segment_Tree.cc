@@ -18,7 +18,7 @@ class Test_DSL_2_A : public ::testing::Test {
   virtual void TearDown() {}
 };
 
-TEST_F(Test_DSL_2_A, CallCycleDetection_1) {
+TEST_F(Test_DSL_2_A, RangeMinimumQuery_1) {
   std::ostringstream answer;
   answer << "0" << std::endl;
 
