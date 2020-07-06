@@ -11,18 +11,36 @@ namespace DSL_2_A {
 
 constexpr int64_t kInf = INT64_MAX / 2L;
 
-void CallCycleDetection(std::istream &input_stream) {
+void CallMain(std::istream &input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
+
+  int64_t N, Q;
+  input_stream >> N >> Q;
+  SegmentTree st(N, (1L << 31L) - 1);
+  enum Query : int64_t { kUpdate = 0, kFind };
+  for (int64_t q = 0; q < Q; ++q) {
+    int64_t command;
+    input_stream >> command;
+    if (command == kUpdate) {
+      int64_t index, value;
+      input_stream >> index >> value;
+      st.Update(index, value);
+    } else {
+      int64_t start, end_m1;
+      input_stream >> start >> end_m1;
+      std::cout << st.Find(start, end_m1 + 1) << std::endl;
+    }
+  }
 }
 
-SegmentTree::SegmentTree(const int64_t array_size) {
+SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) {
   array_size_ = 1;
   while (array_size_ < array_size) {
     array_size_ *= 2;
   }
   node_size_ = array_size_ * 2 - 1;
-  nodes_ = std::vector<int64_t>(node_size_, kInf);
+  nodes_ = std::vector<int64_t>(node_size_, init_value);
 }
 
 SegmentTree::SegmentTree(const std::vector<int64_t> array) {

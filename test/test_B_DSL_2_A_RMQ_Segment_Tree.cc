@@ -20,15 +20,44 @@ class Test_DSL_2_A : public ::testing::Test {
 
 TEST_F(Test_DSL_2_A, RangeMinimumQuery_1) {
   std::ostringstream answer;
-  answer << "0" << std::endl;
+  answer << "1" << std::endl;
+  answer << "2" << std::endl;
 
   std::ostringstream input_stream;
-  input_stream << "3 3" << std::endl;
+  input_stream << "3 5" << std::endl;
+  input_stream << "0 0 1" << std::endl;
+  input_stream << "0 1 2" << std::endl;
+  input_stream << "0 2 3" << std::endl;
+  input_stream << "1 0 2" << std::endl;
+  input_stream << "1 1 2" << std::endl;
   std::istringstream iss(input_stream.str());
   testing::internal::CaptureStdout();
   bool success = true;
   try {
-    CallCycleDetection(iss);
+    CallMain(iss);
+  } catch (...) {
+    success = false;
+  }
+  const std::string captured_stdout = testing::internal::GetCapturedStdout();
+  EXPECT_TRUE(success);
+  ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
+}
+
+TEST_F(Test_DSL_2_A, RangeMinimumQuery_2) {
+  std::ostringstream answer;
+  answer << "2147483647" << std::endl;
+  answer << "5" << std::endl;
+
+  std::ostringstream input_stream;
+  input_stream << "1 3" << std::endl;
+  input_stream << "1 0 0" << std::endl;
+  input_stream << "0 0 5" << std::endl;
+  input_stream << "1 0 0" << std::endl;
+  std::istringstream iss(input_stream.str());
+  testing::internal::CaptureStdout();
+  bool success = true;
+  try {
+    CallMain(iss);
   } catch (...) {
     success = false;
   }
