@@ -1,6 +1,6 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
- * @brief Part7-6. 高等的整列、反転数(The Number of Inversions)。
+ * @brief Part7-6. 高等的整列、反転数, 転倒数(The Number of Inversions)。
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
