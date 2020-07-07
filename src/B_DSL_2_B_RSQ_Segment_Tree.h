@@ -17,8 +17,8 @@ void CallMain(std::istream &input_stream);
 
 class SegmentTree {
  public:
-  SegmentTree(const int64_t array_size, const int64_t init_value);
-  SegmentTree(const std::vector<int64_t> array, const int64_t init_value);
+  explicit SegmentTree(const int64_t array_size, const int64_t init_value);
+  explicit SegmentTree(const std::vector<int64_t> &array, const int64_t init_value);
   void Add(const int64_t array_index, const int64_t value);
   int64_t Find(const int64_t start, const int64_t end);  // [start, end)
 
@@ -34,7 +34,7 @@ class SegmentTree {
  private:
   int64_t array_size_;
   int64_t node_size_;
-  int64_t init_value_;
+  const int64_t init_value_;
   std::vector<int64_t> nodes_;
 };
 

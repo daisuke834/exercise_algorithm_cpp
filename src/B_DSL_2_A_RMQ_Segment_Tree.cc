@@ -9,15 +9,14 @@
 
 namespace DSL_2_A {
 
-constexpr int64_t kInf = INT64_MAX / 2L;
-
 void CallMain(std::istream &input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 
   int64_t N, Q;
   input_stream >> N >> Q;
-  SegmentTree st(N, (1L << 31L) - 1);
+  constexpr int64_t kInf = (1L << 31L) - 1;
+  SegmentTree st(N, kInf);
   enum Query : int64_t { kUpdate = 0, kFind };
   for (int64_t q = 0; q < Q; ++q) {
     int64_t command;
@@ -34,16 +33,16 @@ void CallMain(std::istream &input_stream) {
   }
 }
 
-SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) {
+SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) : init_value_(init_value) {
   array_size_ = 1;
   while (array_size_ < array_size) {
     array_size_ *= 2;
   }
   node_size_ = array_size_ * 2 - 1;
-  nodes_ = std::vector<int64_t>(node_size_, init_value);
+  nodes_ = std::vector<int64_t>(node_size_, init_value_);
 }
 
-SegmentTree::SegmentTree(const std::vector<int64_t> array) {
+SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value) : init_value_(init_value) {
   nodes_ = array;
   const int64_t array_size = static_cast<int64_t>(array.size());
   array_size_ = 1;
@@ -51,7 +50,7 @@ SegmentTree::SegmentTree(const std::vector<int64_t> array) {
     array_size_ *= 2;
   }
   node_size_ = array_size_ * 2 - 1;
-  nodes_.resize(node_size_, kInf);
+  nodes_.resize(node_size_, init_value_);
 }
 
 void SegmentTree::Update(const int64_t array_index, const int64_t value) {
@@ -72,7 +71,7 @@ int64_t SegmentTree::Find(const int64_t start, const int64_t end) {
 int64_t SegmentTree::Query(const int64_t start, const int64_t end, const int64_t node_index,
                            const int64_t start_of_node, const int64_t end_of_node) const {
   if (end_of_node <= start || end <= start_of_node) {
-    return kInf;
+    return init_value_;
   } else if (start <= start_of_node && end_of_node <= end) {
     return nodes_[node_index];
   }

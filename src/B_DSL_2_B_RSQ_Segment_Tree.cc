@@ -41,7 +41,7 @@ SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) : i
   nodes_ = std::vector<int64_t>(node_size_, init_value_);
 }
 
-SegmentTree::SegmentTree(const std::vector<int64_t> array, const int64_t init_value) : init_value_(init_value) {
+SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value) : init_value_(init_value) {
   nodes_ = array;
   const int64_t array_size = static_cast<int64_t>(array.size());
   array_size_ = 1;
