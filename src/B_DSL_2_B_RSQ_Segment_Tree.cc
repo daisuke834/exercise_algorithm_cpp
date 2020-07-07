@@ -23,11 +23,11 @@ void CallMain(std::istream &input_stream) {
     if (command == kAdd) {
       int64_t index, value;
       input_stream >> index >> value;
-      st.Add(index, value);
+      st.Add(index - 1, value);
     } else {
       int64_t start, end_m1;
       input_stream >> start >> end_m1;
-      std::cout << st.Find(start, end_m1 + 1) << std::endl;
+      std::cout << st.Find(start - 1, end_m1 - 1 + 1) << std::endl;
     }
   }
 }
@@ -54,11 +54,10 @@ SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_v
 
 void SegmentTree::Add(const int64_t array_index, const int64_t value) {
   int64_t node_index = LeafNodeIndex(array_index);
-  const int64_t difference = value - nodes_[node_index];
-  nodes_[node_index] += difference;
+  nodes_[node_index] += value;
   while (node_index > 0) {
     node_index = Parent(node_index);
-    nodes_[node_index] += difference;
+    nodes_[node_index] += value;
   }
 }
 
