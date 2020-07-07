@@ -9,11 +9,11 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
-#include "src/C07_6_ALDS1_5_D_number_of_inversions.h"
+#include "src/C07_6_ALDS1_5_D_1_number_of_inversions.h"
 
-namespace ALDS1_5_D {
+namespace ALDS1_5_D_1 {
 
-class Test_ALDS1_5_D : public ::testing::Test {
+class Test_ALDS1_5_D_1 : public ::testing::Test {
  protected:
   NumberOfInversions *number_of_inversions_;
   virtual void SetUp() {
@@ -24,7 +24,7 @@ class Test_ALDS1_5_D : public ::testing::Test {
   }
 };
 
-TEST_F(Test_ALDS1_5_D, CallNumberOfInversions) {
+TEST_F(Test_ALDS1_5_D_1, CallNumberOfInversions) {
   std::ostringstream answer;
   answer << "6" << std::endl;
 
@@ -44,7 +44,7 @@ TEST_F(Test_ALDS1_5_D, CallNumberOfInversions) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ALDS1_5_D, AddData) {
+TEST_F(Test_ALDS1_5_D_1, AddData) {
   ASSERT_EQ(0, number_of_inversions_->size_);
 
   constexpr int32_t kValue_0 = 3;
@@ -56,7 +56,7 @@ TEST_F(Test_ALDS1_5_D, AddData) {
   ASSERT_EQ(kValue_1, number_of_inversions_->values_[1]);
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_1) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_1) {
   number_of_inversions_->AddData(3);
   number_of_inversions_->AddData(5);
 
@@ -64,7 +64,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_1) {
   ASSERT_EQ(0, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_2) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_2) {
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(3);
 
@@ -72,7 +72,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_2) {
   ASSERT_EQ(1, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_3) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_3) {
   number_of_inversions_->AddData(3);
   number_of_inversions_->AddData(4);
   number_of_inversions_->AddData(5);
@@ -81,7 +81,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_3) {
   ASSERT_EQ(0, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_4) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_4) {
   number_of_inversions_->AddData(3);
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(4);
@@ -90,7 +90,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_4) {
   ASSERT_EQ(1, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_5) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_5) {
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(3);
   number_of_inversions_->AddData(4);
@@ -99,7 +99,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_5) {
   ASSERT_EQ(2, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_6) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_6) {
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(4);
   number_of_inversions_->AddData(3);
@@ -108,7 +108,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_6) {
   ASSERT_EQ(3, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_7) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_7) {
   number_of_inversions_->AddData(3);
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(2);
@@ -119,7 +119,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_7) {
   ASSERT_EQ(6, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_8) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_8) {
   number_of_inversions_->AddData(5);
   number_of_inversions_->AddData(4);
   number_of_inversions_->AddData(3);
@@ -130,7 +130,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_8) {
   ASSERT_EQ(10, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_9) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_9) {
   constexpr int32_t kMaxValue = 100000;
   for (int32_t value = 1; value <= kMaxValue; ++value) {
     number_of_inversions_->AddData(value);
@@ -139,7 +139,7 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_9) {
   ASSERT_EQ(0, number_of_inversions_->GetNumberOfInversions());
 }
 
-TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_10) {
+TEST_F(Test_ALDS1_5_D_1, CalculateNumberOfInversions_10) {
   const clock_t tstart = clock();
   constexpr int32_t kMaxValue = 50000;
   int64_t sum = 0;
@@ -156,4 +156,4 @@ TEST_F(Test_ALDS1_5_D, CalculateNumberOfInversions_10) {
   ASSERT_GT(5000, duration_in_ms);
 }
 
-}  // namespace ALDS1_5_D
+}  // namespace ALDS1_5_D_1

@@ -4,11 +4,11 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#include "src/C07_6_ALDS1_5_D_number_of_inversions.h"
+#include "src/C07_6_ALDS1_5_D_1_number_of_inversions.h"
 #include <iostream>
 #include <string>
 
-namespace ALDS1_5_D {
+namespace ALDS1_5_D_1 {
 
 void CallNumberOfInversions(std::istream &input_stream) {
   input_stream.tie(0);
@@ -144,4 +144,4 @@ int32_t NumberOfInversions::GetCenterIndex(const int32_t left_end, const int32_t
   return (left_end + right_end) / 2;
 }
 
-}  // namespace ALDS1_5_D
+}  // namespace ALDS1_5_D_1

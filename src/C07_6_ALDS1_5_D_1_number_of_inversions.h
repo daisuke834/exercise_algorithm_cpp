@@ -4,15 +4,15 @@
  * 「アルゴリズムとデータ構造」(渡部有隆(著))のアルゴリズムのスクラッチ実装。
  */
 
-#ifndef SRC_C07_6_ALDS1_5_D_NUMBER_OF_INVERSIONS_H_
-#define SRC_C07_6_ALDS1_5_D_NUMBER_OF_INVERSIONS_H_
+#ifndef SRC_C07_6_ALDS1_5_D_1_NUMBER_OF_INVERSIONS_H_
+#define SRC_C07_6_ALDS1_5_D_1_NUMBER_OF_INVERSIONS_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
 #include <cstdint>
 #include <iostream>
 #include <string>
 
-namespace ALDS1_5_D {
+namespace ALDS1_5_D_1 {
 
 constexpr int32_t kMaxArraySize = 200000;
 
@@ -46,10 +46,10 @@ class NumberOfInversions {
   int32_t right_values_[kMaxArraySize / 2 + 1];  //< 作業領域
 
  private:
-  FRIEND_TEST(Test_ALDS1_5_D, AddData);                         // Should be removed from production code
-  FRIEND_TEST(Test_ALDS1_5_D, CalculateNumberOfInversions_10);  // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_5_D_1, AddData);                         // Should be removed from production code
+  FRIEND_TEST(Test_ALDS1_5_D_1, CalculateNumberOfInversions_10);  // Should be removed from production code
 };
 
-}  // namespace ALDS1_5_D
+}  // namespace ALDS1_5_D_1
 
-#endif  // SRC_C07_6_ALDS1_5_D_NUMBER_OF_INVERSIONS_H_
+#endif  // SRC_C07_6_ALDS1_5_D_1_NUMBER_OF_INVERSIONS_H_
