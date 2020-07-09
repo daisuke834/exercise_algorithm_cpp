@@ -57,12 +57,16 @@ SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_v
   nodes_.resize(node_size_, init_value_);
 }
 
-void SegmentTree::Update(const int64_t array_index, const int64_t value) {
+void SegmentTree::Update(const int64_t array_index, const int64_t value, const bool overwrite) {
   int64_t node_index = LeafNodeIndex(array_index);
-  nodes_[node_index] = Reduce_(nodes_[node_index], value);
+  if (overwrite) {
+    nodes_[node_index] = value;
+  } else {
+    nodes_[node_index] = Reduce_(nodes_[node_index], value);
+  }
   while (node_index > 0) {
     node_index = Parent(node_index);
-    nodes_[node_index] = Reduce_(nodes_[node_index], value);
+    nodes_[node_index] = Reduce_(nodes_[ChildLeft(node_index)], nodes_[ChildRight(node_index)]);
   }
 }
 

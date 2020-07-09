@@ -20,7 +20,7 @@ class SegmentTree {
  public:
   explicit SegmentTree(const int64_t array_size, const int64_t init_value, std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce);
   explicit SegmentTree(const std::vector<int64_t> &array, const int64_t init_value, std::function<int64_t(const int64_t a, const int64_t b)> &&Update);
-  void Update(const int64_t array_index, const int64_t value);
+  void Update(const int64_t array_index, const int64_t value, const bool overwrite = false);
   int64_t Find(const int64_t start, const int64_t end);  // [start, end)
 
  private:

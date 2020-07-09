@@ -16,7 +16,8 @@ void CallMain(std::istream &input_stream) {
   int64_t N, Q;
   input_stream >> N >> Q;
   constexpr int64_t kInf = (1L << 31L) - 1;
-  SegmentTree st(N, kInf);
+  auto Min = [](const int64_t a, const int64_t b) -> int64_t { return std::min(a, b); };
+  SegmentTree st(N, kInf, Min);
   enum Query : int64_t { kUpdate = 0, kFind };
   for (int64_t q = 0; q < Q; ++q) {
     int64_t command;
@@ -24,7 +25,7 @@ void CallMain(std::istream &input_stream) {
     if (command == kUpdate) {
       int64_t index, value;
       input_stream >> index >> value;
-      st.Update(index, value);
+      st.Update(index, value, true);
     } else {
       int64_t start, end_m1;
       input_stream >> start >> end_m1;
@@ -33,7 +34,9 @@ void CallMain(std::istream &input_stream) {
   }
 }
 
-SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) : init_value_(init_value) {
+SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value,
+                         std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+    : init_value_(init_value), Reduce_(std::move(Reduce)) {
   array_size_ = 1;
   while (array_size_ < array_size) {
     array_size_ *= 2;
@@ -42,7 +45,9 @@ SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) : i
   nodes_ = std::vector<int64_t>(node_size_, init_value_);
 }
 
-SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value) : init_value_(init_value) {
+SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value,
+                         std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+    : init_value_(init_value), Reduce_(std::move(Reduce)) {
   nodes_ = array;
   const int64_t array_size = static_cast<int64_t>(array.size());
   array_size_ = 1;
@@ -53,12 +58,16 @@ SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_v
   nodes_.resize(node_size_, init_value_);
 }
 
-void SegmentTree::Update(const int64_t array_index, const int64_t value) {
+void SegmentTree::Update(const int64_t array_index, const int64_t value, const bool overwrite) {
   int64_t node_index = LeafNodeIndex(array_index);
-  nodes_[node_index] = value;
+  if (overwrite) {
+    nodes_[node_index] = value;
+  } else {
+    nodes_[node_index] = Reduce_(nodes_[node_index], value);
+  }
   while (node_index > 0) {
     node_index = Parent(node_index);
-    nodes_[node_index] = std::min(nodes_[ChildLeft(node_index)], nodes_[ChildRight(node_index)]);
+    nodes_[node_index] = Reduce_(nodes_[ChildLeft(node_index)], nodes_[ChildRight(node_index)]);
   }
 }
 
@@ -78,7 +87,7 @@ int64_t SegmentTree::Query(const int64_t start, const int64_t end, const int64_t
   const int64_t middle = (start_of_node + end_of_node) / 2;
   const int64_t value_left = Query(start, end, ChildLeft(node_index), start_of_node, middle);
   const int64_t value_right = Query(start, end, ChildRight(node_index), middle, end_of_node);
-  return std::min(value_left, value_right);
+  return Reduce_(value_left, value_right);
 }
 
 int64_t SegmentTree::LeafNodeIndex(const int64_t array_index) const {
