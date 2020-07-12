@@ -4,8 +4,8 @@
  * https://leetcode.com/contest/weekly-contest-196/problems/minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits/
  */
 
-#ifndef SRC_B_LC_WEEKLY_195_4_TWO_POINTERS_H_
-#define SRC_B_LC_WEEKLY_195_4_TWO_POINTERS_H_
+#ifndef SRC_B_LC_WEEKLY_196_4_SEGMENT_TREE_H_
+#define SRC_B_LC_WEEKLY_196_4_SEGMENT_TREE_H_
 
 #include <algorithm>
 #include <cstdint>
@@ -49,4 +49,4 @@ class SegmentTree {
 
 }  // namespace LC_weekly_196_4
 
-#endif  // SRC_B_LC_WEEKLY_195_4_TWO_POINTERS_H_
+#endif  // SRC_B_LC_WEEKLY_196_4_SEGMENT_TREE_H_
