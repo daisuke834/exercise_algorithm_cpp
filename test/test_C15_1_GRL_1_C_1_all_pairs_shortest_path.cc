@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_1_GRL_1_C_1_all_pairs_shortest_path.h"
 
 namespace GRL_1_C_1 {
 
 class Test_GRL_1_C_1 : public ::testing::Test {
  protected:
-  WarshallFloyd *all_pairs_shortest_path_;
-  virtual void SetUp() {
-    all_pairs_shortest_path_ = new WarshallFloyd();
-  }
-  virtual void TearDown() {
-    delete all_pairs_shortest_path_;
-  }
+  WarshallFloyd* all_pairs_shortest_path_;
+  virtual void SetUp() { all_pairs_shortest_path_ = new WarshallFloyd(); }
+  virtual void TearDown() { delete all_pairs_shortest_path_; }
 };
 
 TEST_F(Test_GRL_1_C_1, AddWeight) {

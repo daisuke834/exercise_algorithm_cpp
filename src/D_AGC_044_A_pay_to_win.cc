@@ -4,6 +4,7 @@
  */
 
 #include "src/D_AGC_044_A_pay_to_win.h"
+
 #include <algorithm>
 
 namespace AGC_044_A {
@@ -38,7 +39,7 @@ int64_t Solution::CalculateMinimumAmountOfCoins(const int64_t goal) noexcept {
 
   const OperationType next_operations[] = {kDouble, kTriple, kQuintuple};
   for (const OperationType next : next_operations) {
-    const Operation &operation = operations_[next];
+    const Operation& operation = operations_[next];
     if (goal % operation.ratio == 0) {
       int64_t temp_result = CalculateMinimumAmountOfCoins(goal / operation.ratio);
       if (temp_result != INT64_MAX) {

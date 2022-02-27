@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C03_3_ALDS1_2_A_bubble_sort.h"
 
 namespace ALDS1_2_A {
 
 class Test_ALDS1_2_A : public ::testing::Test {
  protected:
-  BubbleSort *bubble_sort_;
-  virtual void SetUp() {
-    bubble_sort_ = new BubbleSort();
-  }
-  virtual void TearDown() {
-    delete bubble_sort_;
-  }
+  BubbleSort* bubble_sort_;
+  virtual void SetUp() { bubble_sort_ = new BubbleSort(); }
+  virtual void TearDown() { delete bubble_sort_; }
 };
 
 TEST_F(Test_ALDS1_2_A, LoadData_abnormal) {

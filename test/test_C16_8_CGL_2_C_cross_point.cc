@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/C16_8_CGL_2_C_cross_point.h"
 #include "src/utils.h"
 

@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C17_4_DPL_3_A_1_largest_square.h"
 
 namespace DPL_3_A_1 {
 
 class Test_DPL_3_A_1 : public ::testing::Test {
  protected:
-  LargestSquare *largest_square_;
-  virtual void SetUp() {
-    largest_square_ = new LargestSquare();
-  }
-  virtual void TearDown() {
-    delete largest_square_;
-  }
+  LargestSquare* largest_square_;
+  virtual void SetUp() { largest_square_ = new LargestSquare(); }
+  virtual void TearDown() { delete largest_square_; }
 };
 
 TEST_F(Test_DPL_3_A_1, CallLargestSquare_1) {

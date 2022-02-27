@@ -5,12 +5,13 @@
  */
 
 #include "src/D_ddcc2020_qual_C_1_strawberry_cakes.h"
+
 #include <string>
 #include <vector>
 
 namespace D_ddcc2020_qual_C_1 {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 
@@ -59,8 +60,7 @@ int CallMain(std::istream &input_stream) {
     while (last_filled_col >= 0) {
       int64_t count = 0;
       for (int64_t row = start_row; row <= end_row; ++row) {
-        if (strawberry[row][last_filled_col])
-          ++count;
+        if (strawberry[row][last_filled_col]) ++count;
       }
       if (count > 0) {
         break;

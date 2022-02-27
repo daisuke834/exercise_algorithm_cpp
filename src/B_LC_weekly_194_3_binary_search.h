@@ -17,7 +17,7 @@ namespace LC_weekly_194_3 {
 
 class Solution {
  public:
-  std::vector<int32_t> avoidFlood(const std::vector<int32_t> &rains);
+  std::vector<int32_t> avoidFlood(const std::vector<int32_t>& rains);
 };
 
 }  // namespace LC_weekly_194_3

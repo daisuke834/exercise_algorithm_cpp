@@ -6,16 +6,17 @@
  */
 
 #include "src/B_quick_select.h"
+
 #include <iostream>
 
 namespace my_quick_select {
 
-void CallQuickSelect(std::istream &input_stream) noexcept {
+void CallQuickSelect(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  QuickSelect *quick_select = new QuickSelect();
+  QuickSelect* quick_select = new QuickSelect();
   try {
     for (int32_t i = 0; i < kMaxLoopCount; ++i) {
       int32_t value;

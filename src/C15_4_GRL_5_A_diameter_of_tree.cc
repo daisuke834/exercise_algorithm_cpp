@@ -7,10 +7,10 @@
 
 namespace GRL_5_A {
 
-void CallTreeDiameter(std::istream &input_stream) {
+void CallTreeDiameter(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  TreeDiameter *tree_diameter = new TreeDiameter();
+  TreeDiameter* tree_diameter = new TreeDiameter();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -34,9 +34,7 @@ TreeDiameter::TreeDiameter() noexcept : number_of_nodes_(0) {}
 
 TreeDiameter::~TreeDiameter() noexcept {}
 
-void TreeDiameter::SetNumberOfNodes(const int32_t number_of_nodes) noexcept {
-  number_of_nodes_ = number_of_nodes;
-}
+void TreeDiameter::SetNumberOfNodes(const int32_t number_of_nodes) noexcept { number_of_nodes_ = number_of_nodes; }
 
 void TreeDiameter::AddEdge(const int32_t node_index_1, const int32_t node_index_2, const int32_t weight) noexcept {
   Edge edge1;
@@ -66,12 +64,12 @@ Pair TreeDiameter::FindFarthestNode(const int32_t node_index) noexcept {
   return farthest_distance_to_node;
 }
 
-Pair TreeDiameter::Dfs(const Pair &distance_to_node) noexcept {
+Pair TreeDiameter::Dfs(const Pair& distance_to_node) noexcept {
   const int32_t c_distance = distance_to_node.first;
   const int32_t c_node_index = distance_to_node.second;
   Pair farthest_distance = Pair(c_distance, c_node_index);
 
-  for (const Edge &c_edge : nodes_[c_node_index].edges) {
+  for (const Edge& c_edge : nodes_[c_node_index].edges) {
     const int32_t neighbour = c_edge.neighbour;
     if (!nodes_[neighbour].discovered) {
       nodes_[neighbour].discovered = true;

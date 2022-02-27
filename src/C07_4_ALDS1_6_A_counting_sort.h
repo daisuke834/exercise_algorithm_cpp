@@ -9,6 +9,7 @@
 #define SRC_C07_4_ALDS1_6_A_COUNTING_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ namespace ALDS1_6_A {
 constexpr int32_t kMaxArraySize = 2000000;
 constexpr int32_t kMaxIntegerValue = 10000;
 
-void CallCountingSort(std::istream &input_stream);
+void CallCountingSort(std::istream& input_stream);
 
 class CountingSort {
  public:
@@ -30,10 +31,10 @@ class CountingSort {
   void Print() const noexcept;
 
  private:
-  CountingSort(const CountingSort &obj) = delete;
-  CountingSort &operator=(const CountingSort &rhs) = delete;
-  CountingSort(CountingSort &&obj) = delete;
-  CountingSort &operator=(CountingSort &&rhs) = delete;
+  CountingSort(const CountingSort& obj) = delete;
+  CountingSort& operator=(const CountingSort& rhs) = delete;
+  CountingSort(CountingSort&& obj) = delete;
+  CountingSort& operator=(CountingSort&& rhs) = delete;
 
   void ComputeCounts(void) noexcept;
   void ComputeCumulativeCounts(void) noexcept;

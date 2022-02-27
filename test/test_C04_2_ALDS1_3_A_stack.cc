@@ -6,9 +6,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
 #include <vector>
+
 #include "src/C04_2_ALDS1_3_A_stack.h"
 
 namespace ALDS1_3_A {
@@ -21,8 +23,8 @@ struct TestPattern {
 
 class Test_ALDS1_3_A : public ::testing::Test {
  protected:
-  Stack *stack_;
-  TestPattern *test_pattern_;
+  Stack* stack_;
+  TestPattern* test_pattern_;
   virtual void SetUp() {
     stack_ = new Stack();
     test_pattern_ = new TestPattern();

@@ -15,11 +15,11 @@
 namespace LC_weekly_189_3 {
 
 template <class T>
-bool IsSubsequence(const std::vector<T> &target, const std::vector<T> &compare);
+bool IsSubsequence(const std::vector<T>& target, const std::vector<T>& compare);
 
 class Solution {
  public:
-  std::vector<int> peopleIndexes(std::vector<std::vector<std::string>> &favoriteCompanies);
+  std::vector<int> peopleIndexes(std::vector<std::vector<std::string>>& favoriteCompanies);
 };
 
 }  // namespace LC_weekly_189_3

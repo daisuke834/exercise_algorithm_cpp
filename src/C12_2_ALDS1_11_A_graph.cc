@@ -5,15 +5,16 @@
  */
 
 #include "src/C12_2_ALDS1_11_A_graph.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_A {
 
-void CallGraph(std::istream &input_stream) {
+void CallGraph(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Graph *graph = new Graph();
+  Graph* graph = new Graph();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -37,9 +38,7 @@ void CallGraph(std::istream &input_stream) {
 
 // ****************************************************
 
-Graph::Graph() noexcept : size_(0) {
-  Reset();
-}
+Graph::Graph() noexcept : size_(0) { Reset(); }
 Graph::~Graph() noexcept {}
 
 void Graph::AddVertex(const int32_t vertex_number) {
@@ -84,8 +83,8 @@ void Graph::Print() const noexcept {
 }
 
 void Graph::Reset() noexcept {
-  for (auto &row : adjacency_matrix_) {
-    for (auto &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (auto& element : row) {
       element = 0;
     }
   }
@@ -95,9 +94,7 @@ bool Graph::IsInvalidVertexNumber(const int32_t vertex_number) noexcept {
   return ((vertex_number < 1) || (vertex_number > kMaxVertexNumber));
 }
 
-bool Graph::IsInvalidVertexIndex(const int32_t index) noexcept {
-  return ((index < 0) || (index >= kMaxVertexNumber));
-}
+bool Graph::IsInvalidVertexIndex(const int32_t index) noexcept { return ((index < 0) || (index >= kMaxVertexNumber)); }
 
 int32_t Graph::ConvertFromVertexNumberToIndex(const int32_t vertex_number) {
   const int32_t index = vertex_number - 1;

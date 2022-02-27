@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_PAST_003_J_2_binary_search.h"
 
 namespace PAST_003_J_2 {

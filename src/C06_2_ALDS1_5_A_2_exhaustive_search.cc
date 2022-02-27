@@ -6,15 +6,16 @@
  */
 
 #include "src/C06_2_ALDS1_5_A_2_exhaustive_search.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_A_2 {
 
-void CallExhaustiveSearch(std::istream &input_stream) {
+void CallExhaustiveSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  ExhaustiveSearch *exhaustive_search = new ExhaustiveSearch();
+  ExhaustiveSearch* exhaustive_search = new ExhaustiveSearch();
   try {
     int32_t number_of_sources;
     input_stream >> number_of_sources;
@@ -110,8 +111,6 @@ bool ExhaustiveSearch::IsInvalidSourceIndex(const int32_t index) const noexcept 
   return ((index < 0) || (index >= sources_.size));
 }
 
-bool ExhaustiveSearch::IsValidSourceIndex(const int32_t index) const noexcept {
-  return !IsInvalidSourceIndex(index);
-}
+bool ExhaustiveSearch::IsValidSourceIndex(const int32_t index) const noexcept { return !IsInvalidSourceIndex(index); }
 
 }  // namespace ALDS1_5_A_2

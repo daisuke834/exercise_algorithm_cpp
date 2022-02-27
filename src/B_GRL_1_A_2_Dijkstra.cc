@@ -9,10 +9,10 @@
 
 namespace GRL_1_A_2 {
 
-void CallDijkstraAlgorithm(std::istream &input_stream) {
+void CallDijkstraAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DijkstraAlgorithm *single_source_shortest_path = new DijkstraAlgorithm();
+  DijkstraAlgorithm* single_source_shortest_path = new DijkstraAlgorithm();
   try {
     int32_t number_of_vertices, number_of_edges, vertex_start;
     input_stream >> number_of_vertices >> number_of_edges >> vertex_start;
@@ -53,7 +53,7 @@ void DijkstraAlgorithm::CalculateShortestPaths(const int32_t vertex_start) noexc
     const int32_t target_distance = distance_and_vertex.first;
     const int32_t target_index = distance_and_vertex.second;
     vertices_[target_index].explored_ = true;
-    for (const Edge &c_edge : vertices_[target_index].edges_from_this) {
+    for (const Edge& c_edge : vertices_[target_index].edges_from_this) {
       const int32_t to = c_edge.second;
       if (!vertices_[to].explored_) {
         const int32_t weight = c_edge.first;

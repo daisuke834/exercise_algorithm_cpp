@@ -4,6 +4,7 @@
  */
 
 #include "src/D_ABC_173_E_multiplication4.h"
+
 #include <algorithm>
 #include <queue>
 #include <set>
@@ -15,34 +16,26 @@ const int64_t kMod = 1000000007LL;
 struct Mint {
   int64_t value;
   Mint(int64_t value = 0LL) : value((value % kMod + kMod) % kMod) {}
-  Mint operator-() const {
-    return Mint(-value);
-  }
-  Mint &operator+=(const Mint rhs) {
+  Mint operator-() const { return Mint(-value); }
+  Mint& operator+=(const Mint rhs) {
     if ((value += rhs.value) >= kMod) {
       value -= kMod;
     }
     return *this;
   }
-  Mint &operator-=(const Mint rhs) {
+  Mint& operator-=(const Mint rhs) {
     if ((value += kMod - rhs.value) >= kMod) {
       value -= kMod;
     }
     return *this;
   }
-  Mint &operator*=(const Mint rhs) {
+  Mint& operator*=(const Mint rhs) {
     (value *= rhs.value) %= kMod;
     return *this;
   }
-  Mint operator+(const Mint rhs) const {
-    return Mint(*this) += rhs;
-  }
-  Mint operator-(const Mint rhs) const {
-    return Mint(*this) -= rhs;
-  }
-  Mint operator*(const Mint rhs) const {
-    return Mint(*this) *= rhs;
-  }
+  Mint operator+(const Mint rhs) const { return Mint(*this) += rhs; }
+  Mint operator-(const Mint rhs) const { return Mint(*this) -= rhs; }
+  Mint operator*(const Mint rhs) const { return Mint(*this) *= rhs; }
   Mint Pow(int64_t p) const {
     if (p == 0LL) {
       return 1LL;
@@ -56,21 +49,15 @@ struct Mint {
     }
     return temp;
   }
-  Mint Inv() const {
-    return Pow(kMod - 2LL);
-  }
-  Mint &operator/=(const Mint a) {
-    return *this *= a.Inv();
-  }
-  Mint operator/(const Mint a) const {
-    return Mint(*this) /= a;
-  }
+  Mint Inv() const { return Pow(kMod - 2LL); }
+  Mint& operator/=(const Mint a) { return *this *= a.Inv(); }
+  Mint operator/(const Mint a) const { return Mint(*this) /= a; }
 };
 }  // namespace
 
 namespace D_ABC_173_E {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

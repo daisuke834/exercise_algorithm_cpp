@@ -5,21 +5,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_ALDS1_15_D_Huffman_coding.h"
 
 namespace ALDS1_15_D {
 
 class Test_ALDS1_15_D : public ::testing::Test {
  protected:
-  HuffmanCoding *huffman_coding_;
-  virtual void SetUp() {
-    huffman_coding_ = new HuffmanCoding();
-  }
-  virtual void TearDown() {
-    delete huffman_coding_;
-  }
+  HuffmanCoding* huffman_coding_;
+  virtual void SetUp() { huffman_coding_ = new HuffmanCoding(); }
+  virtual void TearDown() { delete huffman_coding_; }
 };
 
 TEST_F(Test_ALDS1_15_D, CallHuffmanCoding_1) {

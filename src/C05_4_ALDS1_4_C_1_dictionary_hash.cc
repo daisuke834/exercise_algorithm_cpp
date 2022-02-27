@@ -5,15 +5,16 @@
  */
 
 #include "src/C05_4_ALDS1_4_C_1_dictionary_hash.h"
+
 #include <cmath>
 #include <iostream>
 #include <string>
 namespace ALDS1_4_C_1 {
 
-void CallDictionary(std::istream &input_stream) noexcept {
+void CallDictionary(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Dictionary *dictionary = new Dictionary();
+  Dictionary* dictionary = new Dictionary();
   try {
     int32_t number_of_instructions;
     input_stream >> number_of_instructions;
@@ -45,7 +46,7 @@ void CallDictionary(std::istream &input_stream) noexcept {
   delete dictionary;
 }
 
-InstructionType JudgeInstructionType(const std::string &str) {
+InstructionType JudgeInstructionType(const std::string& str) {
   InstructionType instruction_type;
   if (str == "insert") {
     instruction_type = InstructionType::kInsert;
@@ -61,7 +62,7 @@ InstructionType JudgeInstructionType(const std::string &str) {
 Dictionary::Dictionary() noexcept : hash_table_{} {}
 Dictionary::~Dictionary() noexcept {}
 
-void Dictionary::Insert(const std::string &key) {
+void Dictionary::Insert(const std::string& key) {
   const int32_t hash = GetHash(key);
   if ((hash < 0) || (hash >= kHashTableSize)) {
     std::cerr << "ERROR: Insert(): Invalid hash value. " << hash << std::endl;
@@ -70,7 +71,7 @@ void Dictionary::Insert(const std::string &key) {
   hash_table_[hash] = kValid;
 }
 
-int8_t Dictionary::Get(const std::string &key) const {
+int8_t Dictionary::Get(const std::string& key) const {
   const int32_t hash = GetHash(key);
   if ((hash < 0) || (hash >= kHashTableSize)) {
     std::cerr << "ERROR: Get(): Invalid hash value. " << hash << std::endl;
@@ -79,7 +80,7 @@ int8_t Dictionary::Get(const std::string &key) const {
   return hash_table_[hash];
 }
 
-bool Dictionary::WasFound(const std::string &key) const {
+bool Dictionary::WasFound(const std::string& key) const {
   try {
     const int8_t value = Get(key);
     return (value != kInvalid);
@@ -89,7 +90,7 @@ bool Dictionary::WasFound(const std::string &key) const {
   }
 }
 
-int32_t Dictionary::GetHash(const std::string &key) {
+int32_t Dictionary::GetHash(const std::string& key) {
   if ((key.size() <= 0) || (key.size() > kMaxKeyLength)) {
     std::cerr << "ERROR: GetHash(): Invalid input key. " << key << std::endl;
     throw 1;

@@ -6,9 +6,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_6_ALDS1_5_D_2_Segment_Tree.h"
 
 namespace ALDS1_5_D_2 {

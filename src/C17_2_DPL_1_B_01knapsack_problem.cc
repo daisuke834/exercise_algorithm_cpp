@@ -6,16 +6,17 @@
  */
 
 #include "src/C17_2_DPL_1_B_01knapsack_problem.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace DPL_1_B {
 
-void Call01KnapsackProblem(std::istream &input_stream) {
+void Call01KnapsackProblem(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  KnapsackProblem *knapsack = new KnapsackProblem();
+  KnapsackProblem* knapsack = new KnapsackProblem();
   try {
     int32_t number_of_items, capacity_of_knapsack;
     input_stream >> number_of_items >> capacity_of_knapsack;

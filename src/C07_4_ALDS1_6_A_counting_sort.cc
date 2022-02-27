@@ -6,15 +6,16 @@
  */
 
 #include "src/C07_4_ALDS1_6_A_counting_sort.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_6_A {
 
-void CallCountingSort(std::istream &input_stream) {
+void CallCountingSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  CountingSort *counting_sort = new CountingSort();
+  CountingSort* counting_sort = new CountingSort();
   try {
     int32_t count;
     input_stream >> count;
@@ -35,7 +36,7 @@ void CallCountingSort(std::istream &input_stream) {
 // ****************************************************
 
 CountingSort::CountingSort() noexcept : size_(0), input_values_{}, output_values_{} {
-  for (int32_t &ccount : counts_) {
+  for (int32_t& ccount : counts_) {
     ccount = 0;
   }
 }
@@ -71,9 +72,7 @@ void CountingSort::Print() const noexcept {
   std::cout << std::endl;
 }
 
-void CountingSort::ResetData() noexcept {
-  size_ = 0;
-}
+void CountingSort::ResetData() noexcept { size_ = 0; }
 
 void CountingSort::ComputeCounts(void) noexcept {
   for (int32_t index_input = 0; index_input < size_; ++index_input) {

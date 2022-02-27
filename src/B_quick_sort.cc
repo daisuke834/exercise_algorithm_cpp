@@ -6,16 +6,17 @@
  */
 
 #include "src/B_quick_sort.h"
+
 #include <iostream>
 
 namespace my_quick_sort {
 
-void CallQuickSort(std::istream &input_stream) noexcept {
+void CallQuickSort(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  QuickSort *quick_sort = new QuickSort();
+  QuickSort* quick_sort = new QuickSort();
   try {
     for (int32_t i = 0; i < KMaxLoopCount; ++i) {
       int32_t value;

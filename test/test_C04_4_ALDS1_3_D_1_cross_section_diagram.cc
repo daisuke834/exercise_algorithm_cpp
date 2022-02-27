@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C04_4_ALDS1_3_D_1_cross_section_diagram.h"
 
 namespace ALDS1_3_D_1 {
 
 class Test_ALDS1_3_D_1 : public ::testing::Test {
  protected:
-  CrossSectionDiagram *diagram_;
-  virtual void SetUp() {
-    diagram_ = new CrossSectionDiagram();
-  }
-  virtual void TearDown() {
-    delete diagram_;
-  }
+  CrossSectionDiagram* diagram_;
+  virtual void SetUp() { diagram_ = new CrossSectionDiagram(); }
+  virtual void TearDown() { delete diagram_; }
 };
 
 TEST_F(Test_ALDS1_3_D_1, Load) {
@@ -116,7 +114,7 @@ TEST_F(Test_ALDS1_3_D_1, CalculateHighestHeightRightSide) {
 
 TEST_F(Test_ALDS1_3_D_1, CalculateAreaPerEachGridX) {
   int32_t index_grid_x = 5;
-  GridInformation &cgrid = diagram_->grids_[index_grid_x];
+  GridInformation& cgrid = diagram_->grids_[index_grid_x];
 
   cgrid.height_left = 0;
   cgrid.height_right = 0;

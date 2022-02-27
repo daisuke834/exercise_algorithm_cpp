@@ -5,21 +5,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_GRL_1_A_1_Dijkstra.h"
 
 namespace GRL_1_A_1 {
 
 class Test_GRL_1_A_1 : public ::testing::Test {
  protected:
-  DijkstraAlgorithm *single_source_shortest_path_;
-  virtual void SetUp() {
-    single_source_shortest_path_ = new DijkstraAlgorithm();
-  }
-  virtual void TearDown() {
-    delete single_source_shortest_path_;
-  }
+  DijkstraAlgorithm* single_source_shortest_path_;
+  virtual void SetUp() { single_source_shortest_path_ = new DijkstraAlgorithm(); }
+  virtual void TearDown() { delete single_source_shortest_path_; }
 };
 
 TEST_F(Test_GRL_1_A_1, CallDijkstraAlgorithm_1) {

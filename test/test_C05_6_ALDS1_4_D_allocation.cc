@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C05_6_ALDS1_4_D_allocation.h"
 
 namespace ALDS1_4_D {
 
 class Test_ALDS1_4_D : public ::testing::Test {
  protected:
-  BaggageAllocation *baggage_allocation_;
-  virtual void SetUp() {
-    baggage_allocation_ = new BaggageAllocation();
-  }
-  virtual void TearDown() {
-    delete baggage_allocation_;
-  }
+  BaggageAllocation* baggage_allocation_;
+  virtual void SetUp() { baggage_allocation_ = new BaggageAllocation(); }
+  virtual void TearDown() { delete baggage_allocation_; }
 };
 
 TEST_F(Test_ALDS1_4_D, CallBaggageAllocation) {

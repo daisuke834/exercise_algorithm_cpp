@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/C16_6_CGL_1_C_counter_clockwise.h"
 #include "src/utils.h"
 

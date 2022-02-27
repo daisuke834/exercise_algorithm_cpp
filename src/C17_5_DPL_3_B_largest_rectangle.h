@@ -8,6 +8,7 @@
 #define SRC_C17_5_DPL_3_B_LARGEST_RECTANGLE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <stack>
@@ -17,7 +18,7 @@ namespace DPL_3_B {
 constexpr int32_t kMaxHeight = 1400;
 constexpr int32_t kMaxWidth = 1400;
 
-void CallLargestRectangle(std::istream &input_stream);
+void CallLargestRectangle(std::istream& input_stream);
 
 struct ExtendableRectangle {
   int32_t height{-1};
@@ -35,10 +36,10 @@ class LargestRectangle {
  private:
   int32_t FindLargestRectangleAreaPerRow(const int32_t row) const;
 
-  LargestRectangle(const LargestRectangle &obj) = delete;
-  LargestRectangle &operator=(const LargestRectangle &obj) = delete;
-  LargestRectangle(LargestRectangle &&obj) = delete;
-  LargestRectangle &operator=(LargestRectangle &&obj) = delete;
+  LargestRectangle(const LargestRectangle& obj) = delete;
+  LargestRectangle& operator=(const LargestRectangle& obj) = delete;
+  LargestRectangle(LargestRectangle&& obj) = delete;
+  LargestRectangle& operator=(LargestRectangle&& obj) = delete;
 
  private:
   int32_t height_;

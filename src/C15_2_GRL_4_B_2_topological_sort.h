@@ -9,6 +9,7 @@
 #define SRC_C15_2_GRL_4_B_2_TOPOLOGICAL_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <queue>
@@ -23,7 +24,7 @@ constexpr int32_t kDoesNotExist = -1;
 constexpr int32_t kMaxLoopCount = 1000000;
 constexpr int32_t kFirstExploreTargetIndex = 0;
 
-void CallTopologicalSort(std::istream &input_stream);
+void CallTopologicalSort(std::istream& input_stream);
 
 enum class VertexStatus : int32_t { kInit = 0, kCompleted };
 
@@ -42,10 +43,10 @@ class Vertex {
  private:
   int32_t GetNumberOfTails() const noexcept;
 
-  Vertex(const Vertex &obj) = delete;
-  Vertex &operator=(const Vertex &obj) = delete;
-  Vertex(Vertex &&obj) = delete;
-  Vertex &operator=(Vertex &&obj) = delete;
+  Vertex(const Vertex& obj) = delete;
+  Vertex& operator=(const Vertex& obj) = delete;
+  Vertex(Vertex&& obj) = delete;
+  Vertex& operator=(Vertex&& obj) = delete;
 
  private:
   VertexStatus status_;
@@ -76,10 +77,10 @@ class TopologicalSort {
   bool IsInvalidVertexIndex(const int32_t index) const noexcept;
   bool DoesNotExist(const int32_t vertex_index) const;
 
-  TopologicalSort(const TopologicalSort &obj) = delete;
-  TopologicalSort &operator=(const TopologicalSort &obj) = delete;
-  TopologicalSort(TopologicalSort &&obj) = delete;
-  TopologicalSort &operator=(TopologicalSort &&obj) = delete;
+  TopologicalSort(const TopologicalSort& obj) = delete;
+  TopologicalSort& operator=(const TopologicalSort& obj) = delete;
+  TopologicalSort(TopologicalSort&& obj) = delete;
+  TopologicalSort& operator=(TopologicalSort&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

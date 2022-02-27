@@ -6,16 +6,17 @@
  */
 
 #include "src/C17_3_DPL_1_D_3_longest_increasing_subsequence.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace DPL_1_D_3 {
 
-void CallLongestIncreasingSubsequence(std::istream &input_stream) {
+void CallLongestIncreasingSubsequence(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LongestIncreasingSubsequence *longest_increasing_subsequence = new LongestIncreasingSubsequence();
+  LongestIncreasingSubsequence* longest_increasing_subsequence = new LongestIncreasingSubsequence();
   try {
     int32_t length;
     input_stream >> length;
@@ -58,8 +59,8 @@ int32_t LongestIncreasingSubsequence::FindLengthOfLis() noexcept {
         look_up_value_at_right_end_of_[c_lis_length + 1] = current_value;
         c_lis_length++;
       } else {
-        int32_t *start = look_up_value_at_right_end_of_ + 1;
-        int32_t *end = look_up_value_at_right_end_of_ + 1 + c_lis_length;
+        int32_t* start = look_up_value_at_right_end_of_ + 1;
+        int32_t* end = look_up_value_at_right_end_of_ + 1 + c_lis_length;
         *std::lower_bound(start, end, current_value) = current_value;
       }
     }

@@ -7,6 +7,7 @@
  */
 
 #include "src/C14_1_DSL_1_A_union_find_tree.h"
+
 #include <iostream>
 #include <string>
 
@@ -14,10 +15,10 @@ namespace DSL_1_A {
 
 enum Command : int32_t { kCommandUnite = 0, kCommandSame = 1 };
 
-void CallUnionFindTree(std::istream &input_stream) {
+void CallUnionFindTree(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  UnionFindTree *union_find_tree = new UnionFindTree();
+  UnionFindTree* union_find_tree = new UnionFindTree();
   try {
     int32_t number_of_elements;
     input_stream >> number_of_elements;

@@ -6,15 +6,16 @@
  */
 
 #include "src/C07_2_ALDS1_6_B_partition.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_6_B {
 
-void CallPartition(std::istream &input_stream) {
+void CallPartition(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Partition *partition = new Partition();
+  Partition* partition = new Partition();
   try {
     int32_t count;
     input_stream >> count;
@@ -56,9 +57,7 @@ void Partition::AddData(const int32_t value) {
   size_++;
 }
 
-void Partition::ResetData() noexcept {
-  size_ = 0;
-}
+void Partition::ResetData() noexcept { size_ = 0; }
 
 int32_t Partition::GetValue(const int32_t index) {
   if (IndexOutOfRange(index)) {
@@ -111,8 +110,6 @@ void Partition::Swap(const int32_t index_1, const int32_t index_2) {
   }
 }
 
-bool Partition::IndexOutOfRange(const int32_t index) const noexcept {
-  return ((index) < 0 || (index >= size_));
-}
+bool Partition::IndexOutOfRange(const int32_t index) const noexcept { return ((index) < 0 || (index >= size_)); }
 
 }  // namespace ALDS1_6_B

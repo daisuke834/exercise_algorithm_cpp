@@ -4,12 +4,13 @@
  */
 
 #include "src/D_ABC_130_D_two_pointers.h"
+
 #include <algorithm>
 #include <vector>
 
 namespace ABC_130_D {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

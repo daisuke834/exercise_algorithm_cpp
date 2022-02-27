@@ -5,21 +5,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_ALDS1_14_B_2_string_search_rolling_hash.h"
 
 namespace ALDS1_14_B_2 {
 
 class Test_ALDS1_14_B_2 : public ::testing::Test {
  protected:
-  RollingHash *rolling_hash_;
-  virtual void SetUp() {
-    rolling_hash_ = new RollingHash();
-  }
-  virtual void TearDown() {
-    delete rolling_hash_;
-  }
+  RollingHash* rolling_hash_;
+  virtual void SetUp() { rolling_hash_ = new RollingHash(); }
+  virtual void TearDown() { delete rolling_hash_; }
 };
 
 TEST_F(Test_ALDS1_14_B_2, CallStringSearch_1) {

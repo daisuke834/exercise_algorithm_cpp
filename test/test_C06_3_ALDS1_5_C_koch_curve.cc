@@ -6,9 +6,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/C06_3_ALDS1_5_C_koch_curve.h"
 #include "src/utils.h"
 

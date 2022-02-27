@@ -4,6 +4,7 @@
  */
 
 #include "src/D_ABC_147_C_bit_search.h"
+
 #include <algorithm>
 #include <bitset>
 #include <string>
@@ -12,7 +13,7 @@
 
 namespace D_ABC_147_C {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

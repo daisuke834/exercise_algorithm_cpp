@@ -9,7 +9,7 @@
 
 namespace LC_weekly_190_4 {
 
-int32_t Solution::maxDotProduct(std::vector<int32_t> &nums1, std::vector<int32_t> &nums2) noexcept {
+int32_t Solution::maxDotProduct(std::vector<int32_t>& nums1, std::vector<int32_t>& nums2) noexcept {
   const int32_t length_1 = static_cast<int32_t>(nums1.size());
   const int32_t length_2 = static_cast<int32_t>(nums2.size());
   std::vector<std::vector<int32_t>> dp(length_1 + 1, std::vector<int32_t>(length_2 + 1, INT32_MIN));

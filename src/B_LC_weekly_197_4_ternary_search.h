@@ -17,7 +17,7 @@ namespace LC_weekly_197_4 {
 
 class Solution {
  public:
-  double getMinDistSum(std::vector<std::vector<int>> &positions);
+  double getMinDistSum(std::vector<std::vector<int>>& positions);
 };
 
 }  // namespace LC_weekly_197_4

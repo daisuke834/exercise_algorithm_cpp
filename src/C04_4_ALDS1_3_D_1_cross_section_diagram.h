@@ -8,6 +8,7 @@
 #define SRC_C04_4_ALDS1_3_D_1_CROSS_SECTION_DIAGRAM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -32,22 +33,22 @@ class CrossSectionDiagram {
  public:
   CrossSectionDiagram() noexcept;
   ~CrossSectionDiagram() noexcept;
-  void Main(std::istream &input_stream);
-  void Load(std::istream &input_stream);
+  void Main(std::istream& input_stream);
+  void Load(std::istream& input_stream);
   float CalculateAreas();
 
  private:
-  CrossSectionDiagram(const CrossSectionDiagram &obj) = delete;
-  CrossSectionDiagram &operator=(const CrossSectionDiagram &rhs) = delete;
-  CrossSectionDiagram(CrossSectionDiagram &&obj) = delete;
-  CrossSectionDiagram &operator=(CrossSectionDiagram &&rhs) = delete;
+  CrossSectionDiagram(const CrossSectionDiagram& obj) = delete;
+  CrossSectionDiagram& operator=(const CrossSectionDiagram& rhs) = delete;
+  CrossSectionDiagram(CrossSectionDiagram&& obj) = delete;
+  CrossSectionDiagram& operator=(CrossSectionDiagram&& rhs) = delete;
 
   void CalculateHighestHeightLeftSide() noexcept;
   void CalculateHighestHeightRightSide() noexcept;
   float CalculateAreaPerEachGridX(const int32_t index_grid_x);
-  bool IsNewPuddle(const int32_t index_grid_x, const std::vector<float> &partial_sum_areas) const noexcept;
+  bool IsNewPuddle(const int32_t index_grid_x, const std::vector<float>& partial_sum_areas) const noexcept;
   static Slope InterpretSlope(const char c);
-  static int32_t GetRelativeHeightOfRightFromLeft(const Slope &current_slope);
+  static int32_t GetRelativeHeightOfRightFromLeft(const Slope& current_slope);
 
  private:
   int32_t number_of_grids_x_;

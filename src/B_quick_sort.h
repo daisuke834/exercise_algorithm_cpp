@@ -22,7 +22,7 @@ struct Element {
   int32_t value{INT32_MAX};
 };
 
-void CallQuickSort(std::istream &input_stream) noexcept;
+void CallQuickSort(std::istream& input_stream) noexcept;
 
 class QuickSort {
  public:
@@ -38,10 +38,10 @@ class QuickSort {
   void Swap(const int32_t index_1, const int32_t index_2);
   bool IndexOutOfRange(const int32_t index) const noexcept;
 
-  QuickSort(const QuickSort &obj) = delete;
-  QuickSort &operator=(const QuickSort &rhs) = delete;
-  QuickSort(QuickSort &&obj) = delete;
-  QuickSort &operator=(QuickSort &&rhs) = delete;
+  QuickSort(const QuickSort& obj) = delete;
+  QuickSort& operator=(const QuickSort& rhs) = delete;
+  QuickSort(QuickSort&& obj) = delete;
+  QuickSort& operator=(QuickSort&& rhs) = delete;
 
  private:
   int32_t number_of_elements_;

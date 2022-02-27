@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/C16_12_CGL_4_A_convex_hull.h"
 #include "src/utils.h"
 

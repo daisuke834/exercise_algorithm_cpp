@@ -5,15 +5,16 @@
  */
 
 #include "src/C07_6_ALDS1_5_D_1_number_of_inversions.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_D_1 {
 
-void CallNumberOfInversions(std::istream &input_stream) {
+void CallNumberOfInversions(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  NumberOfInversions *number_of_inversions = new NumberOfInversions();
+  NumberOfInversions* number_of_inversions = new NumberOfInversions();
   try {
     int32_t count;
     input_stream >> count;
@@ -45,9 +46,7 @@ void NumberOfInversions::AddData(const int32_t value) {
   size_++;
 }
 
-int64_t NumberOfInversions::GetNumberOfInversions() const noexcept {
-  return number_of_inversions_;
-}
+int64_t NumberOfInversions::GetNumberOfInversions() const noexcept { return number_of_inversions_; }
 
 void NumberOfInversions::CalculateNumberOfInversions() noexcept {
   try {
@@ -58,9 +57,7 @@ void NumberOfInversions::CalculateNumberOfInversions() noexcept {
   }
 }
 
-void NumberOfInversions::Print() const noexcept {
-  std::cout << GetNumberOfInversions() << std::endl;
-}
+void NumberOfInversions::Print() const noexcept { std::cout << GetNumberOfInversions() << std::endl; }
 
 void NumberOfInversions::ResetData() noexcept {
   size_ = 0;

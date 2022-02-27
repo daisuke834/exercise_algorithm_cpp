@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C18_2_ALDS1_1_B_1_GCD.h"
 
 namespace ALDS1_1_B_1 {
@@ -30,8 +32,6 @@ TEST_F(Test_ALDS1_1_B_1, CallCalculateGreatestCommonDivisor) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_ALDS1_1_B_1, CalculateGreatestCommonDivisor) {
-  ASSERT_EQ(21, CalculateGreatestCommonDivisor(147, 105));
-}
+TEST_F(Test_ALDS1_1_B_1, CalculateGreatestCommonDivisor) { ASSERT_EQ(21, CalculateGreatestCommonDivisor(147, 105)); }
 
 }  // namespace ALDS1_1_B_1

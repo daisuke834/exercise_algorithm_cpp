@@ -6,9 +6,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
 #include <vector>
+
 #include "src/C04_3_ALDS1_3_B_queue.h"
 
 namespace ALDS1_3_B {
@@ -16,9 +18,9 @@ constexpr int32_t kQuantumTime = 100;
 
 class Test_ALDS1_3_B : public ::testing::Test {
  protected:
-  Queue *queue_;
-  ProcessGroup *process_group_;
-  RoundRobin *round_robin_;
+  Queue* queue_;
+  ProcessGroup* process_group_;
+  RoundRobin* round_robin_;
 
   virtual void SetUp() {
     queue_ = new Queue();

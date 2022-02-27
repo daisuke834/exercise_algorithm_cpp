@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_weekly_189_3_subsequence.h"
 
 namespace LC_weekly_189_3 {
@@ -15,7 +17,7 @@ class Test_LC_weekly_189_3 : public ::testing::Test {
  protected:
   std::vector<std::vector<std::string>> inputs_;
   std::vector<int32_t> answers_;
-  Solution *solution_;
+  Solution* solution_;
   std::vector<std::string> temp_vec_;
   virtual void SetUp() {
     inputs_.clear();
@@ -23,9 +25,7 @@ class Test_LC_weekly_189_3 : public ::testing::Test {
     temp_vec_.clear();
     solution_ = new Solution();
   }
-  virtual void TearDown() {
-    delete solution_;
-  }
+  virtual void TearDown() { delete solution_; }
 };
 
 TEST_F(Test_LC_weekly_189_3, test_1) {

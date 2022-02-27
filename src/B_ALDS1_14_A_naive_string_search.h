@@ -7,15 +7,16 @@
 #define SRC_B_ALDS1_14_A_NAIVE_STRING_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_14_A {
 
-void CallNaiveStringSearch(std::istream &input_stream);
+void CallNaiveStringSearch(std::istream& input_stream);
 
-void NaiveStringSearch(const std::string &text, const std::string &pattern);
+void NaiveStringSearch(const std::string& text, const std::string& pattern);
 
 }  // namespace ALDS1_14_A
 

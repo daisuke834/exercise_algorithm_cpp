@@ -5,6 +5,7 @@
  */
 
 #include "src/D_AtCoder_Educational_DP_G_LongestPath.h"
+
 #include <algorithm>
 #include <vector>
 
@@ -28,7 +29,7 @@ int64_t Dfs(const int64_t vertex) {
   return result;
 }
 
-void CallMain(std::istream &input_stream) noexcept {
+void CallMain(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

@@ -17,10 +17,10 @@ namespace LC_weekly_193_3 {
 
 class Solution {
  public:
-  int minDays(std::vector<int> &bloomDay, int m, int k);
+  int minDays(std::vector<int>& bloomDay, int m, int k);
 
  private:
-  bool IsOkay(const std::vector<int> &bloomDay, const int m, const int k, const int day);
+  bool IsOkay(const std::vector<int>& bloomDay, const int m, const int k, const int day);
 };
 
 }  // namespace LC_weekly_193_3

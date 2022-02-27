@@ -8,6 +8,7 @@
 #define SRC_C10_4_ALDS1_9_C_PRIORITY_QUEUE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ constexpr int32_t kMaxNumberOfNodes = 5000000;
 constexpr int32_t kTopIndex = -1;
 constexpr int32_t kInvalidIndex = -2;
 
-void CallPriorityQueue(std::istream &input_stream);
+void CallPriorityQueue(std::istream& input_stream);
 
 struct Node {
   bool is_valid{false};
@@ -27,7 +28,7 @@ struct Node {
 
 enum class InstructionType : int32_t { kInsert = 0, kExtract, kEnd };
 
-InstructionType JudgeInstructionType(const std::string &str);
+InstructionType JudgeInstructionType(const std::string& str);
 
 class PriorityQueue {
  public:
@@ -62,10 +63,10 @@ class PriorityQueue {
   void RemoveTop();
   void SwapIfLargerThanParent(const int32_t index);
 
-  PriorityQueue(const PriorityQueue &obj) = delete;
-  PriorityQueue &operator=(const PriorityQueue &obj) = delete;
-  PriorityQueue(PriorityQueue &&obj) = delete;
-  PriorityQueue &operator=(PriorityQueue &&obj) = delete;
+  PriorityQueue(const PriorityQueue& obj) = delete;
+  PriorityQueue& operator=(const PriorityQueue& obj) = delete;
+  PriorityQueue(PriorityQueue&& obj) = delete;
+  PriorityQueue& operator=(PriorityQueue&& obj) = delete;
 
  private:
   int32_t size_;

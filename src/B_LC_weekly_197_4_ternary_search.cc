@@ -6,11 +6,12 @@
  */
 
 #include "src/B_LC_weekly_197_4_ternary_search.h"
+
 #include <algorithm>
 
 namespace LC_weekly_197_4 {
 
-double Solution::getMinDistSum(std::vector<std::vector<int>> &positions) {
+double Solution::getMinDistSum(std::vector<std::vector<int>>& positions) {
   const int64_t N = static_cast<int64_t>(positions.size());
 
   auto SumDist = [&](const double x, const double y) -> double {

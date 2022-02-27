@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_202_happy_number_hashset.h"
 
 namespace LC_202 {

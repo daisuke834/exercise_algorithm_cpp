@@ -10,6 +10,7 @@
 #define SRC_C12_3_ALDS1_11_B_2_DEPTH_FIRST_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -23,7 +24,7 @@ constexpr int32_t kMaxLoopCount = 1000000;
 constexpr int32_t kFirstExploreTargetIndex = 0;
 constexpr int32_t kInvalidTime = -1;
 
-void CallDepthFirstSearch(std::istream &input_stream);
+void CallDepthFirstSearch(std::istream& input_stream);
 
 enum class VertexStatus : int32_t { kInit = 0, kDiscovered, kCompleted };
 
@@ -40,10 +41,10 @@ class Vertex {
   int32_t GetNextTailCheck() noexcept;
 
  private:
-  Vertex(const Vertex &obj) = delete;
-  Vertex &operator=(const Vertex &obj) = delete;
-  Vertex(Vertex &&obj) = delete;
-  Vertex &operator=(Vertex &&obj) = delete;
+  Vertex(const Vertex& obj) = delete;
+  Vertex& operator=(const Vertex& obj) = delete;
+  Vertex(Vertex&& obj) = delete;
+  Vertex& operator=(Vertex&& obj) = delete;
 
  private:
   VertexStatus status_;
@@ -56,8 +57,8 @@ class Stack {
  public:
   Stack() noexcept;
   ~Stack() noexcept;
-  void Main(std::istream &input_stream) noexcept;
-  void LoadAndCompute(std::istream &input_stream);
+  void Main(std::istream& input_stream) noexcept;
+  void LoadAndCompute(std::istream& input_stream);
   void Push(const int32_t x);
   void Pop();
   int32_t GetTop();
@@ -68,10 +69,10 @@ class Stack {
   void PopAndPrint() noexcept;
 
  private:
-  Stack(const Stack &obj) = delete;
-  Stack &operator=(const Stack &rhs) = delete;
-  Stack(Stack &&obj) = delete;
-  Stack &operator=(Stack &&rhs) = delete;
+  Stack(const Stack& obj) = delete;
+  Stack& operator=(const Stack& rhs) = delete;
+  Stack(Stack&& obj) = delete;
+  Stack& operator=(Stack&& rhs) = delete;
 
  private:
   int32_t top_position_;
@@ -105,10 +106,10 @@ class DepthFirstSearch {
   bool IsMapped(const int32_t index_from, const int32_t index_to) const;
   bool DoesNotExist(const int32_t vertex_index) const;
 
-  DepthFirstSearch(const DepthFirstSearch &obj) = delete;
-  DepthFirstSearch &operator=(const DepthFirstSearch &obj) = delete;
-  DepthFirstSearch(DepthFirstSearch &&obj) = delete;
-  DepthFirstSearch &operator=(DepthFirstSearch &&obj) = delete;
+  DepthFirstSearch(const DepthFirstSearch& obj) = delete;
+  DepthFirstSearch& operator=(const DepthFirstSearch& obj) = delete;
+  DepthFirstSearch(DepthFirstSearch&& obj) = delete;
+  DepthFirstSearch& operator=(DepthFirstSearch&& obj) = delete;
 
  private:
   int32_t time_;

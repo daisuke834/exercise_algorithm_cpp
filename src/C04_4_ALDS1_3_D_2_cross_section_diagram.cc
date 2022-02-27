@@ -5,16 +5,17 @@
  */
 
 #include "src/C04_4_ALDS1_3_D_2_cross_section_diagram.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_3_D_2 {
 
-void CallCrossSectionDiagram(std::istream &input_stream) noexcept {
+void CallCrossSectionDiagram(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  CrossSectionDiagram *cross_section_diagram = new CrossSectionDiagram();
+  CrossSectionDiagram* cross_section_diagram = new CrossSectionDiagram();
   try {
     for (int32_t index_grid_x = 0; index_grid_x < kMaxNumberOfGridX; ++index_grid_x) {
       if (input_stream.eof()) {

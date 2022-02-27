@@ -8,6 +8,7 @@
 #define SRC_C06_2_ALDS1_5_A_1_EXHAUSTIVE_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <list>
@@ -15,7 +16,7 @@
 
 namespace ALDS1_5_A_1 {
 
-void CallExhaustiveSearch(std::istream &input_stream);
+void CallExhaustiveSearch(std::istream& input_stream);
 
 constexpr int32_t kMaxNumberOfSources = 20;
 constexpr int32_t kMaxNumberOfTargets = 200;
@@ -39,12 +40,12 @@ class ExhaustiveSearch {
   void Check();
 
  private:
-  ExhaustiveSearch(const ExhaustiveSearch &obj) = delete;
-  ExhaustiveSearch &operator=(const ExhaustiveSearch &rhs) = delete;
-  ExhaustiveSearch(ExhaustiveSearch &&obj) = delete;
-  ExhaustiveSearch &operator=(ExhaustiveSearch &&rhs) = delete;
+  ExhaustiveSearch(const ExhaustiveSearch& obj) = delete;
+  ExhaustiveSearch& operator=(const ExhaustiveSearch& rhs) = delete;
+  ExhaustiveSearch(ExhaustiveSearch&& obj) = delete;
+  ExhaustiveSearch& operator=(ExhaustiveSearch&& rhs) = delete;
 
-  static bool CanBeCreated(const int32_t target, const std::list<int32_t> &sources);
+  static bool CanBeCreated(const int32_t target, const std::list<int32_t>& sources);
 
  private:
   std::list<int32_t> sources_;

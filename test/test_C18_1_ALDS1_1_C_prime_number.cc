@@ -5,22 +5,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C18_1_ALDS1_1_C_prime_number.h"
 
 namespace ALDS1_1_C {
 
 class Test_ALDS1_1_C : public ::testing::Test {
  protected:
-  PrimeNumber *prime_number_;
-  virtual void SetUp() {
-    prime_number_ = new PrimeNumber();
-  }
-  virtual void TearDown() {
-    delete prime_number_;
-  }
+  PrimeNumber* prime_number_;
+  virtual void SetUp() { prime_number_ = new PrimeNumber(); }
+  virtual void TearDown() { delete prime_number_; }
 };
 
 TEST_F(Test_ALDS1_1_C, CallPrimeNumber) {

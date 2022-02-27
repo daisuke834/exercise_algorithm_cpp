@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_2_GRL_4_B_1_topological_sort.h"
 
 namespace GRL_4_B_1 {
 
 class Test_GRL_4_B_1 : public ::testing::Test {
  protected:
-  TopologicalSort *topological_sort_;
-  virtual void SetUp() {
-    topological_sort_ = new TopologicalSort();
-  }
-  virtual void TearDown() {
-    delete topological_sort_;
-  }
+  TopologicalSort* topological_sort_;
+  virtual void SetUp() { topological_sort_ = new TopologicalSort(); }
+  virtual void TearDown() { delete topological_sort_; }
 };
 
 TEST_F(Test_GRL_4_B_1, CallTopologicalSort_1) {

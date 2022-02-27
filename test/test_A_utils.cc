@@ -4,9 +4,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/utils.h"
 
 namespace utils {

@@ -6,8 +6,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_ddcc2020_qual_C_1_strawberry_cakes.h"
 
 namespace D_ddcc2020_qual_C_1 {

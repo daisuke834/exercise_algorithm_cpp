@@ -5,14 +5,15 @@
  */
 
 #include "src/C05_2_ALDS1_4_A_linear_search.h"
+
 #include <iostream>
 #include <string>
 namespace ALDS1_4_A {
 
-void CallLinearSearch(std::istream &input_stream) noexcept {
+void CallLinearSearch(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LinearSearch *linear_search = new LinearSearch();
+  LinearSearch* linear_search = new LinearSearch();
   try {
     int32_t number_of_sources;
     input_stream >> number_of_sources;

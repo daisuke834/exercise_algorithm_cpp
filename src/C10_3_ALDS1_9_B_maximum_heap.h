@@ -8,6 +8,7 @@
 #define SRC_C10_3_ALDS1_9_B_MAXIMUM_HEAP_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ constexpr int32_t kMaxNumberOfNodes = 500000;
 constexpr int32_t kTopIndex = -1;
 constexpr int32_t kInvalidIndex = -2;
 
-void CallMaximumHeap(std::istream &input_stream);
+void CallMaximumHeap(std::istream& input_stream);
 
 struct Node {
   bool is_valid{false};
@@ -54,10 +55,10 @@ class MaximumHeap {
   static bool IsInvalidNodeNumber(const int32_t node_number) noexcept;
   static bool IsValidNodeNodeNumber(const int32_t node_number) noexcept;
 
-  MaximumHeap(const MaximumHeap &obj) = delete;
-  MaximumHeap &operator=(const MaximumHeap &obj) = delete;
-  MaximumHeap(MaximumHeap &&obj) = delete;
-  MaximumHeap &operator=(MaximumHeap &&obj) = delete;
+  MaximumHeap(const MaximumHeap& obj) = delete;
+  MaximumHeap& operator=(const MaximumHeap& obj) = delete;
+  MaximumHeap(MaximumHeap&& obj) = delete;
+  MaximumHeap& operator=(MaximumHeap&& obj) = delete;
 
  private:
   int32_t size_;

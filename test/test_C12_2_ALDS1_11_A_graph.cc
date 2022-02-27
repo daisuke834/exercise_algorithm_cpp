@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C12_2_ALDS1_11_A_graph.h"
 
 namespace ALDS1_11_A {
 
 class Test_ALDS1_11_A : public ::testing::Test {
  protected:
-  Graph *graph_;
-  virtual void SetUp() {
-    graph_ = new Graph();
-  }
-  virtual void TearDown() {
-    delete graph_;
-  }
+  Graph* graph_;
+  virtual void SetUp() { graph_ = new Graph(); }
+  virtual void TearDown() { delete graph_; }
 };
 
 TEST_F(Test_ALDS1_11_A, CallGraph_1) {

@@ -8,7 +8,7 @@
 
 namespace LC_weekly_193_3 {
 
-int Solution::minDays(std::vector<int> &bloomDay, int m, int k) {
+int Solution::minDays(std::vector<int>& bloomDay, int m, int k) {
   int N = static_cast<int32_t>(bloomDay.size());
   if (m * k > N) {
     return -1;
@@ -44,7 +44,7 @@ int Solution::minDays(std::vector<int> &bloomDay, int m, int k) {
   return result;
 }
 
-bool Solution::IsOkay(const std::vector<int> &bloomDay, const int m, const int k, const int day) {
+bool Solution::IsOkay(const std::vector<int>& bloomDay, const int m, const int k, const int day) {
   int number_of_bour = 0;
   int conse = 0;
   for (const int d : bloomDay) {

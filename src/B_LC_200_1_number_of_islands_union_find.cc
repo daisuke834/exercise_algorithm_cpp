@@ -1,7 +1,7 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode 200. Number of Islands. Implemented by Union Find Trees.
- * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
+ * Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
  * An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.
  * You may assume all four edges of the grid are all surrounded by water.
  */
@@ -10,10 +10,10 @@
 
 namespace LC_200_1 {
 
-void CallNumberOfIslands(std::istream &input_stream) noexcept {
+void CallNumberOfIslands(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  NumberOfIslands *number_of_islands = new NumberOfIslands();
+  NumberOfIslands* number_of_islands = new NumberOfIslands();
   constexpr int32_t kMaxLoopCount = 20000000;
   std::vector<std::vector<char>> grid;
   for (int32_t i = 0; i < kMaxLoopCount; ++i) {
@@ -39,18 +39,12 @@ NumberOfIslands::NumberOfIslands() noexcept {}
 
 NumberOfIslands::~NumberOfIslands() noexcept {}
 
-int32_t NumberOfIslands::GetIndex(const int32_t x, const int32_t y) const noexcept {
-  return (x + y * width_);
-}
+int32_t NumberOfIslands::GetIndex(const int32_t x, const int32_t y) const noexcept { return (x + y * width_); }
 
-int32_t NumberOfIslands::GetX(const int32_t index) const noexcept {
-  return index % width_;
-}
-int32_t NumberOfIslands::GetY(const int32_t index) const noexcept {
-  return index / width_;
-}
+int32_t NumberOfIslands::GetX(const int32_t index) const noexcept { return index % width_; }
+int32_t NumberOfIslands::GetY(const int32_t index) const noexcept { return index / width_; }
 
-bool NumberOfIslands::IsLand(std::vector<std::vector<char>> &grid, const int32_t x, const int32_t y) const noexcept {
+bool NumberOfIslands::IsLand(std::vector<std::vector<char>>& grid, const int32_t x, const int32_t y) const noexcept {
   return (grid[y][x] == '1');
 }
 
@@ -81,7 +75,7 @@ void NumberOfIslands::InitializeTree(const int32_t index) noexcept {
   ++number_of_islands_;
 }
 
-int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>> &grid) noexcept {
+int32_t NumberOfIslands::GetNumberOfIslands(std::vector<std::vector<char>>& grid) noexcept {
   if (static_cast<int32_t>(grid.size()) == 0 || static_cast<int32_t>(grid[0].size()) == 0) {
     return 0;
   }

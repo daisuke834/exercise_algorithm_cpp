@@ -9,7 +9,7 @@
 
 namespace LC_015_1 {
 
-std::vector<std::vector<int32_t>> Solution::threeSum(std::vector<int32_t> &nums) noexcept {
+std::vector<std::vector<int32_t>> Solution::threeSum(std::vector<int32_t>& nums) noexcept {
   std::vector<std::vector<int>> result;
   std::sort(nums.begin(), nums.end());
   const int32_t length = static_cast<int32_t>(nums.size());

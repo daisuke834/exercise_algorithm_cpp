@@ -6,8 +6,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_weekly_190_4_two_subsequences.h"
 
 namespace LC_weekly_190_4 {
@@ -16,15 +18,13 @@ class Test_LC_weekly_190_4 : public ::testing::Test {
  protected:
   std::vector<int32_t> inputs_1_;
   std::vector<int32_t> inputs_2_;
-  Solution *solution_;
+  Solution* solution_;
   virtual void SetUp() {
     inputs_1_.clear();
     inputs_2_.clear();
     solution_ = new Solution();
   }
-  virtual void TearDown() {
-    delete solution_;
-  }
+  virtual void TearDown() { delete solution_; }
 };
 
 TEST_F(Test_LC_weekly_190_4, test_1) {

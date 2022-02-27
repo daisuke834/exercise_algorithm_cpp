@@ -5,6 +5,7 @@
  */
 
 #include "src/C04_4_ALDS1_3_D_1_cross_section_diagram.h"
+
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -16,7 +17,7 @@ const float kEps = 0.00001F;
 CrossSectionDiagram::CrossSectionDiagram() noexcept : number_of_grids_x_(0) {}
 CrossSectionDiagram::~CrossSectionDiagram() noexcept {}
 
-void CrossSectionDiagram::Main(std::istream &input_stream) {
+void CrossSectionDiagram::Main(std::istream& input_stream) {
   try {
     Load(input_stream);
     const int32_t result = static_cast<int32_t>(CalculateAreas());
@@ -24,7 +25,7 @@ void CrossSectionDiagram::Main(std::istream &input_stream) {
 
     std::vector<float> partial_sum_areas;
     for (int32_t index_grid_x = 0; index_grid_x < number_of_grids_x_; ++index_grid_x) {
-      const float &c_area = grids_[index_grid_x].partial_area;
+      const float& c_area = grids_[index_grid_x].partial_area;
       if (IsNewPuddle(index_grid_x, partial_sum_areas)) {
         partial_sum_areas.push_back(c_area);
       } else {
@@ -45,7 +46,7 @@ void CrossSectionDiagram::Main(std::istream &input_stream) {
   }
 }
 
-void CrossSectionDiagram::Load(std::istream &input_stream) {
+void CrossSectionDiagram::Load(std::istream& input_stream) {
   try {
     int32_t current_height_left = 0;
     for (int32_t index_grid_x = 0; index_grid_x < kMaxNumberOfGridX; ++index_grid_x) {
@@ -58,7 +59,7 @@ void CrossSectionDiagram::Load(std::istream &input_stream) {
         break;
       }
       ++number_of_grids_x_;
-      GridInformation &cgrid = grids_[index_grid_x];
+      GridInformation& cgrid = grids_[index_grid_x];
       cgrid.slope = InterpretSlope(c);
       cgrid.height_left = current_height_left;
       cgrid.height_right = cgrid.height_left + GetRelativeHeightOfRightFromLeft(cgrid.slope);
@@ -70,12 +71,10 @@ void CrossSectionDiagram::Load(std::istream &input_stream) {
   }
 }
 
-static bool FloatEq(const float a, const float b) {
-  return (fabsf(a - b) < kEps);
-}
+static bool FloatEq(const float a, const float b) { return (fabsf(a - b) < kEps); }
 
-bool CrossSectionDiagram::IsNewPuddle(const int32_t index_grid_x, const std::vector<float> &partial_sum_areas) const
-    noexcept {
+bool CrossSectionDiagram::IsNewPuddle(const int32_t index_grid_x,
+                                      const std::vector<float>& partial_sum_areas) const noexcept {
   bool is_new_puddle = false;
   if (partial_sum_areas.size() == 0 && grids_[index_grid_x].partial_area > kEps) {
     is_new_puddle = true;
@@ -110,8 +109,8 @@ float CrossSectionDiagram::CalculateAreas() {
 }
 
 float CrossSectionDiagram::CalculateAreaPerEachGridX(const int32_t index_grid_x) {
-  GridInformation &cgrid = grids_[index_grid_x];
-  float &area = cgrid.partial_area;
+  GridInformation& cgrid = grids_[index_grid_x];
+  float& area = cgrid.partial_area;
   const int32_t lower_highest_height_each_side =
       std::min(cgrid.highest_height_leftside, cgrid.highest_height_rightside);
   switch (grids_[index_grid_x].slope) {
@@ -172,7 +171,7 @@ Slope CrossSectionDiagram::InterpretSlope(const char c) {
   return current_slope;
 }
 
-int32_t CrossSectionDiagram::GetRelativeHeightOfRightFromLeft(const Slope &current_slope) {
+int32_t CrossSectionDiagram::GetRelativeHeightOfRightFromLeft(const Slope& current_slope) {
   int32_t relative_height;
   switch (current_slope) {
     case Slope::kFallingToRight:

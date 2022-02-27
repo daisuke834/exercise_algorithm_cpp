@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_weekly_198_2_tree.h"
 
 namespace LC_weekly_198_2 {
 
 class Test_LC_weekly_198_2 : public ::testing::Test {
  protected:
-  Solution *solution_;
-  virtual void SetUp() {
-    solution_ = new Solution();
-  }
-  virtual void TearDown() {
-    delete solution_;
-  }
+  Solution* solution_;
+  virtual void SetUp() { solution_ = new Solution(); }
+  virtual void TearDown() { delete solution_; }
 };
 
 TEST_F(Test_LC_weekly_198_2, test_1) {

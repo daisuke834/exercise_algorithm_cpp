@@ -7,15 +7,16 @@
  */
 
 #include "src/C12_5_ALDS1_11_D_1_connected_components.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_D_1 {
 
-void CallConnectedComponents(std::istream &input_stream) {
+void CallConnectedComponents(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  ConnectedComponents *connected_components = new ConnectedComponents();
+  ConnectedComponents* connected_components = new ConnectedComponents();
   try {
     int32_t number_of_vertices, number_of_relations;
     input_stream >> number_of_vertices >> number_of_relations;
@@ -194,7 +195,7 @@ int32_t ConnectedComponents::GetNeighbour(const int32_t vertex_index, const int3
         throw 1;
       }
       const int32_t edge_offset = edge_offset_of_each_vertex_[vertex_index];
-      const Edge &selected_edge = edges_[edge_offset + relative_index];
+      const Edge& selected_edge = edges_[edge_offset + relative_index];
       if (selected_edge.from != vertex_index) {
         std::cerr << "ERROR: GetNeighbour(): Invalid mapping. vertex_index = " << vertex_index
                   << ", selected_edge.from = " << selected_edge.from << std::endl;
@@ -475,9 +476,7 @@ int32_t ConnectedComponents::ClusterIdIsNotAllocated(const int32_t vertex_index)
 
 // **********************************************************************
 
-Queue::Queue() noexcept {
-  Clear();
-}
+Queue::Queue() noexcept { Clear(); }
 
 Queue::~Queue() noexcept {}
 
@@ -486,13 +485,9 @@ void Queue::Clear() noexcept {
   head_ = 0;
 }
 
-bool Queue::IsEmpty() const noexcept {
-  return (depth_ <= 0);
-}
+bool Queue::IsEmpty() const noexcept { return (depth_ <= 0); }
 
-bool Queue::IsFull() const noexcept {
-  return (depth_ >= kMaxQueueSize);
-}
+bool Queue::IsFull() const noexcept { return (depth_ >= kMaxQueueSize); }
 
 void Queue::Enqueue(const int32_t index) {
   if (IsFull()) {

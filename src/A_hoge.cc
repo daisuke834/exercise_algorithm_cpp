@@ -4,15 +4,16 @@
  */
 
 #include "src/A_hoge.h"
+
 #include <iostream>
 namespace hoge {
 
-void CallHoge(std::istream &input_stream) noexcept {
+void CallHoge(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Hoge *hoge = new Hoge();
+  Hoge* hoge = new Hoge();
   try {
     int32_t value;
     input_stream >> value;
@@ -28,8 +29,6 @@ Hoge::Hoge() noexcept {}
 
 Hoge::~Hoge() noexcept {}
 
-int32_t Hoge::MyFunc() noexcept {
-  return 10;
-}
+int32_t Hoge::MyFunc() noexcept { return 10; }
 
 }  // namespace hoge

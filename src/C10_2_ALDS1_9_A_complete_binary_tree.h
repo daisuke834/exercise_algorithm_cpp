@@ -8,6 +8,7 @@
 #define SRC_C10_2_ALDS1_9_A_COMPLETE_BINARY_TREE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ constexpr int32_t kMaxNumberOfNodes = 1000;
 constexpr int32_t kTopIndex = -1;
 constexpr int32_t kInvalidIndex = -2;
 
-void CallCompleteBinaryTree(std::istream &input_stream);
+void CallCompleteBinaryTree(std::istream& input_stream);
 
 struct Node {
   bool is_valid{false};
@@ -45,10 +46,10 @@ class CompleteBinaryTree {
   static int32_t ConvertFromNodeNumberToIndex(const int32_t node_number);
   static int32_t ConvertFromIndexToNodeNumber(const int32_t index);
 
-  CompleteBinaryTree(const CompleteBinaryTree &obj) = delete;
-  CompleteBinaryTree &operator=(const CompleteBinaryTree &obj) = delete;
-  CompleteBinaryTree(CompleteBinaryTree &&obj) = delete;
-  CompleteBinaryTree &operator=(CompleteBinaryTree &&obj) = delete;
+  CompleteBinaryTree(const CompleteBinaryTree& obj) = delete;
+  CompleteBinaryTree& operator=(const CompleteBinaryTree& obj) = delete;
+  CompleteBinaryTree(CompleteBinaryTree&& obj) = delete;
+  CompleteBinaryTree& operator=(CompleteBinaryTree&& obj) = delete;
 
  private:
   int32_t size_;

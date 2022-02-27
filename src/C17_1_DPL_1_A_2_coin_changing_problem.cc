@@ -6,15 +6,16 @@
  */
 
 #include "src/C17_1_DPL_1_A_2_coin_changing_problem.h"
+
 #include <iostream>
 #include <string>
 
 namespace DPL_1_A_2 {
 
-void CallCoinChangingProblem(std::istream &input_stream) {
+void CallCoinChangingProblem(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  CoinChangingProblem *coin_chainging_problem = new CoinChangingProblem();
+  CoinChangingProblem* coin_chainging_problem = new CoinChangingProblem();
   try {
     int32_t amount_of_payment, number_of_coin_types;
     input_stream >> amount_of_payment >> number_of_coin_types;

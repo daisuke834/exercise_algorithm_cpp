@@ -18,7 +18,7 @@ namespace ABC_150_C {
 constexpr int64_t kMaxNumberOfTowns = 200000L;
 constexpr int64_t kMaxLog = 60L;  // > log2(K)
 
-void CallPermutation(std::istream &input_stream) noexcept;
+void CallPermutation(std::istream& input_stream) noexcept;
 
 }  // namespace ABC_150_C
 

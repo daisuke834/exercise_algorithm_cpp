@@ -9,6 +9,7 @@
 #define SRC_C13_2_ALDS1_12_A_2_MST_PRIM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -24,7 +25,7 @@ constexpr int32_t kRootVertex = 0;
 
 // ****************************************************
 
-void CallMinimumSpanningTree(std::istream &input_stream);
+void CallMinimumSpanningTree(std::istream& input_stream);
 
 // ****************************************************
 
@@ -61,10 +62,10 @@ class MinimumSpanningTree {
   bool IsTreeComponent(const int32_t vertex_index) const;
   bool InvalidVertexIndex(const int32_t vertex_index) const noexcept;
 
-  MinimumSpanningTree(const MinimumSpanningTree &obj) = delete;
-  MinimumSpanningTree &operator=(const MinimumSpanningTree &obj) = delete;
-  MinimumSpanningTree(MinimumSpanningTree &&obj) = delete;
-  MinimumSpanningTree &operator=(MinimumSpanningTree &&obj) = delete;
+  MinimumSpanningTree(const MinimumSpanningTree& obj) = delete;
+  MinimumSpanningTree& operator=(const MinimumSpanningTree& obj) = delete;
+  MinimumSpanningTree(MinimumSpanningTree&& obj) = delete;
+  MinimumSpanningTree& operator=(MinimumSpanningTree&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

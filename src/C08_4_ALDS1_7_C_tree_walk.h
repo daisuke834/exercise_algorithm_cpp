@@ -9,6 +9,7 @@
 #define SRC_C08_4_ALDS1_7_C_TREE_WALK_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -21,16 +22,16 @@ constexpr int32_t kInvalid = -2;
 
 enum class NodeType : int32_t { kInternal = 0, kLeaf, kRoot };
 
-void CallTreeWalk(std::istream &input_stream);
+void CallTreeWalk(std::istream& input_stream);
 
 class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  Node(const Node &obj) noexcept;
-  Node &operator=(const Node &rhs) noexcept;
-  Node(Node &&obj) noexcept;
-  Node &operator=(Node &&rhs) noexcept;
+  Node(const Node& obj) noexcept;
+  Node& operator=(const Node& rhs) noexcept;
+  Node(Node&& obj) noexcept;
+  Node& operator=(Node&& rhs) noexcept;
 
   void Activate() noexcept;
   bool IsValid() const noexcept;
@@ -70,10 +71,10 @@ class TreeWalk {
   void Print() const;
 
  private:
-  TreeWalk(const TreeWalk &obj) = delete;
-  TreeWalk &operator=(const TreeWalk &obj) = delete;
-  TreeWalk(TreeWalk &&obj) = delete;
-  TreeWalk &operator=(TreeWalk &&obj) = delete;
+  TreeWalk(const TreeWalk& obj) = delete;
+  TreeWalk& operator=(const TreeWalk& obj) = delete;
+  TreeWalk(TreeWalk&& obj) = delete;
+  TreeWalk& operator=(TreeWalk&& obj) = delete;
 
   int32_t CalculateDepth(const int32_t index_node) const;
   int32_t CalculateHeight(const int32_t index_node) const;

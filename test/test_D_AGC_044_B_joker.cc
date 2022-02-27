@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_AGC_044_B_joker.h"
 
 namespace AGC_044_B {
@@ -16,14 +18,12 @@ class Test_AGC_044_B : public ::testing::Test {
   std::vector<int32_t> input_;
 
  protected:
-  virtual void SetUp() {
-    input_.clear();
-  }
+  virtual void SetUp() { input_.clear(); }
   virtual void TearDown() {}
 };
 
 TEST_F(Test_AGC_044_B, test_1) {
-  Solution *solution = new Solution(3);
+  Solution* solution = new Solution(3);
   int32_t inputs[] = {1, 3, 7, 9, 5, 4, 8, 6, 2};
   for (const int32_t value : inputs) {
     input_.push_back(value);
@@ -34,7 +34,7 @@ TEST_F(Test_AGC_044_B, test_1) {
 }
 
 TEST_F(Test_AGC_044_B, test_2) {
-  Solution *solution = new Solution(4);
+  Solution* solution = new Solution(4);
   int32_t inputs[] = {6, 7, 1, 4, 13, 16, 10, 9, 5, 11, 12, 14, 15, 2, 3, 8};
   for (const int32_t value : inputs) {
     input_.push_back(value);
@@ -45,7 +45,7 @@ TEST_F(Test_AGC_044_B, test_2) {
 }
 
 TEST_F(Test_AGC_044_B, test_3) {
-  Solution *solution = new Solution(6);
+  Solution* solution = new Solution(6);
   int32_t inputs[] = {11, 21, 35, 22, 7,  36, 27, 34, 8, 20, 15, 13, 16, 1,  24, 3, 2, 17,
                       26, 9,  18, 32, 31, 23, 19, 14, 4, 25, 10, 29, 28, 33, 12, 6, 5, 30};
   for (const int32_t value : inputs) {

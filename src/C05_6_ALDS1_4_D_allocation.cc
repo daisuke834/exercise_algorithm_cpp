@@ -5,15 +5,16 @@
  */
 
 #include "src/C05_6_ALDS1_4_D_allocation.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 namespace ALDS1_4_D {
 
-void CallBaggageAllocation(std::istream &input_stream) {
+void CallBaggageAllocation(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BaggageAllocation *baggage_allocation = new BaggageAllocation();
+  BaggageAllocation* baggage_allocation = new BaggageAllocation();
   try {
     int32_t number_of_baggages;
     int32_t number_of_trucks;
@@ -167,12 +168,12 @@ bool BaggageAllocation::SimulateAllBaggagesCanBeCarried(const int32_t max_number
   return success;
 }
 
-int32_t BaggageAllocation::GetCenterValue(const SearchBound &search_bound) noexcept {
+int32_t BaggageAllocation::GetCenterValue(const SearchBound& search_bound) noexcept {
   const int32_t full_offset = search_bound.upper_bound - search_bound.lower_bound;
   return search_bound.lower_bound + (full_offset / 2);
 }
 
-bool BaggageAllocation::SearchFinished(const SearchBound &search_bound) {
+bool BaggageAllocation::SearchFinished(const SearchBound& search_bound) {
   bool search_finished;
   if (search_bound.upper_bound == search_bound.lower_bound + 1) {
     search_finished = true;
@@ -186,7 +187,7 @@ bool BaggageAllocation::SearchFinished(const SearchBound &search_bound) {
   return search_finished;
 }
 
-int32_t BaggageAllocation::GetSearchedValue(const SearchBound &search_bound) {
+int32_t BaggageAllocation::GetSearchedValue(const SearchBound& search_bound) {
   if (search_bound.upper_bound != search_bound.lower_bound + 1) {
     std::cerr << "ERROR: GetSearchedValue(): Invalid search_bound " << std::endl;
     throw 1;

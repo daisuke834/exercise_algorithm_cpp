@@ -5,21 +5,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_ALDS1_14_B_1_string_search_bm.h"
 
 namespace ALDS1_14_B_1 {
 
 class Test_ALDS1_14_B_1 : public ::testing::Test {
  protected:
-  BoyerMoore *boyer_moore_;
-  virtual void SetUp() {
-    boyer_moore_ = new BoyerMoore();
-  }
-  virtual void TearDown() {
-    delete boyer_moore_;
-  }
+  BoyerMoore* boyer_moore_;
+  virtual void SetUp() { boyer_moore_ = new BoyerMoore(); }
+  virtual void TearDown() { delete boyer_moore_; }
 };
 
 TEST_F(Test_ALDS1_14_B_1, CallStringSearch_1) {

@@ -7,22 +7,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C08_4_ALDS1_7_C_tree_walk.h"
 
 namespace ALDS1_7_C {
 
 class Test_ALDS1_7_C : public ::testing::Test {
  protected:
-  TreeWalk *tree_walk_;
-  virtual void SetUp() {
-    tree_walk_ = new TreeWalk();
-  }
-  virtual void TearDown() {
-    delete tree_walk_;
-  }
+  TreeWalk* tree_walk_;
+  virtual void SetUp() { tree_walk_ = new TreeWalk(); }
+  virtual void TearDown() { delete tree_walk_; }
 };
 
 TEST_F(Test_ALDS1_7_C, Node_initial) {

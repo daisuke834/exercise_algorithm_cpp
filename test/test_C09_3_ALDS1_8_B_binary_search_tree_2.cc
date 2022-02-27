@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C09_3_ALDS1_8_B_binary_search_tree_2.h"
 
 namespace ALDS1_8_B {
 
 class Test_ALDS1_8_B : public ::testing::Test {
  protected:
-  BinarySearchTree *binary_search_tree_;
-  virtual void SetUp() {
-    binary_search_tree_ = new BinarySearchTree();
-  }
-  virtual void TearDown() {
-    delete binary_search_tree_;
-  }
+  BinarySearchTree* binary_search_tree_;
+  virtual void SetUp() { binary_search_tree_ = new BinarySearchTree(); }
+  virtual void TearDown() { delete binary_search_tree_; }
 };
 
 TEST_F(Test_ALDS1_8_B, Node_initial) {

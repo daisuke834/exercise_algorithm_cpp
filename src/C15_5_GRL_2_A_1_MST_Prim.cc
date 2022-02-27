@@ -8,10 +8,10 @@
 
 namespace GRL_2_A_1 {
 
-void CallPrimAlgorithm(std::istream &input_stream) {
+void CallPrimAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  PrimAlgorithm *minimum_spanning_tree = new PrimAlgorithm();
+  PrimAlgorithm* minimum_spanning_tree = new PrimAlgorithm();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;
@@ -58,7 +58,7 @@ void PrimAlgorithm::BuildMinimumSpanningTree(const int32_t start_vertex_index) n
     priority_queue_.pop();
     if (!vertices_[c_vertex_index].assigned_to_tree) {
       AddToTree(c_vertex_index, c_distance);
-      for (const Edge &c_edge : vertices_[c_vertex_index].neighbours) {
+      for (const Edge& c_edge : vertices_[c_vertex_index].neighbours) {
         const int32_t neighbour_index = c_edge.to;
         if (!vertices_[neighbour_index].assigned_to_tree) {
           priority_queue_.push(Pair(c_edge.weight, neighbour_index));
@@ -68,9 +68,7 @@ void PrimAlgorithm::BuildMinimumSpanningTree(const int32_t start_vertex_index) n
   }
 }
 
-int32_t PrimAlgorithm::GetSumOfWeightsOfMst() const noexcept {
-  return sum_of_weights_;
-}
+int32_t PrimAlgorithm::GetSumOfWeightsOfMst() const noexcept { return sum_of_weights_; }
 
 void PrimAlgorithm::AddToTree(const int32_t child, const int32_t weight) noexcept {
   vertices_[child].assigned_to_tree = true;

@@ -6,15 +6,16 @@
  */
 
 #include "src/C15_2_GRL_4_B_3_topological_sort_dfs.h"
+
 #include <iostream>
 #include <string>
 
 namespace GRL_4_B_3 {
 
-void CallTopologicalSort(std::istream &input_stream) {
+void CallTopologicalSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  TopologicalSort *topological_sort = new TopologicalSort();
+  TopologicalSort* topological_sort = new TopologicalSort();
   int32_t number_of_vertices, number_of_edges;
   input_stream >> number_of_vertices >> number_of_edges;
   topological_sort->ConfigureVertices(number_of_vertices);
@@ -32,9 +33,7 @@ TopologicalSort::TopologicalSort() : number_of_vertices_(0) {}
 
 TopologicalSort::~TopologicalSort() {}
 
-void TopologicalSort::ConfigureVertices(const int32_t number_of_vertices) {
-  number_of_vertices_ = number_of_vertices;
-}
+void TopologicalSort::ConfigureVertices(const int32_t number_of_vertices) { number_of_vertices_ = number_of_vertices; }
 
 void TopologicalSort::AddVertex(const int32_t from_index, const int32_t to_index) {
   vertices_[from_index].next.push_back(to_index);

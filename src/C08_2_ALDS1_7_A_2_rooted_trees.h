@@ -8,6 +8,7 @@
 #define SRC_C08_2_ALDS1_7_A_2_ROOTED_TREES_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -20,16 +21,16 @@ constexpr int32_t kInvalid = -2;
 
 enum class NodeType : int32_t { kInternal = 0, kLeaf, kRoot };
 
-void CallRootedTrees(std::istream &input_stream);
+void CallRootedTrees(std::istream& input_stream);
 
 class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  Node(const Node &obj) noexcept;
-  Node &operator=(const Node &rhs) noexcept;
-  Node(Node &&obj) noexcept;
-  Node &operator=(Node &&rhs) noexcept;
+  Node(const Node& obj) noexcept;
+  Node& operator=(const Node& rhs) noexcept;
+  Node(Node&& obj) noexcept;
+  Node& operator=(Node&& rhs) noexcept;
 
   void Activate() noexcept;
   bool IsValid() const noexcept;
@@ -68,10 +69,10 @@ class RootedTrees {
   void Print() const;
 
  private:
-  RootedTrees(const RootedTrees &obj) = delete;
-  RootedTrees &operator=(const RootedTrees &obj) = delete;
-  RootedTrees(RootedTrees &&obj) = delete;
-  RootedTrees &operator=(RootedTrees &&obj) = delete;
+  RootedTrees(const RootedTrees& obj) = delete;
+  RootedTrees& operator=(const RootedTrees& obj) = delete;
+  RootedTrees(RootedTrees&& obj) = delete;
+  RootedTrees& operator=(RootedTrees&& obj) = delete;
 
   int32_t CalculateDepth(const int32_t index_node) const;
   void SetTopNode(const int32_t top_node_index);

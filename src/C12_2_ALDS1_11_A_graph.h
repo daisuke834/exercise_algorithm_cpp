@@ -8,6 +8,7 @@
 #define SRC_C12_2_ALDS1_11_A_GRAPH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@ namespace ALDS1_11_A {
 
 constexpr int32_t kMaxVertexNumber = 100;
 
-void CallGraph(std::istream &input_stream);
+void CallGraph(std::istream& input_stream);
 
 class Graph {
  public:
@@ -29,10 +30,10 @@ class Graph {
   void Reset() noexcept;
 
  private:
-  Graph(const Graph &obj) = delete;
-  Graph &operator=(const Graph &obj) = delete;
-  Graph(Graph &&obj) = delete;
-  Graph &operator=(Graph &&obj) = delete;
+  Graph(const Graph& obj) = delete;
+  Graph& operator=(const Graph& obj) = delete;
+  Graph(Graph&& obj) = delete;
+  Graph& operator=(Graph&& obj) = delete;
 
   static bool IsInvalidVertexIndex(const int32_t index) noexcept;
   static bool IsInvalidVertexNumber(const int32_t vertex_number) noexcept;

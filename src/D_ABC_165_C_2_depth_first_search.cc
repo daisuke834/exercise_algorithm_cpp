@@ -5,15 +5,16 @@
  */
 
 #include "src/D_ABC_165_C_2_depth_first_search.h"
+
 #include <iostream>
 #include <stack>
 
 namespace ABC_165_2 {
 
-void CallDepthFirstSearch(std::istream &input_stream) noexcept {
+void CallDepthFirstSearch(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DepthFirstSearch *depth_first_search = new DepthFirstSearch();
+  DepthFirstSearch* depth_first_search = new DepthFirstSearch();
   int32_t array_length, max_value, number_of_conditions;
   input_stream >> array_length >> max_value >> number_of_conditions;
   depth_first_search->ConfigureArray(array_length, max_value);
@@ -27,9 +28,7 @@ void CallDepthFirstSearch(std::istream &input_stream) noexcept {
   delete depth_first_search;
 }
 
-DepthFirstSearch::DepthFirstSearch() noexcept {
-  condition_.size = 0;
-}
+DepthFirstSearch::DepthFirstSearch() noexcept { condition_.size = 0; }
 
 DepthFirstSearch::~DepthFirstSearch() noexcept {}
 
@@ -85,7 +84,7 @@ int64_t DepthFirstSearch::SearchMaxScore() {
         }
 
         while (!stack.empty()) {
-          int32_t &value_top = array_.values[stack.top()];
+          int32_t& value_top = array_.values[stack.top()];
           if (value_top < array_.max_value) {
             ++value_top;
             break;

@@ -5,21 +5,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_weekly_193_3_binary_search.h"
 
 namespace LC_weekly_193_3 {
 
 class Test_LC_weekly_193_3 : public ::testing::Test {
  protected:
-  Solution *solution_;
-  virtual void SetUp() {
-    solution_ = new Solution();
-  }
-  virtual void TearDown() {
-    delete solution_;
-  }
+  Solution* solution_;
+  virtual void SetUp() { solution_ = new Solution(); }
+  virtual void TearDown() { delete solution_; }
 };
 
 TEST_F(Test_LC_weekly_193_3, test_1) {

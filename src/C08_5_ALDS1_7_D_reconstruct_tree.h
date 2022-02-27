@@ -8,6 +8,7 @@
 #define SRC_C08_5_ALDS1_7_D_RECONSTRUCT_TREE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -20,7 +21,7 @@ constexpr int32_t kInvalid = -2;
 
 enum class NodeType : int32_t { kInternal = 0, kLeaf, kRoot };
 
-void CallTreeReconstruction(std::istream &input_stream);
+void CallTreeReconstruction(std::istream& input_stream);
 
 int32_t ConvertFromNodeNumberToNodeIndex(const int32_t node_number);
 int32_t ConvertFromNodeIndexToNodeNumber(const int32_t node_index);
@@ -29,10 +30,10 @@ class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  Node(const Node &obj) noexcept;
-  Node &operator=(const Node &rhs) noexcept;
-  Node(Node &&obj) noexcept;
-  Node &operator=(Node &&rhs) noexcept;
+  Node(const Node& obj) noexcept;
+  Node& operator=(const Node& rhs) noexcept;
+  Node(Node&& obj) noexcept;
+  Node& operator=(Node&& rhs) noexcept;
 
   void Activate() noexcept;
   bool IsValid() const noexcept;
@@ -74,7 +75,7 @@ class TreeReconstruction {
   void AddResultOfPreorder(const int32_t node_index);
   void AddResultOfInorder(const int32_t node_index);
   void ReconstructTree();
-  void ReconstructSubTree(const IndexRange &range_preorder, const IndexRange &range_inorder);
+  void ReconstructSubTree(const IndexRange& range_preorder, const IndexRange& range_inorder);
 
   void AddNode(const int32_t node_index);
   void MapLeftChild(const int32_t parent_index, const int32_t left_child_index);
@@ -84,12 +85,12 @@ class TreeReconstruction {
   void Debug() const;
 
  private:
-  TreeReconstruction(const TreeReconstruction &obj) = delete;
-  TreeReconstruction &operator=(const TreeReconstruction &obj) = delete;
-  TreeReconstruction(TreeReconstruction &&obj) = delete;
-  TreeReconstruction &operator=(TreeReconstruction &&obj) = delete;
+  TreeReconstruction(const TreeReconstruction& obj) = delete;
+  TreeReconstruction& operator=(const TreeReconstruction& obj) = delete;
+  TreeReconstruction(TreeReconstruction&& obj) = delete;
+  TreeReconstruction& operator=(TreeReconstruction&& obj) = delete;
 
-  static bool OnlyOneNode(const IndexRange &range);
+  static bool OnlyOneNode(const IndexRange& range);
 
   int32_t CalculateDepth(const int32_t index_node) const;
   int32_t CalculateHeight(const int32_t index_node) const;

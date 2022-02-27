@@ -8,6 +8,7 @@
 #define SRC_C17_3_DPL_1_D_3_LONGEST_INCREASING_SUBSEQUENCE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -15,7 +16,7 @@ namespace DPL_1_D_3 {
 
 constexpr int32_t kMaxLength = 100000;
 
-void CallLongestIncreasingSubsequence(std::istream &input_stream);
+void CallLongestIncreasingSubsequence(std::istream& input_stream);
 
 class LongestIncreasingSubsequence {
  public:
@@ -25,10 +26,10 @@ class LongestIncreasingSubsequence {
   int32_t FindLengthOfLis() noexcept;
 
  private:
-  LongestIncreasingSubsequence(const LongestIncreasingSubsequence &obj) = delete;
-  LongestIncreasingSubsequence &operator=(const LongestIncreasingSubsequence &obj) = delete;
-  LongestIncreasingSubsequence(LongestIncreasingSubsequence &&obj) = delete;
-  LongestIncreasingSubsequence &operator=(LongestIncreasingSubsequence &&obj) = delete;
+  LongestIncreasingSubsequence(const LongestIncreasingSubsequence& obj) = delete;
+  LongestIncreasingSubsequence& operator=(const LongestIncreasingSubsequence& obj) = delete;
+  LongestIncreasingSubsequence(LongestIncreasingSubsequence&& obj) = delete;
+  LongestIncreasingSubsequence& operator=(LongestIncreasingSubsequence&& obj) = delete;
 
  private:
   int32_t length_;

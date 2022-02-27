@@ -21,7 +21,7 @@ constexpr int32_t kInvalidIndex = -1;
 
 // ****************************************************
 
-void CallDijkstraAlgorithm(std::istream &input_stream);
+void CallDijkstraAlgorithm(std::istream& input_stream);
 
 // ****************************************************
 

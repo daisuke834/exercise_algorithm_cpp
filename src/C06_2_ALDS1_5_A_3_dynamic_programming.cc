@@ -6,15 +6,16 @@
  */
 
 #include "src/C06_2_ALDS1_5_A_3_dynamic_programming.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_A_3 {
 
-void CallDynamicProgramming(std::istream &input_stream) {
+void CallDynamicProgramming(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DynamicProgramming *exhaustive_search = new DynamicProgramming();
+  DynamicProgramming* exhaustive_search = new DynamicProgramming();
   try {
     int32_t number_of_sources;
     input_stream >> number_of_sources;
@@ -156,9 +157,7 @@ bool DynamicProgramming::IsInvalidSourceIndex(const int32_t index) const noexcep
   return ((index < 0) || (index >= sources_.size));
 }
 
-bool DynamicProgramming::IsValidSourceIndex(const int32_t index) const noexcept {
-  return !IsInvalidSourceIndex(index);
-}
+bool DynamicProgramming::IsValidSourceIndex(const int32_t index) const noexcept { return !IsInvalidSourceIndex(index); }
 
 bool DynamicProgramming::IsInvalidValue(const int32_t value) const noexcept {
   return ((value < kMinValue) || (value > kMaxValue));

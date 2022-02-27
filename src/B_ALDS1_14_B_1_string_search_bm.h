@@ -7,6 +7,7 @@
 #define SRC_B_ALDS1_14_B_1_STRING_SEARCH_BM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -17,22 +18,22 @@ constexpr int32_t kMaxPatternLength = 10000;
 constexpr int32_t kNotFound = -1;
 constexpr int32_t kMaxLoop = 2000000;
 
-void CallStringSearch(std::istream &input_stream);
+void CallStringSearch(std::istream& input_stream);
 
-void NaiveStringSearch(const std::string &text, const std::string &pattern);
+void NaiveStringSearch(const std::string& text, const std::string& pattern);
 
 class BoyerMoore {
  public:
   BoyerMoore() noexcept;
   ~BoyerMoore() noexcept;
-  void SetPattern(const std::string &pattern) noexcept;
-  void Search(const std::string &text_str) const noexcept;
+  void SetPattern(const std::string& pattern) noexcept;
+  void Search(const std::string& text_str) const noexcept;
 
  private:
-  BoyerMoore(const BoyerMoore &obj) = delete;
-  BoyerMoore &operator=(const BoyerMoore &rhs) = delete;
-  BoyerMoore(BoyerMoore &&obj) = delete;
-  BoyerMoore &operator=(BoyerMoore &&rhs) = delete;
+  BoyerMoore(const BoyerMoore& obj) = delete;
+  BoyerMoore& operator=(const BoyerMoore& rhs) = delete;
+  BoyerMoore(BoyerMoore&& obj) = delete;
+  BoyerMoore& operator=(BoyerMoore&& rhs) = delete;
 
  private:
   int32_t pattern_length_;

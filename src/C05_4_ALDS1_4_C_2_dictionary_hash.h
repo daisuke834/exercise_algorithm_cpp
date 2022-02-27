@@ -8,6 +8,7 @@
 #define SRC_C05_4_ALDS1_4_C_2_DICTIONARY_HASH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cmath>
 #include <cstdint>
 #include <iostream>
@@ -21,25 +22,25 @@ constexpr int8_t kInvalid = 0;
 constexpr int8_t kValid = 1;
 constexpr int64_t kMaxIterationHash = 1046527;
 
-void CallDictionary(std::istream &input_stream) noexcept;
+void CallDictionary(std::istream& input_stream) noexcept;
 
 enum class InstructionType : int32_t { kInsert = 0, kFind, kInvalid };
 
 enum DecodedValue : int64_t { kNone = 0, kA, kC, kG, kT, kBase };
 
-InstructionType JudgeInstructionType(const std::string &str);
+InstructionType JudgeInstructionType(const std::string& str);
 
 class Key {
  public:
   Key() noexcept;
-  explicit Key(const char *const key) noexcept;
+  explicit Key(const char* const key) noexcept;
   explicit Key(const std::string key) noexcept;
   ~Key() noexcept;
-  Key(const Key &obj) noexcept;
-  Key &operator=(const Key &rhs) noexcept;
-  Key(Key &&obj) noexcept;
-  Key &operator=(Key &&rhs) noexcept;
-  bool Equals(const Key &obj) const noexcept;
+  Key(const Key& obj) noexcept;
+  Key& operator=(const Key& rhs) noexcept;
+  Key(Key&& obj) noexcept;
+  Key& operator=(Key&& rhs) noexcept;
+  bool Equals(const Key& obj) const noexcept;
   std::string GetKey() const noexcept;
   bool IsValid() const noexcept;
   bool IsInvalid() const noexcept;
@@ -55,16 +56,16 @@ class Dictionary {
  public:
   Dictionary() noexcept;
   ~Dictionary() noexcept;
-  void Insert(const std::string &key);
-  bool WasFound(const std::string &key) const;
+  void Insert(const std::string& key);
+  bool WasFound(const std::string& key) const;
 
  private:
-  Dictionary(const Dictionary &obj) = delete;
-  Dictionary &operator=(const Dictionary &obj) = delete;
-  Dictionary(Dictionary &&obj) = delete;
-  Dictionary &operator=(Dictionary &&obj) = delete;
+  Dictionary(const Dictionary& obj) = delete;
+  Dictionary& operator=(const Dictionary& obj) = delete;
+  Dictionary(Dictionary&& obj) = delete;
+  Dictionary& operator=(Dictionary&& obj) = delete;
 
-  static int64_t GetDecodedKey(const std::string &key);
+  static int64_t GetDecodedKey(const std::string& key);
   static int64_t CalculateHash(const int64_t decoded_key, const int64_t index_iteration);
   static int64_t DecodeOneChar(const char c);
   static int64_t Hash1(const int64_t decoded_key);

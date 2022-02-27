@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_4_GRL_5_A_diameter_of_tree.h"
 
 namespace GRL_5_A {

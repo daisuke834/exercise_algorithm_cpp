@@ -6,15 +6,16 @@
  */
 
 #include "src/C17_3_DPL_1_D_2_longest_increasing_subsequence.h"
+
 #include <iostream>
 #include <string>
 
 namespace DPL_1_D_2 {
 
-void CallLongestIncreasingSubsequence(std::istream &input_stream) {
+void CallLongestIncreasingSubsequence(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LongestIncreasingSubsequence *longest_increasing_subsequence = new LongestIncreasingSubsequence();
+  LongestIncreasingSubsequence* longest_increasing_subsequence = new LongestIncreasingSubsequence();
   try {
     int32_t length;
     input_stream >> length;
@@ -174,8 +175,6 @@ bool LongestIncreasingSubsequence::IsValidIndex(const int32_t index) const noexc
   return ((index >= 0) && (index < length_));
 }
 
-bool LongestIncreasingSubsequence::IsInvalidIndex(const int32_t index) const noexcept {
-  return !IsValidIndex(index);
-}
+bool LongestIncreasingSubsequence::IsInvalidIndex(const int32_t index) const noexcept { return !IsValidIndex(index); }
 
 }  // namespace DPL_1_D_2

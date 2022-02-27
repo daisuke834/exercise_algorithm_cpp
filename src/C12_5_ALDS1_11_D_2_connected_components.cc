@@ -5,15 +5,16 @@
  */
 
 #include "src/C12_5_ALDS1_11_D_2_connected_components.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_D_2 {
 
-void CallConnectedComponents(std::istream &input_stream) {
+void CallConnectedComponents(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  ConnectedComponents *connected_components = new ConnectedComponents();
+  ConnectedComponents* connected_components = new ConnectedComponents();
   try {
     int32_t number_of_vertices, number_of_relations;
     input_stream >> number_of_vertices >> number_of_relations;
@@ -364,9 +365,7 @@ int32_t ConnectedComponents::ClusterIdIsNotAllocated(const int32_t vertex_index)
 
 // **********************************************************************
 
-Queue::Queue() noexcept {
-  Clear();
-}
+Queue::Queue() noexcept { Clear(); }
 
 Queue::~Queue() noexcept {}
 
@@ -375,13 +374,9 @@ void Queue::Clear() noexcept {
   head_ = 0;
 }
 
-bool Queue::IsEmpty() const noexcept {
-  return (depth_ <= 0);
-}
+bool Queue::IsEmpty() const noexcept { return (depth_ <= 0); }
 
-bool Queue::IsFull() const noexcept {
-  return (depth_ >= kMaxQueueSize);
-}
+bool Queue::IsFull() const noexcept { return (depth_ >= kMaxQueueSize); }
 
 void Queue::Enqueue(const int32_t index) {
   if (IsFull()) {

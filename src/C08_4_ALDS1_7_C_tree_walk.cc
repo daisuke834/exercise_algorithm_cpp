@@ -6,15 +6,16 @@
  */
 
 #include "src/C08_4_ALDS1_7_C_tree_walk.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_7_C {
 
-void CallTreeWalk(std::istream &input_stream) {
+void CallTreeWalk(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  TreeWalk *tree_walk = new TreeWalk();
+  TreeWalk* tree_walk = new TreeWalk();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -218,7 +219,7 @@ int32_t TreeWalk::GetSibling(const int32_t index) const {
     if (parent_index == kTop) {
       sibling = -1;
     } else {
-      const Node &parent = nodes_[parent_index];
+      const Node& parent = nodes_[parent_index];
       if (parent.GetChildLeft() == index) {
         sibling = parent.GetChildRight() >= 0 ? parent.GetChildRight() : -1;
       } else {
@@ -303,10 +304,10 @@ Node::Node() noexcept : is_valid_(false), parent_(kInvalid), child_left_(kInvali
 
 Node::~Node() noexcept {}
 
-Node::Node(const Node &obj) noexcept
+Node::Node(const Node& obj) noexcept
     : is_valid_(obj.is_valid_), parent_(obj.parent_), child_left_(obj.child_left_), child_right_(obj.child_right_) {}
 
-Node &Node::operator=(const Node &rhs) noexcept {
+Node& Node::operator=(const Node& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -316,12 +317,12 @@ Node &Node::operator=(const Node &rhs) noexcept {
   return *this;
 }
 
-Node::Node(Node &&obj) noexcept
+Node::Node(Node&& obj) noexcept
     : is_valid_(obj.is_valid_), parent_(obj.parent_), child_left_(obj.child_left_), child_right_(obj.child_right_) {
   obj.Reset();
 }
 
-Node &Node::operator=(Node &&rhs) noexcept {
+Node& Node::operator=(Node&& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -339,13 +340,9 @@ void Node::Reset() noexcept {
   this->child_right_ = kInvalid;
 }
 
-void Node::Activate() noexcept {
-  is_valid_ = true;
-}
+void Node::Activate() noexcept { is_valid_ = true; }
 
-bool Node::IsValid() const noexcept {
-  return is_valid_;
-}
+bool Node::IsValid() const noexcept { return is_valid_; }
 
 void Node::SetParent(const int32_t parent) {
   try {
@@ -360,9 +357,7 @@ void Node::SetParent(const int32_t parent) {
   }
 }
 
-int32_t Node::GetParent() const noexcept {
-  return parent_;
-}
+int32_t Node::GetParent() const noexcept { return parent_; }
 
 bool Node::IsInvalidParent(const int32_t parent_index) noexcept {
   return ((parent_index != kTop) && IsInvalidNodeIndex(parent_index));
@@ -380,9 +375,7 @@ void Node::SetChildLeft(const int32_t child_left) {
   }
 }
 
-int32_t Node::GetChildLeft() const noexcept {
-  return child_left_;
-}
+int32_t Node::GetChildLeft() const noexcept { return child_left_; }
 
 void Node::SetChildRight(const int32_t child_right) {
   if (IsInvalidNodeIndex(child_right)) {
@@ -396,9 +389,7 @@ void Node::SetChildRight(const int32_t child_right) {
   }
 }
 
-int32_t Node::GetChildRight() const noexcept {
-  return child_right_;
-}
+int32_t Node::GetChildRight() const noexcept { return child_right_; }
 
 int32_t Node::GetDegree() const noexcept {
   int32_t degree = 0;
@@ -432,12 +423,8 @@ NodeType Node::GetNodeType() const {
   return node_type;
 }
 
-bool Node::IsInvalidNodeIndex(const int32_t index) noexcept {
-  return ((index < 0) || (index >= kMaxNumberOfNodes));
-}
+bool Node::IsInvalidNodeIndex(const int32_t index) noexcept { return ((index < 0) || (index >= kMaxNumberOfNodes)); }
 
-bool Node::IsValidNodeIndex(const int32_t index) noexcept {
-  return !IsInvalidNodeIndex(index);
-}
+bool Node::IsValidNodeIndex(const int32_t index) noexcept { return !IsInvalidNodeIndex(index); }
 
 }  // namespace ALDS1_7_C

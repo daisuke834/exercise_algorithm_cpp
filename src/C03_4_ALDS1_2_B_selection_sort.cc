@@ -6,6 +6,7 @@
  */
 
 #include "src/C03_4_ALDS1_2_B_selection_sort.h"
+
 #include <iostream>
 namespace ALDS1_2_B {
 
@@ -13,7 +14,7 @@ SelectionSort::SelectionSort() noexcept : count_(0), values_{-1}, swapped_count_
 
 SelectionSort::~SelectionSort() noexcept {}
 
-void SelectionSort::Main(std::istream &input_stream) noexcept {
+void SelectionSort::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -51,7 +52,7 @@ void SelectionSort::Swap(const int32_t index_unsorted_top, const int32_t index_m
   ++swapped_count_;
 }
 
-void SelectionSort::Load(std::istream &input_stream) {
+void SelectionSort::Load(std::istream& input_stream) {
   input_stream >> count_;
   if (count_ > kMaxArraySize) {
     std::cout << "kMaxArraySize is too small for the number of data count." << std::endl;

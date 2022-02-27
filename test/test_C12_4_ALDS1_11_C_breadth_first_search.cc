@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C12_4_ALDS1_11_C_breadth_first_search.h"
 
 namespace ALDS1_11_C {
 
 class Test_ALDS1_11_C : public ::testing::Test {
  protected:
-  BreadthFirstSearch *breadth_first_search_;
-  virtual void SetUp() {
-    breadth_first_search_ = new BreadthFirstSearch();
-  }
-  virtual void TearDown() {
-    delete breadth_first_search_;
-  }
+  BreadthFirstSearch* breadth_first_search_;
+  virtual void SetUp() { breadth_first_search_ = new BreadthFirstSearch(); }
+  virtual void TearDown() { delete breadth_first_search_; }
 };
 
 TEST_F(Test_ALDS1_11_C, CallBreadthFirstSearch_1) {

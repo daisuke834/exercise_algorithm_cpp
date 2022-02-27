@@ -7,7 +7,7 @@
 
 namespace LC_202 {
 
-void CallHappyNumber(std::istream &input_stream) noexcept {
+void CallHappyNumber(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int32_t n;

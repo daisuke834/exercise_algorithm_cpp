@@ -17,7 +17,7 @@ namespace LC_weekly_198_2 {
 
 class Solution {
  public:
-  std::vector<int> countSubTrees(int n, std::vector<std::vector<int>> &edges, std::string labels);
+  std::vector<int> countSubTrees(int n, std::vector<std::vector<int>>& edges, std::string labels);
 };
 
 }  // namespace LC_weekly_198_2

@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C05_3_ALDS1_4_B_binary_search.h"
 
 namespace ALDS1_4_B {
 
 class Test_ALDS1_4_B : public ::testing::Test {
  protected:
-  BinarySearch *binary_search_;
-  virtual void SetUp() {
-    binary_search_ = new BinarySearch();
-  }
-  virtual void TearDown() {
-    delete binary_search_;
-  }
+  BinarySearch* binary_search_;
+  virtual void SetUp() { binary_search_ = new BinarySearch(); }
+  virtual void TearDown() { delete binary_search_; }
 };
 
 TEST_F(Test_ALDS1_4_B, SearchTarget_1) {

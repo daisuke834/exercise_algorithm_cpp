@@ -9,6 +9,7 @@
 #define SRC_C07_1_ALDS1_5_B_MERGE_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ namespace ALDS1_5_B {
 
 constexpr int32_t kMaxArraySize = 500000;
 
-void CallMergeSort(std::istream &input_stream);
+void CallMergeSort(std::istream& input_stream);
 
 class MergeSort {
  public:
@@ -30,10 +31,10 @@ class MergeSort {
   int32_t GetValue(const int32_t index) const;
 
  private:
-  MergeSort(const MergeSort &obj) = delete;
-  MergeSort &operator=(const MergeSort &rhs) = delete;
-  MergeSort(MergeSort &&obj) = delete;
-  MergeSort &operator=(MergeSort &&rhs) = delete;
+  MergeSort(const MergeSort& obj) = delete;
+  MergeSort& operator=(const MergeSort& rhs) = delete;
+  MergeSort(MergeSort&& obj) = delete;
+  MergeSort& operator=(MergeSort&& rhs) = delete;
 
   void ComputeMergeSort(const int32_t left_end, const int32_t right_end);
   void MergeLeftAndRight(const int32_t left_end, const int32_t center, const int32_t right_end);

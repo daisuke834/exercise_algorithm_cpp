@@ -5,16 +5,17 @@
  */
 
 #include "src/C14_2_DSL_2_C_kd_tree.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace DSL_2_C {
 
-void CallKdTree(std::istream &input_stream) {
+void CallKdTree(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  KdTree *kd_tree = new KdTree();
+  KdTree* kd_tree = new KdTree();
   try {
     int32_t number_of_points;
     input_stream >> number_of_points;
@@ -45,7 +46,7 @@ KdTree::KdTree() noexcept : number_of_points_(0), number_of_nodes_(0) {}
 
 KdTree::~KdTree() noexcept {}
 
-void KdTree::AddPoint(const Point2D &point) {
+void KdTree::AddPoint(const Point2D& point) {
   if (number_of_points_ >= kMaxNumberOfPoints) {
     std::cerr << "ERROR: AddPoint(): Number of points exceeded a limit : " << kMaxNumberOfPoints << std::endl;
     throw 1;
@@ -102,7 +103,7 @@ int32_t KdTree::BuildKdTreeRecursively(const int32_t start_point_index, const in
   return node_index_store;
 }
 
-void KdTree::FindPointsWithinRange(const Range2D &range) {
+void KdTree::FindPointsWithinRange(const Range2D& range) {
   constexpr int32_t kInitialDepth = 0;
   try {
     found_points_.clear();
@@ -119,7 +120,7 @@ void KdTree::FindPointsWithinRange(const Range2D &range) {
   }
 }
 
-void KdTree::FindPointsWithinRangeRecursively(const Range2D &range, const int32_t node_index, const int32_t depth) {
+void KdTree::FindPointsWithinRangeRecursively(const Range2D& range, const int32_t node_index, const int32_t depth) {
   if (node_index == kLeaf) {
     // DO NOTHING
   } else if (InvalidNodeIndex(node_index)) {
@@ -127,8 +128,8 @@ void KdTree::FindPointsWithinRangeRecursively(const Range2D &range, const int32_
     throw 1;
   } else {
     try {
-      const Node &node = nodes_[node_index];
-      const Point2D &point = points_[node.point_index];
+      const Node& node = nodes_[node_index];
+      const Point2D& point = points_[node.point_index];
       if (PointIsWithinRange(point, range)) {
         found_points_.push_back(point.key);
       }
@@ -158,15 +159,13 @@ void KdTree::FindPointsWithinRangeRecursively(const Range2D &range, const int32_
   }
 }
 
-bool KdTree::PointIsWithinRange(const Point2D &point, const Range2D &range) noexcept {
+bool KdTree::PointIsWithinRange(const Point2D& point, const Range2D& range) noexcept {
   const bool x_is_within_range = (range.x.min <= point.x) && (point.x <= range.x.max);
   const bool y_is_within_range = (range.y.min <= point.y) && (point.y <= range.y.max);
   return (x_is_within_range && y_is_within_range);
 }
 
-Axis KdTree::GetAxisByDepth(const int32_t depth) noexcept {
-  return (((depth % 2) == 0) ? Axis::kX : Axis::kY);
-}
+Axis KdTree::GetAxisByDepth(const int32_t depth) noexcept { return (((depth % 2) == 0) ? Axis::kX : Axis::kY); }
 
 bool KdTree::InvalidPointIndex(const int32_t point_index) const noexcept {
   return ((point_index < 0) || (point_index >= number_of_points_));
@@ -186,13 +185,9 @@ Point2D CreatePoint2D(const int32_t x, const int32_t y, const int32_t key) noexc
   return point;
 }
 
-bool P1xIsLessThanP2x(const Point2D &p1, const Point2D &p2) noexcept {
-  return (p1.x < p2.x);
-}
+bool P1xIsLessThanP2x(const Point2D& p1, const Point2D& p2) noexcept { return (p1.x < p2.x); }
 
-bool P1yIsLessThanP2y(const Point2D &p1, const Point2D &p2) noexcept {
-  return (p1.y < p2.y);
-}
+bool P1yIsLessThanP2y(const Point2D& p1, const Point2D& p2) noexcept { return (p1.y < p2.y); }
 
 // **********************************************************************
 }  // namespace DSL_2_C

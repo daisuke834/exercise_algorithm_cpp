@@ -6,15 +6,16 @@
  */
 
 #include "src/C10_3_ALDS1_9_B_maximum_heap.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_9_B {
 
-void CallMaximumHeap(std::istream &input_stream) {
+void CallMaximumHeap(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MaximumHeap *maximum_heap = new MaximumHeap();
+  MaximumHeap* maximum_heap = new MaximumHeap();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -233,9 +234,7 @@ int32_t MaximumHeap::GetIndexChildRight(const int32_t index) const {
   return right_index;
 }
 
-bool MaximumHeap::IsInvalidNode(const int32_t index) const noexcept {
-  return !IsValidNode(index);
-}
+bool MaximumHeap::IsInvalidNode(const int32_t index) const noexcept { return !IsValidNode(index); }
 
 bool MaximumHeap::IsValidNode(const int32_t index) const noexcept {
   const bool is_valid = IsValidNodeIndex(index) ? nodes_[index].is_valid : false;
@@ -246,9 +245,7 @@ bool MaximumHeap::IsInvalidNodeIndex(const int32_t index) noexcept {
   return ((index < 0) || (index >= kMaxNumberOfNodes));
 }
 
-bool MaximumHeap::IsValidNodeIndex(const int32_t index) noexcept {
-  return !IsInvalidNodeIndex(index);
-}
+bool MaximumHeap::IsValidNodeIndex(const int32_t index) noexcept { return !IsInvalidNodeIndex(index); }
 
 bool MaximumHeap::IsInvalidNodeNumber(const int32_t node_number) noexcept {
   return ((node_number < 1) || (node_number > kMaxNumberOfNodes));
@@ -276,12 +273,8 @@ int32_t MaximumHeap::ConvertFromIndexToNodeNumber(const int32_t index) {
   return index + 1;
 }
 
-int32_t MaximumHeap::GetSize() const noexcept {
-  return size_;
-}
+int32_t MaximumHeap::GetSize() const noexcept { return size_; }
 
-void MaximumHeap::Reset() noexcept {
-  size_ = 0;
-}
+void MaximumHeap::Reset() noexcept { size_ = 0; }
 
 }  // namespace ALDS1_9_B

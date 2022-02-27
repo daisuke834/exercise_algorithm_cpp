@@ -5,18 +5,15 @@
  */
 
 #include <gtest/gtest.h>
+
 #include "src/C02_ALDS1_1_D_maximum_profit.h"
 
 namespace ALDS1_1_D {
 class Test_ALDS1_1_D : public ::testing::Test {
  protected:
-  CurrencyRates *currency_rates_;
-  virtual void SetUp() {
-    currency_rates_ = new CurrencyRates;
-  }
-  virtual void TearDown() {
-    delete currency_rates_;
-  }
+  CurrencyRates* currency_rates_;
+  virtual void SetUp() { currency_rates_ = new CurrencyRates; }
+  virtual void TearDown() { delete currency_rates_; }
 };
 
 TEST_F(Test_ALDS1_1_D, LoadData_normal) {

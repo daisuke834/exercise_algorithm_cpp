@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C08_2_ALDS1_7_A_1_rooted_trees.h"
 
 namespace ALDS1_7_A_1 {
 
 class Test_ALDS1_7_A_1 : public ::testing::Test {
  protected:
-  RootedTrees *rooted_trees_;
-  virtual void SetUp() {
-    rooted_trees_ = new RootedTrees();
-  }
-  virtual void TearDown() {
-    delete rooted_trees_;
-  }
+  RootedTrees* rooted_trees_;
+  virtual void SetUp() { rooted_trees_ = new RootedTrees(); }
+  virtual void TearDown() { delete rooted_trees_; }
 };
 
 TEST_F(Test_ALDS1_7_A_1, NodeId) {
@@ -175,7 +173,7 @@ TEST_F(Test_ALDS1_7_A_1, Node_AddChildId_GetChildId) {
 }
 
 TEST_F(Test_ALDS1_7_A_1, Node_AddChildId_copy_constructor) {
-  Node *node_source = new Node();
+  Node* node_source = new Node();
   const NodeId child_id_0(12);
   const NodeId child_id_1(632);
   constexpr int32_t kNumberOfChilds = 2;

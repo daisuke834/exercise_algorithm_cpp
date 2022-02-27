@@ -8,6 +8,7 @@
 #define SRC_C03_4_ALDS1_2_B_SELECTION_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -19,20 +20,20 @@ class SelectionSort {
  public:
   SelectionSort() noexcept;
   ~SelectionSort() noexcept;
-  void Main(std::istream &input_stream) noexcept;
+  void Main(std::istream& input_stream) noexcept;
 
  private:
   void Sort() noexcept;
   int32_t FindMinimumIndex(int32_t index_unsorted_top) const noexcept;
   void Swap(const int32_t index_unsorted_top, const int32_t index_minimum) noexcept;
-  void Load(std::istream &input_stream);
+  void Load(std::istream& input_stream);
   void Print() const noexcept;
 
  private:
-  SelectionSort(const SelectionSort &obj) = delete;
-  SelectionSort &operator=(const SelectionSort &rhs) = delete;
-  SelectionSort(SelectionSort &&obj) = delete;
-  SelectionSort &operator=(SelectionSort &&rhs) = delete;
+  SelectionSort(const SelectionSort& obj) = delete;
+  SelectionSort& operator=(const SelectionSort& rhs) = delete;
+  SelectionSort(SelectionSort&& obj) = delete;
+  SelectionSort& operator=(SelectionSort&& rhs) = delete;
 
  private:
   int32_t count_;

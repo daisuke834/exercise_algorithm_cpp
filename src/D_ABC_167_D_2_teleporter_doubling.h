@@ -15,7 +15,7 @@ namespace ABC_167_D_2 {
 constexpr int64_t kMaxNumberOfTowns = 200000L;
 constexpr int64_t kMaxLog = 60L;  // > log2(K)
 
-void CallTeleporter(std::istream &input_stream) noexcept;
+void CallTeleporter(std::istream& input_stream) noexcept;
 
 class Doubling {
  public:

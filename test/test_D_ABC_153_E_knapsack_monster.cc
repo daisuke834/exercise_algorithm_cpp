@@ -4,8 +4,10 @@
  */
 
 #include <gtest/gtest.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_ABC_153_E_knapsack_monster.h"
 
 namespace ABC_153_E {

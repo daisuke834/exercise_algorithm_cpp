@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C03_4_ALDS1_2_B_selection_sort.h"
 
 namespace ALDS1_2_B {
 
 class Test_ALDS1_2_B : public ::testing::Test {
  protected:
-  SelectionSort *selection_sort_;
-  virtual void SetUp() {
-    selection_sort_ = new SelectionSort();
-  }
-  virtual void TearDown() {
-    delete selection_sort_;
-  }
+  SelectionSort* selection_sort_;
+  virtual void SetUp() { selection_sort_ = new SelectionSort(); }
+  virtual void TearDown() { delete selection_sort_; }
 };
 
 TEST_F(Test_ALDS1_2_B, LoadData_abnormal) {

@@ -18,24 +18,24 @@ constexpr int32_t kMaxTextLength = 1000000;
 constexpr int64_t kBase = static_cast<int64_t>('9' - '0' + 1) + 2LL * static_cast<int64_t>('z' - 'a' + 1);
 constexpr int64_t kPrime = 1000000007LL;
 
-void CallStringSearch(std::istream &input_stream);
+void CallStringSearch(std::istream& input_stream);
 
 class RollingHash {
  public:
   RollingHash() noexcept;
   ~RollingHash() noexcept;
-  void SetPattern(const std::string &pattern) noexcept;
-  void Search(const std::string &text_str) noexcept;
+  void SetPattern(const std::string& pattern) noexcept;
+  void Search(const std::string& text_str) noexcept;
 
  private:
   static int64_t DecodeCharacter(const char ch);
   void CalculateHashOfPattern();
   int64_t CalculateBasePower(const int64_t pow) const noexcept;
 
-  RollingHash(const RollingHash &obj) = delete;
-  RollingHash &operator=(const RollingHash &rhs) = delete;
-  RollingHash(RollingHash &&obj) = delete;
-  RollingHash &operator=(RollingHash &&rhs) = delete;
+  RollingHash(const RollingHash& obj) = delete;
+  RollingHash& operator=(const RollingHash& rhs) = delete;
+  RollingHash(RollingHash&& obj) = delete;
+  RollingHash& operator=(RollingHash&& rhs) = delete;
 
  private:
   int32_t pattern_length_;

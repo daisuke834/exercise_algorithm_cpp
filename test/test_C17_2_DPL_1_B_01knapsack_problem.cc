@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C17_2_DPL_1_B_01knapsack_problem.h"
 
 namespace DPL_1_B {
 
 class Test_DPL_1_B : public ::testing::Test {
  protected:
-  KnapsackProblem *knapsack_problem_;
-  virtual void SetUp() {
-    knapsack_problem_ = new KnapsackProblem();
-  }
-  virtual void TearDown() {
-    delete knapsack_problem_;
-  }
+  KnapsackProblem* knapsack_problem_;
+  virtual void SetUp() { knapsack_problem_ = new KnapsackProblem(); }
+  virtual void TearDown() { delete knapsack_problem_; }
 };
 
 TEST_F(Test_DPL_1_B, Call01KnapsackProblem_1) {

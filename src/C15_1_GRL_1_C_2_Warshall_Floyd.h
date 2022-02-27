@@ -18,7 +18,7 @@ namespace GRL_1_C_2 {
 constexpr int32_t kMaxNumberOfVertices = 100;
 constexpr int32_t kInvalidVertexIndex = -1;
 
-void CallWarshallFloyd(std::istream &input_stream);
+void CallWarshallFloyd(std::istream& input_stream);
 
 // ****************************************************
 

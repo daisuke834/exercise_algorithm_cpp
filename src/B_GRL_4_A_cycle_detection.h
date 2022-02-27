@@ -17,7 +17,7 @@ constexpr int32_t kMaxNumberOfVertices = 100;
 
 // ****************************************************
 
-void CallCycleDetection(std::istream &input_stream);
+void CallCycleDetection(std::istream& input_stream);
 
 // ****************************************************
 

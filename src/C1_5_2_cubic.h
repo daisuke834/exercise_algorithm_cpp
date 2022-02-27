@@ -12,6 +12,6 @@
 
 namespace C1P5P2 {
 int32_t Cubic(const int32_t x) noexcept;
-void MyMain(std::istream &input_stream) noexcept;
+void MyMain(std::istream& input_stream) noexcept;
 }  // namespace C1P5P2
 #endif  // SRC_C1_5_2_CUBIC_H_

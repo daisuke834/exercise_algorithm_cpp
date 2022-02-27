@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C10_2_ALDS1_9_A_complete_binary_tree.h"
 
 namespace ALDS1_9_A {
 
 class Test_ALDS1_9_A : public ::testing::Test {
  protected:
-  CompleteBinaryTree *complete_binary_tree_;
-  virtual void SetUp() {
-    complete_binary_tree_ = new CompleteBinaryTree();
-  }
-  virtual void TearDown() {
-    delete complete_binary_tree_;
-  }
+  CompleteBinaryTree* complete_binary_tree_;
+  virtual void SetUp() { complete_binary_tree_ = new CompleteBinaryTree(); }
+  virtual void TearDown() { delete complete_binary_tree_; }
 };
 
 TEST_F(Test_ALDS1_9_A, Add) {

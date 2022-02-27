@@ -6,15 +6,17 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C05_4_ALDS1_4_C_1_dictionary_hash.h"
 
 namespace ALDS1_4_C_1 {
 
 class Test_ALDS1_4_C_1 : public ::testing::Test {
  protected:
-  Dictionary *dictionary_;
+  Dictionary* dictionary_;
   virtual void SetUp() {}
   virtual void TearDown() {}
 };

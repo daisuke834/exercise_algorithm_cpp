@@ -5,11 +5,12 @@
  */
 
 #include "src/B_LC_weekly_195_4_two_pointers.h"
+
 #include <set>
 
 namespace LC_weekly_195_4 {
 
-int Solution::findMaxValueOfEquation(std::vector<std::vector<int>> &points, int k) {
+int Solution::findMaxValueOfEquation(std::vector<std::vector<int>>& points, int k) {
   const int64_t N = static_cast<int64_t>(points.size());
   std::vector<int64_t> b(N);
   for (int64_t i = 0; i < N; ++i) {

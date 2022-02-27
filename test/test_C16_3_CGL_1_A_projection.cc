@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <list>
 #include <sstream>
+
 #include "src/C16_3_CGL_1_A_projection.h"
 #include "src/utils.h"
 

@@ -7,22 +7,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C14_1_DSL_1_A_union_find_tree.h"
 
 namespace DSL_1_A {
 
 class Test_DSL_1_A : public ::testing::Test {
  protected:
-  UnionFindTree *union_find_tree_;
-  virtual void SetUp() {
-    union_find_tree_ = new UnionFindTree();
-  }
-  virtual void TearDown() {
-    delete union_find_tree_;
-  }
+  UnionFindTree* union_find_tree_;
+  virtual void SetUp() { union_find_tree_ = new UnionFindTree(); }
+  virtual void TearDown() { delete union_find_tree_; }
 };
 
 TEST_F(Test_DSL_1_A, CallUnionFindTree_1) {

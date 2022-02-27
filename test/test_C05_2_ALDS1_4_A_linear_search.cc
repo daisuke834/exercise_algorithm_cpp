@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C05_2_ALDS1_4_A_linear_search.h"
 
 namespace ALDS1_4_A {
 
 class Test_ALDS1_4_A : public ::testing::Test {
  protected:
-  LinearSearch *linear_search_;
-  virtual void SetUp() {
-    linear_search_ = new LinearSearch();
-  }
-  virtual void TearDown() {
-    delete linear_search_;
-  }
+  LinearSearch* linear_search_;
+  virtual void SetUp() { linear_search_ = new LinearSearch(); }
+  virtual void TearDown() { delete linear_search_; }
 };
 
 TEST_F(Test_ALDS1_4_A, SearchTarget_1) {

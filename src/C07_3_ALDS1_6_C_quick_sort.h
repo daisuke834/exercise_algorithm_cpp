@@ -9,6 +9,7 @@
 #define SRC_C07_3_ALDS1_6_C_QUICK_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -19,7 +20,7 @@ constexpr int32_t kMaxArraySize = 100000;
 constexpr char kInvalidSymbol = -1;
 constexpr int32_t kInvalidNumber = -1;
 
-void CallQuickSort(std::istream &input_stream);
+void CallQuickSort(std::istream& input_stream);
 
 struct Card {
   char symbol{kInvalidSymbol};
@@ -30,7 +31,7 @@ class QuickSort {
  public:
   QuickSort() noexcept;
   ~QuickSort() noexcept;
-  void AddCard(const std::string &symbol, const int32_t number);
+  void AddCard(const std::string& symbol, const int32_t number);
   void ResetData() noexcept;
   Card GetCard(const int32_t index);
   void Sort();
@@ -38,10 +39,10 @@ class QuickSort {
   bool IsStable(const Card cards_[kMaxArraySize]) const noexcept;
 
  private:
-  QuickSort(const QuickSort &obj) = delete;
-  QuickSort &operator=(const QuickSort &rhs) = delete;
-  QuickSort(QuickSort &&obj) = delete;
-  QuickSort &operator=(QuickSort &&rhs) = delete;
+  QuickSort(const QuickSort& obj) = delete;
+  QuickSort& operator=(const QuickSort& rhs) = delete;
+  QuickSort(QuickSort&& obj) = delete;
+  QuickSort& operator=(QuickSort&& rhs) = delete;
 
   void ComputeQuickSort(const int32_t start, const int32_t end);
   int32_t ComputePartition(const int32_t start, const int32_t end);
@@ -62,9 +63,9 @@ class QuickSort {
   FRIEND_TEST(Test_ALDS1_6_C, ComputePartition_4);  // Should be removed from production code
 };
 
-bool IsSameCard(const Card &a, const Card &b) noexcept;
-bool IsSameValue(const Card &a, const Card &b) noexcept;
-Card ConvertCard(const std::string &symbol, const int32_t number);
+bool IsSameCard(const Card& a, const Card& b) noexcept;
+bool IsSameValue(const Card& a, const Card& b) noexcept;
+Card ConvertCard(const std::string& symbol, const int32_t number);
 
 }  // namespace ALDS1_6_C
 

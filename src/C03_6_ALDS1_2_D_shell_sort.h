@@ -11,6 +11,7 @@
 #define SRC_C03_6_ALDS1_2_D_SHELL_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -22,7 +23,7 @@ class ShellSort {
  public:
   ShellSort() noexcept;
   ~ShellSort() noexcept;
-  void Main(std::istream &input_stream) noexcept;
+  void Main(std::istream& input_stream) noexcept;
 
  private:
   void Sort() noexcept;
@@ -31,15 +32,15 @@ class ShellSort {
   bool ShouldSwap(const int32_t index_compare, const int32_t cvalue) noexcept;
   int32_t SwapAndGetInsertPoint(const int32_t index_compare, const int32_t gap) noexcept;
   void Insert(const int32_t index_insert_target, const int32_t cvalue) noexcept;
-  void Load(std::istream &input_stream);
+  void Load(std::istream& input_stream);
   void Print() const noexcept;
   void CalculateGaps() noexcept;
 
  private:
-  ShellSort(const ShellSort &obj) = delete;
-  ShellSort &operator=(const ShellSort &rhs) = delete;
-  ShellSort(ShellSort &&obj) = delete;
-  ShellSort &operator=(ShellSort &&rhs) = delete;
+  ShellSort(const ShellSort& obj) = delete;
+  ShellSort& operator=(const ShellSort& rhs) = delete;
+  ShellSort(ShellSort&& obj) = delete;
+  ShellSort& operator=(ShellSort&& rhs) = delete;
 
  private:
   int32_t count_;

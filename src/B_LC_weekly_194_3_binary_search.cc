@@ -4,13 +4,14 @@
  * https://leetcode.com/contest/weekly-contest-194/problems/avoid-flood-in-the-city/
  */
 
+#include "src/B_LC_weekly_194_3_binary_search.h"
+
 #include <set>
 #include <unordered_map>
-#include "src/B_LC_weekly_194_3_binary_search.h"
 
 namespace LC_weekly_194_3 {
 
-std::vector<int32_t> Solution::avoidFlood(const std::vector<int32_t> &rains) {
+std::vector<int32_t> Solution::avoidFlood(const std::vector<int32_t>& rains) {
   const int32_t L = static_cast<int32_t>(rains.size());
   std::vector<int32_t> ans(L);
 

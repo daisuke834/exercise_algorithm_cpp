@@ -5,6 +5,7 @@
  */
 
 #include "src/C03_5_ALDS1_2_C_stable_sort.h"
+
 #include <iostream>
 namespace ALDS1_2_C {
 
@@ -12,7 +13,7 @@ StableSort::StableSort() noexcept : bubble_sort_{}, selection_sort_{} {}
 
 StableSort::~StableSort() noexcept {}
 
-void StableSort::Main(std::istream &input_stream) noexcept {
+void StableSort::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -29,7 +30,7 @@ void StableSort::Sort() noexcept {
   selection_sort_.Sort();
 }
 
-void StableSort::Load(std::istream &input_stream) {
+void StableSort::Load(std::istream& input_stream) {
   input_stream >> card_group_.count_;
   if (card_group_.count_ > kMaxArraySize) {
     std::cout << "kMaxArraySize is too small for the number of data count." << std::endl;
@@ -86,9 +87,7 @@ void BubbleSort::SwapWithLeftNext(const int32_t index_target) noexcept {
   card_group_.card_[index_target - 1] = current_card;
 }
 
-void BubbleSort::Load(const CardGroup &card_group) noexcept {
-  card_group_ = card_group;
-}
+void BubbleSort::Load(const CardGroup& card_group) noexcept { card_group_ = card_group; }
 
 void BubbleSort::Print() const noexcept {
   for (int32_t index = 0; index < card_group_.count_; ++index) {
@@ -100,7 +99,7 @@ void BubbleSort::Print() const noexcept {
   std::cout << std::endl;
 }
 
-bool BubbleSort::IsStable(const CardGroup &card_group_compare) const noexcept {
+bool BubbleSort::IsStable(const CardGroup& card_group_compare) const noexcept {
   for (int32_t i = 0; i < card_group_.count_; ++i) {
     for (int32_t j = i + 1; j < card_group_.count_; ++j) {
       for (int32_t a = 0; a < card_group_.count_; ++a) {
@@ -147,9 +146,7 @@ void SelectionSort::Swap(const int32_t index_unsorted_top, const int32_t index_m
   card_group_.card_[index_minimum] = card_top;
 }
 
-void SelectionSort::Load(const CardGroup &card_group) noexcept {
-  card_group_ = card_group;
-}
+void SelectionSort::Load(const CardGroup& card_group) noexcept { card_group_ = card_group; }
 
 void SelectionSort::Print() const noexcept {
   for (int32_t index = 0; index < card_group_.count_; ++index) {
@@ -161,7 +158,7 @@ void SelectionSort::Print() const noexcept {
   std::cout << std::endl;
 }
 
-bool SelectionSort::IsStable(const CardGroup &card_group) const noexcept {
+bool SelectionSort::IsStable(const CardGroup& card_group) const noexcept {
   for (int32_t i = 0; i < card_group_.count_; ++i) {
     for (int32_t j = i + 1; j < card_group_.count_; ++j) {
       for (int32_t a = 0; a < card_group_.count_; ++a) {
@@ -179,11 +176,7 @@ bool SelectionSort::IsStable(const CardGroup &card_group) const noexcept {
   return true;
 }
 
-bool IsSameCard(const Card &a, const Card &b) noexcept {
-  return (a.suit == b.suit) && (a.value == b.value);
-}
-bool IsSameValue(const Card &a, const Card &b) noexcept {
-  return (a.value == b.value);
-}
+bool IsSameCard(const Card& a, const Card& b) noexcept { return (a.suit == b.suit) && (a.value == b.value); }
+bool IsSameValue(const Card& a, const Card& b) noexcept { return (a.value == b.value); }
 
 }  // namespace ALDS1_2_C

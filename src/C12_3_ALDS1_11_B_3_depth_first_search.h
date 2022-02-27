@@ -9,6 +9,7 @@
 #define SRC_C12_3_ALDS1_11_B_3_DEPTH_FIRST_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <stack>
@@ -24,7 +25,7 @@ constexpr int32_t kMaxLoopCount = 1000000;
 constexpr int32_t kFirstExploreTargetIndex = 0;
 constexpr int32_t kInvalidTime = -1;
 
-void CallDepthFirstSearch(std::istream &input_stream);
+void CallDepthFirstSearch(std::istream& input_stream);
 
 enum class VertexStatus : int32_t { kInit = 0, kDiscovered, kCompleted };
 
@@ -43,10 +44,10 @@ class Vertex {
  private:
   int32_t GetNumberOfTails() const noexcept;
 
-  Vertex(const Vertex &obj) = delete;
-  Vertex &operator=(const Vertex &obj) = delete;
-  Vertex(Vertex &&obj) = delete;
-  Vertex &operator=(Vertex &&obj) = delete;
+  Vertex(const Vertex& obj) = delete;
+  Vertex& operator=(const Vertex& obj) = delete;
+  Vertex(Vertex&& obj) = delete;
+  Vertex& operator=(Vertex&& obj) = delete;
 
  private:
   VertexStatus status_;
@@ -81,10 +82,10 @@ class DepthFirstSearch {
   int32_t ConvertFromIndexToVertexNumber(const int32_t index) const;
   bool DoesNotExist(const int32_t vertex_index) const;
 
-  DepthFirstSearch(const DepthFirstSearch &obj) = delete;
-  DepthFirstSearch &operator=(const DepthFirstSearch &obj) = delete;
-  DepthFirstSearch(DepthFirstSearch &&obj) = delete;
-  DepthFirstSearch &operator=(DepthFirstSearch &&obj) = delete;
+  DepthFirstSearch(const DepthFirstSearch& obj) = delete;
+  DepthFirstSearch& operator=(const DepthFirstSearch& obj) = delete;
+  DepthFirstSearch(DepthFirstSearch&& obj) = delete;
+  DepthFirstSearch& operator=(DepthFirstSearch&& obj) = delete;
 
  private:
   int32_t time_;

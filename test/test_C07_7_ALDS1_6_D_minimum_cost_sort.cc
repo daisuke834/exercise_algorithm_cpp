@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_7_ALDS1_6_D_minimum_cost_sort.h"
 
 namespace ALDS1_6_D {
 
 class Test_ALDS1_6_D : public ::testing::Test {
  protected:
-  MinimumCostSort *minimum_cost_sort_;
-  virtual void SetUp() {
-    minimum_cost_sort_ = new MinimumCostSort();
-  }
-  virtual void TearDown() {
-    delete minimum_cost_sort_;
-  }
+  MinimumCostSort* minimum_cost_sort_;
+  virtual void SetUp() { minimum_cost_sort_ = new MinimumCostSort(); }
+  virtual void TearDown() { delete minimum_cost_sort_; }
 };
 
 TEST_F(Test_ALDS1_6_D, CallMinimumCostSort) {

@@ -20,7 +20,7 @@ constexpr int32_t kInvalidValue = -1;
 constexpr int32_t kMaxNumberOfNodes = 100000;
 constexpr int32_t kNumberOfCharTypes = 256;
 
-void CallHuffmanCoding(std::istream &input_stream);
+void CallHuffmanCoding(std::istream& input_stream);
 
 struct Node {
   int32_t ch_value{kInvalidValue};
@@ -29,7 +29,7 @@ struct Node {
   int32_t right{kInvalidIndex};
 };
 
-bool Node1IsLessThanNode2(const Node &node1, const Node &node2) noexcept;
+bool Node1IsLessThanNode2(const Node& node1, const Node& node2) noexcept;
 
 struct CharInfo {
   int32_t count{0};
@@ -40,21 +40,21 @@ class HuffmanCoding {
  public:
   HuffmanCoding() noexcept;
   ~HuffmanCoding() noexcept;
-  void GenerateHuffmanCode(const std::string &text) noexcept;
+  void GenerateHuffmanCode(const std::string& text) noexcept;
   std::string Encode(const std::string text) const noexcept;
   void Debug() const noexcept;
 
  private:
-  void SetText(const std::string &text) noexcept;
+  void SetText(const std::string& text) noexcept;
   void GenerateHistogram() noexcept;
   void BuildHuffmanTree() noexcept;
   int32_t GetDepth() const noexcept;
   std::string Encode(const char ch) const noexcept;
 
-  HuffmanCoding(const HuffmanCoding &obj) = delete;
-  HuffmanCoding &operator=(const HuffmanCoding &rhs) = delete;
-  HuffmanCoding(HuffmanCoding &&obj) = delete;
-  HuffmanCoding &operator=(HuffmanCoding &&rhs) = delete;
+  HuffmanCoding(const HuffmanCoding& obj) = delete;
+  HuffmanCoding& operator=(const HuffmanCoding& rhs) = delete;
+  HuffmanCoding(HuffmanCoding&& obj) = delete;
+  HuffmanCoding& operator=(HuffmanCoding&& rhs) = delete;
 
  private:
   int32_t text_length_;

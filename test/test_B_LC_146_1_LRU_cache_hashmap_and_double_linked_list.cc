@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_146_1_LRU_cache_hashmap_and_double_linked_list.h"
 
 namespace LC_146_1 {
@@ -18,7 +20,7 @@ class Test_LC_146_1 : public ::testing::Test {
 };
 
 TEST_F(Test_LC_146_1, test_1) {
-  LRUCache *cache = new LRUCache(2);
+  LRUCache* cache = new LRUCache(2);
 
   cache->put(1, 1);
   cache->put(2, 2);

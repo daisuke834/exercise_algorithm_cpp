@@ -9,6 +9,7 @@
 #define SRC_C13_3_ALDS1_12_B_1_SINGLE_SOURCE_SHORTEST_PATH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -24,7 +25,7 @@ constexpr int32_t kRootVertex = 0;
 
 // ****************************************************
 
-void CallDijkstraAlgorithm(std::istream &input_stream);
+void CallDijkstraAlgorithm(std::istream& input_stream);
 
 // ****************************************************
 
@@ -61,10 +62,10 @@ class DijkstraAlgorithm {
   bool IsTreeComponent(const int32_t vertex_index) const;
   bool InvalidVertexIndex(const int32_t vertex_index) const noexcept;
 
-  DijkstraAlgorithm(const DijkstraAlgorithm &obj) = delete;
-  DijkstraAlgorithm &operator=(const DijkstraAlgorithm &obj) = delete;
-  DijkstraAlgorithm(DijkstraAlgorithm &&obj) = delete;
-  DijkstraAlgorithm &operator=(DijkstraAlgorithm &&obj) = delete;
+  DijkstraAlgorithm(const DijkstraAlgorithm& obj) = delete;
+  DijkstraAlgorithm& operator=(const DijkstraAlgorithm& obj) = delete;
+  DijkstraAlgorithm(DijkstraAlgorithm&& obj) = delete;
+  DijkstraAlgorithm& operator=(DijkstraAlgorithm&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

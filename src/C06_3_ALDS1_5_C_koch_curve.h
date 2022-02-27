@@ -8,6 +8,7 @@
 #define SRC_C06_3_ALDS1_5_C_KOCH_CURVE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <list>
@@ -17,7 +18,7 @@ namespace ALDS1_5_C {
 
 constexpr int32_t kMaxLoopCount = 1000000000;
 
-void CallKochCurve(std::istream &input_stream);
+void CallKochCurve(std::istream& input_stream);
 
 struct Point {
   float x{0.0F};
@@ -29,19 +30,19 @@ struct LineSegment {
   Point second{};
 };
 
-void CreateKochCurve(std::list<LineSegment> *segments, const int32_t remaining_depth);
+void CreateKochCurve(std::list<LineSegment>* segments, const int32_t remaining_depth);
 
 Point CreatePoint(const float x, const float y) noexcept;
 
-LineSegment CreateLineSegment(const Point &first, const Point &second) noexcept;
+LineSegment CreateLineSegment(const Point& first, const Point& second) noexcept;
 
-Point CreateDelta(const LineSegment &segment) noexcept;
+Point CreateDelta(const LineSegment& segment) noexcept;
 
-Point CreatePointS(const LineSegment &segment, const Point &delta) noexcept;
+Point CreatePointS(const LineSegment& segment, const Point& delta) noexcept;
 
-Point CreatePointT(const LineSegment &segment, const Point &delta) noexcept;
+Point CreatePointT(const LineSegment& segment, const Point& delta) noexcept;
 
-Point CreatePointU(const Point &point_s, const Point &delta) noexcept;
+Point CreatePointU(const Point& point_s, const Point& delta) noexcept;
 
 }  // namespace ALDS1_5_C
 

@@ -7,16 +7,17 @@
  */
 
 #include "src/C07_3_ALDS1_6_C_quick_sort.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_6_C {
 
-void CallQuickSort(std::istream &input_stream) {
+void CallQuickSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   static Card original_cards[kMaxArraySize];
-  QuickSort *quick_sort = new QuickSort();
+  QuickSort* quick_sort = new QuickSort();
   try {
     int32_t count;
     input_stream >> count;
@@ -48,7 +49,7 @@ void CallQuickSort(std::istream &input_stream) {
 QuickSort::QuickSort() noexcept : size_(0), cards_{} {}
 QuickSort::~QuickSort() noexcept {}
 
-void QuickSort::AddCard(const std::string &symbol, const int32_t number) {
+void QuickSort::AddCard(const std::string& symbol, const int32_t number) {
   if (size_ >= kMaxArraySize) {
     std::cerr << "ERROR: AddCard(): Data size exceeded a limit = " << kMaxArraySize << std::endl;
     throw 1;
@@ -62,9 +63,7 @@ void QuickSort::AddCard(const std::string &symbol, const int32_t number) {
   }
 }
 
-void QuickSort::ResetData() noexcept {
-  size_ = 0;
-}
+void QuickSort::ResetData() noexcept { size_ = 0; }
 
 Card QuickSort::GetCard(const int32_t index) {
   if (IndexOutOfRange(index)) {
@@ -146,9 +145,7 @@ void QuickSort::Swap(const int32_t index_1, const int32_t index_2) {
   }
 }
 
-bool QuickSort::IndexOutOfRange(const int32_t index) const noexcept {
-  return ((index) < 0 || (index >= size_));
-}
+bool QuickSort::IndexOutOfRange(const int32_t index) const noexcept { return ((index) < 0 || (index >= size_)); }
 
 bool QuickSort::IsStable(const Card cards_compare[kMaxArraySize]) const noexcept {
   for (int32_t index_sorted_1 = 0; index_sorted_1 < size_ - 1; ++index_sorted_1) {
@@ -171,14 +168,10 @@ bool QuickSort::IsStable(const Card cards_compare[kMaxArraySize]) const noexcept
   return true;
 }
 
-bool IsSameCard(const Card &a, const Card &b) noexcept {
-  return (a.symbol == b.symbol) && (a.number == b.number);
-}
-bool IsSameValue(const Card &a, const Card &b) noexcept {
-  return (a.number == b.number);
-}
+bool IsSameCard(const Card& a, const Card& b) noexcept { return (a.symbol == b.symbol) && (a.number == b.number); }
+bool IsSameValue(const Card& a, const Card& b) noexcept { return (a.number == b.number); }
 
-Card ConvertCard(const std::string &symbol, const int32_t number) {
+Card ConvertCard(const std::string& symbol, const int32_t number) {
   if (symbol.size() != 1) {
     std::cerr << "ERROR: ConvertCard(): Invalid input symbol. symbol = \"" << symbol << "\"" << std::endl;
     throw 1;

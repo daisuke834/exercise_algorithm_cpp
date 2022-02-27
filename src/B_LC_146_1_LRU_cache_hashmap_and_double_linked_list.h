@@ -25,8 +25,8 @@ struct Element {
   int32_t key{kInvalidKey};
   int32_t value{kInvalidValue};
   int32_t index{kInvalidIndex};
-  Element *newer{nullptr};
-  Element *older{nullptr};
+  Element* newer{nullptr};
+  Element* older{nullptr};
 };
 
 class LRUCache {
@@ -36,7 +36,7 @@ class LRUCache {
   void put(int key, int value);
 
  private:
-  void MoveTop(Element *target);
+  void MoveTop(Element* target);
 
  private:
   const int32_t size_;

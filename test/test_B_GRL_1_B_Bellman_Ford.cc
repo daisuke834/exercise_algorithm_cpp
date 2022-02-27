@@ -5,22 +5,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/B_GRL_1_B_Bellman_Ford.h"
 
 namespace GRL_1_B {
 
 class Test_GRL_1_B : public ::testing::Test {
  protected:
-  BellmanFordAlgorithm *single_source_shortest_path_;
-  virtual void SetUp() {
-    single_source_shortest_path_ = new BellmanFordAlgorithm();
-  }
-  virtual void TearDown() {
-    delete single_source_shortest_path_;
-  }
+  BellmanFordAlgorithm* single_source_shortest_path_;
+  virtual void SetUp() { single_source_shortest_path_ = new BellmanFordAlgorithm(); }
+  virtual void TearDown() { delete single_source_shortest_path_; }
 };
 
 TEST_F(Test_GRL_1_B, CallBellmanFordAlgorithm_1) {

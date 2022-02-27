@@ -11,7 +11,7 @@
 
 namespace D_ABC_176_D_2 {
 
-int CallMain(std::istream &input_stream);
+int CallMain(std::istream& input_stream);
 
 }  // namespace D_ABC_176_D_2
 

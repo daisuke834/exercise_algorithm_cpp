@@ -10,6 +10,7 @@
 #define SRC_C03_3_ALDS1_2_A_BUBBLE_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -21,20 +22,20 @@ class BubbleSort {
  public:
   BubbleSort() noexcept;
   ~BubbleSort() noexcept;
-  void Main(std::istream &input_stream) noexcept;
+  void Main(std::istream& input_stream) noexcept;
 
  private:
   void Sort() noexcept;
   bool ShouldSwap(const int32_t index_target) noexcept;
   void SwapWithLeftNext(const int32_t index_target) noexcept;
-  void Load(std::istream &input_stream);
+  void Load(std::istream& input_stream);
   void Print() const noexcept;
 
  private:
-  BubbleSort(const BubbleSort &obj) = delete;
-  BubbleSort &operator=(const BubbleSort &rhs) = delete;
-  BubbleSort(BubbleSort &&obj) = delete;
-  BubbleSort &operator=(BubbleSort &&rhs) = delete;
+  BubbleSort(const BubbleSort& obj) = delete;
+  BubbleSort& operator=(const BubbleSort& rhs) = delete;
+  BubbleSort(BubbleSort&& obj) = delete;
+  BubbleSort& operator=(BubbleSort&& rhs) = delete;
 
  private:
   int32_t count_;

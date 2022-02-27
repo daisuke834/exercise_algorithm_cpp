@@ -5,11 +5,12 @@
  */
 
 #include "src/D_ddcc2020_qual_C_2_strawberry_cakes.h"
+
 #include <string>
 
 namespace D_ddcc2020_qual_C_2 {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 
@@ -37,13 +38,9 @@ Strawberry::Strawberry(const int64_t H, const int64_t W) : H_(H), W_(W), index_(
   result_ = std::vector<std::vector<int64_t>>(H, std::vector<int64_t>(W, INT64_MIN));
 }
 
-void Strawberry::IsStrawberry(const int64_t row, const int64_t column) {
-  strawberry_[row][column] = true;
-}
+void Strawberry::IsStrawberry(const int64_t row, const int64_t column) { strawberry_[row][column] = true; }
 
-void Strawberry::Search() {
-  Dfs(Pair(0, 0), Pair(H_ - 1, W_ - 1));
-}
+void Strawberry::Search() { Dfs(Pair(0, 0), Pair(H_ - 1, W_ - 1)); }
 
 int64_t Strawberry::SumOfCol(const int64_t column, const int64_t row_start, const int64_t row_end) {
   int64_t count = 0;
@@ -65,7 +62,7 @@ int64_t Strawberry::SumOfRow(const int64_t row, const int64_t column_start, cons
   return count;
 }
 
-void Strawberry::Dfs(const Pair &top_left, const Pair &bottom_right) {
+void Strawberry::Dfs(const Pair& top_left, const Pair& bottom_right) {
   int64_t number_of_filled_rows = 0;
   int64_t total_count = 0;
   int64_t last_filled_row = -1;

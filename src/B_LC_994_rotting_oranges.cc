@@ -1,7 +1,8 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode 994. Rotting Oranges.
- * Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1 instead.
+ * Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return
+ * -1 instead.
  */
 
 #include "src/B_LC_994_rotting_oranges.h"
@@ -10,7 +11,7 @@ namespace LC_994 {
 
 const int32_t directions[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
-int Solution::orangesRotting(const std::vector<std::vector<int>> &grid) {
+int Solution::orangesRotting(const std::vector<std::vector<int>>& grid) {
   height_ = static_cast<int32_t>(grid.size());
   width_ = static_cast<int32_t>(grid[0].size());
   std::vector<std::vector<int32_t>> minimum_rotten_time(height_, std::vector<int32_t>(width_, INT32_MAX));
@@ -44,7 +45,7 @@ int Solution::orangesRotting(const std::vector<std::vector<int>> &grid) {
     }
   }
   int32_t time_to_all_rotten = 0;
-  for (const auto &fresh : fresh_group) {
+  for (const auto& fresh : fresh_group) {
     if (minimum_rotten_time[fresh.first][fresh.second] > time_to_all_rotten) {
       time_to_all_rotten = minimum_rotten_time[fresh.first][fresh.second];
     }
@@ -55,7 +56,7 @@ int Solution::orangesRotting(const std::vector<std::vector<int>> &grid) {
   return time_to_all_rotten;
 }
 
-bool Solution::IsValidPosition(const Position &position) const noexcept {
+bool Solution::IsValidPosition(const Position& position) const noexcept {
   return position.first >= 0 && position.first < height_ && position.second >= 0 && position.second < width_;
 }
 

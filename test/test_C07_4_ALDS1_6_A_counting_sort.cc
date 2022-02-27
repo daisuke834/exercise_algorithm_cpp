@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_4_ALDS1_6_A_counting_sort.h"
 
 namespace ALDS1_6_A {
 
 class Test_ALDS1_6_A : public ::testing::Test {
  protected:
-  CountingSort *counting_sort_;
-  virtual void SetUp() {
-    counting_sort_ = new CountingSort();
-  }
-  virtual void TearDown() {
-    delete counting_sort_;
-  }
+  CountingSort* counting_sort_;
+  virtual void SetUp() { counting_sort_ = new CountingSort(); }
+  virtual void TearDown() { delete counting_sort_; }
 };
 
 TEST_F(Test_ALDS1_6_A, CallCountingSort) {

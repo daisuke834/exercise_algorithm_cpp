@@ -37,7 +37,7 @@ int LRUCache::get(int key) {
 
 void LRUCache::put(int key, int value) {
   if (cache_indices_.find(key) == cache_indices_.end()) {
-    Element *assigned = cache_[bottom_index_].newer;
+    Element* assigned = cache_[bottom_index_].newer;
     if (assigned->key != kInvalidKey) {
       cache_indices_.erase(cache_indices_.find(assigned->key));
     }
@@ -52,7 +52,7 @@ void LRUCache::put(int key, int value) {
   }
 }
 
-void LRUCache::MoveTop(Element *target) {
+void LRUCache::MoveTop(Element* target) {
   target->newer->older = target->older;
   target->older->newer = target->newer;
   target->newer = &cache_[top_index_];

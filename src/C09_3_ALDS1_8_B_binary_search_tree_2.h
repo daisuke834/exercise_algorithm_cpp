@@ -8,6 +8,7 @@
 #define SRC_C09_3_ALDS1_8_B_BINARY_SEARCH_TREE_2_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -20,20 +21,20 @@ constexpr int32_t kInvalid = -2;
 
 enum class NodeType : int32_t { kInternal = 0, kLeaf, kRoot };
 
-void CallBinarySearchTree(std::istream &input_stream);
+void CallBinarySearchTree(std::istream& input_stream);
 
 enum class InstructionType : int32_t { kInsert = 0, kPrint, kFind };
 
-InstructionType JudgeInstructionType(const std::string &str);
+InstructionType JudgeInstructionType(const std::string& str);
 
 class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  Node(const Node &obj) noexcept;
-  Node &operator=(const Node &rhs) noexcept;
-  Node(Node &&obj) noexcept;
-  Node &operator=(Node &&rhs) noexcept;
+  Node(const Node& obj) noexcept;
+  Node& operator=(const Node& rhs) noexcept;
+  Node(Node&& obj) noexcept;
+  Node& operator=(Node&& rhs) noexcept;
 
   void Activate() noexcept;
   bool IsValid() const noexcept;
@@ -92,10 +93,10 @@ class BinarySearchTree {
   void WalkPreorder(const int32_t node_index) const;
   void WalkInorder(const int32_t node_index) const;
 
-  BinarySearchTree(const BinarySearchTree &obj) = delete;
-  BinarySearchTree &operator=(const BinarySearchTree &obj) = delete;
-  BinarySearchTree(BinarySearchTree &&obj) = delete;
-  BinarySearchTree &operator=(BinarySearchTree &&obj) = delete;
+  BinarySearchTree(const BinarySearchTree& obj) = delete;
+  BinarySearchTree& operator=(const BinarySearchTree& obj) = delete;
+  BinarySearchTree(BinarySearchTree&& obj) = delete;
+  BinarySearchTree& operator=(BinarySearchTree&& obj) = delete;
 
  private:
   int32_t root_;

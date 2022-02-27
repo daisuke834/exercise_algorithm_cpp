@@ -4,6 +4,7 @@
  */
 
 #include "src/B_ALDS1_14_B_1_string_search_bm.h"
+
 #include <algorithm>
 #include <cstring>
 #include <iostream>
@@ -11,10 +12,10 @@
 
 namespace ALDS1_14_B_1 {
 
-void CallStringSearch(std::istream &input_stream) {
+void CallStringSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BoyerMoore *boyer_moore = new BoyerMoore();
+  BoyerMoore* boyer_moore = new BoyerMoore();
   try {
     std::string text, pattern;
     input_stream >> text >> pattern;
@@ -30,11 +31,11 @@ void CallStringSearch(std::istream &input_stream) {
 BoyerMoore::BoyerMoore() noexcept : pattern_length_(0) {}
 BoyerMoore::~BoyerMoore() noexcept {}
 
-void BoyerMoore::SetPattern(const std::string &pattern) noexcept {
+void BoyerMoore::SetPattern(const std::string& pattern) noexcept {
   strncpy(pattern_, pattern.c_str(), pattern.length());
   pattern_length_ = static_cast<int32_t>(pattern.length());
 
-  for (int32_t &offset : offsets_from_right_) {
+  for (int32_t& offset : offsets_from_right_) {
     offset = pattern_length_;
   }
   for (int32_t index_pattern = 0; index_pattern < pattern_length_; ++index_pattern) {
@@ -42,8 +43,8 @@ void BoyerMoore::SetPattern(const std::string &pattern) noexcept {
   }
 }
 
-void BoyerMoore::Search(const std::string &text_str) const noexcept {
-  const char *const text = text_str.c_str();
+void BoyerMoore::Search(const std::string& text_str) const noexcept {
+  const char* const text = text_str.c_str();
   const int32_t length_text = static_cast<int32_t>(text_str.length());
   int32_t index_text = pattern_length_ - 1;
   while (index_text < length_text) {

@@ -13,7 +13,7 @@
 
 namespace D_ddcc2020_qual_C_2 {
 
-int CallMain(std::istream &input_stream);
+int CallMain(std::istream& input_stream);
 
 using Pair = std::pair<int64_t, int64_t>;
 
@@ -24,10 +24,10 @@ class Strawberry {
   void Search();
   void Print();
 
-  private:
+ private:
   int64_t SumOfCol(const int64_t column, const int64_t row_start, const int64_t row_end);
   int64_t SumOfRow(const int64_t row, const int64_t column_start, const int64_t column_end);
-  void Dfs(const Pair &top_left, const Pair &bottom_right);
+  void Dfs(const Pair& top_left, const Pair& bottom_right);
 
  private:
   int64_t H_;

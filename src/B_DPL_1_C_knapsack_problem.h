@@ -11,7 +11,7 @@
 
 namespace DPL_1_C {
 
-void CallKnapsackProblem(std::istream &input_stream);
+void CallKnapsackProblem(std::istream& input_stream);
 
 }  // namespace DPL_1_C
 

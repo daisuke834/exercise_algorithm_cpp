@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C06_2_ALDS1_5_A_2_exhaustive_search.h"
 
 namespace ALDS1_5_A_2 {
 
 class Test_ALDS1_5_A_2 : public ::testing::Test {
  protected:
-  ExhaustiveSearch *exhaustive_search_;
-  virtual void SetUp() {
-    exhaustive_search_ = new ExhaustiveSearch();
-  }
-  virtual void TearDown() {
-    delete exhaustive_search_;
-  }
+  ExhaustiveSearch* exhaustive_search_;
+  virtual void SetUp() { exhaustive_search_ = new ExhaustiveSearch(); }
+  virtual void TearDown() { delete exhaustive_search_; }
 };
 
 TEST_F(Test_ALDS1_5_A_2, CallExhaustiveSearch) {

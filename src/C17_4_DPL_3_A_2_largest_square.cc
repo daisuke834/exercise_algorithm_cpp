@@ -6,16 +6,17 @@
  */
 
 #include "src/C17_4_DPL_3_A_2_largest_square.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace DPL_3_A_2 {
 
-void CallLargestSquare(std::istream &input_stream) {
+void CallLargestSquare(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LargestSquare *largest_square = new LargestSquare();
+  LargestSquare* largest_square = new LargestSquare();
   try {
     int32_t height, width;
     input_stream >> height >> width;

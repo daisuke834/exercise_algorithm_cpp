@@ -8,13 +8,14 @@
 #define SRC_C05_3_ALDS1_4_B_BINARY_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_4_B {
 
-void CallBinarySearch(std::istream &input_stream) noexcept;
+void CallBinarySearch(std::istream& input_stream) noexcept;
 
 constexpr int32_t kMaxNumberOfSources = 100000;
 constexpr int32_t kMaxNumberOfTargets = 50000;
@@ -40,10 +41,10 @@ class BinarySearch {
   void AddOneTarget(const int32_t target);
 
  private:
-  BinarySearch(const BinarySearch &obj) = delete;
-  BinarySearch &operator=(const BinarySearch &rhs) = delete;
-  BinarySearch(BinarySearch &&obj) = delete;
-  BinarySearch &operator=(BinarySearch &&rhs) = delete;
+  BinarySearch(const BinarySearch& obj) = delete;
+  BinarySearch& operator=(const BinarySearch& rhs) = delete;
+  BinarySearch(BinarySearch&& obj) = delete;
+  BinarySearch& operator=(BinarySearch&& rhs) = delete;
 
   bool TargetIsIncludedInSource(const int32_t index_target) const;
   int32_t GetCenterIndex(const int32_t start, const int32_t end) const;

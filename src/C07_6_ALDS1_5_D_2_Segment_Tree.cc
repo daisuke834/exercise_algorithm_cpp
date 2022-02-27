@@ -5,13 +5,14 @@
  */
 
 #include "src/C07_6_ALDS1_5_D_2_Segment_Tree.h"
+
 #include <iostream>
 #include <map>
 #include <string>
 
 namespace ALDS1_5_D_2 {
 
-void CallMain(std::istream &input_stream) {
+void CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 
@@ -26,7 +27,7 @@ void CallMain(std::istream &input_stream) {
     }
   }
   int64_t rank = 0;
-  for (auto &m : value_to_rank) {
+  for (auto& m : value_to_rank) {
     m.second = rank;
     ++rank;
   }
@@ -50,7 +51,7 @@ SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value) : i
   nodes_ = std::vector<int64_t>(node_size_, init_value_);
 }
 
-SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value) : init_value_(init_value) {
+SegmentTree::SegmentTree(const std::vector<int64_t>& array, const int64_t init_value) : init_value_(init_value) {
   nodes_ = array;
   const int64_t array_size = static_cast<int64_t>(array.size());
   array_size_ = 1;
@@ -89,20 +90,12 @@ int64_t SegmentTree::Query(const int64_t start, const int64_t end, const int64_t
   return value_left + value_right;
 }
 
-int64_t SegmentTree::LeafNodeIndex(const int64_t array_index) const {
-  return array_size_ + array_index - 1L;
-}
+int64_t SegmentTree::LeafNodeIndex(const int64_t array_index) const { return array_size_ + array_index - 1L; }
 
-int64_t SegmentTree::Parent(const int64_t node_index) {
-  return (node_index - 1L) / 2L;
-}
+int64_t SegmentTree::Parent(const int64_t node_index) { return (node_index - 1L) / 2L; }
 
-int64_t SegmentTree::ChildLeft(const int64_t node_index) {
-  return (node_index * 2 + 1);
-}
+int64_t SegmentTree::ChildLeft(const int64_t node_index) { return (node_index * 2 + 1); }
 
-int64_t SegmentTree::ChildRight(const int64_t node_index) {
-  return (node_index * 2 + 2);
-}
+int64_t SegmentTree::ChildRight(const int64_t node_index) { return (node_index * 2 + 2); }
 
 }  // namespace ALDS1_5_D_2

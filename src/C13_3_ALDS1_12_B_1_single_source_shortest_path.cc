@@ -6,15 +6,16 @@
  */
 
 #include "src/C13_3_ALDS1_12_B_1_single_source_shortest_path.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_12_B_1 {
 
-void CallDijkstraAlgorithm(std::istream &input_stream) {
+void CallDijkstraAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DijkstraAlgorithm *single_source_shortest_path = new DijkstraAlgorithm();
+  DijkstraAlgorithm* single_source_shortest_path = new DijkstraAlgorithm();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -40,8 +41,8 @@ void CallDijkstraAlgorithm(std::istream &input_stream) {
 // ****************************************************
 
 DijkstraAlgorithm::DijkstraAlgorithm() noexcept : number_of_vertices_(0) {
-  for (auto &row : adjacency_matrix_) {
-    for (int32_t &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (int32_t& element : row) {
       element = kInvalidWeight;
     }
   }
@@ -77,7 +78,7 @@ void DijkstraAlgorithm::AddVertexToTree(const int32_t vertex_index_to_add) {
     std::cerr << "ERROR: AddVertexToTree(): Invalid arg: vertex_index_to_add = " << vertex_index_to_add << std::endl;
     throw 1;
   }
-  Vertex &vertex_to_add = vertices_[vertex_index_to_add];
+  Vertex& vertex_to_add = vertices_[vertex_index_to_add];
   vertex_to_add.status = VertexStatus::kAdded;
 
   UpdateExternalVertices(vertex_index_to_add);
@@ -154,7 +155,7 @@ void DijkstraAlgorithm::UpdateCandidateByAddedVertex(const int32_t vertex_index_
               << vertex_index_to_update << std::endl;
     throw 1;
   } else {
-    Vertex &vertex_to_update = vertices_[vertex_index_to_update];
+    Vertex& vertex_to_update = vertices_[vertex_index_to_update];
     const int32_t new_distance = vertices_[vertex_index_added].distance_from_root +
                                  adjacency_matrix_[vertex_index_added][vertex_index_to_update];
     vertex_to_update.distance_from_root = new_distance;
@@ -196,7 +197,7 @@ int32_t DijkstraAlgorithm::FindNextVertexToAdd() const noexcept {
   int32_t next_vertex_to_add = kInvalidVertex;
   for (int32_t vertex_index = 0; vertex_index < number_of_vertices_; ++vertex_index) {
     if (IsExternalVertex(vertex_index)) {
-      const Vertex &current_vertex = vertices_[vertex_index];
+      const Vertex& current_vertex = vertices_[vertex_index];
       if (current_vertex.distance_from_root < minimum_distance) {
         next_vertex_to_add = vertex_index;
         minimum_distance = current_vertex.distance_from_root;

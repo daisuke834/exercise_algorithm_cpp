@@ -6,15 +6,16 @@
  */
 
 #include "src/C10_4_ALDS1_9_C_priority_queue.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_9_C {
 
-void CallPriorityQueue(std::istream &input_stream) {
+void CallPriorityQueue(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  PriorityQueue *priority_queue = new PriorityQueue();
+  PriorityQueue* priority_queue = new PriorityQueue();
   try {
     bool loop_end = false;
     constexpr int32_t kMaxNumberOfInstructions = 3000000;
@@ -51,7 +52,7 @@ void CallPriorityQueue(std::istream &input_stream) {
 }
 // ****************************************************
 
-InstructionType JudgeInstructionType(const std::string &str) {
+InstructionType JudgeInstructionType(const std::string& str) {
   InstructionType instruction_type;
   if (str == "insert") {
     instruction_type = InstructionType::kInsert;
@@ -328,9 +329,7 @@ int32_t PriorityQueue::GetIndexChildRight(const int32_t index) const {
   return right_index;
 }
 
-bool PriorityQueue::IsInvalidNode(const int32_t index) const noexcept {
-  return !IsValidNode(index);
-}
+bool PriorityQueue::IsInvalidNode(const int32_t index) const noexcept { return !IsValidNode(index); }
 
 bool PriorityQueue::IsValidNode(const int32_t index) const noexcept {
   const bool is_valid = IsValidNodeIndex(index) ? nodes_[index].is_valid : false;
@@ -341,9 +340,7 @@ bool PriorityQueue::IsInvalidNodeIndex(const int32_t index) noexcept {
   return ((index < 0) || (index >= kMaxNumberOfNodes));
 }
 
-bool PriorityQueue::IsValidNodeIndex(const int32_t index) noexcept {
-  return !IsInvalidNodeIndex(index);
-}
+bool PriorityQueue::IsValidNodeIndex(const int32_t index) noexcept { return !IsInvalidNodeIndex(index); }
 
 bool PriorityQueue::IsInvalidNodeNumber(const int32_t node_number) noexcept {
   return ((node_number < 1) || (node_number > kMaxNumberOfNodes));
@@ -371,12 +368,8 @@ int32_t PriorityQueue::ConvertFromIndexToNodeNumber(const int32_t index) {
   return index + 1;
 }
 
-int32_t PriorityQueue::GetSize() const noexcept {
-  return size_;
-}
+int32_t PriorityQueue::GetSize() const noexcept { return size_; }
 
-void PriorityQueue::Reset() noexcept {
-  size_ = 0;
-}
+void PriorityQueue::Reset() noexcept { size_ = 0; }
 
 }  // namespace ALDS1_9_C

@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C16_2_CGL_2_A_parallel_orthogonal.h"
 
 namespace CGL_2_A {

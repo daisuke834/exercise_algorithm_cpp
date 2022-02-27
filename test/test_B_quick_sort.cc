@@ -4,8 +4,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_quick_sort.h"
 
 namespace my_quick_sort {

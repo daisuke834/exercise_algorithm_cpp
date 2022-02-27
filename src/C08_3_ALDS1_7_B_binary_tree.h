@@ -8,6 +8,7 @@
 #define SRC_C08_3_ALDS1_7_B_BINARY_TREE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -20,16 +21,16 @@ constexpr int32_t kInvalid = -2;
 
 enum class NodeType : int32_t { kInternal = 0, kLeaf, kRoot };
 
-void CallBinaryTree(std::istream &input_stream);
+void CallBinaryTree(std::istream& input_stream);
 
 class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  Node(const Node &obj) noexcept;
-  Node &operator=(const Node &rhs) noexcept;
-  Node(Node &&obj) noexcept;
-  Node &operator=(Node &&rhs) noexcept;
+  Node(const Node& obj) noexcept;
+  Node& operator=(const Node& rhs) noexcept;
+  Node(Node&& obj) noexcept;
+  Node& operator=(Node&& rhs) noexcept;
 
   void Activate() noexcept;
   bool IsValid() const noexcept;
@@ -69,10 +70,10 @@ class BinaryTree {
   void Print() const;
 
  private:
-  BinaryTree(const BinaryTree &obj) = delete;
-  BinaryTree &operator=(const BinaryTree &obj) = delete;
-  BinaryTree(BinaryTree &&obj) = delete;
-  BinaryTree &operator=(BinaryTree &&obj) = delete;
+  BinaryTree(const BinaryTree& obj) = delete;
+  BinaryTree& operator=(const BinaryTree& obj) = delete;
+  BinaryTree(BinaryTree&& obj) = delete;
+  BinaryTree& operator=(BinaryTree&& obj) = delete;
 
   int32_t CalculateDepth(const int32_t index_node) const;
   int32_t CalculateHeight(const int32_t index_node) const;

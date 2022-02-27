@@ -6,8 +6,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_DSL_2_B_RSQ_Segment_Tree.h"
 
 namespace DSL_2_B {

@@ -6,15 +6,16 @@
  */
 
 #include "src/C12_3_ALDS1_11_B_3_depth_first_search.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_B_3 {
 
-void CallDepthFirstSearch(std::istream &input_stream) {
+void CallDepthFirstSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DepthFirstSearch *depth_first_search = new DepthFirstSearch();
+  DepthFirstSearch* depth_first_search = new DepthFirstSearch();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -285,17 +286,11 @@ void Vertex::Completed(const int32_t time) {
   completion_time_ = time;
 }
 
-VertexStatus Vertex::GetStatus() const noexcept {
-  return status_;
-}
+VertexStatus Vertex::GetStatus() const noexcept { return status_; }
 
-int32_t Vertex::GetDiscoveredTime() const noexcept {
-  return discovered_time_;
-}
+int32_t Vertex::GetDiscoveredTime() const noexcept { return discovered_time_; }
 
-int32_t Vertex::GetCompletionTime() const noexcept {
-  return completion_time_;
-}
+int32_t Vertex::GetCompletionTime() const noexcept { return completion_time_; }
 
 int32_t Vertex::GetNextTailIndex() noexcept {
   int32_t next_tail_index;
@@ -308,12 +303,8 @@ int32_t Vertex::GetNextTailIndex() noexcept {
   return next_tail_index;
 }
 
-void Vertex::AddTail(const int32_t tail_index) noexcept {
-  tails_.push_back(tail_index);
-}
+void Vertex::AddTail(const int32_t tail_index) noexcept { tails_.push_back(tail_index); }
 
-int32_t Vertex::GetNumberOfTails() const noexcept {
-  return static_cast<int32_t>(tails_.size());
-}
+int32_t Vertex::GetNumberOfTails() const noexcept { return static_cast<int32_t>(tails_.size()); }
 
 }  // namespace ALDS1_11_B_3

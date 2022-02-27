@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_ABC_167_D_2_teleporter_doubling.h"
 
 namespace ABC_167_D_2 {

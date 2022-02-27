@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_2_ALDS1_6_B_partition.h"
 
 namespace ALDS1_6_B {
 
 class Test_ALDS1_6_B : public ::testing::Test {
  protected:
-  Partition *partition_;
-  virtual void SetUp() {
-    partition_ = new Partition();
-  }
-  virtual void TearDown() {
-    delete partition_;
-  }
+  Partition* partition_;
+  virtual void SetUp() { partition_ = new Partition(); }
+  virtual void TearDown() { delete partition_; }
 };
 
 TEST_F(Test_ALDS1_6_B, CallPartition) {

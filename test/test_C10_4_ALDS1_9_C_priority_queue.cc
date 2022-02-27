@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C10_4_ALDS1_9_C_priority_queue.h"
 
 namespace ALDS1_9_C {
 
 class Test_ALDS1_9_C : public ::testing::Test {
  protected:
-  PriorityQueue *priority_queue_;
-  virtual void SetUp() {
-    priority_queue_ = new PriorityQueue();
-  }
-  virtual void TearDown() {
-    delete priority_queue_;
-  }
+  PriorityQueue* priority_queue_;
+  virtual void SetUp() { priority_queue_ = new PriorityQueue(); }
+  virtual void TearDown() { delete priority_queue_; }
 };
 
 TEST_F(Test_ALDS1_9_C, Add) {

@@ -7,6 +7,7 @@
  */
 
 #include "src/C03_6_ALDS1_2_D_shell_sort.h"
+
 #include <iostream>
 namespace ALDS1_2_D {
 
@@ -14,7 +15,7 @@ ShellSort::ShellSort() noexcept : count_(0), swap_count_(0), number_of_gaps_(0),
 
 ShellSort::~ShellSort() noexcept {}
 
-void ShellSort::Main(std::istream &input_stream) noexcept {
+void ShellSort::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -77,7 +78,7 @@ void ShellSort::Insert(const int32_t index_insert_target, const int32_t cvalue) 
   values_[index_insert_target] = cvalue;
 }
 
-void ShellSort::Load(std::istream &input_stream) {
+void ShellSort::Load(std::istream& input_stream) {
   input_stream >> count_;
   if (count_ > kMaxArraySize) {
     std::cout << "kMaxArraySize is too small for the number of data count." << std::endl;

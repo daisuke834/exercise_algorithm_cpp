@@ -7,6 +7,7 @@
  */
 
 #include "src/C03_2_ALDS1_1_A_insertion_sort.h"
+
 #include <iostream>
 namespace ALDS1_1_A {
 
@@ -14,7 +15,7 @@ InsertionSort::InsertionSort() noexcept : count_(0), values_{-1} {}
 
 InsertionSort::~InsertionSort() noexcept {}
 
-void InsertionSort::Main(std::istream &input_stream) noexcept {
+void InsertionSort::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -60,7 +61,7 @@ void InsertionSort::Insert(const int32_t index_insert_target, const int32_t cval
   values_[index_insert_target] = cvalue;
 }
 
-void InsertionSort::Load(std::istream &input_stream) {
+void InsertionSort::Load(std::istream& input_stream) {
   input_stream >> count_;
   if (count_ > kMaxArraySize) {
     std::cout << "kMaxArraySize is too small for the number of data count." << std::endl;

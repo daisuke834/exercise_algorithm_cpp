@@ -17,7 +17,7 @@ namespace LC_weekly_195_4 {
 
 class Solution {
  public:
-  int findMaxValueOfEquation(std::vector<std::vector<int>> &points, int k);
+  int findMaxValueOfEquation(std::vector<std::vector<int>>& points, int k);
 };
 
 }  // namespace LC_weekly_195_4

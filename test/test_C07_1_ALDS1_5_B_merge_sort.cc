@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_1_ALDS1_5_B_merge_sort.h"
 
 namespace ALDS1_5_B {
 
 class Test_ALDS1_5_B : public ::testing::Test {
  protected:
-  MergeSort *merge_sort_;
-  virtual void SetUp() {
-    merge_sort_ = new MergeSort();
-  }
-  virtual void TearDown() {
-    delete merge_sort_;
-  }
+  MergeSort* merge_sort_;
+  virtual void SetUp() { merge_sort_ = new MergeSort(); }
+  virtual void TearDown() { delete merge_sort_; }
 };
 
 TEST_F(Test_ALDS1_5_B, CallMergeSort) {

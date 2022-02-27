@@ -5,13 +5,14 @@
  */
 
 #include "src/D_AtCoder_Educational_DP_F_LCS.h"
+
 #include <algorithm>
 #include <string>
 #include <vector>
 
 namespace AtCoder_Educational_DP_F {
 
-void CallMain(std::istream &input_stream) noexcept {
+void CallMain(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

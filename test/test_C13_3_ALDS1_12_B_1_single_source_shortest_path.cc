@@ -6,26 +6,24 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C13_3_ALDS1_12_B_1_single_source_shortest_path.h"
 
 namespace ALDS1_12_B_1 {
 
 class Test_ALDS1_12_B_1 : public ::testing::Test {
  protected:
-  DijkstraAlgorithm *single_source_shortest_path_;
-  virtual void SetUp() {
-    single_source_shortest_path_ = new DijkstraAlgorithm();
-  }
-  virtual void TearDown() {
-    delete single_source_shortest_path_;
-  }
+  DijkstraAlgorithm* single_source_shortest_path_;
+  virtual void SetUp() { single_source_shortest_path_ = new DijkstraAlgorithm(); }
+  virtual void TearDown() { delete single_source_shortest_path_; }
 };
 
 TEST_F(Test_ALDS1_12_B_1, Constructor) {
-  for (Vertex &vertex : single_source_shortest_path_->vertices_) {
+  for (Vertex& vertex : single_source_shortest_path_->vertices_) {
     ASSERT_EQ(VertexStatus::kUnchecked, vertex.status);
     ASSERT_EQ(INT32_MAX, vertex.distance_from_root);
     ASSERT_EQ(kInvalidVertex, vertex.parent);

@@ -5,16 +5,17 @@
  */
 
 #include "src/C05_4_ALDS1_4_C_2_dictionary_hash.h"
+
 #include <cmath>
 #include <cstring>
 #include <iostream>
 #include <string>
 namespace ALDS1_4_C_2 {
 
-void CallDictionary(std::istream &input_stream) noexcept {
+void CallDictionary(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Dictionary *dictionary = new Dictionary();
+  Dictionary* dictionary = new Dictionary();
   try {
     int32_t number_of_instructions;
     input_stream >> number_of_instructions;
@@ -46,7 +47,7 @@ void CallDictionary(std::istream &input_stream) noexcept {
   delete dictionary;
 }
 
-InstructionType JudgeInstructionType(const std::string &str) {
+InstructionType JudgeInstructionType(const std::string& str) {
   InstructionType instruction_type;
   if (str == "insert") {
     instruction_type = InstructionType::kInsert;
@@ -61,37 +62,29 @@ InstructionType JudgeInstructionType(const std::string &str) {
 
 // ****************************************************
 
-Key::Key() noexcept {
-  Reset();
-}
+Key::Key() noexcept { Reset(); }
 
-Key::Key(const char *const key) noexcept {
-  strncpy(key_string_, key, kMaxKeyLength);
-}
+Key::Key(const char* const key) noexcept { strncpy(key_string_, key, kMaxKeyLength); }
 
-Key::Key(const std::string key) noexcept {
-  strncpy(key_string_, key.c_str(), kMaxKeyLength);
-}
+Key::Key(const std::string key) noexcept { strncpy(key_string_, key.c_str(), kMaxKeyLength); }
 
 Key::~Key() noexcept {}
 
-Key::Key(const Key &obj) noexcept {
-  strncpy(this->key_string_, obj.key_string_, kMaxKeyLength);
-}
+Key::Key(const Key& obj) noexcept { strncpy(this->key_string_, obj.key_string_, kMaxKeyLength); }
 
-Key &Key::operator=(const Key &rhs) noexcept {
+Key& Key::operator=(const Key& rhs) noexcept {
   if (this != &rhs) {
     strncpy(this->key_string_, rhs.key_string_, kMaxKeyLength);
   }
   return *this;
 }
 
-Key::Key(Key &&obj) noexcept {
+Key::Key(Key&& obj) noexcept {
   strncpy(this->key_string_, obj.key_string_, kMaxKeyLength);
   obj.Reset();
 }
 
-Key &Key::operator=(Key &&rhs) noexcept {
+Key& Key::operator=(Key&& rhs) noexcept {
   if (this != &rhs) {
     strncpy(this->key_string_, rhs.key_string_, kMaxKeyLength);
     rhs.Reset();  // 無効化
@@ -99,24 +92,16 @@ Key &Key::operator=(Key &&rhs) noexcept {
   return *this;
 }
 
-std::string Key::GetKey() const noexcept {
-  return std::string(key_string_);
-}
+std::string Key::GetKey() const noexcept { return std::string(key_string_); }
 
-bool Key::Equals(const Key &obj) const noexcept {
-  return (IsValid() && (strcmp(key_string_, obj.key_string_) == 0));
-}
+bool Key::Equals(const Key& obj) const noexcept { return (IsValid() && (strcmp(key_string_, obj.key_string_) == 0)); }
 
-bool Key::IsValid() const noexcept {
-  return (strlen(key_string_) != 0);
-}
+bool Key::IsValid() const noexcept { return (strlen(key_string_) != 0); }
 
-bool Key::IsInvalid() const noexcept {
-  return (strlen(key_string_) == 0);
-}
+bool Key::IsInvalid() const noexcept { return (strlen(key_string_) == 0); }
 
 void Key::Reset() noexcept {
-  for (char &c : key_string_) {
+  for (char& c : key_string_) {
     c = '\0';
   }
 }
@@ -126,7 +111,7 @@ void Key::Reset() noexcept {
 Dictionary::Dictionary() noexcept {}
 Dictionary::~Dictionary() noexcept {}
 
-void Dictionary::Insert(const std::string &key) {
+void Dictionary::Insert(const std::string& key) {
   try {
     const int64_t decoded_key = GetDecodedKey(key);
     for (int64_t index_iteration = 0; index_iteration < kMaxIterationHash; ++index_iteration) {
@@ -150,7 +135,7 @@ void Dictionary::Insert(const std::string &key) {
   }
 }
 
-bool Dictionary::WasFound(const std::string &key) const {
+bool Dictionary::WasFound(const std::string& key) const {
   bool was_found = false;
   try {
     const int64_t decoded_key = GetDecodedKey(key);
@@ -182,7 +167,7 @@ int64_t Dictionary::CalculateHash(const int64_t decoded_key, const int64_t index
   return hash_value;
 }
 
-int64_t Dictionary::GetDecodedKey(const std::string &key) {
+int64_t Dictionary::GetDecodedKey(const std::string& key) {
   if ((key.size() <= 0) || (key.size() > kMaxKeyLength)) {
     std::cerr << "ERROR: GetHash(): Invalid input key. " << key << std::endl;
     throw 1;
@@ -197,13 +182,9 @@ int64_t Dictionary::GetDecodedKey(const std::string &key) {
   return decoded_key;
 }
 
-int64_t Dictionary::Hash1(const int64_t decoded_key) {
-  return (decoded_key % kHashTableSize);
-}
+int64_t Dictionary::Hash1(const int64_t decoded_key) { return (decoded_key % kHashTableSize); }
 
-int64_t Dictionary::Hash2(const int64_t decoded_key) {
-  return (1 + (decoded_key % (kHashTableSize - 1)));
-}
+int64_t Dictionary::Hash2(const int64_t decoded_key) { return (1 + (decoded_key % (kHashTableSize - 1))); }
 
 int64_t Dictionary::DecodeOneChar(const char c) {
   int64_t value;

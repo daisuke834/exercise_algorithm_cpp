@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_ALDS1_14_A_naive_string_search.h"
 
 namespace ALDS1_14_A {

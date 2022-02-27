@@ -6,15 +6,16 @@
  */
 
 #include "src/C15_3_GRL_3_A_articulation_point.h"
+
 #include <iostream>
 #include <string>
 
 namespace GRL_3_A {
 
-void CallArticulationPoint(std::istream &input_stream) {
+void CallArticulationPoint(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  ArticulationPoint *articulation_point = new ArticulationPoint();
+  ArticulationPoint* articulation_point = new ArticulationPoint();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;
@@ -292,9 +293,7 @@ void Vertex::Completed() {
   status_ = VertexStatus::kCompleted;
 }
 
-VertexStatus Vertex::GetStatus() const noexcept {
-  return status_;
-}
+VertexStatus Vertex::GetStatus() const noexcept { return status_; }
 
 int32_t Vertex::GetNextTailIndex() noexcept {
   int32_t next_tail_index;
@@ -307,21 +306,13 @@ int32_t Vertex::GetNextTailIndex() noexcept {
   return next_tail_index;
 }
 
-void Vertex::AddTail(const int32_t tail_index) noexcept {
-  tails_.push_back(tail_index);
-}
+void Vertex::AddTail(const int32_t tail_index) noexcept { tails_.push_back(tail_index); }
 
-int32_t Vertex::GetNumberOfTails() const noexcept {
-  return static_cast<int32_t>(tails_.size());
-}
+int32_t Vertex::GetNumberOfTails() const noexcept { return static_cast<int32_t>(tails_.size()); }
 
-int32_t Vertex::GetParentIndex() const noexcept {
-  return parent_index_;
-}
+int32_t Vertex::GetParentIndex() const noexcept { return parent_index_; }
 
-int32_t Vertex::GetPreorderNumber() const noexcept {
-  return preorder_number_;
-}
+int32_t Vertex::GetPreorderNumber() const noexcept { return preorder_number_; }
 
 void Vertex::UpdateLowestScore(const int32_t lowest_score) noexcept {
   if (lowest_score < lowest_score_) {
@@ -329,16 +320,10 @@ void Vertex::UpdateLowestScore(const int32_t lowest_score) noexcept {
   }
 }
 
-int32_t Vertex::GetLowestScore() const noexcept {
-  return lowest_score_;
-}
+int32_t Vertex::GetLowestScore() const noexcept { return lowest_score_; }
 
-void Vertex::AddChild(const int32_t child_index) {
-  children_.push_back(child_index);
-}
+void Vertex::AddChild(const int32_t child_index) { children_.push_back(child_index); }
 
-std::vector<int32_t> Vertex::GetChildren() const noexcept {
-  return children_;
-}
+std::vector<int32_t> Vertex::GetChildren() const noexcept { return children_; }
 
 }  // namespace GRL_3_A

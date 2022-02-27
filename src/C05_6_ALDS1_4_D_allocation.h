@@ -8,13 +8,14 @@
 #define SRC_C05_6_ALDS1_4_D_ALLOCATION_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_4_D {
 
-void CallBaggageAllocation(std::istream &input_stream);
+void CallBaggageAllocation(std::istream& input_stream);
 
 constexpr int32_t kMaxNumberOfBaggages = 100000;
 constexpr int32_t kMaxNumberOfTrucks = 100000;
@@ -38,10 +39,10 @@ class TruckGroup {
   bool ExceedingMaxCapacityLimit(const int32_t weight) const noexcept;
 
  private:
-  TruckGroup(const TruckGroup &obj) = delete;
-  TruckGroup &operator=(const TruckGroup &rhs) = delete;
-  TruckGroup(TruckGroup &&obj) = delete;
-  TruckGroup &operator=(TruckGroup &&rhs) = delete;
+  TruckGroup(const TruckGroup& obj) = delete;
+  TruckGroup& operator=(const TruckGroup& rhs) = delete;
+  TruckGroup(TruckGroup&& obj) = delete;
+  TruckGroup& operator=(TruckGroup&& rhs) = delete;
 
  private:
   int32_t maximum_loading_capacity_;
@@ -70,14 +71,14 @@ class BaggageAllocation {
                                           const int32_t initial_maximum_loading_capacity);
 
  private:
-  BaggageAllocation(const BaggageAllocation &obj) = delete;
-  BaggageAllocation &operator=(const BaggageAllocation &obj) = delete;
-  BaggageAllocation(BaggageAllocation &&obj) = delete;
-  BaggageAllocation &operator=(BaggageAllocation &&obj) = delete;
+  BaggageAllocation(const BaggageAllocation& obj) = delete;
+  BaggageAllocation& operator=(const BaggageAllocation& obj) = delete;
+  BaggageAllocation(BaggageAllocation&& obj) = delete;
+  BaggageAllocation& operator=(BaggageAllocation&& obj) = delete;
 
-  static int32_t GetCenterValue(const SearchBound &search_bound) noexcept;
-  static bool SearchFinished(const SearchBound &search_bound);
-  int32_t GetSearchedValue(const SearchBound &search_bound);
+  static int32_t GetCenterValue(const SearchBound& search_bound) noexcept;
+  static bool SearchFinished(const SearchBound& search_bound);
+  int32_t GetSearchedValue(const SearchBound& search_bound);
 
  private:
   TruckGroup truck_group_;

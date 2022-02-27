@@ -11,7 +11,7 @@
 
 namespace PAST_003_J_2 {
 
-int CallMain(std::istream &input_stream);
+int CallMain(std::istream& input_stream);
 
 }  // namespace PAST_003_J_2
 

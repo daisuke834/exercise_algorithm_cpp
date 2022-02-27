@@ -9,6 +9,7 @@
 #define SRC_C17_2_DPL_1_B_01KNAPSACK_PROBLEM_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -18,7 +19,7 @@ constexpr int32_t kMaxNumberOfItems = 100;
 constexpr int32_t kMaxWeight = 1000;
 constexpr int32_t kMaxCapacity = 10000;
 
-void Call01KnapsackProblem(std::istream &input_stream);
+void Call01KnapsackProblem(std::istream& input_stream);
 
 struct Item {
   int32_t value{0};
@@ -35,10 +36,10 @@ class KnapsackProblem {
  private:
   int32_t GetMaxValue(const int32_t tail_of_used_item, const int32_t capacity) const noexcept;
 
-  KnapsackProblem(const KnapsackProblem &obj) = delete;
-  KnapsackProblem &operator=(const KnapsackProblem &obj) = delete;
-  KnapsackProblem(KnapsackProblem &&obj) = delete;
-  KnapsackProblem &operator=(KnapsackProblem &&obj) = delete;
+  KnapsackProblem(const KnapsackProblem& obj) = delete;
+  KnapsackProblem& operator=(const KnapsackProblem& obj) = delete;
+  KnapsackProblem(KnapsackProblem&& obj) = delete;
+  KnapsackProblem& operator=(KnapsackProblem&& obj) = delete;
 
  private:
   int32_t number_of_items_;

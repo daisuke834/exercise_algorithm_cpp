@@ -15,7 +15,7 @@ namespace utils {
 class SegmentTree {
  public:
   explicit SegmentTree(const int64_t array_size, const int64_t init_value,
-                       std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+                       std::function<int64_t(const int64_t a, const int64_t b)>&& Reduce)
       : init_value_(init_value), Reduce_(std::move(Reduce)) {
     array_size_ = 1;
     while (array_size_ < array_size) {
@@ -25,8 +25,8 @@ class SegmentTree {
     nodes_ = std::vector<int64_t>(node_size_, init_value_);
   }
 
-  explicit SegmentTree(const std::vector<int64_t> &array, const int64_t init_value,
-                       std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+  explicit SegmentTree(const std::vector<int64_t>& array, const int64_t init_value,
+                       std::function<int64_t(const int64_t a, const int64_t b)>&& Reduce)
       : init_value_(init_value), Reduce_(std::move(Reduce)) {
     nodes_ = array;
     const int64_t array_size = static_cast<int64_t>(array.size());
@@ -60,21 +60,13 @@ class SegmentTree {
  private:
   SegmentTree() = delete;
 
-  int64_t LeafNodeIndex(const int64_t array_index) const {
-    return array_size_ + array_index - 1L;
-  }
+  int64_t LeafNodeIndex(const int64_t array_index) const { return array_size_ + array_index - 1L; }
 
-  static int64_t Parent(const int64_t node_index) {
-    return (node_index - 1L) / 2L;
-  }
+  static int64_t Parent(const int64_t node_index) { return (node_index - 1L) / 2L; }
 
-  static int64_t ChildLeft(const int64_t node_index) {
-    return (node_index * 2 + 1);
-  }
+  static int64_t ChildLeft(const int64_t node_index) { return (node_index * 2 + 1); }
 
-  static int64_t ChildRight(const int64_t node_index) {
-    return (node_index * 2 + 2);
-  }
+  static int64_t ChildRight(const int64_t node_index) { return (node_index * 2 + 2); }
 
   int64_t Query(const int64_t start, const int64_t end, const int64_t node_index, const int64_t start_of_node,
                 const int64_t end_of_node) const {

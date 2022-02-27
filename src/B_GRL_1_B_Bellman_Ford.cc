@@ -9,10 +9,10 @@
 
 namespace GRL_1_B {
 
-void CallBellmanFordAlgorithm(std::istream &input_stream) {
+void CallBellmanFordAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BellmanFordAlgorithm *single_source_shortest_path = new BellmanFordAlgorithm();
+  BellmanFordAlgorithm* single_source_shortest_path = new BellmanFordAlgorithm();
   try {
     int32_t number_of_vertices, number_of_edges, vertex_start;
     input_stream >> number_of_vertices >> number_of_edges >> vertex_start;

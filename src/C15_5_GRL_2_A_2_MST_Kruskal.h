@@ -18,7 +18,7 @@ constexpr int32_t kMaxNumberOfVertices = 10000;
 constexpr int32_t kMaxNumberOfEdges = 100000;
 constexpr int32_t kInvalidIndex = -1;
 
-void CallKruskalAlgorithm(std::istream &input_stream);
+void CallKruskalAlgorithm(std::istream& input_stream);
 
 struct Edge {
   int32_t weight{INT32_MAX};
@@ -50,7 +50,7 @@ class KruskalAlgorithm {
   Vertex vertices_[kMaxNumberOfVertices];
 };
 
-bool LessThan(const Edge &lhs, const Edge &rhs) noexcept;
+bool LessThan(const Edge& lhs, const Edge& rhs) noexcept;
 
 }  // namespace GRL_2_A_2
 

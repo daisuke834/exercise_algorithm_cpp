@@ -8,6 +8,7 @@
 #define SRC_C04_4_ALDS1_3_C_DOUBLY_LINKED_LIST_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -21,18 +22,18 @@ constexpr int32_t kInvalidIndex = -1;
 constexpr int32_t kTopIndex = -2;
 constexpr int32_t kTailIndex = -3;
 
-void CallDoublyLinkedList(std::istream &input_stream);
+void CallDoublyLinkedList(std::istream& input_stream);
 
 class Key {
  public:
   Key() noexcept;
   explicit Key(const int32_t key) noexcept;
   ~Key() noexcept;
-  Key(const Key &obj) noexcept;
-  Key &operator=(const Key &rhs) noexcept;
-  Key(Key &&obj) noexcept;
-  Key &operator=(Key &&rhs) noexcept;
-  bool Equals(const Key &obj) const noexcept;
+  Key(const Key& obj) noexcept;
+  Key& operator=(const Key& rhs) noexcept;
+  Key(Key&& obj) noexcept;
+  Key& operator=(Key&& rhs) noexcept;
+  bool Equals(const Key& obj) const noexcept;
   int32_t GetKey() const noexcept;
   bool IsValid() const noexcept;
 
@@ -44,20 +45,20 @@ class Node {
  public:
   Node() noexcept;
   ~Node() noexcept;
-  void SetKey(const Key &key) noexcept;
+  void SetKey(const Key& key) noexcept;
   void UpdateNext(int32_t next) noexcept;
   void UpdatePrevious(int32_t previous) noexcept;
   bool IsValid() const noexcept;
   Key GetKey() const noexcept;
-  bool HasKey(const Key &key) const noexcept;
+  bool HasKey(const Key& key) const noexcept;
   int32_t GetNext() const noexcept;
   int32_t GetPrevious() const noexcept;
 
  private:
-  Node(const Node &obj) = delete;
-  Node &operator=(const Node &rhs) = delete;
-  Node(Node &&obj) = delete;
-  Node &operator=(Node &&rhs) = delete;
+  Node(const Node& obj) = delete;
+  Node& operator=(const Node& rhs) = delete;
+  Node(Node&& obj) = delete;
+  Node& operator=(Node&& rhs) = delete;
 
  private:
   int32_t next_;
@@ -69,20 +70,20 @@ class DoublyLinkedList {
  public:
   DoublyLinkedList() noexcept;
   ~DoublyLinkedList() noexcept;
-  void Insert(const Key &key);
-  void Delete(const Key &key);
+  void Insert(const Key& key);
+  void Delete(const Key& key);
   void DeleteFirst();
   void DeleteLast();
   void Print() const;
 
  private:
-  DoublyLinkedList(const DoublyLinkedList &obj) = delete;
-  DoublyLinkedList &operator=(const DoublyLinkedList &obj) = delete;
-  DoublyLinkedList(DoublyLinkedList &&obj) = delete;
-  DoublyLinkedList &operator=(DoublyLinkedList &&obj) = delete;
+  DoublyLinkedList(const DoublyLinkedList& obj) = delete;
+  DoublyLinkedList& operator=(const DoublyLinkedList& obj) = delete;
+  DoublyLinkedList(DoublyLinkedList&& obj) = delete;
+  DoublyLinkedList& operator=(DoublyLinkedList&& obj) = delete;
 
   int32_t FindInvalidNode();
-  int32_t Search(const Key &key);
+  int32_t Search(const Key& key);
 
  private:
   int32_t top_;

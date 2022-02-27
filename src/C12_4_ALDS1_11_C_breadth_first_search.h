@@ -9,6 +9,7 @@
 #define SRC_C12_4_ALDS1_11_C_BREADTH_FIRST_SEARCH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -23,7 +24,7 @@ constexpr int32_t kMaxDistance = 1000;
 constexpr int32_t kMaxQueueSize = 10000;
 constexpr int32_t kMaxLoop = 2000000;
 
-void CallBreadthFirstSearch(std::istream &input_stream);
+void CallBreadthFirstSearch(std::istream& input_stream);
 
 class Queue {
  public:
@@ -35,10 +36,10 @@ class Queue {
   bool IsFull() const noexcept;
 
  private:
-  Queue(const Queue &obj) = delete;
-  Queue &operator=(const Queue &rhs) = delete;
-  Queue(Queue &&obj) = delete;
-  Queue &operator=(Queue &&rhs) = delete;
+  Queue(const Queue& obj) = delete;
+  Queue& operator=(const Queue& rhs) = delete;
+  Queue(Queue&& obj) = delete;
+  Queue& operator=(Queue&& rhs) = delete;
 
   static int32_t GetNextPosition(const int32_t current_position) noexcept;
 
@@ -78,10 +79,10 @@ class BreadthFirstSearch {
   bool DoesExist(const int32_t vertex_index) const;
   bool InvalidDistance(const int32_t index) const;
 
-  BreadthFirstSearch(const BreadthFirstSearch &obj) = delete;
-  BreadthFirstSearch &operator=(const BreadthFirstSearch &obj) = delete;
-  BreadthFirstSearch(BreadthFirstSearch &&obj) = delete;
-  BreadthFirstSearch &operator=(BreadthFirstSearch &&obj) = delete;
+  BreadthFirstSearch(const BreadthFirstSearch& obj) = delete;
+  BreadthFirstSearch& operator=(const BreadthFirstSearch& obj) = delete;
+  BreadthFirstSearch(BreadthFirstSearch&& obj) = delete;
+  BreadthFirstSearch& operator=(BreadthFirstSearch&& obj) = delete;
 
  private:
   int32_t size_;

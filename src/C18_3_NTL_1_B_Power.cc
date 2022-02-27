@@ -7,7 +7,7 @@
 
 namespace NTL_1_B {
 
-void CallCalculatePower(std::istream &input_stream) noexcept {
+void CallCalculatePower(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int64_t m;

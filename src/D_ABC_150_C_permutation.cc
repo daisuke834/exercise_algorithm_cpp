@@ -7,7 +7,7 @@
 
 namespace ABC_150_C {
 
-void CallPermutation(std::istream &input_stream) noexcept {
+void CallPermutation(std::istream& input_stream) noexcept {
   int32_t N;
   input_stream >> N;
   std::vector<int32_t> P(N, 0);

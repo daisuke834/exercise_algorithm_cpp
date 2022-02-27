@@ -9,10 +9,10 @@
 
 namespace ALDS1_12_A_1 {
 
-void CallMinimumSpanningTree(std::istream &input_stream) {
+void CallMinimumSpanningTree(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MinimumSpanningTree *minimum_spanning_tree = new MinimumSpanningTree();
+  MinimumSpanningTree* minimum_spanning_tree = new MinimumSpanningTree();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -36,8 +36,8 @@ void CallMinimumSpanningTree(std::istream &input_stream) {
 // ****************************************************
 
 MinimumSpanningTree::MinimumSpanningTree() noexcept : number_of_vertices_(0), number_of_edges_(0) {
-  for (auto &row : adjacency_matrix_) {
-    for (int32_t &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (int32_t& element : row) {
       element = kInvalidWeight;
     }
   }
@@ -220,9 +220,7 @@ void MinimumSpanningTree::Swap(const int32_t index_1, const int32_t index_2) {
 
 // **********************************************************************
 
-Queue::Queue() noexcept {
-  Clear();
-}
+Queue::Queue() noexcept { Clear(); }
 
 Queue::~Queue() noexcept {}
 
@@ -231,13 +229,9 @@ void Queue::Clear() noexcept {
   head_ = 0;
 }
 
-bool Queue::IsEmpty() const noexcept {
-  return (depth_ <= 0);
-}
+bool Queue::IsEmpty() const noexcept { return (depth_ <= 0); }
 
-bool Queue::IsFull() const noexcept {
-  return (depth_ >= kMaxQueueSize);
-}
+bool Queue::IsFull() const noexcept { return (depth_ >= kMaxQueueSize); }
 
 void Queue::Enqueue(const int32_t index) {
   if (IsFull()) {
@@ -534,7 +528,7 @@ bool ConnectedComponents::InvalidEdgeIndex(const int32_t edge_index) const noexc
 void ConnectedComponents::ResetAll() noexcept {
   Reset();
   ResetClusterMappings();
-  for (auto &element : neighbours_) {
+  for (auto& element : neighbours_) {
     element.clear();
   }
 }

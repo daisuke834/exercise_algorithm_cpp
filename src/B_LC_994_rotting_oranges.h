@@ -1,7 +1,8 @@
 /**
  * @copyright (c) 2020 Daisuke Hashimoto
  * @brief LeetCode 994. Rotting Oranges.
- * Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return -1 instead.
+ * Return the minimum number of minutes that must elapse until no cell has a fresh orange. If this is impossible, return
+ * -1 instead.
  */
 
 #ifndef SRC_B_LC_994_ROTTING_ORANGE_H_
@@ -22,10 +23,10 @@ using Todo = std::pair<int32_t, Position>;
 
 class Solution {
  public:
-  int orangesRotting(const std::vector<std::vector<int>> &grid);
+  int orangesRotting(const std::vector<std::vector<int>>& grid);
 
  private:
-  bool IsValidPosition(const Position &position) const noexcept;
+  bool IsValidPosition(const Position& position) const noexcept;
 
  private:
   int32_t height_;

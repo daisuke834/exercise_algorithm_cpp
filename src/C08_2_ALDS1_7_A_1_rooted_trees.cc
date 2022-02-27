@@ -5,6 +5,7 @@
  */
 
 #include "src/C08_2_ALDS1_7_A_1_rooted_trees.h"
+
 #include <algorithm>
 #include <iostream>
 #include <iterator>
@@ -15,10 +16,10 @@ namespace {
 const NodeId kTop(kTopIdValue);
 }  // namespace
 
-void CallRootedTrees(std::istream &input_stream) {
+void CallRootedTrees(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  RootedTrees *rooted_trees = new RootedTrees();
+  RootedTrees* rooted_trees = new RootedTrees();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -51,7 +52,7 @@ void CallRootedTrees(std::istream &input_stream) {
 RootedTrees::RootedTrees() noexcept : size_(0) {}
 RootedTrees::~RootedTrees() noexcept {}
 
-void RootedTrees::AddNode(const Node &node) {
+void RootedTrees::AddNode(const Node& node) {
   if (size_ >= kMaxNumberOfNodes) {
     std::cerr << "ERROR: AddNode(): Data size exceeded a limit = " << kMaxNumberOfNodes << std::endl;
     throw 1;
@@ -68,7 +69,7 @@ void RootedTrees::BuildTree() {
     }
 
     for (int32_t node_index = 0; node_index < size_; ++node_index) {
-      Node &cnode = nodes_[node_index];
+      Node& cnode = nodes_[node_index];
       for (int32_t i = 0; i < cnode.GetNumberOfChilds(); ++i) {
         const NodeId child_node_id = cnode.GetChildId(i);
         const int32_t child_node_index = FindNodeIndex(child_node_id);
@@ -96,7 +97,7 @@ void RootedTrees::Print() const {
   const char node_type_str[][20] = {"internal node", "leaf", "root"};
   try {
     for (int32_t node_index = 0; node_index < size_; ++node_index) {
-      const Node &cnode = nodes_[node_index];
+      const Node& cnode = nodes_[node_index];
       std::cout << "node " << cnode.GetNodeId().GetIdValue() << ": ";
       std::cout << "parent = " << cnode.GetParentId().GetIdValue() << ", ";
       std::cout << "depth = " << CalculateDepth(node_index) << ", ";
@@ -116,7 +117,7 @@ void RootedTrees::Print() const {
   }
 }
 
-int32_t RootedTrees::FindNodeIndex(const NodeId &node_id) const {
+int32_t RootedTrees::FindNodeIndex(const NodeId& node_id) const {
   int32_t found_node_index = -1;
   try {
     found_node_index = map_from_id_to_index_[node_id.GetIdValue()];
@@ -241,22 +242,18 @@ int32_t RootedTrees::GetCenterIndex(const int32_t left_end, const int32_t right_
 }
 
 // ****************************************************
-Node::Node() noexcept {
-  child_ids_.clear();
-}
+Node::Node() noexcept { child_ids_.clear(); }
 
 Node::~Node() noexcept {}
 
-Node::Node(const NodeId &node_id) noexcept : id_(node_id) {
-  child_ids_.clear();
-}
+Node::Node(const NodeId& node_id) noexcept : id_(node_id) { child_ids_.clear(); }
 
-Node::Node(const Node &obj) noexcept : id_(obj.id_), parent_id_(obj.parent_id_) {
+Node::Node(const Node& obj) noexcept : id_(obj.id_), parent_id_(obj.parent_id_) {
   this->child_ids_.clear();
   copy(obj.child_ids_.begin(), obj.child_ids_.end(), back_inserter(this->child_ids_));
 }
 
-Node &Node::operator=(const Node &rhs) noexcept {
+Node& Node::operator=(const Node& rhs) noexcept {
   if (this != &rhs) {
     this->id_ = rhs.id_;
     this->parent_id_ = rhs.parent_id_;
@@ -266,13 +263,13 @@ Node &Node::operator=(const Node &rhs) noexcept {
   return *this;
 }
 
-Node::Node(Node &&obj) noexcept : id_(obj.id_), parent_id_(obj.parent_id_) {
+Node::Node(Node&& obj) noexcept : id_(obj.id_), parent_id_(obj.parent_id_) {
   this->child_ids_.clear();
   copy(obj.child_ids_.begin(), obj.child_ids_.end(), back_inserter(this->child_ids_));
   obj.Reset();
 }
 
-Node &Node::operator=(Node &&rhs) noexcept {
+Node& Node::operator=(Node&& rhs) noexcept {
   if (this != &rhs) {
     this->id_ = rhs.id_;
     this->parent_id_ = rhs.parent_id_;
@@ -289,11 +286,9 @@ void Node::Reset() noexcept {
   this->child_ids_.clear();
 }
 
-void Node::SetParentId(const NodeId &parent_id) noexcept {
-  parent_id_ = parent_id;
-}
+void Node::SetParentId(const NodeId& parent_id) noexcept { parent_id_ = parent_id; }
 
-void Node::AddChildId(const NodeId &child_id) {
+void Node::AddChildId(const NodeId& child_id) {
   try {
     child_ids_.push_back(child_id);
   } catch (...) {
@@ -313,13 +308,9 @@ int32_t Node::GetNumberOfChilds() const {
   return count;
 }
 
-NodeId Node::GetNodeId() const noexcept {
-  return id_;
-}
+NodeId Node::GetNodeId() const noexcept { return id_; }
 
-NodeId Node::GetParentId() const noexcept {
-  return parent_id_;
-}
+NodeId Node::GetParentId() const noexcept { return parent_id_; }
 
 NodeId Node::GetChildId(const int32_t child_index) const {
   if ((child_index < 0) || (child_index >= static_cast<int32_t>(child_ids_.size()))) {
@@ -355,9 +346,9 @@ NodeId::~NodeId() noexcept {}
 
 NodeId::NodeId(const int32_t id_value) noexcept : is_valid_(true), id_(id_value) {}
 
-NodeId::NodeId(const NodeId &obj) noexcept : is_valid_(obj.is_valid_), id_(obj.id_) {}
+NodeId::NodeId(const NodeId& obj) noexcept : is_valid_(obj.is_valid_), id_(obj.id_) {}
 
-NodeId &NodeId::operator=(const NodeId &rhs) noexcept {
+NodeId& NodeId::operator=(const NodeId& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->id_ = rhs.id_;
@@ -365,11 +356,9 @@ NodeId &NodeId::operator=(const NodeId &rhs) noexcept {
   return *this;
 }
 
-NodeId::NodeId(NodeId &&obj) noexcept : is_valid_(obj.is_valid_), id_(obj.id_) {
-  obj.Reset();
-}
+NodeId::NodeId(NodeId&& obj) noexcept : is_valid_(obj.is_valid_), id_(obj.id_) { obj.Reset(); }
 
-NodeId &NodeId::operator=(NodeId &&rhs) noexcept {
+NodeId& NodeId::operator=(NodeId&& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->id_ = rhs.id_;
@@ -391,24 +380,14 @@ int32_t NodeId::GetIdValue() const {
   return id_;
 }
 
-bool NodeId::Equals(const NodeId &obj) const noexcept {
-  return (IsValid() && obj.IsValid() && (this->id_ == obj.id_));
-}
+bool NodeId::Equals(const NodeId& obj) const noexcept { return (IsValid() && obj.IsValid() && (this->id_ == obj.id_)); }
 
-bool NodeId::operator==(const NodeId &rhs) const noexcept {
-  return this->Equals(rhs);
-}
+bool NodeId::operator==(const NodeId& rhs) const noexcept { return this->Equals(rhs); }
 
-bool NodeId::operator!=(const NodeId &rhs) const noexcept {
-  return !(this->Equals(rhs));
-}
+bool NodeId::operator!=(const NodeId& rhs) const noexcept { return !(this->Equals(rhs)); }
 
-bool NodeId::IsValid() const noexcept {
-  return is_valid_;
-}
+bool NodeId::IsValid() const noexcept { return is_valid_; }
 
-bool NodeId::IsInvalid() const noexcept {
-  return (!is_valid_);
-}
+bool NodeId::IsInvalid() const noexcept { return (!is_valid_); }
 
 }  // namespace ALDS1_7_A_1

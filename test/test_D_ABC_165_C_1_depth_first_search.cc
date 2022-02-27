@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_ABC_165_C_1_depth_first_search.h"
 
 namespace ABC_165_1 {

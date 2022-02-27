@@ -4,12 +4,13 @@
  */
 
 #include "src/C18_2_ALDS1_1_B_1_GCD.h"
+
 #include <algorithm>
 #include <iostream>
 
 namespace ALDS1_1_B_1 {
 
-void CallCalculateGreatestCommonDivisor(std::istream &input_stream) noexcept {
+void CallCalculateGreatestCommonDivisor(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int32_t a;

@@ -13,7 +13,7 @@
 
 namespace LC_202 {
 
-void CallHappyNumber(std::istream &input_stream) noexcept;
+void CallHappyNumber(std::istream& input_stream) noexcept;
 
 bool IsHappy(const int32_t n) noexcept;
 

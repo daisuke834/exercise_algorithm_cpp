@@ -5,15 +5,16 @@
  */
 
 #include "src/C17_5_DPL_3_B_largest_rectangle.h"
+
 #include <iostream>
 #include <string>
 
 namespace DPL_3_B {
 
-void CallLargestRectangle(std::istream &input_stream) {
+void CallLargestRectangle(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LargestRectangle *largest_rectangle = new LargestRectangle();
+  LargestRectangle* largest_rectangle = new LargestRectangle();
   try {
     int32_t height, width;
     input_stream >> height >> width;

@@ -9,6 +9,7 @@
 #define SRC_C13_2_ALDS1_12_A_1_MST_KRUSKAL_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -27,7 +28,7 @@ constexpr int32_t kMaxSizeOfEdgeMappings = kMaxNumberOfEdges * 2;
 
 // ****************************************************
 
-void CallMinimumSpanningTree(std::istream &input_stream);
+void CallMinimumSpanningTree(std::istream& input_stream);
 
 enum class EdgeStatus : int32_t { kNotChecked = 0, kSkipped, kSelected };
 
@@ -51,10 +52,10 @@ class Queue {
   void Clear() noexcept;
 
  private:
-  Queue(const Queue &obj) = delete;
-  Queue &operator=(const Queue &rhs) = delete;
-  Queue(Queue &&obj) = delete;
-  Queue &operator=(Queue &&rhs) = delete;
+  Queue(const Queue& obj) = delete;
+  Queue& operator=(const Queue& rhs) = delete;
+  Queue(Queue&& obj) = delete;
+  Queue& operator=(Queue&& rhs) = delete;
 
   static int32_t GetNextPosition(const int32_t current_position) noexcept;
 
@@ -98,10 +99,10 @@ class ConnectedComponents {
   int32_t GetClusterId(const int32_t vertex_index) const;
   int32_t ClusterIdIsNotAllocated(const int32_t vertex_index) const;
 
-  ConnectedComponents(const ConnectedComponents &obj) = delete;
-  ConnectedComponents &operator=(const ConnectedComponents &obj) = delete;
-  ConnectedComponents(ConnectedComponents &&obj) = delete;
-  ConnectedComponents &operator=(ConnectedComponents &&obj) = delete;
+  ConnectedComponents(const ConnectedComponents& obj) = delete;
+  ConnectedComponents& operator=(const ConnectedComponents& obj) = delete;
+  ConnectedComponents(ConnectedComponents&& obj) = delete;
+  ConnectedComponents& operator=(ConnectedComponents&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;
@@ -143,10 +144,10 @@ class MinimumSpanningTree {
   int32_t ComputePartition(const int32_t start, const int32_t end);
   void Swap(const int32_t index_1, const int32_t index_2);
 
-  MinimumSpanningTree(const MinimumSpanningTree &obj) = delete;
-  MinimumSpanningTree &operator=(const MinimumSpanningTree &obj) = delete;
-  MinimumSpanningTree(MinimumSpanningTree &&obj) = delete;
-  MinimumSpanningTree &operator=(MinimumSpanningTree &&obj) = delete;
+  MinimumSpanningTree(const MinimumSpanningTree& obj) = delete;
+  MinimumSpanningTree& operator=(const MinimumSpanningTree& obj) = delete;
+  MinimumSpanningTree(MinimumSpanningTree&& obj) = delete;
+  MinimumSpanningTree& operator=(MinimumSpanningTree&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

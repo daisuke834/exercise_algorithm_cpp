@@ -17,9 +17,7 @@ class UnionFind {
   explicit UnionFind(const int32_t n) : parents_(n, -1) {}
   UnionFind() = delete;
 
-  bool IsRoot(const int32_t x) const {
-    return (parents_[x] < 0);
-  }
+  bool IsRoot(const int32_t x) const { return (parents_[x] < 0); }
 
   int32_t FindRoot(const int32_t x) {
     if (IsRoot(x)) {
@@ -43,13 +41,9 @@ class UnionFind {
     return true;
   }
 
-  bool IsSame(const int32_t x, const int32_t y) {
-    return FindRoot(x) == FindRoot(y);
-  }
+  bool IsSame(const int32_t x, const int32_t y) { return FindRoot(x) == FindRoot(y); }
 
-  int32_t Size(const int32_t x) {
-    return -1 * parents_[FindRoot(x)];
-  }
+  int32_t Size(const int32_t x) { return -1 * parents_[FindRoot(x)]; }
 
  private:
   std::vector<int32_t> parents_;

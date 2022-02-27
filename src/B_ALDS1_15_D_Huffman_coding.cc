@@ -4,6 +4,7 @@
  */
 
 #include "src/B_ALDS1_15_D_Huffman_coding.h"
+
 #include <algorithm>
 #include <cstring>
 #include <iostream>
@@ -11,10 +12,10 @@
 
 namespace ALDS1_15_D {
 
-void CallHuffmanCoding(std::istream &input_stream) {
+void CallHuffmanCoding(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  HuffmanCoding *huffman_coding = new HuffmanCoding();
+  HuffmanCoding* huffman_coding = new HuffmanCoding();
   try {
     std::string text;
     input_stream >> text;
@@ -32,13 +33,13 @@ HuffmanCoding::HuffmanCoding() noexcept
     : text_length_(0), number_of_leaves_(0), number_of_nodes_(0), top_index_(kInvalidIndex) {}
 HuffmanCoding::~HuffmanCoding() noexcept {}
 
-void HuffmanCoding::GenerateHuffmanCode(const std::string &text) noexcept {
+void HuffmanCoding::GenerateHuffmanCode(const std::string& text) noexcept {
   SetText(text);
   GenerateHistogram();
   BuildHuffmanTree();
 }
 
-void HuffmanCoding::SetText(const std::string &text) noexcept {
+void HuffmanCoding::SetText(const std::string& text) noexcept {
   strncpy(text_, text.c_str(), text.length());
   text_length_ = static_cast<int32_t>(text.length());
 }
@@ -118,7 +119,7 @@ std::string HuffmanCoding::Encode(const char ch) const noexcept {
 
 void HuffmanCoding::Debug() const noexcept {
   for (int32_t i = 0; i < number_of_nodes_; ++i) {
-    const Node &cnode = nodes_[i];
+    const Node& cnode = nodes_[i];
     std::cerr << i << ", count=" << char_info_[cnode.ch_value].count << ", value=" << cnode.ch_value
               << ", parent=" << cnode.parent << ", left=" << cnode.left << ", right=" << cnode.right << std::endl;
   }

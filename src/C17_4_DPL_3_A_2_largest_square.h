@@ -8,6 +8,7 @@
 #define SRC_C17_4_DPL_3_A_2_LARGEST_SQUARE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -16,7 +17,7 @@ namespace DPL_3_A_2 {
 constexpr int32_t kMaxHeight = 1400;
 constexpr int32_t kMaxWidth = 1400;
 
-void CallLargestSquare(std::istream &input_stream);
+void CallLargestSquare(std::istream& input_stream);
 
 class LargestSquare {
  public:
@@ -29,10 +30,10 @@ class LargestSquare {
  private:
   int32_t GetSquareLengthToUpperAndLeft(const int32_t row, const int32_t column) const;
 
-  LargestSquare(const LargestSquare &obj) = delete;
-  LargestSquare &operator=(const LargestSquare &obj) = delete;
-  LargestSquare(LargestSquare &&obj) = delete;
-  LargestSquare &operator=(LargestSquare &&obj) = delete;
+  LargestSquare(const LargestSquare& obj) = delete;
+  LargestSquare& operator=(const LargestSquare& obj) = delete;
+  LargestSquare(LargestSquare&& obj) = delete;
+  LargestSquare& operator=(LargestSquare&& obj) = delete;
 
  private:
   int32_t height_;

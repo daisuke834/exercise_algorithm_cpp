@@ -8,6 +8,7 @@
 #define SRC_C14_2_DSL_2_C_KD_TREE_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -25,7 +26,7 @@ constexpr int32_t kMaxLoopCount = 2000000;
 constexpr int32_t kInvalidKey = -1;
 
 // ****************************************************
-void CallKdTree(std::istream &input_stream);
+void CallKdTree(std::istream& input_stream);
 
 // ****************************************************
 struct Point2D {
@@ -53,30 +54,30 @@ struct Node {
 enum class Axis : int32_t { kX = 0, kY };
 
 Point2D CreatePoint2D(const int32_t x, const int32_t y, const int32_t key) noexcept;
-bool P1xIsLessThanP2x(const Point2D &p1, const Point2D &p2) noexcept;
-bool P1yIsLessThanP2y(const Point2D &p1, const Point2D &p2) noexcept;
+bool P1xIsLessThanP2x(const Point2D& p1, const Point2D& p2) noexcept;
+bool P1yIsLessThanP2y(const Point2D& p1, const Point2D& p2) noexcept;
 
 // ****************************************************
 class KdTree {
  public:
   KdTree() noexcept;
   ~KdTree() noexcept;
-  void AddPoint(const Point2D &point);
+  void AddPoint(const Point2D& point);
   void BuildKdTree();
-  void FindPointsWithinRange(const Range2D &range);
+  void FindPointsWithinRange(const Range2D& range);
 
  private:
   int32_t BuildKdTreeRecursively(const int32_t start_point_index, const int32_t end_point_index, const int32_t depth);
-  void FindPointsWithinRangeRecursively(const Range2D &range, const int32_t node_index, const int32_t depth);
-  static bool PointIsWithinRange(const Point2D &point, const Range2D &range) noexcept;
+  void FindPointsWithinRangeRecursively(const Range2D& range, const int32_t node_index, const int32_t depth);
+  static bool PointIsWithinRange(const Point2D& point, const Range2D& range) noexcept;
   bool InvalidPointIndex(const int32_t point_index) const noexcept;
   bool InvalidNodeIndex(const int32_t node_index) const noexcept;
   static Axis GetAxisByDepth(const int32_t depth) noexcept;
 
-  KdTree(const KdTree &obj) = delete;
-  KdTree &operator=(const KdTree &obj) = delete;
-  KdTree(KdTree &&obj) = delete;
-  KdTree &operator=(KdTree &&obj) = delete;
+  KdTree(const KdTree& obj) = delete;
+  KdTree& operator=(const KdTree& obj) = delete;
+  KdTree(KdTree&& obj) = delete;
+  KdTree& operator=(KdTree&& obj) = delete;
 
  private:
   int32_t number_of_points_;

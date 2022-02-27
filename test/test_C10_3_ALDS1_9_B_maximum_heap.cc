@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C10_3_ALDS1_9_B_maximum_heap.h"
 
 namespace ALDS1_9_B {
 
 class Test_ALDS1_9_B : public ::testing::Test {
  protected:
-  MaximumHeap *maximum_heap_;
-  virtual void SetUp() {
-    maximum_heap_ = new MaximumHeap();
-  }
-  virtual void TearDown() {
-    delete maximum_heap_;
-  }
+  MaximumHeap* maximum_heap_;
+  virtual void SetUp() { maximum_heap_ = new MaximumHeap(); }
+  virtual void TearDown() { delete maximum_heap_; }
 };
 
 TEST_F(Test_ALDS1_9_B, Add) {

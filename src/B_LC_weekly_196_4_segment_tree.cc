@@ -5,6 +5,7 @@
  */
 
 #include "src/B_LC_weekly_196_4_segment_tree.h"
+
 #include <queue>
 
 namespace LC_weekly_196_4 {
@@ -41,7 +42,7 @@ std::string Solution::minInteger(std::string num, int k) {
 }
 
 SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value,
-                         std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+                         std::function<int64_t(const int64_t a, const int64_t b)>&& Reduce)
     : init_value_(init_value), Reduce_(std::move(Reduce)) {
   array_size_ = 1;
   while (array_size_ < array_size) {
@@ -51,8 +52,8 @@ SegmentTree::SegmentTree(const int64_t array_size, const int64_t init_value,
   nodes_ = std::vector<int64_t>(node_size_, init_value_);
 }
 
-SegmentTree::SegmentTree(const std::vector<int64_t> &array, const int64_t init_value,
-                         std::function<int64_t(const int64_t a, const int64_t b)> &&Reduce)
+SegmentTree::SegmentTree(const std::vector<int64_t>& array, const int64_t init_value,
+                         std::function<int64_t(const int64_t a, const int64_t b)>&& Reduce)
     : init_value_(init_value), Reduce_(std::move(Reduce)) {
   nodes_ = array;
   const int64_t array_size = static_cast<int64_t>(array.size());
@@ -96,20 +97,12 @@ int64_t SegmentTree::Query(const int64_t start, const int64_t end, const int64_t
   return Reduce_(value_left, value_right);
 }
 
-int64_t SegmentTree::LeafNodeIndex(const int64_t array_index) const {
-  return array_size_ + array_index - 1L;
-}
+int64_t SegmentTree::LeafNodeIndex(const int64_t array_index) const { return array_size_ + array_index - 1L; }
 
-int64_t SegmentTree::Parent(const int64_t node_index) {
-  return (node_index - 1L) / 2L;
-}
+int64_t SegmentTree::Parent(const int64_t node_index) { return (node_index - 1L) / 2L; }
 
-int64_t SegmentTree::ChildLeft(const int64_t node_index) {
-  return (node_index * 2 + 1);
-}
+int64_t SegmentTree::ChildLeft(const int64_t node_index) { return (node_index * 2 + 1); }
 
-int64_t SegmentTree::ChildRight(const int64_t node_index) {
-  return (node_index * 2 + 2);
-}
+int64_t SegmentTree::ChildRight(const int64_t node_index) { return (node_index * 2 + 2); }
 
 }  // namespace LC_weekly_196_4

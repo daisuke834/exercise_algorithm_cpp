@@ -5,13 +5,14 @@
  */
 
 #include "src/C04_2_ALDS1_3_A_stack.h"
+
 #include <algorithm>
 #include <cctype>
 #include <iostream>
 #include <string>
 namespace ALDS1_3_A {
 
-DataType JudgeDataType(const std::string &str) {
+DataType JudgeDataType(const std::string& str) {
   DataType data_type;
   if (std::all_of(str.cbegin(), str.cend(), isdigit)) {
     data_type = DataType::kValue;
@@ -28,7 +29,7 @@ DataType JudgeDataType(const std::string &str) {
   return data_type;
 }
 
-LoadedData LoadOne(std::istream &input_stream) {
+LoadedData LoadOne(std::istream& input_stream) {
   LoadedData data;
   try {
     std::string loaded_str;
@@ -55,7 +56,7 @@ Stack::Stack() noexcept : top_position_(0), values_{0} {}
 
 Stack::~Stack() noexcept {}
 
-void Stack::Main(std::istream &input_stream) noexcept {
+void Stack::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -66,7 +67,7 @@ void Stack::Main(std::istream &input_stream) noexcept {
   }
 }
 
-void Stack::LoadAndCompute(std::istream &input_stream) {
+void Stack::LoadAndCompute(std::istream& input_stream) {
   constexpr int32_t kMaxNumberOfInputs = 200;
   try {
     for (int32_t i = 0; i < kMaxNumberOfInputs; ++i) {
@@ -106,17 +107,11 @@ void Stack::LoadAndCompute(std::istream &input_stream) {
   }
 }
 
-void Stack::PopAndPrint() noexcept {
-  std::cout << Pop() << std::endl;
-}
+void Stack::PopAndPrint() noexcept { std::cout << Pop() << std::endl; }
 
-bool Stack::IsEmpty() const noexcept {
-  return (top_position_ <= 0);
-}
+bool Stack::IsEmpty() const noexcept { return (top_position_ <= 0); }
 
-bool Stack::IsFull() const noexcept {
-  return (top_position_ >= kMaxArraySize);
-}
+bool Stack::IsFull() const noexcept { return (top_position_ >= kMaxArraySize); }
 
 void Stack::Push(const int32_t x) {
   if (IsFull()) {

@@ -21,7 +21,7 @@ namespace GRL_2_A_1 {
 constexpr int32_t kMaxNumberOfVertices = 10000;
 constexpr int32_t kInvalidIndex = -1;
 
-void CallPrimAlgorithm(std::istream &input_stream);
+void CallPrimAlgorithm(std::istream& input_stream);
 
 struct Edge {
   int32_t to{kInvalidIndex};

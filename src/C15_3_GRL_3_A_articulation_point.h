@@ -9,6 +9,7 @@
 #define SRC_C15_3_GRL_3_A_ARTICULATION_POINT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <stack>
@@ -24,7 +25,7 @@ constexpr int32_t kMaxLoopCount = 1000000;
 constexpr int32_t kFirstExploreTargetIndex = 0;
 constexpr int32_t kRoot = -2;
 
-void CallArticulationPoint(std::istream &input_stream);
+void CallArticulationPoint(std::istream& input_stream);
 
 enum class VertexStatus : int32_t { kInit = 0, kDiscovered, kCompleted };
 
@@ -48,10 +49,10 @@ class Vertex {
  private:
   int32_t GetNumberOfTails() const noexcept;
 
-  Vertex(const Vertex &obj) = delete;
-  Vertex &operator=(const Vertex &obj) = delete;
-  Vertex(Vertex &&obj) = delete;
-  Vertex &operator=(Vertex &&obj) = delete;
+  Vertex(const Vertex& obj) = delete;
+  Vertex& operator=(const Vertex& obj) = delete;
+  Vertex(Vertex&& obj) = delete;
+  Vertex& operator=(Vertex&& obj) = delete;
 
  private:
   VertexStatus status_;
@@ -86,10 +87,10 @@ class ArticulationPoint {
   bool IsInvalidVertexIndex(const int32_t index) const noexcept;
   bool DoesNotExist(const int32_t vertex_index) const;
 
-  ArticulationPoint(const ArticulationPoint &obj) = delete;
-  ArticulationPoint &operator=(const ArticulationPoint &obj) = delete;
-  ArticulationPoint(ArticulationPoint &&obj) = delete;
-  ArticulationPoint &operator=(ArticulationPoint &&obj) = delete;
+  ArticulationPoint(const ArticulationPoint& obj) = delete;
+  ArticulationPoint& operator=(const ArticulationPoint& obj) = delete;
+  ArticulationPoint(ArticulationPoint&& obj) = delete;
+  ArticulationPoint& operator=(ArticulationPoint&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

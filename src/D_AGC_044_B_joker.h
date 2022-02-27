@@ -15,7 +15,7 @@
 
 namespace AGC_044_B {
 
-int CallMain(std::istream &input_stream);
+int CallMain(std::istream& input_stream);
 
 using Position = std::pair<int32_t, int32_t>;  // row, column
 
@@ -28,17 +28,17 @@ class Solution {
  public:
   Solution() = delete;
   explicit Solution(const int32_t N) noexcept;
-  int32_t CalculateNumberOfPairs(const std::vector<int32_t> &people_to_exit) noexcept;
+  int32_t CalculateNumberOfPairs(const std::vector<int32_t>& people_to_exit) noexcept;
 
  private:
-  void ExitOneAudience(const Position &position) noexcept;
+  void ExitOneAudience(const Position& position) noexcept;
   Position GetPosition(const int32_t audience_number) const noexcept;
-  void UpdateDistance(const Position &position, const int32_t distance) noexcept;
+  void UpdateDistance(const Position& position, const int32_t distance) noexcept;
   void UpdateAllOfDistances() noexcept;
-  int32_t GetDistanceWhenEmpty(const Position &position) const noexcept;
-  bool IsValidPosition(const Position &position) const noexcept;
-  bool IsEmpty(const Position &position) const noexcept;
-  int32_t GetDistance(const Position &position) const noexcept;
+  int32_t GetDistanceWhenEmpty(const Position& position) const noexcept;
+  bool IsValidPosition(const Position& position) const noexcept;
+  bool IsEmpty(const Position& position) const noexcept;
+  int32_t GetDistance(const Position& position) const noexcept;
   void PrintDebug() const noexcept;
 
  private:

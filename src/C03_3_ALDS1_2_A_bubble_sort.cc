@@ -7,6 +7,7 @@
  */
 
 #include "src/C03_3_ALDS1_2_A_bubble_sort.h"
+
 #include <iostream>
 namespace ALDS1_2_A {
 
@@ -14,7 +15,7 @@ BubbleSort::BubbleSort() noexcept : count_(0), values_{-1}, swapped_count_{0} {}
 
 BubbleSort::~BubbleSort() noexcept {}
 
-void BubbleSort::Main(std::istream &input_stream) noexcept {
+void BubbleSort::Main(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -52,7 +53,7 @@ void BubbleSort::SwapWithLeftNext(const int32_t index_target) noexcept {
   ++swapped_count_;
 }
 
-void BubbleSort::Load(std::istream &input_stream) {
+void BubbleSort::Load(std::istream& input_stream) {
   input_stream >> count_;
   if (count_ > kMaxArraySize) {
     std::cout << "kMaxArraySize is too small for the number of data count." << std::endl;

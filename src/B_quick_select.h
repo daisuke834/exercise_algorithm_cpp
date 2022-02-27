@@ -22,7 +22,7 @@ struct Element {
   int32_t value{INT32_MAX};
 };
 
-void CallQuickSelect(std::istream &input_stream) noexcept;
+void CallQuickSelect(std::istream& input_stream) noexcept;
 
 class QuickSelect {
  public:
@@ -38,10 +38,10 @@ class QuickSelect {
   void Swap(const int32_t index_1, const int32_t index_2);
   bool IndexOutOfRange(const int32_t index) const noexcept;
 
-  QuickSelect(const QuickSelect &obj) = delete;
-  QuickSelect &operator=(const QuickSelect &rhs) = delete;
-  QuickSelect(QuickSelect &&obj) = delete;
-  QuickSelect &operator=(QuickSelect &&rhs) = delete;
+  QuickSelect(const QuickSelect& obj) = delete;
+  QuickSelect& operator=(const QuickSelect& rhs) = delete;
+  QuickSelect(QuickSelect&& obj) = delete;
+  QuickSelect& operator=(QuickSelect&& rhs) = delete;
 
  private:
   int32_t number_of_elements_;

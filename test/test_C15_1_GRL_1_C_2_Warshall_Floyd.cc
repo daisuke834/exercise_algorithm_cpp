@@ -6,19 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_1_GRL_1_C_2_Warshall_Floyd.h"
 
 namespace GRL_1_C_2 {
 
 class Test_GRL_1_C_2 : public ::testing::Test {
  protected:
-  virtual void SetUp() {
-  }
-  virtual void TearDown() {
-  }
+  virtual void SetUp() {}
+  virtual void TearDown() {}
 };
 
 TEST_F(Test_GRL_1_C_2, CallWarshallFloyd_1) {

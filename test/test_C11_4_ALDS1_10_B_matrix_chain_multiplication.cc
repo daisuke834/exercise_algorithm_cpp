@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C11_4_ALDS1_10_B_matrix_chain_multiplication.h"
 
 namespace ALDS1_10_B {
 
 class Test_ALDS1_10_B : public ::testing::Test {
  protected:
-  MatrixChainMultiplication *mcm_;
-  virtual void SetUp() {
-    mcm_ = new MatrixChainMultiplication();
-  }
-  virtual void TearDown() {
-    delete mcm_;
-  }
+  MatrixChainMultiplication* mcm_;
+  virtual void SetUp() { mcm_ = new MatrixChainMultiplication(); }
+  virtual void TearDown() { delete mcm_; }
 };
 
 TEST_F(Test_ALDS1_10_B, AddMatrix) {

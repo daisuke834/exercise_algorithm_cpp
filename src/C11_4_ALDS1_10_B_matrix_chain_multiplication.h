@@ -9,6 +9,7 @@
 #define SRC_C11_4_ALDS1_10_B_MATRIX_CHAIN_MULTIPLICATION_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -18,7 +19,7 @@ namespace ALDS1_10_B {
 constexpr int32_t kMaxNumberOfMatrices = 100;
 constexpr int32_t kMaxNumberOfRowsAndCols = 100;
 
-void CallMatrixChainMultiplication(std::istream &input_stream);
+void CallMatrixChainMultiplication(std::istream& input_stream);
 
 struct Matrix {
   int32_t number_of_rows{0};
@@ -38,8 +39,8 @@ class MatrixChainMultiplication {
   void AddMatrix(const int32_t number_of_rows, const int32_t number_of_columns);
   int32_t CalculateMinMultiplyCount();
 
-  static int32_t GetMultiplyCount(const Matrix &a, const Matrix &b);
-  static Matrix GetMultipliedMatrix(const Matrix &a, const Matrix &b);
+  static int32_t GetMultiplyCount(const Matrix& a, const Matrix& b);
+  static Matrix GetMultipliedMatrix(const Matrix& a, const Matrix& b);
   static Matrix GenerateMatrix(const int32_t number_of_rows, const int32_t number_of_columns);
 
  private:
@@ -50,10 +51,10 @@ class MatrixChainMultiplication {
   int32_t GetCalculatedResult(const int32_t start, const int32_t end) const;
   void StoreCalculatedResult(const int32_t start, const int32_t end, const int32_t mcm);
 
-  MatrixChainMultiplication(const MatrixChainMultiplication &obj) = delete;
-  MatrixChainMultiplication &operator=(const MatrixChainMultiplication &obj) = delete;
-  MatrixChainMultiplication(MatrixChainMultiplication &&obj) = delete;
-  MatrixChainMultiplication &operator=(MatrixChainMultiplication &&obj) = delete;
+  MatrixChainMultiplication(const MatrixChainMultiplication& obj) = delete;
+  MatrixChainMultiplication& operator=(const MatrixChainMultiplication& obj) = delete;
+  MatrixChainMultiplication(MatrixChainMultiplication&& obj) = delete;
+  MatrixChainMultiplication& operator=(MatrixChainMultiplication&& obj) = delete;
 
  private:
   int32_t number_of_matrices_;

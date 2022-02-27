@@ -8,6 +8,7 @@
 #define SRC_C11_2_ALDS1_10_A_FIBONACCI_NUMBER_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -16,7 +17,7 @@ namespace ALDS1_10_A {
 
 constexpr int32_t kMaxNumberOfIndex = 100;
 
-void CallFibonacciNumber(std::istream &input_stream);
+void CallFibonacciNumber(std::istream& input_stream);
 
 class FibonacciNumber {
  public:
@@ -25,10 +26,10 @@ class FibonacciNumber {
   int32_t Calculate(const int32_t n);
 
  private:
-  FibonacciNumber(const FibonacciNumber &obj) = delete;
-  FibonacciNumber &operator=(const FibonacciNumber &obj) = delete;
-  FibonacciNumber(FibonacciNumber &&obj) = delete;
-  FibonacciNumber &operator=(FibonacciNumber &&obj) = delete;
+  FibonacciNumber(const FibonacciNumber& obj) = delete;
+  FibonacciNumber& operator=(const FibonacciNumber& obj) = delete;
+  FibonacciNumber(FibonacciNumber&& obj) = delete;
+  FibonacciNumber& operator=(FibonacciNumber&& obj) = delete;
 
  private:
   int32_t values_[kMaxNumberOfIndex];

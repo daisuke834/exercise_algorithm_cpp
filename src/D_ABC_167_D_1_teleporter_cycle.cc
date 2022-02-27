@@ -8,10 +8,10 @@
 
 namespace ABC_167_D_1 {
 
-void CallTeleporter(std::istream &input_stream) noexcept {
+void CallTeleporter(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Teleporter *teleporter = new Teleporter();
+  Teleporter* teleporter = new Teleporter();
 
   int64_t number_of_towns, number_of_teleportations;
   input_stream >> number_of_towns >> number_of_teleportations;
@@ -40,9 +40,7 @@ void Teleporter::SetNumberOfTowns(const int64_t number_of_towns) noexcept {
     visited_time_[i] = -1;
   }
 }
-void Teleporter::SetMapping(const int64_t from, const int64_t to) noexcept {
-  ported_to_[from] = to;
-}
+void Teleporter::SetMapping(const int64_t from, const int64_t to) noexcept { ported_to_[from] = to; }
 
 int64_t Teleporter::SearchFinalTown(const int64_t start_town, const int64_t number_of_teleportations) noexcept {
   int64_t offset = -1;

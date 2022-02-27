@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C18_3_NTL_1_B_Power.h"
 
 namespace NTL_1_B {
@@ -30,12 +32,8 @@ TEST_F(Test_NTL_1_B, CallCalculatePower) {
   ASSERT_STREQ(answer.str().c_str(), captured_stdout.c_str());
 }
 
-TEST_F(Test_NTL_1_B, CalculatePower_1) {
-  ASSERT_EQ(390625, CalculatePower(5, 8));
-}
+TEST_F(Test_NTL_1_B, CalculatePower_1) { ASSERT_EQ(390625, CalculatePower(5, 8)); }
 
-TEST_F(Test_NTL_1_B, CalculatePower_2) {
-  ASSERT_EQ(891031477, CalculatePower(31, 8));
-}
+TEST_F(Test_NTL_1_B, CalculatePower_2) { ASSERT_EQ(891031477, CalculatePower(31, 8)); }
 
 }  // namespace NTL_1_B

@@ -5,16 +5,17 @@
  */
 
 #include "src/C07_7_ALDS1_6_D_minimum_cost_sort.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_6_D {
 
-void CallMinimumCostSort(std::istream &input_stream) {
+void CallMinimumCostSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MinimumCostSort *minimum_cost_sort = new MinimumCostSort();
+  MinimumCostSort* minimum_cost_sort = new MinimumCostSort();
   try {
     int32_t count;
     input_stream >> count;
@@ -43,7 +44,7 @@ MinimumCostSort::MinimumCostSort() noexcept
       next_index_{},
       left_values_{},
       right_values_{} {
-  for (bool &e : evaluated_) {
+  for (bool& e : evaluated_) {
     e = false;
   }
 }
@@ -218,8 +219,6 @@ int32_t MinimumCostSort::GetCenterIndex(const int32_t left_end, const int32_t ri
   return (left_end + right_end) / 2;
 }
 
-void MinimumCostSort::ResetData() noexcept {
-  size_ = 0;
-}
+void MinimumCostSort::ResetData() noexcept { size_ = 0; }
 
 }  // namespace ALDS1_6_D

@@ -5,15 +5,16 @@
  */
 
 #include "src/C08_2_ALDS1_7_A_2_rooted_trees.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_7_A_2 {
 
-void CallRootedTrees(std::istream &input_stream) {
+void CallRootedTrees(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  RootedTrees *rooted_trees = new RootedTrees();
+  RootedTrees* rooted_trees = new RootedTrees();
   try {
     int32_t number_of_nodes;
     input_stream >> number_of_nodes;
@@ -119,7 +120,7 @@ void RootedTrees::Print() const {
   const char node_type_str[][20] = {"internal node", "leaf", "root"};
   try {
     for (int32_t current_node_index = 0; current_node_index < size_; ++current_node_index) {
-      const Node &cnode = nodes_[current_node_index];
+      const Node& cnode = nodes_[current_node_index];
       std::cout << "node " << current_node_index << ": ";
       std::cout << "parent = " << cnode.GetParent() << ", ";
       std::cout << "depth = " << CalculateDepth(current_node_index) << ", ";
@@ -200,14 +201,14 @@ Node::Node() noexcept
 
 Node::~Node() noexcept {}
 
-Node::Node(const Node &obj) noexcept
+Node::Node(const Node& obj) noexcept
     : is_valid_(obj.is_valid_),
       parent_(obj.parent_),
       child_left_edge_(obj.child_left_edge_),
       child_right_edge_(obj.child_right_edge_),
       sibling_right_(obj.sibling_right_) {}
 
-Node &Node::operator=(const Node &rhs) noexcept {
+Node& Node::operator=(const Node& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -218,7 +219,7 @@ Node &Node::operator=(const Node &rhs) noexcept {
   return *this;
 }
 
-Node::Node(Node &&obj) noexcept
+Node::Node(Node&& obj) noexcept
     : is_valid_(obj.is_valid_),
       parent_(obj.parent_),
       child_left_edge_(obj.child_left_edge_),
@@ -227,7 +228,7 @@ Node::Node(Node &&obj) noexcept
   obj.Reset();
 }
 
-Node &Node::operator=(Node &&rhs) noexcept {
+Node& Node::operator=(Node&& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -247,13 +248,9 @@ void Node::Reset() noexcept {
   this->sibling_right_ = kInvalid;
 }
 
-void Node::Activate() noexcept {
-  is_valid_ = true;
-}
+void Node::Activate() noexcept { is_valid_ = true; }
 
-bool Node::IsValid() const noexcept {
-  return is_valid_;
-}
+bool Node::IsValid() const noexcept { return is_valid_; }
 
 void Node::SetParent(const int32_t parent) {
   if (IsInvalidParent(parent)) {
@@ -263,9 +260,7 @@ void Node::SetParent(const int32_t parent) {
   parent_ = parent;
 }
 
-int32_t Node::GetParent() const noexcept {
-  return parent_;
-}
+int32_t Node::GetParent() const noexcept { return parent_; }
 
 bool Node::IsInvalidParent(const int32_t parent_index) noexcept {
   return ((parent_index != kTop) && IsInvalidNodeIndex(parent_index));
@@ -280,9 +275,7 @@ void Node::SetChildLeft(const int32_t child_left) {
   child_right_edge_ = child_left;
 }
 
-int32_t Node::GetChildLeft() const noexcept {
-  return child_left_edge_;
-}
+int32_t Node::GetChildLeft() const noexcept { return child_left_edge_; }
 
 void Node::SetChildRight(const int32_t child_right) {
   if (IsInvalidNodeIndex(child_right)) {
@@ -296,9 +289,7 @@ void Node::SetChildRight(const int32_t child_right) {
   }
 }
 
-int32_t Node::GetChildRight() const noexcept {
-  return child_right_edge_;
-}
+int32_t Node::GetChildRight() const noexcept { return child_right_edge_; }
 
 void Node::SetSiblingRight(const int32_t sibling_right) {
   if (IsInvalidNodeIndex(sibling_right)) {
@@ -308,9 +299,7 @@ void Node::SetSiblingRight(const int32_t sibling_right) {
   sibling_right_ = sibling_right;
 }
 
-int32_t Node::GetSiblingRight() const noexcept {
-  return sibling_right_;
-}
+int32_t Node::GetSiblingRight() const noexcept { return sibling_right_; }
 
 NodeType Node::GetNodeType() const {
   if (!IsValid()) {
@@ -331,8 +320,6 @@ NodeType Node::GetNodeType() const {
   return node_type;
 }
 
-bool Node::IsInvalidNodeIndex(const int32_t index) noexcept {
-  return ((index < 0) || (index >= kMaxNumberOfNodes));
-}
+bool Node::IsInvalidNodeIndex(const int32_t index) noexcept { return ((index < 0) || (index >= kMaxNumberOfNodes)); }
 
 }  // namespace ALDS1_7_A_2

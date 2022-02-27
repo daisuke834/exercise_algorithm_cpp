@@ -19,7 +19,7 @@ constexpr int32_t kInvalidIndex = -1;
 
 // ****************************************************
 
-void CallBellmanFordAlgorithm(std::istream &input_stream);
+void CallBellmanFordAlgorithm(std::istream& input_stream);
 
 // ****************************************************
 

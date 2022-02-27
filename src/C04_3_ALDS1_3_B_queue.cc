@@ -5,6 +5,7 @@
  */
 
 #include "src/C04_3_ALDS1_3_B_queue.h"
+
 #include <algorithm>
 #include <cctype>
 #include <cstring>
@@ -12,13 +13,13 @@
 #include <string>
 namespace ALDS1_3_B {
 
-void CallRoundRobin(std::istream &input_stream) {
+void CallRoundRobin(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int32_t number_of_processes;
   int32_t qms;
   input_stream >> number_of_processes >> qms;
-  RoundRobin *round_robin = new RoundRobin(qms);
+  RoundRobin* round_robin = new RoundRobin(qms);
   try {
     for (int32_t process_index = 0; process_index < number_of_processes; ++process_index) {
       std::string process_name;
@@ -43,13 +44,9 @@ Queue::Queue() noexcept : depth_(0), head_(0), indices_{0} {}
 
 Queue::~Queue() noexcept {}
 
-bool Queue::IsEmpty() const noexcept {
-  return (depth_ <= 0);
-}
+bool Queue::IsEmpty() const noexcept { return (depth_ <= 0); }
 
-bool Queue::IsFull() const noexcept {
-  return (depth_ >= kMaxQueueSize);
-}
+bool Queue::IsFull() const noexcept { return (depth_ >= kMaxQueueSize); }
 
 void Queue::Enqueue(const int32_t x) {
   if (IsFull()) {
@@ -80,7 +77,7 @@ int32_t Queue::GetNextPosition(const int32_t current_position) noexcept {
 ProcessGroup::ProcessGroup() noexcept : number_of_process_(0) {}
 ProcessGroup::~ProcessGroup() noexcept {}
 
-int32_t ProcessGroup::AddAndGetStoredIndex(const std::string &name, const int32_t total_time) {
+int32_t ProcessGroup::AddAndGetStoredIndex(const std::string& name, const int32_t total_time) {
   if (number_of_process_ >= kMaxProcessCount) {
     std::cerr << "ERROR: ProcessGroup::AddProcess(): too many processes." << std::endl;
     throw 1;
@@ -126,7 +123,7 @@ bool ProcessGroup::AlreadyFinished(const int32_t index) const {
 RoundRobin::RoundRobin(const int32_t quantum_time) noexcept : quantum_(quantum_time), current_time_(0) {}
 RoundRobin::~RoundRobin() noexcept {}
 
-void RoundRobin::AddProcess(const std::string &name, const int32_t total_time) {
+void RoundRobin::AddProcess(const std::string& name, const int32_t total_time) {
   try {
     const int32_t stored_index = processes_.AddAndGetStoredIndex(name, total_time);
     process_queue_.Enqueue(stored_index);
@@ -152,12 +149,8 @@ void RoundRobin::ComputeOneQuantum() {
   }
 }
 
-int32_t RoundRobin::GetCurrentTime() const noexcept {
-  return current_time_;
-}
+int32_t RoundRobin::GetCurrentTime() const noexcept { return current_time_; }
 
-bool RoundRobin::AllProcessWasAlreadyFinished() const {
-  return process_queue_.IsEmpty();
-}
+bool RoundRobin::AllProcessWasAlreadyFinished() const { return process_queue_.IsEmpty(); }
 
 }  // namespace ALDS1_3_B

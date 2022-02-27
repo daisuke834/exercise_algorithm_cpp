@@ -9,6 +9,7 @@
 #define SRC_C07_2_ALDS1_6_B_PARTITION_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -17,7 +18,7 @@ namespace ALDS1_6_B {
 
 constexpr int32_t kMaxArraySize = 100000;
 
-void CallPartition(std::istream &input_stream);
+void CallPartition(std::istream& input_stream);
 
 class Partition {
  public:
@@ -29,10 +30,10 @@ class Partition {
   int32_t GetValue(const int32_t index);
 
  private:
-  Partition(const Partition &obj) = delete;
-  Partition &operator=(const Partition &rhs) = delete;
-  Partition(Partition &&obj) = delete;
-  Partition &operator=(Partition &&rhs) = delete;
+  Partition(const Partition& obj) = delete;
+  Partition& operator=(const Partition& rhs) = delete;
+  Partition(Partition&& obj) = delete;
+  Partition& operator=(Partition&& rhs) = delete;
 
   void Swap(const int32_t index_1, const int32_t index_2);
   bool IndexOutOfRange(const int32_t index) const noexcept;

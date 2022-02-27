@@ -8,6 +8,7 @@
 #define SRC_C12_5_ALDS1_11_D_1_CONNECTED_COMPONENTS_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -22,7 +23,7 @@ constexpr int32_t kDoesNotExist = -1;
 constexpr int32_t kMaxLoop = 2000000;
 constexpr int32_t kMaxQueueSize = 100000;
 
-void CallConnectedComponents(std::istream &input_stream);
+void CallConnectedComponents(std::istream& input_stream);
 
 struct Edge {
   int32_t from{-1};
@@ -40,10 +41,10 @@ class Queue {
   void Clear() noexcept;
 
  private:
-  Queue(const Queue &obj) = delete;
-  Queue &operator=(const Queue &rhs) = delete;
-  Queue(Queue &&obj) = delete;
-  Queue &operator=(Queue &&rhs) = delete;
+  Queue(const Queue& obj) = delete;
+  Queue& operator=(const Queue& rhs) = delete;
+  Queue(Queue&& obj) = delete;
+  Queue& operator=(Queue&& rhs) = delete;
 
   static int32_t GetNextPosition(const int32_t current_position) noexcept;
 
@@ -97,10 +98,10 @@ class ConnectedComponents {
   int32_t GetClusterId(const int32_t vertex_index) const;
   int32_t ClusterIdIsNotAllocated(const int32_t vertex_index) const;
 
-  ConnectedComponents(const ConnectedComponents &obj) = delete;
-  ConnectedComponents &operator=(const ConnectedComponents &obj) = delete;
-  ConnectedComponents(ConnectedComponents &&obj) = delete;
-  ConnectedComponents &operator=(ConnectedComponents &&obj) = delete;
+  ConnectedComponents(const ConnectedComponents& obj) = delete;
+  ConnectedComponents& operator=(const ConnectedComponents& obj) = delete;
+  ConnectedComponents(ConnectedComponents&& obj) = delete;
+  ConnectedComponents& operator=(ConnectedComponents&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

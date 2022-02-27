@@ -7,10 +7,10 @@
 
 namespace ABC_167_C {
 
-void CallBitSearch(std::istream &input_stream) noexcept {
+void CallBitSearch(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BitSearch *bit_search = new BitSearch();
+  BitSearch* bit_search = new BitSearch();
 
   std::ios::sync_with_stdio(false);
   int32_t number_of_books, number_of_areas, threshold;
@@ -42,9 +42,7 @@ void BitSearch::SetParameters(const int32_t number_of_books, const int32_t numbe
   threshold_ = threshold;
 }
 
-void BitSearch::SetCostOfBook(const int32_t index_book, const int32_t cost) noexcept {
-  cost_[index_book] = cost;
-}
+void BitSearch::SetCostOfBook(const int32_t index_book, const int32_t cost) noexcept { cost_[index_book] = cost; }
 
 void BitSearch::SetKnowledgeOfBook(const int32_t index_book, const int32_t area, const int32_t knowledge) noexcept {
   knowledge_[index_book][area] = knowledge;

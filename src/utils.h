@@ -14,11 +14,11 @@
 
 namespace utils {
 
-std::vector<std::string> SplitStringToVector(const std::string &text, const char delimiter);
+std::vector<std::string> SplitStringToVector(const std::string& text, const char delimiter);
 
-std::vector<float> SplitStringToFloatVector(const std::string &text, const char delimiter);
+std::vector<float> SplitStringToFloatVector(const std::string& text, const char delimiter);
 
-std::vector<double> SplitStringToDoubleVector(const std::string &text, const char delimiter);
+std::vector<double> SplitStringToDoubleVector(const std::string& text, const char delimiter);
 
 int64_t CalculatePower(const int64_t x, const int64_t n) noexcept;
 

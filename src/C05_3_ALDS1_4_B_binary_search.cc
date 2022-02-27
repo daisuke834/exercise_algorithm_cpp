@@ -5,14 +5,15 @@
  */
 
 #include "src/C05_3_ALDS1_4_B_binary_search.h"
+
 #include <iostream>
 #include <string>
 namespace ALDS1_4_B {
 
-void CallBinarySearch(std::istream &input_stream) noexcept {
+void CallBinarySearch(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BinarySearch *binary_search = new BinarySearch();
+  BinarySearch* binary_search = new BinarySearch();
   try {
     int32_t number_of_sources;
     input_stream >> number_of_sources;

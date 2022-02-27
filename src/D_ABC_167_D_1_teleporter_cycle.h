@@ -14,7 +14,7 @@ namespace ABC_167_D_1 {
 
 constexpr int64_t kMaxNumberOfTowns = 200000;
 
-void CallTeleporter(std::istream &input_stream) noexcept;
+void CallTeleporter(std::istream& input_stream) noexcept;
 
 class Teleporter {
  public:

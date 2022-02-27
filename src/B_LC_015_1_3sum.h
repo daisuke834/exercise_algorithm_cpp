@@ -19,7 +19,7 @@ namespace LC_015_1 {
 
 class Solution {
  public:
-  std::vector<std::vector<int32_t>> threeSum(std::vector<int32_t> &nums) noexcept;
+  std::vector<std::vector<int32_t>> threeSum(std::vector<int32_t>& nums) noexcept;
 };
 }  // namespace LC_015_1
 

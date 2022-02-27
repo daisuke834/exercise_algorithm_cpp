@@ -12,7 +12,7 @@
 
 namespace D_ddcc2020_qual_C_1 {
 
-int CallMain(std::istream &input_stream);
+int CallMain(std::istream& input_stream);
 
 }  // namespace D_ddcc2020_qual_C_1
 

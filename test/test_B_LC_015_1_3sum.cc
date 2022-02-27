@@ -7,21 +7,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/B_LC_015_1_3sum.h"
 
 namespace LC_015_1 {
 
 class Test_LC_015_1 : public ::testing::Test {
  protected:
-  Solution *solution_;
-  virtual void SetUp() {
-    solution_ = new Solution();
-  }
-  virtual void TearDown() {
-    delete solution_;
-  }
+  Solution* solution_;
+  virtual void SetUp() { solution_ = new Solution(); }
+  virtual void TearDown() { delete solution_; }
 };
 
 TEST_F(Test_LC_015_1, test_1) {

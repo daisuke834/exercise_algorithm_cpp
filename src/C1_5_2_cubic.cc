@@ -5,13 +5,12 @@
  */
 
 #include "src/C1_5_2_cubic.h"
+
 #include <iostream>
 namespace C1P5P2 {
-int32_t Cubic(const int32_t x) noexcept {
-  return x * x * x;
-}
+int32_t Cubic(const int32_t x) noexcept { return x * x * x; }
 
-void MyMain(std::istream &input_stream) noexcept {
+void MyMain(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int32_t x;

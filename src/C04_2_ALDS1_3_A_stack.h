@@ -8,6 +8,7 @@
 #define SRC_C04_2_ALDS1_3_A_STACK_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -21,9 +22,9 @@ struct LoadedData {
   int32_t value{0};
 };
 
-DataType JudgeDataType(const std::string &str);
+DataType JudgeDataType(const std::string& str);
 
-LoadedData LoadOne(std::istream &input_stream);
+LoadedData LoadOne(std::istream& input_stream);
 
 constexpr int32_t kMaxArraySize = 100;
 
@@ -31,8 +32,8 @@ class Stack {
  public:
   Stack() noexcept;
   ~Stack() noexcept;
-  void Main(std::istream &input_stream) noexcept;
-  void LoadAndCompute(std::istream &input_stream);
+  void Main(std::istream& input_stream) noexcept;
+  void LoadAndCompute(std::istream& input_stream);
   void Push(const int32_t x);
   int32_t Pop();
   bool IsEmpty() const noexcept;
@@ -42,10 +43,10 @@ class Stack {
   void PopAndPrint() noexcept;
 
  private:
-  Stack(const Stack &obj) = delete;
-  Stack &operator=(const Stack &rhs) = delete;
-  Stack(Stack &&obj) = delete;
-  Stack &operator=(Stack &&rhs) = delete;
+  Stack(const Stack& obj) = delete;
+  Stack& operator=(const Stack& rhs) = delete;
+  Stack(Stack&& obj) = delete;
+  Stack& operator=(Stack&& rhs) = delete;
 
  private:
   int32_t top_position_;

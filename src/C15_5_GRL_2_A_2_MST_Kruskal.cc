@@ -8,10 +8,10 @@
 
 namespace GRL_2_A_2 {
 
-void CallKruskalAlgorithm(std::istream &input_stream) {
+void CallKruskalAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  KruskalAlgorithm *minimum_spanning_tree = new KruskalAlgorithm();
+  KruskalAlgorithm* minimum_spanning_tree = new KruskalAlgorithm();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;
@@ -66,9 +66,7 @@ void KruskalAlgorithm::BuildMinimumSpanningTree() noexcept {
   }
 }
 
-int32_t KruskalAlgorithm::GetSumOfWeightsOfMst() const noexcept {
-  return sum_of_weights_;
-}
+int32_t KruskalAlgorithm::GetSumOfWeightsOfMst() const noexcept { return sum_of_weights_; }
 
 int32_t KruskalAlgorithm::GetRootVertexIndex(const int32_t vertex_index) noexcept {
   int32_t c_index = vertex_index;
@@ -80,9 +78,7 @@ int32_t KruskalAlgorithm::GetRootVertexIndex(const int32_t vertex_index) noexcep
   return root_index;
 }
 
-bool LessThan(const Edge &lhs, const Edge &rhs) noexcept {
-  return (lhs.weight < rhs.weight);
-}
+bool LessThan(const Edge& lhs, const Edge& rhs) noexcept { return (lhs.weight < rhs.weight); }
 
 // **********************************************************************
 

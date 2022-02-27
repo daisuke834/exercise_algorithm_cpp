@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C17_3_DPL_1_D_3_longest_increasing_subsequence.h"
 
 namespace DPL_1_D_3 {
 
 class Test_DPL_1_D_3 : public ::testing::Test {
  protected:
-  LongestIncreasingSubsequence *lis_;
-  virtual void SetUp() {
-    lis_ = new LongestIncreasingSubsequence();
-  }
-  virtual void TearDown() {
-    delete lis_;
-  }
+  LongestIncreasingSubsequence* lis_;
+  virtual void SetUp() { lis_ = new LongestIncreasingSubsequence(); }
+  virtual void TearDown() { delete lis_; }
 };
 
 TEST_F(Test_DPL_1_D_3, FindLengthOfLis_1) {

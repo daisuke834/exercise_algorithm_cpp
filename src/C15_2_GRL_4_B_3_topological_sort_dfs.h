@@ -20,7 +20,7 @@ namespace GRL_4_B_3 {
 constexpr int32_t kMaxNumberOfVertices = 10000;
 constexpr int32_t kInvalidIndex = -1;
 
-void CallTopologicalSort(std::istream &input_stream);
+void CallTopologicalSort(std::istream& input_stream);
 
 struct Vertex {
   bool explored{false};

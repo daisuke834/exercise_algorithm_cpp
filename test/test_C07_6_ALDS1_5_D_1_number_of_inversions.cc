@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_6_ALDS1_5_D_1_number_of_inversions.h"
 
 namespace ALDS1_5_D_1 {
 
 class Test_ALDS1_5_D_1 : public ::testing::Test {
  protected:
-  NumberOfInversions *number_of_inversions_;
-  virtual void SetUp() {
-    number_of_inversions_ = new NumberOfInversions();
-  }
-  virtual void TearDown() {
-    delete number_of_inversions_;
-  }
+  NumberOfInversions* number_of_inversions_;
+  virtual void SetUp() { number_of_inversions_ = new NumberOfInversions(); }
+  virtual void TearDown() { delete number_of_inversions_; }
 };
 
 TEST_F(Test_ALDS1_5_D_1, CallNumberOfInversions) {

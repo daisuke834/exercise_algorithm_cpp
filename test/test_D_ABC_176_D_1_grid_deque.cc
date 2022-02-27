@@ -5,8 +5,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_ABC_176_D_1_grid_deque.h"
 
 namespace D_ABC_176_D_1 {

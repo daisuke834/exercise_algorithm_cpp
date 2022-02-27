@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C13_3_ALDS1_12_C_2_Dijkstra.h"
 
 namespace ALDS1_12_C_2 {
 
 class Test_ALDS1_12_C_2 : public ::testing::Test {
  protected:
-  DijkstraAlgorithm *single_source_shortest_path_;
-  virtual void SetUp() {
-    single_source_shortest_path_ = new DijkstraAlgorithm();
-  }
-  virtual void TearDown() {
-    delete single_source_shortest_path_;
-  }
+  DijkstraAlgorithm* single_source_shortest_path_;
+  virtual void SetUp() { single_source_shortest_path_ = new DijkstraAlgorithm(); }
+  virtual void TearDown() { delete single_source_shortest_path_; }
 };
 
 TEST_F(Test_ALDS1_12_C_2, CallDijkstraAlgorithm_1) {

@@ -5,15 +5,16 @@
  */
 
 #include "src/C09_4_ALDS1_8_C_binary_search_tree_3.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_8_C {
 
-void CallBinarySearchTree(std::istream &input_stream) {
+void CallBinarySearchTree(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BinarySearchTree *binary_search_tree = new BinarySearchTree();
+  BinarySearchTree* binary_search_tree = new BinarySearchTree();
   try {
     int32_t number_of_instructions;
     input_stream >> number_of_instructions;
@@ -65,7 +66,7 @@ void PrintFindResult(const int32_t found_index) {
 
 // ****************************************************
 
-InstructionType JudgeInstructionType(const std::string &str) {
+InstructionType JudgeInstructionType(const std::string& str) {
   InstructionType instruction_type;
   if (str == "insert") {
     instruction_type = InstructionType::kInsert;
@@ -99,7 +100,7 @@ void BinarySearchTree::Insert(const int32_t key) {
 
 void BinarySearchTree::InsertToChild(const int32_t inserted_index, const int32_t parent_index) {
   try {
-    const Node &parent_node = nodes_[parent_index];
+    const Node& parent_node = nodes_[parent_index];
     const int32_t key = nodes_[inserted_index].GetKey();
     if (key < parent_node.GetKey()) {
       const int32_t next_parent = parent_node.GetChildLeft();
@@ -164,9 +165,7 @@ int32_t BinarySearchTree::FindRecursively(const int32_t key, const int32_t find_
   return found_index;
 }
 
-bool BinarySearchTree::NotFound(const int32_t found_index) {
-  return Node::IsInvalidNodeIndex(found_index);
-}
+bool BinarySearchTree::NotFound(const int32_t found_index) { return Node::IsInvalidNodeIndex(found_index); }
 
 int32_t BinarySearchTree::AllocateNode(const int32_t key) {
   if (size_ >= kMaxNumberOfNodes) {
@@ -236,7 +235,7 @@ void BinarySearchTree::DeleteByIndex(const int32_t index_to_be_deleted) {
       std::cerr << "ERROR: DeleteByIndex(): Invalid arg: index_to_be_deleted = " << index_to_be_deleted << std::endl;
       throw 1;
     }
-    Node &node_to_be_deleted = nodes_[index_to_be_deleted];
+    Node& node_to_be_deleted = nodes_[index_to_be_deleted];
     const int32_t parent_index = node_to_be_deleted.GetParent();
     if (node_to_be_deleted.DoesNotHaveAnyChildren()) {
       UnmapChildFromParent(parent_index, index_to_be_deleted);
@@ -265,7 +264,7 @@ void BinarySearchTree::DeleteByIndex(const int32_t index_to_be_deleted) {
 
 void BinarySearchTree::UnmapChildFromParent(const int32_t parent_index, const int32_t child_index) {
   try {
-    Node &parent = nodes_[parent_index];
+    Node& parent = nodes_[parent_index];
     if ((parent_index == kTop || root_ == child_index)) {
       root_ = kInvalid;
     } else if (parent.GetChildLeft() == child_index) {
@@ -326,7 +325,7 @@ bool BinarySearchTree::IsLeftChild(const int32_t parent_index, const int32_t chi
     throw 1;
   } else {
     try {
-      const Node &parent = nodes_[parent_index];
+      const Node& parent = nodes_[parent_index];
       if (Node::IsValidNodeIndex(parent.GetChildLeft())) {
         if (parent.GetChildLeft() == child_index) {
           is_left_child = true;
@@ -350,7 +349,7 @@ bool BinarySearchTree::IsRightChild(const int32_t parent_index, const int32_t ch
     throw 1;
   } else {
     try {
-      const Node &parent = nodes_[parent_index];
+      const Node& parent = nodes_[parent_index];
       if (Node::IsValidNodeIndex(parent.GetChildRight())) {
         if (parent.GetChildRight() == child_index) {
           is_right_child = true;
@@ -476,7 +475,7 @@ int32_t BinarySearchTree::GetSibling(const int32_t index) const {
     if (parent_index == kTop) {
       sibling = -1;
     } else {
-      const Node &parent = nodes_[parent_index];
+      const Node& parent = nodes_[parent_index];
       if (parent.GetChildLeft() == index) {
         sibling = parent.GetChildRight() >= 0 ? parent.GetChildRight() : -1;
       } else {
@@ -562,7 +561,7 @@ void BinarySearchTree::Debug() const {
     std::cerr << "Number of nodes = " << size_ << std::endl;
     std::cerr << "Root = " << root_ << std::endl;
     for (int32_t current_node_index = 0; current_node_index < size_; ++current_node_index) {
-      const Node &cnode = nodes_[current_node_index];
+      const Node& cnode = nodes_[current_node_index];
       std::cerr << "node " << current_node_index << ": ";
       std::cerr << "key = " << nodes_[current_node_index].GetKey() << ", ";
       std::cerr << "parent = " << cnode.GetParent() << ", ";
@@ -583,14 +582,14 @@ Node::Node() noexcept : is_valid_(false), parent_(kInvalid), child_left_(kInvali
 
 Node::~Node() noexcept {}
 
-Node::Node(const Node &obj) noexcept
+Node::Node(const Node& obj) noexcept
     : is_valid_(obj.is_valid_),
       parent_(obj.parent_),
       child_left_(obj.child_left_),
       child_right_(obj.child_right_),
       key_(obj.key_) {}
 
-Node &Node::operator=(const Node &rhs) noexcept {
+Node& Node::operator=(const Node& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -601,7 +600,7 @@ Node &Node::operator=(const Node &rhs) noexcept {
   return *this;
 }
 
-Node::Node(Node &&obj) noexcept
+Node::Node(Node&& obj) noexcept
     : is_valid_(obj.is_valid_),
       parent_(obj.parent_),
       child_left_(obj.child_left_),
@@ -610,7 +609,7 @@ Node::Node(Node &&obj) noexcept
   obj.Reset();
 }
 
-Node &Node::operator=(Node &&rhs) noexcept {
+Node& Node::operator=(Node&& rhs) noexcept {
   if (this != &rhs) {
     this->is_valid_ = rhs.is_valid_;
     this->parent_ = rhs.parent_;
@@ -630,13 +629,9 @@ void Node::Reset() noexcept {
   this->key_ = 0;
 }
 
-void Node::Activate() noexcept {
-  is_valid_ = true;
-}
+void Node::Activate() noexcept { is_valid_ = true; }
 
-bool Node::IsValid() const noexcept {
-  return is_valid_;
-}
+bool Node::IsValid() const noexcept { return is_valid_; }
 
 void Node::SetKey(const int32_t key) {
   if (!IsValid()) {
@@ -667,9 +662,7 @@ void Node::SetParent(const int32_t parent) {
   }
 }
 
-int32_t Node::GetParent() const noexcept {
-  return parent_;
-}
+int32_t Node::GetParent() const noexcept { return parent_; }
 
 bool Node::IsInvalidParent(const int32_t parent_index) noexcept {
   return ((parent_index != kTop) && IsInvalidNodeIndex(parent_index));
@@ -684,9 +677,7 @@ void Node::SetChildLeft(const int32_t child_left) {
   }
 }
 
-int32_t Node::GetChildLeft() const noexcept {
-  return child_left_;
-}
+int32_t Node::GetChildLeft() const noexcept { return child_left_; }
 
 void Node::SetChildRight(const int32_t child_right) {
   if (IsInvalidNodeIndex(child_right)) {
@@ -697,17 +688,11 @@ void Node::SetChildRight(const int32_t child_right) {
   }
 }
 
-void Node::ResetChildLeft() noexcept {
-  child_left_ = kInvalid;
-}
+void Node::ResetChildLeft() noexcept { child_left_ = kInvalid; }
 
-void Node::ResetChildRight() noexcept {
-  child_right_ = kInvalid;
-}
+void Node::ResetChildRight() noexcept { child_right_ = kInvalid; }
 
-int32_t Node::GetChildRight() const noexcept {
-  return child_right_;
-}
+int32_t Node::GetChildRight() const noexcept { return child_right_; }
 
 int32_t Node::GetDegree() const noexcept {
   int32_t degree = 0;
@@ -741,12 +726,8 @@ NodeType Node::GetNodeType() const {
   return node_type;
 }
 
-bool Node::IsInvalidNodeIndex(const int32_t index) noexcept {
-  return ((index < 0) || (index >= kMaxNumberOfNodes));
-}
+bool Node::IsInvalidNodeIndex(const int32_t index) noexcept { return ((index < 0) || (index >= kMaxNumberOfNodes)); }
 
-bool Node::IsValidNodeIndex(const int32_t index) noexcept {
-  return !IsInvalidNodeIndex(index);
-}
+bool Node::IsValidNodeIndex(const int32_t index) noexcept { return !IsInvalidNodeIndex(index); }
 
 }  // namespace ALDS1_8_C

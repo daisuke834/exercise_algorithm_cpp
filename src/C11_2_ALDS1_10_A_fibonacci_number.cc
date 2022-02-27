@@ -6,15 +6,16 @@
  */
 
 #include "src/C11_2_ALDS1_10_A_fibonacci_number.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_10_A {
 
-void CallFibonacciNumber(std::istream &input_stream) {
+void CallFibonacciNumber(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  FibonacciNumber *fibonacci_number = new FibonacciNumber();
+  FibonacciNumber* fibonacci_number = new FibonacciNumber();
   try {
     int32_t n;
     input_stream >> n;

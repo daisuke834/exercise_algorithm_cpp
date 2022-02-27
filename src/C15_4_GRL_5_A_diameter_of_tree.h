@@ -17,7 +17,7 @@ namespace GRL_5_A {
 constexpr int32_t kMaxNumberOfNodes = 100000;
 constexpr int32_t kInvalidIndex = -1;
 
-void CallTreeDiameter(std::istream &input_stream);
+void CallTreeDiameter(std::istream& input_stream);
 
 struct Edge {
   int32_t neighbour{kInvalidIndex};
@@ -41,7 +41,7 @@ class TreeDiameter {
 
  private:
   Pair FindFarthestNode(const int32_t node_index) noexcept;
-  Pair Dfs(const Pair &distance_to_node) noexcept;
+  Pair Dfs(const Pair& distance_to_node) noexcept;
   void ResetDiscoveredFlags() noexcept;
 
  private:

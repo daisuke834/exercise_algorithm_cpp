@@ -6,9 +6,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_2_GRL_4_B_3_topological_sort_dfs.h"
 
 namespace GRL_4_B_3 {

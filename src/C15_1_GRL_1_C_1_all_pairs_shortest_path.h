@@ -9,6 +9,7 @@
 #define SRC_C15_1_GRL_1_C_1_ALL_PAIRS_SHORTEST_PATH_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -20,7 +21,7 @@ constexpr int32_t kMaxNumberOfEdges = 9900;
 
 // ****************************************************
 
-void CallWarshallFloyd(std::istream &input_stream);
+void CallWarshallFloyd(std::istream& input_stream);
 
 // ****************************************************
 
@@ -40,10 +41,10 @@ class WarshallFloyd {
   bool InvalidVertexIndex(const int32_t vertex_index) const noexcept;
   bool NegativeCycleExists() const noexcept;
 
-  WarshallFloyd(const WarshallFloyd &obj) = delete;
-  WarshallFloyd &operator=(const WarshallFloyd &obj) = delete;
-  WarshallFloyd(WarshallFloyd &&obj) = delete;
-  WarshallFloyd &operator=(WarshallFloyd &&obj) = delete;
+  WarshallFloyd(const WarshallFloyd& obj) = delete;
+  WarshallFloyd& operator=(const WarshallFloyd& obj) = delete;
+  WarshallFloyd(WarshallFloyd&& obj) = delete;
+  WarshallFloyd& operator=(WarshallFloyd&& obj) = delete;
 
  private:
   int32_t number_of_vertices_;

@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C11_3_ALDS1_10_C_lcs.h"
 
 namespace ALDS1_10_C {
 
 class Test_ALDS1_10_C : public ::testing::Test {
  protected:
-  LCS *lcs_;
-  virtual void SetUp() {
-    lcs_ = new LCS();
-  }
-  virtual void TearDown() {
-    delete lcs_;
-  }
+  LCS* lcs_;
+  virtual void SetUp() { lcs_ = new LCS(); }
+  virtual void TearDown() { delete lcs_; }
 };
 
 TEST_F(Test_ALDS1_10_C, CallLCS_1) {

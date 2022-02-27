@@ -6,6 +6,7 @@
  */
 
 #include "src/C11_3_ALDS1_10_C_lcs.h"
+
 #include <algorithm>
 #include <cstring>
 #include <iostream>
@@ -13,10 +14,10 @@
 
 namespace ALDS1_10_C {
 
-void CallLCS(std::istream &input_stream) {
+void CallLCS(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  LCS *lcs = new LCS();
+  LCS* lcs = new LCS();
   try {
     int32_t number_of_problems;
     input_stream >> number_of_problems;
@@ -38,7 +39,7 @@ LCS::LCS() noexcept : size_a_(0), size_b_(0) {}
 
 LCS::~LCS() noexcept {}
 
-int32_t LCS::CalculateLcs(const std::string &a, const std::string &b) {
+int32_t LCS::CalculateLcs(const std::string& a, const std::string& b) {
   Reset(a, b);
   const int32_t lcs = CalculageLcsRecursively(size_a_, size_b_);
   return lcs;
@@ -69,7 +70,7 @@ int32_t LCS::CalculageLcsRecursively(const int32_t length_a, const int32_t lengt
   return lcs;
 }
 
-void LCS::Reset(const std::string &a, const std::string &b) {
+void LCS::Reset(const std::string& a, const std::string& b) {
   try {
     strncpy(a_, a.c_str(), a.size());
     strncpy(b_, b.c_str(), b.size());
@@ -86,13 +87,9 @@ void LCS::Reset(const std::string &a, const std::string &b) {
   }
 }
 
-bool LCS::IsInvalidLengthA(const int32_t length_a) const noexcept {
-  return ((length_a <= 0) || (length_a > size_a_));
-}
+bool LCS::IsInvalidLengthA(const int32_t length_a) const noexcept { return ((length_a <= 0) || (length_a > size_a_)); }
 
-bool LCS::IsInvalidLengthB(const int32_t length_b) const noexcept {
-  return ((length_b <= 0) || (length_b > size_b_));
-}
+bool LCS::IsInvalidLengthB(const int32_t length_b) const noexcept { return ((length_b <= 0) || (length_b > size_b_)); }
 
 bool LCS::IsAlreadyCalculated(const int32_t length_a, const int32_t length_b) const {
   if (IsInvalidLengthA(length_a)) {

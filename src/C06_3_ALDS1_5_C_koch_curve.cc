@@ -5,12 +5,13 @@
  */
 
 #include "src/C06_3_ALDS1_5_C_koch_curve.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_C {
 
-void CallKochCurve(std::istream &input_stream) {
+void CallKochCurve(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -35,7 +36,7 @@ void CallKochCurve(std::istream &input_stream) {
   }
 }
 
-void CreateKochCurve(std::list<LineSegment> *segments, const int32_t remaining_depth) {
+void CreateKochCurve(std::list<LineSegment>* segments, const int32_t remaining_depth) {
   if (remaining_depth > 0) {
     std::list<LineSegment>::iterator csegment = (*segments).begin();
     for (int32_t i = 0; i < kMaxLoopCount; ++i) {
@@ -66,29 +67,29 @@ Point CreatePoint(const float x, const float y) noexcept {
   return cpoint;
 }
 
-LineSegment CreateLineSegment(const Point &first, const Point &second) noexcept {
+LineSegment CreateLineSegment(const Point& first, const Point& second) noexcept {
   LineSegment segment;
   segment.first = first;
   segment.second = second;
   return segment;
 }
 
-Point CreateDelta(const LineSegment &segment) noexcept {
+Point CreateDelta(const LineSegment& segment) noexcept {
   Point delta;
   delta.x = (segment.second.x - segment.first.x) / 3.0F;
   delta.y = (segment.second.y - segment.first.y) / 3.0F;
   return delta;
 }
 
-Point CreatePointS(const LineSegment &segment, const Point &delta) noexcept {
+Point CreatePointS(const LineSegment& segment, const Point& delta) noexcept {
   return CreatePoint(segment.first.x + delta.x, segment.first.y + delta.y);
 }
 
-Point CreatePointT(const LineSegment &segment, const Point &delta) noexcept {
+Point CreatePointT(const LineSegment& segment, const Point& delta) noexcept {
   return CreatePoint(segment.first.x + 2.0F * delta.x, segment.first.y + 2.0F * delta.y);
 }
 
-Point CreatePointU(const Point &point_s, const Point &delta) noexcept {
+Point CreatePointU(const Point& point_s, const Point& delta) noexcept {
   const float kRoot3 = 1.7320508075688772;
   const float u_x = point_s.x + delta.x / 2.0F - delta.y * kRoot3 / 2.0F;
   const float u_y = point_s.y + delta.x * kRoot3 / 2.0F + delta.y / 2.0F;

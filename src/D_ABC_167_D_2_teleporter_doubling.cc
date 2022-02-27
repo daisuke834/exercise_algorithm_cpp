@@ -8,10 +8,10 @@
 
 namespace ABC_167_D_2 {
 
-void CallTeleporter(std::istream &input_stream) noexcept {
+void CallTeleporter(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  Doubling *teleporter = new Doubling();
+  Doubling* teleporter = new Doubling();
 
   int64_t number_of_towns, number_of_teleportations;
   input_stream >> number_of_towns >> number_of_teleportations;
@@ -35,12 +35,8 @@ Doubling::Doubling() noexcept : number_of_towns_(0L) {}
 
 Doubling::~Doubling() noexcept {}
 
-void Doubling::SetNumberOfTowns(const int64_t number_of_towns) noexcept {
-  number_of_towns_ = number_of_towns;
-}
-void Doubling::SetMapping(const int64_t from, const int64_t to) noexcept {
-  ported_to_[0L][from] = to;
-}
+void Doubling::SetNumberOfTowns(const int64_t number_of_towns) noexcept { number_of_towns_ = number_of_towns; }
+void Doubling::SetMapping(const int64_t from, const int64_t to) noexcept { ported_to_[0L][from] = to; }
 
 void Doubling::CreateTable() noexcept {
   for (int64_t pow = 1LL; pow < kMaxLog; ++pow) {

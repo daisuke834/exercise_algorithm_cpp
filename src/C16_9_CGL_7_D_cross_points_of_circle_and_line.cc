@@ -4,13 +4,14 @@
  */
 
 #include "src/C16_9_CGL_7_D_cross_points_of_circle_and_line.h"
+
 #include <cmath>
 #include <iomanip>
 #include <iostream>
 
 namespace CGL_7_D {
 
-void CallCrossPointsOfCircleAndLine(std::istream &input_stream) {
+void CallCrossPointsOfCircleAndLine(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   double center_x, center_y, center_radius;
@@ -35,9 +36,9 @@ Point2D::Point2D(const double x, const double y) noexcept : x_(x), y_(y) {}
 
 Point2D::~Point2D() noexcept {}
 
-Point2D::Point2D(const Point2D &obj) noexcept : x_(obj.x_), y_(obj.y_) {}
+Point2D::Point2D(const Point2D& obj) noexcept : x_(obj.x_), y_(obj.y_) {}
 
-Point2D &Point2D::operator=(const Point2D &rhs) noexcept {
+Point2D& Point2D::operator=(const Point2D& rhs) noexcept {
   if (this != &rhs) {
     this->x_ = rhs.x_;
     this->y_ = rhs.y_;
@@ -45,9 +46,9 @@ Point2D &Point2D::operator=(const Point2D &rhs) noexcept {
   return *this;
 }
 
-Point2D::Point2D(Point2D &&obj) noexcept : x_(obj.x_), y_(obj.y_) {}
+Point2D::Point2D(Point2D&& obj) noexcept : x_(obj.x_), y_(obj.y_) {}
 
-Point2D &Point2D::operator=(Point2D &&rhs) noexcept {
+Point2D& Point2D::operator=(Point2D&& rhs) noexcept {
   if (this != &rhs) {
     this->x_ = rhs.x_;
     this->y_ = rhs.y_;
@@ -55,12 +56,12 @@ Point2D &Point2D::operator=(Point2D &&rhs) noexcept {
   return *this;
 }
 
-Point2D Point2D::operator+(const Point2D &rhs) const noexcept {
+Point2D Point2D::operator+(const Point2D& rhs) const noexcept {
   Point2D point(this->x_ + rhs.x_, this->y_ + rhs.y_);
   return point;
 }
 
-Point2D Point2D::operator-(const Point2D &rhs) const noexcept {
+Point2D Point2D::operator-(const Point2D& rhs) const noexcept {
   Point2D point(this->x_ - rhs.x_, this->y_ - rhs.y_);
   return point;
 }
@@ -70,30 +71,18 @@ Point2D Point2D::operator*(const double rhs) const noexcept {
   return point;
 }
 
-double Point2D::X() const noexcept {
-  return x_;
-}
+double Point2D::X() const noexcept { return x_; }
 
-double Point2D::Y() const noexcept {
-  return y_;
-}
+double Point2D::Y() const noexcept { return y_; }
 
-double Point2D::InnerProduct(const Point2D &rhs) const noexcept {
-  return ((this->x_ * rhs.x_) + (this->y_ * rhs.y_));
-}
-double Point2D::OuterProduct(const Point2D &rhs) const noexcept {
-  return ((this->x_ * rhs.y_) - (this->y_ * rhs.x_));
-}
+double Point2D::InnerProduct(const Point2D& rhs) const noexcept { return ((this->x_ * rhs.x_) + (this->y_ * rhs.y_)); }
+double Point2D::OuterProduct(const Point2D& rhs) const noexcept { return ((this->x_ * rhs.y_) - (this->y_ * rhs.x_)); }
 
-double Point2D::SquareSum() const noexcept {
-  return (x_ * x_ + y_ * y_);
-}
+double Point2D::SquareSum() const noexcept { return (x_ * x_ + y_ * y_); }
 
-double Point2D::Norm() const noexcept {
-  return sqrt(SquareSum());
-}
+double Point2D::Norm() const noexcept { return sqrt(SquareSum()); }
 
-double Point2D::GetHeightOfParallelogram(const Point2D &hypotenuse) const {
+double Point2D::GetHeightOfParallelogram(const Point2D& hypotenuse) const {
   double height;
   try {
     const double area_of_parallelogram = fabs(OuterProduct(hypotenuse));
@@ -113,11 +102,11 @@ double Point2D::GetHeightOfParallelogram(const Point2D &hypotenuse) const {
 
 // ************************************************
 
-Line::Line(const Point2D &p1, const Point2D &p2) noexcept : p1_(p1), p2_(p2) {}
+Line::Line(const Point2D& p1, const Point2D& p2) noexcept : p1_(p1), p2_(p2) {}
 
 Line::~Line() noexcept {}
 
-bool Line::IsParallel(const Line &rhs) const noexcept {
+bool Line::IsParallel(const Line& rhs) const noexcept {
   const Point2D this_direction = this->p2_ - this->p1_;
   const Point2D rhs_direction = rhs.p2_ - rhs.p1_;
   const double outer_product = this_direction.OuterProduct(rhs_direction);
@@ -126,7 +115,7 @@ bool Line::IsParallel(const Line &rhs) const noexcept {
   return is_parallel;
 }
 
-bool Line::IsOrthogonal(const Line &rhs) const noexcept {
+bool Line::IsOrthogonal(const Line& rhs) const noexcept {
   const Point2D this_direction = this->p2_ - this->p1_;
   const Point2D rhs_direction = rhs.p2_ - rhs.p1_;
   constexpr double kEps = 0.0000001;
@@ -135,22 +124,18 @@ bool Line::IsOrthogonal(const Line &rhs) const noexcept {
   return is_parallel;
 }
 
-bool Line::IsOnLine(const Point2D &point) const noexcept {
+bool Line::IsOnLine(const Point2D& point) const noexcept {
   const Line line1(point, p1_);
   const Line line2(point, p2_);
   const bool is_on_line = line1.IsParallel(line2);
   return is_on_line;
 }
 
-bool Line::operator==(const Line &rhs) const noexcept {
-  return (IsOnLine(rhs.p1_) && IsOnLine(rhs.p2_));
-}
+bool Line::operator==(const Line& rhs) const noexcept { return (IsOnLine(rhs.p1_) && IsOnLine(rhs.p2_)); }
 
-bool Line::operator!=(const Line &rhs) const noexcept {
-  return !(*this == rhs);
-}
+bool Line::operator!=(const Line& rhs) const noexcept { return !(*this == rhs); }
 
-Point2D Line::ProjectPoint(const Point2D &point) const {
+Point2D Line::ProjectPoint(const Point2D& point) const {
   const Point2D p2_from_p1 = p2_ - p1_;
   const Point2D point_from_p1 = point - p1_;
   const double square_sum = p2_from_p1.SquareSum();
@@ -164,7 +149,7 @@ Point2D Line::ProjectPoint(const Point2D &point) const {
   return projected_point;
 }
 
-Point2D Line::ReflectPoint(const Point2D &point) const {
+Point2D Line::ReflectPoint(const Point2D& point) const {
   Point2D reflected_point;
   try {
     const Point2D projected_point = ProjectPoint(point);
@@ -175,7 +160,7 @@ Point2D Line::ReflectPoint(const Point2D &point) const {
   return reflected_point;
 }
 
-double Line::GetLineSegmentDistanceFromPoint(const Point2D &point) const {
+double Line::GetLineSegmentDistanceFromPoint(const Point2D& point) const {
   double distance;
   try {
     const Point2D projected_point_from_point1 = ProjectPoint(point) - p1_;
@@ -197,7 +182,7 @@ double Line::GetLineSegmentDistanceFromPoint(const Point2D &point) const {
   return distance;
 }
 
-double Line::GetLineSegmentDistance(const Line &line) const {
+double Line::GetLineSegmentDistance(const Line& line) const {
   double line_segment_distance;
   try {
     if (SegmentsAreCrossing(line)) {
@@ -213,7 +198,7 @@ double Line::GetLineSegmentDistance(const Line &line) const {
   return line_segment_distance;
 }
 
-bool Line::PointIsOnSegment(const Point2D &point) const {
+bool Line::PointIsOnSegment(const Point2D& point) const {
   constexpr double kEps = 0.0000001;
   bool point_is_on_segment;
   try {
@@ -225,7 +210,7 @@ bool Line::PointIsOnSegment(const Point2D &point) const {
   return point_is_on_segment;
 }
 
-bool Line::SegmentsAreCrossing(const Line &line) const {
+bool Line::SegmentsAreCrossing(const Line& line) const {
   const Point2D r1 = p2_ - p1_;
   const Point2D diff1_1 = line.p1_ - p1_;
   const Point2D diff1_2 = line.p2_ - p1_;
@@ -242,7 +227,7 @@ bool Line::SegmentsAreCrossing(const Line &line) const {
   return (temp_1 && temp_2) || any_points_is_on_segment;
 }
 
-Point2D Line::GetCrossPointOfSegments(const Line &line) const {
+Point2D Line::GetCrossPointOfSegments(const Line& line) const {
   Point2D cross_point;
   try {
     const Point2D base_vector = p2_ - p1_;
@@ -277,7 +262,7 @@ Circle::Circle(const double center_x, const double center_y, const double radius
 
 Circle::~Circle() noexcept {}
 
-std::pair<Point2D, Point2D> Circle::GetCrossPointsWithLine(const Line &line) const {
+std::pair<Point2D, Point2D> Circle::GetCrossPointsWithLine(const Line& line) const {
   std::pair<Point2D, Point2D> cross_points;
   try {
     const std::pair<Point2D, Point2D> line_points = line.GetBasePoints();

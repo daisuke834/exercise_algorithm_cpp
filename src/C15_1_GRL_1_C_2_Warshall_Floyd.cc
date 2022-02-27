@@ -9,10 +9,10 @@
 
 namespace GRL_1_C_2 {
 
-void CallWarshallFloyd(std::istream &input_stream) {
+void CallWarshallFloyd(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  WarshallFloyd *all_pairs_shortest_path = new WarshallFloyd();
+  WarshallFloyd* all_pairs_shortest_path = new WarshallFloyd();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;

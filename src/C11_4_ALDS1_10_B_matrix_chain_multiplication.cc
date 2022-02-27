@@ -6,16 +6,17 @@
  */
 
 #include "src/C11_4_ALDS1_10_B_matrix_chain_multiplication.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_10_B {
 
-void CallMatrixChainMultiplication(std::istream &input_stream) {
+void CallMatrixChainMultiplication(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MatrixChainMultiplication *matrix_chain_multiplication = new MatrixChainMultiplication();
+  MatrixChainMultiplication* matrix_chain_multiplication = new MatrixChainMultiplication();
   try {
     int32_t number_of_matrices;
     input_stream >> number_of_matrices;
@@ -119,7 +120,7 @@ void MatrixChainMultiplication::StoreCalculatedResult(const int32_t start, const
   look_up_table_[start][end].calculated = true;
 }
 
-int32_t MatrixChainMultiplication::GetMultiplyCount(const Matrix &a, const Matrix &b) {
+int32_t MatrixChainMultiplication::GetMultiplyCount(const Matrix& a, const Matrix& b) {
   if (a.number_of_columns != b.number_of_rows) {
     std::cerr << "ERROR: GetMultiplyCount(): Invalid a.number_of_columns = " << a.number_of_columns
               << ", b.number_of_rows = " << b.number_of_rows << std::endl;
@@ -128,7 +129,7 @@ int32_t MatrixChainMultiplication::GetMultiplyCount(const Matrix &a, const Matri
   return a.number_of_rows * a.number_of_columns * b.number_of_columns;
 }
 
-Matrix MatrixChainMultiplication::GetMultipliedMatrix(const Matrix &a, const Matrix &b) {
+Matrix MatrixChainMultiplication::GetMultipliedMatrix(const Matrix& a, const Matrix& b) {
   if (a.number_of_columns != b.number_of_rows) {
     std::cerr << "ERROR: GetMultipliedMatrix(): Invalid a.number_of_columns = " << a.number_of_columns
               << ", b.number_of_rows = " << b.number_of_rows << std::endl;

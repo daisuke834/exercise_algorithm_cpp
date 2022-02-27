@@ -6,26 +6,24 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C13_2_ALDS1_12_A_2_MST_Prim.h"
 
 namespace ALDS1_12_A_2 {
 
 class Test_ALDS1_12_A_2 : public ::testing::Test {
  protected:
-  MinimumSpanningTree *minimum_spanning_tree_;
-  virtual void SetUp() {
-    minimum_spanning_tree_ = new MinimumSpanningTree();
-  }
-  virtual void TearDown() {
-    delete minimum_spanning_tree_;
-  }
+  MinimumSpanningTree* minimum_spanning_tree_;
+  virtual void SetUp() { minimum_spanning_tree_ = new MinimumSpanningTree(); }
+  virtual void TearDown() { delete minimum_spanning_tree_; }
 };
 
 TEST_F(Test_ALDS1_12_A_2, Constructor) {
-  for (Vertex &vertex : minimum_spanning_tree_->vertices_) {
+  for (Vertex& vertex : minimum_spanning_tree_->vertices_) {
     ASSERT_EQ(VertexStatus::kUnchecked, vertex.status);
     ASSERT_EQ(INT32_MAX, vertex.minimum_distance_to_this);
     ASSERT_EQ(kInvalidVertex, vertex.parent);

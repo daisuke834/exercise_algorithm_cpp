@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C06_2_ALDS1_5_A_3_dynamic_programming.h"
 
 namespace ALDS1_5_A_3 {
 
 class Test_ALDS1_5_A_3 : public ::testing::Test {
  protected:
-  DynamicProgramming *exhaustive_search_;
-  virtual void SetUp() {
-    exhaustive_search_ = new DynamicProgramming();
-  }
-  virtual void TearDown() {
-    delete exhaustive_search_;
-  }
+  DynamicProgramming* exhaustive_search_;
+  virtual void SetUp() { exhaustive_search_ = new DynamicProgramming(); }
+  virtual void TearDown() { delete exhaustive_search_; }
 };
 
 TEST_F(Test_ALDS1_5_A_3, CallDynamicProgramming) {

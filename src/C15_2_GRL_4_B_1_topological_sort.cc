@@ -6,15 +6,16 @@
  */
 
 #include "src/C15_2_GRL_4_B_1_topological_sort.h"
+
 #include <iostream>
 #include <string>
 
 namespace GRL_4_B_1 {
 
-void CallTopologicalSort(std::istream &input_stream) {
+void CallTopologicalSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  TopologicalSort *topological_sort = new TopologicalSort();
+  TopologicalSort* topological_sort = new TopologicalSort();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;
@@ -251,9 +252,7 @@ void Vertex::Completed() {
   status_ = VertexStatus::kCompleted;
 }
 
-VertexStatus Vertex::GetStatus() const noexcept {
-  return status_;
-}
+VertexStatus Vertex::GetStatus() const noexcept { return status_; }
 
 int32_t Vertex::GetNextTailIndex() noexcept {
   int32_t next_tail_index;
@@ -266,12 +265,8 @@ int32_t Vertex::GetNextTailIndex() noexcept {
   return next_tail_index;
 }
 
-void Vertex::AddTail(const int32_t tail_index) noexcept {
-  tails_.push_back(tail_index);
-}
+void Vertex::AddTail(const int32_t tail_index) noexcept { tails_.push_back(tail_index); }
 
-int32_t Vertex::GetNumberOfTails() const noexcept {
-  return static_cast<int32_t>(tails_.size());
-}
+int32_t Vertex::GetNumberOfTails() const noexcept { return static_cast<int32_t>(tails_.size()); }
 
 }  // namespace GRL_4_B_1

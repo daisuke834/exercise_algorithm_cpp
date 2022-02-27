@@ -10,7 +10,7 @@ CurrencyRates::CurrencyRates() noexcept : count_(0), rates_{-1} {}
 
 CurrencyRates::~CurrencyRates() noexcept {}
 
-void CurrencyRates::MaximumProfit(std::istream &input_stream) noexcept {
+void CurrencyRates::MaximumProfit(std::istream& input_stream) noexcept {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -22,7 +22,7 @@ void CurrencyRates::MaximumProfit(std::istream &input_stream) noexcept {
   }
 }
 
-void CurrencyRates::LoadData(std::istream &input_stream) {
+void CurrencyRates::LoadData(std::istream& input_stream) {
   input_stream >> count_;
   if (count_ > kMaxCount) {
     std::cout << "kMaxCount is too small for the number of data count." << std::endl;

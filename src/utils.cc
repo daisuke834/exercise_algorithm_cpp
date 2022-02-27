@@ -4,11 +4,12 @@
  */
 
 #include "src/utils.h"
+
 #include <algorithm>
 #include <iostream>
 namespace utils {
 
-std::vector<std::string> SplitStringToVector(const std::string &text, const char delimiter) {
+std::vector<std::string> SplitStringToVector(const std::string& text, const char delimiter) {
   if (delimiter < 0) {
     std::cerr << "ERROR: SplitStringToVector(): Invalid delimiter. " << delimiter << std::endl;
     throw 1;
@@ -34,7 +35,7 @@ std::vector<std::string> SplitStringToVector(const std::string &text, const char
   return result;
 }
 
-std::vector<float> SplitStringToFloatVector(const std::string &text, const char delimiter) {
+std::vector<float> SplitStringToFloatVector(const std::string& text, const char delimiter) {
   std::vector<float> values;
   try {
     const std::vector<std::string> texts = SplitStringToVector(text, delimiter);
@@ -49,7 +50,7 @@ std::vector<float> SplitStringToFloatVector(const std::string &text, const char 
   return values;
 }
 
-std::vector<double> SplitStringToDoubleVector(const std::string &text, const char delimiter) {
+std::vector<double> SplitStringToDoubleVector(const std::string& text, const char delimiter) {
   std::vector<double> values;
   try {
     const std::vector<std::string> texts = SplitStringToVector(text, delimiter);

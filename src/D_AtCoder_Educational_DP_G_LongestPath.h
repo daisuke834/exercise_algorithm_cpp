@@ -12,7 +12,7 @@
 
 namespace AtCoder_Educational_DP_G {
 
-void CallMain(std::istream &input_stream) noexcept;
+void CallMain(std::istream& input_stream) noexcept;
 
 }  // namespace AtCoder_Educational_DP_G
 

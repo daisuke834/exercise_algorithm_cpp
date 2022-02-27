@@ -4,12 +4,13 @@
  */
 
 #include "src/D_ABC_170_E_multiset.h"
+
 #include <set>
 #include <vector>
 
 namespace D_ABC_170_E {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

@@ -6,8 +6,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/D_AtCoder_Educational_DP_F_LCS.h"
 
 namespace AtCoder_Educational_DP_F {

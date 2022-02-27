@@ -5,17 +5,18 @@
  */
 
 #include "src/C04_4_ALDS1_3_C_doubly_linked_list.h"
+
 #include <algorithm>
 #include <iostream>
 #include <string>
 namespace ALDS1_3_C {
 
-void CallDoublyLinkedList(std::istream &input_stream) {
+void CallDoublyLinkedList(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   int32_t number_of_operations;
   input_stream >> number_of_operations;
-  DoublyLinkedList *linked_list = new DoublyLinkedList();
+  DoublyLinkedList* linked_list = new DoublyLinkedList();
   try {
     for (int32_t operation_index = 0; operation_index < number_of_operations; ++operation_index) {
       std::string operation_name;
@@ -50,20 +51,20 @@ Key::Key(const int32_t key) noexcept : key_(key) {}
 
 Key::~Key() noexcept {}
 
-Key::Key(const Key &obj) noexcept : key_(obj.key_) {}
+Key::Key(const Key& obj) noexcept : key_(obj.key_) {}
 
-Key &Key::operator=(const Key &rhs) noexcept {
+Key& Key::operator=(const Key& rhs) noexcept {
   if (this != &rhs) {
     this->key_ = rhs.key_;
   }
   return *this;
 }
 
-Key::Key(Key &&obj) noexcept : key_(obj.key_) {
+Key::Key(Key&& obj) noexcept : key_(obj.key_) {
   obj.key_ = INT16_MAX;  // 無効化
 }
 
-Key &Key::operator=(Key &&rhs) noexcept {
+Key& Key::operator=(Key&& rhs) noexcept {
   if (this != &rhs) {
     this->key_ = rhs.key_;
     rhs.key_ = INT16_MAX;  // 無効化
@@ -71,52 +72,30 @@ Key &Key::operator=(Key &&rhs) noexcept {
   return *this;
 }
 
-int32_t Key::GetKey() const noexcept {
-  return key_;
-}
+int32_t Key::GetKey() const noexcept { return key_; }
 
-bool Key::Equals(const Key &obj) const noexcept {
-  return (IsValid() && (GetKey() == obj.GetKey()));
-}
+bool Key::Equals(const Key& obj) const noexcept { return (IsValid() && (GetKey() == obj.GetKey())); }
 
-bool Key::IsValid() const noexcept {
-  return (key_ != INT32_MAX);
-}
+bool Key::IsValid() const noexcept { return (key_ != INT32_MAX); }
 
 // ****************************************************
 Node::Node() noexcept : next_(kInvalidIndex), previous_(kInvalidIndex) {}
 Node::~Node() noexcept {}
 
-void Node::SetKey(const Key &key) noexcept {
-  key_ = key;
-}
+void Node::SetKey(const Key& key) noexcept { key_ = key; }
 
-void Node::UpdateNext(int32_t next) noexcept {
-  next_ = next;
-}
+void Node::UpdateNext(int32_t next) noexcept { next_ = next; }
 
-void Node::UpdatePrevious(int32_t previous) noexcept {
-  previous_ = previous;
-}
+void Node::UpdatePrevious(int32_t previous) noexcept { previous_ = previous; }
 
-bool Node::IsValid() const noexcept {
-  return (next_ != kInvalidIndex) && (previous_ != kInvalidIndex);
-}
+bool Node::IsValid() const noexcept { return (next_ != kInvalidIndex) && (previous_ != kInvalidIndex); }
 
-Key Node::GetKey() const noexcept {
-  return key_;
-}
+Key Node::GetKey() const noexcept { return key_; }
 
-bool Node::HasKey(const Key &key) const noexcept {
-  return (IsValid() && key_.Equals(key));
-}
+bool Node::HasKey(const Key& key) const noexcept { return (IsValid() && key_.Equals(key)); }
 
-int32_t Node::GetNext() const noexcept {
-  return next_;
-}
-int32_t Node::GetPrevious() const noexcept {
-  return previous_;
-}
+int32_t Node::GetNext() const noexcept { return next_; }
+int32_t Node::GetPrevious() const noexcept { return previous_; }
 
 // ****************************************************
 
@@ -124,7 +103,7 @@ DoublyLinkedList::DoublyLinkedList() noexcept : top_(kInvalidIndex), tail_(kInva
 
 DoublyLinkedList::~DoublyLinkedList() noexcept {}
 
-void DoublyLinkedList::Insert(const Key &key) {
+void DoublyLinkedList::Insert(const Key& key) {
   if (!key.IsValid()) {
     std::cerr << "ERROR: Insert(): Invalid key arg" << std::endl;
     throw 1;
@@ -148,7 +127,7 @@ void DoublyLinkedList::Insert(const Key &key) {
   }
 }
 
-void DoublyLinkedList::Delete(const Key &key) {
+void DoublyLinkedList::Delete(const Key& key) {
   if (!key.IsValid()) {
     std::cerr << "ERROR: Insert(): Invalid key arg" << std::endl;
     throw 1;
@@ -238,7 +217,7 @@ int32_t DoublyLinkedList::FindInvalidNode() {
   return found_index;
 }
 
-int32_t DoublyLinkedList::Search(const Key &key) {
+int32_t DoublyLinkedList::Search(const Key& key) {
   int32_t found_index = -1;
   int32_t current_index = top_;
   for (int32_t count = 1; count <= kMaxNumberOfNodes; ++count) {

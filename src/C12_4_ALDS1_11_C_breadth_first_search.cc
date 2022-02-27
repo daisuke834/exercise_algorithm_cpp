@@ -6,15 +6,16 @@
  */
 
 #include "src/C12_4_ALDS1_11_C_breadth_first_search.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_C {
 
-void CallBreadthFirstSearch(std::istream &input_stream) {
+void CallBreadthFirstSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  BreadthFirstSearch *breadth_first_search = new BreadthFirstSearch();
+  BreadthFirstSearch* breadth_first_search = new BreadthFirstSearch();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -39,9 +40,7 @@ void CallBreadthFirstSearch(std::istream &input_stream) {
 
 // ****************************************************
 
-BreadthFirstSearch::BreadthFirstSearch() noexcept : size_(0) {
-  Reset();
-}
+BreadthFirstSearch::BreadthFirstSearch() noexcept : size_(0) { Reset(); }
 
 BreadthFirstSearch::~BreadthFirstSearch() noexcept {}
 
@@ -219,15 +218,15 @@ void BreadthFirstSearch::Print() const {
 }
 
 void BreadthFirstSearch::Reset() noexcept {
-  for (auto &row : adjacency_matrix_) {
-    for (auto &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (auto& element : row) {
       element = false;
     }
   }
-  for (int32_t &distance : distances_) {
+  for (int32_t& distance : distances_) {
     distance = kNotReached;
   }
-  for (bool &cexplored : explored_) {
+  for (bool& cexplored : explored_) {
     cexplored = false;
   }
 }
@@ -313,13 +312,9 @@ Queue::Queue() noexcept : depth_(0), head_(0), indices_{0} {}
 
 Queue::~Queue() noexcept {}
 
-bool Queue::IsEmpty() const noexcept {
-  return (depth_ <= 0);
-}
+bool Queue::IsEmpty() const noexcept { return (depth_ <= 0); }
 
-bool Queue::IsFull() const noexcept {
-  return (depth_ >= kMaxQueueSize);
-}
+bool Queue::IsFull() const noexcept { return (depth_ >= kMaxQueueSize); }
 
 void Queue::Enqueue(const int32_t index) {
   if (IsFull()) {

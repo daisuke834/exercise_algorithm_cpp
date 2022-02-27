@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C12_3_ALDS1_11_B_1_depth_first_search.h"
 
 namespace ALDS1_11_B_1 {
 
 class Test_ALDS1_11_B_1 : public ::testing::Test {
  protected:
-  DepthFirstSearch *depth_first_search_;
-  virtual void SetUp() {
-    depth_first_search_ = new DepthFirstSearch();
-  }
-  virtual void TearDown() {
-    delete depth_first_search_;
-  }
+  DepthFirstSearch* depth_first_search_;
+  virtual void SetUp() { depth_first_search_ = new DepthFirstSearch(); }
+  virtual void TearDown() { delete depth_first_search_; }
 };
 
 TEST_F(Test_ALDS1_11_B_1, CallDepthFirstSearch_1) {

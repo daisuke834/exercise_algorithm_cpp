@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C03_5_ALDS1_2_C_stable_sort.h"
 
 namespace ALDS1_2_C {
 
 class Test_ALDS1_2_C : public ::testing::Test {
  protected:
-  StableSort *stable_sort_;
-  virtual void SetUp() {
-    stable_sort_ = new StableSort();
-  }
-  virtual void TearDown() {
-    delete stable_sort_;
-  }
+  StableSort* stable_sort_;
+  virtual void SetUp() { stable_sort_ = new StableSort(); }
+  virtual void TearDown() { delete stable_sort_; }
 };
 
 TEST_F(Test_ALDS1_2_C, LoadData_abnormal) {

@@ -4,12 +4,13 @@
  */
 
 #include "src/B_ALDS1_14_A_naive_string_search.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_14_A {
 
-void CallNaiveStringSearch(std::istream &input_stream) {
+void CallNaiveStringSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
   try {
@@ -22,7 +23,7 @@ void CallNaiveStringSearch(std::istream &input_stream) {
   }
 }
 
-void NaiveStringSearch(const std::string &text, const std::string &pattern) {
+void NaiveStringSearch(const std::string& text, const std::string& pattern) {
   try {
     int32_t length_text = static_cast<int32_t>(text.length());
     int32_t length_pattern = static_cast<int32_t>(pattern.length());

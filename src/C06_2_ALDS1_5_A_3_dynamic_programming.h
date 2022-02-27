@@ -8,13 +8,14 @@
 #define SRC_C06_2_ALDS1_5_A_3_DYNAMIC_PROGRAMMING_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_A_3 {
 
-void CallDynamicProgramming(std::istream &input_stream);
+void CallDynamicProgramming(std::istream& input_stream);
 
 constexpr int32_t kMaxNumberOfSources = 20;
 constexpr int32_t kMaxNumberOfTargets = 200;
@@ -45,10 +46,10 @@ class DynamicProgramming {
   void Check();
 
  private:
-  DynamicProgramming(const DynamicProgramming &obj) = delete;
-  DynamicProgramming &operator=(const DynamicProgramming &rhs) = delete;
-  DynamicProgramming(DynamicProgramming &&obj) = delete;
-  DynamicProgramming &operator=(DynamicProgramming &&rhs) = delete;
+  DynamicProgramming(const DynamicProgramming& obj) = delete;
+  DynamicProgramming& operator=(const DynamicProgramming& rhs) = delete;
+  DynamicProgramming(DynamicProgramming&& obj) = delete;
+  DynamicProgramming& operator=(DynamicProgramming&& rhs) = delete;
 
   bool CanBeCreated(const int32_t target, const int32_t start_index_of_source);
   bool LoadCanBeCreated(const int32_t target, const int32_t start_index_of_source) const;

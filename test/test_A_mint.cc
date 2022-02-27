@@ -4,7 +4,9 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
+
 #include "src/mint.h"
 
 namespace mint {

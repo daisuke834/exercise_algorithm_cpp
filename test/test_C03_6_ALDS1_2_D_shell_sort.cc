@@ -6,20 +6,18 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C03_6_ALDS1_2_D_shell_sort.h"
 
 namespace ALDS1_2_D {
 class Test_ALDS1_2_D : public ::testing::Test {
  protected:
-  ShellSort *shell_sort_;
-  virtual void SetUp() {
-    shell_sort_ = new ShellSort();
-  }
-  virtual void TearDown() {
-    delete shell_sort_;
-  }
+  ShellSort* shell_sort_;
+  virtual void SetUp() { shell_sort_ = new ShellSort(); }
+  virtual void TearDown() { delete shell_sort_; }
 };
 
 TEST_F(Test_ALDS1_2_D, LoadData_abnormal) {

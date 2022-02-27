@@ -18,7 +18,7 @@ namespace LC_weekly_190_4 {
 
 class Solution {
  public:
-  int32_t maxDotProduct(std::vector<int32_t> &nums1, std::vector<int32_t> &nums2) noexcept;
+  int32_t maxDotProduct(std::vector<int32_t>& nums1, std::vector<int32_t>& nums2) noexcept;
 };
 
 }  // namespace LC_weekly_190_4

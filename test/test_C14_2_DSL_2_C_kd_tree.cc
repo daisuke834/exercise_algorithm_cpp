@@ -5,23 +5,21 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <random>
 #include <sstream>
+
 #include "src/C14_2_DSL_2_C_kd_tree.h"
 
 namespace DSL_2_C {
 
 class Test_DSL_2_C : public ::testing::Test {
  protected:
-  KdTree *kd_tree_;
-  virtual void SetUp() {
-    kd_tree_ = new KdTree();
-  }
-  virtual void TearDown() {
-    delete kd_tree_;
-  }
+  KdTree* kd_tree_;
+  virtual void SetUp() { kd_tree_ = new KdTree(); }
+  virtual void TearDown() { delete kd_tree_; }
 };
 
 TEST_F(Test_DSL_2_C, AddPoint) {

@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_3_GRL_3_A_articulation_point.h"
 
 namespace GRL_3_A {
 
 class Test_GRL_3_A : public ::testing::Test {
  protected:
-  ArticulationPoint *articulation_point_;
-  virtual void SetUp() {
-    articulation_point_ = new ArticulationPoint();
-  }
-  virtual void TearDown() {
-    delete articulation_point_;
-  }
+  ArticulationPoint* articulation_point_;
+  virtual void SetUp() { articulation_point_ = new ArticulationPoint(); }
+  virtual void TearDown() { delete articulation_point_; }
 };
 
 TEST_F(Test_GRL_3_A, CallArticulationPoint_1) {

@@ -6,15 +6,16 @@
  */
 
 #include "src/C13_2_ALDS1_12_A_2_MST_Prim.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_12_A_2 {
 
-void CallMinimumSpanningTree(std::istream &input_stream) {
+void CallMinimumSpanningTree(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MinimumSpanningTree *minimum_spanning_tree = new MinimumSpanningTree();
+  MinimumSpanningTree* minimum_spanning_tree = new MinimumSpanningTree();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -38,8 +39,8 @@ void CallMinimumSpanningTree(std::istream &input_stream) {
 // ****************************************************
 
 MinimumSpanningTree::MinimumSpanningTree() noexcept : number_of_vertices_(0) {
-  for (auto &row : adjacency_matrix_) {
-    for (int32_t &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (int32_t& element : row) {
       element = kInvalidWeight;
     }
   }
@@ -71,7 +72,7 @@ void MinimumSpanningTree::AddVertexToTree(const int32_t vertex_index_to_add) {
     std::cerr << "ERROR: AddVertexToTree(): Invalid arg: vertex_index_to_add = " << vertex_index_to_add << std::endl;
     throw 1;
   }
-  Vertex &vertex_to_add = vertices_[vertex_index_to_add];
+  Vertex& vertex_to_add = vertices_[vertex_index_to_add];
   vertex_to_add.status = VertexStatus::kAdded;
 
   UpdateExternalVertices(vertex_index_to_add);
@@ -147,7 +148,7 @@ void MinimumSpanningTree::UpdateCandidateByAddedVertex(const int32_t vertex_inde
               << vertex_index_to_update << std::endl;
     throw 1;
   } else {
-    Vertex &vertex_to_update = vertices_[vertex_index_to_update];
+    Vertex& vertex_to_update = vertices_[vertex_index_to_update];
     vertex_to_update.minimum_distance_to_this = adjacency_matrix_[vertex_index_added][vertex_index_to_update];
     vertex_to_update.parent = vertex_index_added;
     vertex_to_update.status = VertexStatus::kCandidate;
@@ -187,7 +188,7 @@ int32_t MinimumSpanningTree::FindNextVertexToAdd() const noexcept {
   int32_t next_vertex_to_add = kInvalidVertex;
   for (int32_t vertex_index = 0; vertex_index < number_of_vertices_; ++vertex_index) {
     if (IsExternalVertex(vertex_index)) {
-      const Vertex &current_vertex = vertices_[vertex_index];
+      const Vertex& current_vertex = vertices_[vertex_index];
       if (current_vertex.minimum_distance_to_this < minimum_distance) {
         next_vertex_to_add = vertex_index;
         minimum_distance = current_vertex.minimum_distance_to_this;
@@ -209,7 +210,7 @@ void MinimumSpanningTree::QueueVertexAsRoot(const int32_t first_vertex_to_start)
 int32_t MinimumSpanningTree::GetSumOfWeights() const noexcept {
   int32_t sum_of_weights = 0;
   for (int32_t vertex_index = 0; vertex_index < number_of_vertices_; ++vertex_index) {
-    const Vertex &current_vertex = vertices_[vertex_index];
+    const Vertex& current_vertex = vertices_[vertex_index];
     if (IsTreeComponent(vertex_index)) {
       sum_of_weights += current_vertex.minimum_distance_to_this;
     }

@@ -4,13 +4,14 @@
  */
 
 #include "src/D_PAST_003_J_2_binary_search.h"
+
 #include <algorithm>
 #include <functional>
 #include <vector>
 
 namespace PAST_003_J_2 {
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

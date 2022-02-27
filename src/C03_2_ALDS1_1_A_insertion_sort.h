@@ -10,6 +10,7 @@
 #define SRC_C03_2_ALDS1_1_A_INSERTION_SORT_H_
 
 #include <gtest/gtest_prod.h>  // Needed for FRIEND_TEST. Should be removed from production code
+
 #include <cstdint>
 #include <iostream>
 
@@ -21,7 +22,7 @@ class InsertionSort {
  public:
   InsertionSort() noexcept;
   ~InsertionSort() noexcept;
-  void Main(std::istream &input_stream) noexcept;
+  void Main(std::istream& input_stream) noexcept;
 
  private:
   void Sort() noexcept;
@@ -29,14 +30,14 @@ class InsertionSort {
   bool ShouldSwap(const int32_t index_compare, const int32_t cvalue) noexcept;
   int32_t SwapAndGetInsertPoint(const int32_t index_compare) noexcept;
   void Insert(const int32_t index_insert_target, const int32_t cvalue) noexcept;
-  void Load(std::istream &input_stream);
+  void Load(std::istream& input_stream);
   void Print() const noexcept;
 
  private:
-  InsertionSort(const InsertionSort &obj) = delete;
-  InsertionSort &operator=(const InsertionSort &rhs) = delete;
-  InsertionSort(InsertionSort &&obj) = delete;
-  InsertionSort &operator=(InsertionSort &&rhs) = delete;
+  InsertionSort(const InsertionSort& obj) = delete;
+  InsertionSort& operator=(const InsertionSort& rhs) = delete;
+  InsertionSort(InsertionSort&& obj) = delete;
+  InsertionSort& operator=(InsertionSort&& rhs) = delete;
 
  private:
   int32_t count_;

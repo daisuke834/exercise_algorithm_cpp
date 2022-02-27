@@ -4,6 +4,7 @@
  */
 
 #include "src/C18_1_ALDS1_1_C_prime_number.h"
+
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -11,10 +12,10 @@
 
 namespace ALDS1_1_C {
 
-void CallPrimeNumber(std::istream &input_stream) {
+void CallPrimeNumber(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  PrimeNumber *prime_number = new PrimeNumber();
+  PrimeNumber* prime_number = new PrimeNumber();
   try {
     int32_t count;
     input_stream >> count;

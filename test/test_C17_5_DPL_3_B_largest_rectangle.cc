@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C17_5_DPL_3_B_largest_rectangle.h"
 
 namespace DPL_3_B {
 
 class Test_DPL_3_B : public ::testing::Test {
  protected:
-  LargestRectangle *largest_rectangle_;
-  virtual void SetUp() {
-    largest_rectangle_ = new LargestRectangle();
-  }
-  virtual void TearDown() {
-    delete largest_rectangle_;
-  }
+  LargestRectangle* largest_rectangle_;
+  virtual void SetUp() { largest_rectangle_ = new LargestRectangle(); }
+  virtual void TearDown() { delete largest_rectangle_; }
 };
 
 TEST_F(Test_DPL_3_B, SetTile) {

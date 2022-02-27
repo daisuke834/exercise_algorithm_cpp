@@ -8,10 +8,10 @@
 
 namespace GRL_4_A {
 
-void CallCycleDetection(std::istream &input_stream) {
+void CallCycleDetection(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  CycleDetection *cycle_detection = new CycleDetection();
+  CycleDetection* cycle_detection = new CycleDetection();
   try {
     int32_t number_of_vertices, number_of_edges;
     input_stream >> number_of_vertices >> number_of_edges;

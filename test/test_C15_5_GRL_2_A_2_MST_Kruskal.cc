@@ -5,9 +5,11 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C15_5_GRL_2_A_2_MST_Kruskal.h"
 
 namespace GRL_2_A_2 {

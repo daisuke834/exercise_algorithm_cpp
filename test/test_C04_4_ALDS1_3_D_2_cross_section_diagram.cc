@@ -6,8 +6,10 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C04_4_ALDS1_3_D_2_cross_section_diagram.h"
 
 namespace ALDS1_3_D_2 {

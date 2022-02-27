@@ -14,7 +14,7 @@ struct Vertex {
   std::vector<int32_t> neighbours;
 };
 
-void CallDijkstra(std::istream &input_stream) noexcept {
+void CallDijkstra(std::istream& input_stream) noexcept {
   std::cin.tie(0);
   std::ios::sync_with_stdio(false);
 
@@ -40,7 +40,7 @@ void CallDijkstra(std::istream &input_stream) noexcept {
     const int32_t target_distance = p.first;
     const int32_t target_index = p.second;
 
-    Vertex &cvertex = vertices[target_index];
+    Vertex& cvertex = vertices[target_index];
 
     cvertex.explored = true;
     for (const int32_t next_index : cvertex.neighbours) {

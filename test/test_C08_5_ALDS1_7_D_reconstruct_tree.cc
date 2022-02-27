@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C08_5_ALDS1_7_D_reconstruct_tree.h"
 
 namespace ALDS1_7_D {
 
 class Test_ALDS1_7_D : public ::testing::Test {
  protected:
-  TreeReconstruction *reconstruct_tree_;
-  virtual void SetUp() {
-    reconstruct_tree_ = new TreeReconstruction();
-  }
-  virtual void TearDown() {
-    delete reconstruct_tree_;
-  }
+  TreeReconstruction* reconstruct_tree_;
+  virtual void SetUp() { reconstruct_tree_ = new TreeReconstruction(); }
+  virtual void TearDown() { delete reconstruct_tree_; }
 };
 
 TEST_F(Test_ALDS1_7_D, Node_initial) {

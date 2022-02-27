@@ -6,15 +6,16 @@
  */
 
 #include "src/C07_1_ALDS1_5_B_merge_sort.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_5_B {
 
-void CallMergeSort(std::istream &input_stream) {
+void CallMergeSort(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  MergeSort *merge_sort = new MergeSort();
+  MergeSort* merge_sort = new MergeSort();
   try {
     int32_t count;
     input_stream >> count;
@@ -141,9 +142,7 @@ int32_t MergeSort::GetCenterIndex(const int32_t left_end, const int32_t right_en
   return (left_end + right_end) / 2;
 }
 
-void MergeSort::ResetData() noexcept {
-  size_ = 0;
-}
+void MergeSort::ResetData() noexcept { size_ = 0; }
 
 int32_t MergeSort::GetValue(const int32_t index) const {
   if ((index < 0) || (index >= size_)) {

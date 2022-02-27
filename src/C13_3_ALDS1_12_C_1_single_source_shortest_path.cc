@@ -6,15 +6,16 @@
  */
 
 #include "src/C13_3_ALDS1_12_C_1_single_source_shortest_path.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_12_C_1 {
 
-void CallDijkstraAlgorithm(std::istream &input_stream) {
+void CallDijkstraAlgorithm(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DijkstraAlgorithm *single_source_shortest_path = new DijkstraAlgorithm();
+  DijkstraAlgorithm* single_source_shortest_path = new DijkstraAlgorithm();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -74,7 +75,7 @@ void DijkstraAlgorithm::AddVertexToTree(const int32_t vertex_index_to_add) {
     std::cerr << "ERROR: AddVertexToTree(): Invalid arg: vertex_index_to_add = " << vertex_index_to_add << std::endl;
     throw 1;
   }
-  Vertex &vertex_to_add = vertices_[vertex_index_to_add];
+  Vertex& vertex_to_add = vertices_[vertex_index_to_add];
   vertex_to_add.status = VertexStatus::kAdded;
 
   UpdateExternalVertices(vertex_index_to_add);
@@ -87,7 +88,7 @@ void DijkstraAlgorithm::UpdateExternalVertices(const int32_t vertex_index_added)
     throw 1;
   }
   try {
-    for (const Neighbour &neighbour : neighbours_[vertex_index_added]) {
+    for (const Neighbour& neighbour : neighbours_[vertex_index_added]) {
       CheckAndUpdateExternalVertex(vertex_index_added, neighbour.vertex_neighbour);
     }
   } catch (...) {
@@ -157,7 +158,7 @@ void DijkstraAlgorithm::UpdateCandidateByAddedVertex(const int32_t vertex_index_
     throw 1;
   } else {
     try {
-      Vertex &vertex_to_update = vertices_[vertex_index_to_update];
+      Vertex& vertex_to_update = vertices_[vertex_index_to_update];
       const int32_t new_distance =
           vertices_[vertex_index_added].distance_from_root + GetWeight(vertex_index_added, vertex_index_to_update);
       vertex_to_update.distance_from_root = new_distance;
@@ -256,7 +257,7 @@ int32_t DijkstraAlgorithm::GetWeight(const int32_t vertex_from, const int32_t ve
     std::cerr << "ERROR: GetWeight(): Invalid arg: vertex_to = " << vertex_to << std::endl;
     throw 1;
   } else {
-    for (const Neighbour &neighbour : neighbours_[vertex_from]) {
+    for (const Neighbour& neighbour : neighbours_[vertex_from]) {
       if (neighbour.vertex_neighbour == vertex_to) {
         weight = neighbour.weight;
         break;

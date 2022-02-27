@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C17_1_DPL_1_A_2_coin_changing_problem.h"
 
 namespace DPL_1_A_2 {
 
 class Test_DPL_1_A_2 : public ::testing::Test {
  protected:
-  CoinChangingProblem *coin_chainging_problem_;
-  virtual void SetUp() {
-    coin_chainging_problem_ = new CoinChangingProblem();
-  }
-  virtual void TearDown() {
-    delete coin_chainging_problem_;
-  }
+  CoinChangingProblem* coin_chainging_problem_;
+  virtual void SetUp() { coin_chainging_problem_ = new CoinChangingProblem(); }
+  virtual void TearDown() { delete coin_chainging_problem_; }
 };
 
 TEST_F(Test_DPL_1_A_2, FindNumberOfMinimumNumberOfCoins_1) {

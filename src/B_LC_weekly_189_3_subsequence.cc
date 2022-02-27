@@ -8,7 +8,7 @@
 namespace LC_weekly_189_3 {
 
 template <class T>
-bool IsSubsequence(const std::vector<T> &target, const std::vector<T> &compare) {
+bool IsSubsequence(const std::vector<T>& target, const std::vector<T>& compare) {
   // targetおよびcompareはsort済み前提で、O(N)の計算量。
   bool is_subsequence = true;
   if (compare.size() == 0 || target.size() > compare.size()) {
@@ -30,8 +30,8 @@ bool IsSubsequence(const std::vector<T> &target, const std::vector<T> &compare) 
   return is_subsequence;
 }
 
-std::vector<int> Solution::peopleIndexes(std::vector<std::vector<std::string>> &favoriteCompanies) {
-  for (auto &companies : favoriteCompanies) {
+std::vector<int> Solution::peopleIndexes(std::vector<std::vector<std::string>>& favoriteCompanies) {
+  for (auto& companies : favoriteCompanies) {
     std::sort(companies.begin(), companies.end());
   }
 

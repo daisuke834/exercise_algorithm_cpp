@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C07_3_ALDS1_6_C_quick_sort.h"
 
 namespace ALDS1_6_C {
 
 class Test_ALDS1_6_C : public ::testing::Test {
  protected:
-  QuickSort *quick_sort_;
-  virtual void SetUp() {
-    quick_sort_ = new QuickSort();
-  }
-  virtual void TearDown() {
-    delete quick_sort_;
-  }
+  QuickSort* quick_sort_;
+  virtual void SetUp() { quick_sort_ = new QuickSort(); }
+  virtual void TearDown() { delete quick_sort_; }
 };
 
 TEST_F(Test_ALDS1_6_C, CallQuickSort) {

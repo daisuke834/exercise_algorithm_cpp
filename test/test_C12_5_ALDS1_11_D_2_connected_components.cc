@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C12_5_ALDS1_11_D_2_connected_components.h"
 
 namespace ALDS1_11_D_2 {
 
 class Test_ALDS1_11_D_2 : public ::testing::Test {
  protected:
-  ConnectedComponents *connected_components_;
-  virtual void SetUp() {
-    connected_components_ = new ConnectedComponents();
-  }
-  virtual void TearDown() {
-    delete connected_components_;
-  }
+  ConnectedComponents* connected_components_;
+  virtual void SetUp() { connected_components_ = new ConnectedComponents(); }
+  virtual void TearDown() { delete connected_components_; }
 };
 
 TEST_F(Test_ALDS1_11_D_2, CallConnectedComponents_1) {

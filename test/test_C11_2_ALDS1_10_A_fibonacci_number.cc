@@ -6,22 +6,20 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <ctime>
 #include <iostream>
 #include <sstream>
+
 #include "src/C11_2_ALDS1_10_A_fibonacci_number.h"
 
 namespace ALDS1_10_A {
 
 class Test_ALDS1_10_A : public ::testing::Test {
  protected:
-  FibonacciNumber *fibonacci_number_;
-  virtual void SetUp() {
-    fibonacci_number_ = new FibonacciNumber();
-  }
-  virtual void TearDown() {
-    delete fibonacci_number_;
-  }
+  FibonacciNumber* fibonacci_number_;
+  virtual void SetUp() { fibonacci_number_ = new FibonacciNumber(); }
+  virtual void TearDown() { delete fibonacci_number_; }
 };
 
 TEST_F(Test_ALDS1_10_A, CallFibonacciNumber) {

@@ -6,21 +6,19 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C04_4_ALDS1_3_C_doubly_linked_list.h"
 
 namespace ALDS1_3_C {
 
 class Test_ALDS1_3_C : public ::testing::Test {
  protected:
-  DoublyLinkedList *linked_list_;
-  virtual void SetUp() {
-    linked_list_ = new DoublyLinkedList();
-  }
-  virtual void TearDown() {
-    delete linked_list_;
-  }
+  DoublyLinkedList* linked_list_;
+  virtual void SetUp() { linked_list_ = new DoublyLinkedList(); }
+  virtual void TearDown() { delete linked_list_; }
 };
 
 TEST_F(Test_ALDS1_3_C, Key) {

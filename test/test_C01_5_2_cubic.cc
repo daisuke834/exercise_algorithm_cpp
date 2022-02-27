@@ -6,6 +6,7 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include "src/C1_5_2_cubic.h"
 
 namespace C1P5P2 {

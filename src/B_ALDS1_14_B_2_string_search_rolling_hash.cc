@@ -7,16 +7,17 @@
  */
 
 #include "src/B_ALDS1_14_B_2_string_search_rolling_hash.h"
+
 #include <cstring>
 #include <iostream>
 #include <string>
 
 namespace ALDS1_14_B_2 {
 
-void CallStringSearch(std::istream &input_stream) {
+void CallStringSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  RollingHash *rolling_hash = new RollingHash();
+  RollingHash* rolling_hash = new RollingHash();
   try {
     std::string text, pattern;
     input_stream >> text >> pattern;
@@ -32,7 +33,7 @@ void CallStringSearch(std::istream &input_stream) {
 RollingHash::RollingHash() noexcept : pattern_length_(0), pattern_hash_(0) {}
 RollingHash::~RollingHash() noexcept {}
 
-void RollingHash::SetPattern(const std::string &pattern) noexcept {
+void RollingHash::SetPattern(const std::string& pattern) noexcept {
   strncpy(pattern_, pattern.c_str(), pattern.length());
   pattern_length_ = static_cast<int32_t>(pattern.length());
 
@@ -43,8 +44,8 @@ void RollingHash::SetPattern(const std::string &pattern) noexcept {
   CalculateHashOfPattern();
 }
 
-void RollingHash::Search(const std::string &text_str) noexcept {
-  const char *const text = text_str.c_str();
+void RollingHash::Search(const std::string& text_str) noexcept {
+  const char* const text = text_str.c_str();
   const int32_t length_text = static_cast<int32_t>(text_str.length());
   text_hash_[0] = 0;
   // end = 末尾の右隣
@@ -99,9 +100,7 @@ int64_t RollingHash::DecodeCharacter(const char ch) {
   return decoded_number;
 }
 
-int64_t RollingHash::CalculateBasePower(const int64_t pow) const noexcept {
-  return base_powered_[pow];
-}
+int64_t RollingHash::CalculateBasePower(const int64_t pow) const noexcept { return base_powered_[pow]; }
 
 // ****************************************************
 

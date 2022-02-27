@@ -7,15 +7,16 @@
  */
 
 #include "src/C12_3_ALDS1_11_B_2_depth_first_search.h"
+
 #include <iostream>
 #include <string>
 
 namespace ALDS1_11_B_2 {
 
-void CallDepthFirstSearch(std::istream &input_stream) {
+void CallDepthFirstSearch(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
-  DepthFirstSearch *depth_first_search = new DepthFirstSearch();
+  DepthFirstSearch* depth_first_search = new DepthFirstSearch();
   try {
     int32_t number_of_vertices;
     input_stream >> number_of_vertices;
@@ -40,9 +41,7 @@ void CallDepthFirstSearch(std::istream &input_stream) {
 
 // ****************************************************
 
-DepthFirstSearch::DepthFirstSearch() noexcept : time_(kInvalidTime), number_of_vertices_(0) {
-  Reset();
-}
+DepthFirstSearch::DepthFirstSearch() noexcept : time_(kInvalidTime), number_of_vertices_(0) { Reset(); }
 
 DepthFirstSearch::~DepthFirstSearch() noexcept {}
 
@@ -260,12 +259,12 @@ void DepthFirstSearch::Print() const {
 }
 
 void DepthFirstSearch::Reset() noexcept {
-  for (auto &row : adjacency_matrix_) {
-    for (auto &element : row) {
+  for (auto& row : adjacency_matrix_) {
+    for (auto& element : row) {
       element = false;
     }
   }
-  for (Vertex &vertex : vertices_) {
+  for (Vertex& vertex : vertices_) {
     vertex.Reset();
   }
 }
@@ -301,13 +300,9 @@ Stack::Stack() noexcept : top_position_(0), values_{0} {}
 
 Stack::~Stack() noexcept {}
 
-bool Stack::IsEmpty() const noexcept {
-  return (top_position_ <= 0);
-}
+bool Stack::IsEmpty() const noexcept { return (top_position_ <= 0); }
 
-bool Stack::IsFull() const noexcept {
-  return (top_position_ >= kMaxStackDepth);
-}
+bool Stack::IsFull() const noexcept { return (top_position_ >= kMaxStackDepth); }
 
 void Stack::Push(const int32_t x) {
   if (IsFull()) {
@@ -358,17 +353,11 @@ void Vertex::Completed(const int32_t time) {
   completion_time_ = time;
 }
 
-VertexStatus Vertex::GetStatus() const noexcept {
-  return status_;
-}
+VertexStatus Vertex::GetStatus() const noexcept { return status_; }
 
-int32_t Vertex::GetDiscoveredTime() const noexcept {
-  return discovered_time_;
-}
+int32_t Vertex::GetDiscoveredTime() const noexcept { return discovered_time_; }
 
-int32_t Vertex::GetCompletionTime() const noexcept {
-  return completion_time_;
-}
+int32_t Vertex::GetCompletionTime() const noexcept { return completion_time_; }
 
 void Vertex::Reset() noexcept {
   status_ = VertexStatus::kInit;
@@ -377,8 +366,6 @@ void Vertex::Reset() noexcept {
   next_check_ = 0;
 }
 
-int32_t Vertex::GetNextTailCheck() noexcept {
-  return next_check_++;
-}
+int32_t Vertex::GetNextTailCheck() noexcept { return next_check_++; }
 
 }  // namespace ALDS1_11_B_2

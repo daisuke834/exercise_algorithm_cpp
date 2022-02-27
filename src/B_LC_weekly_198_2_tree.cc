@@ -8,16 +8,16 @@
 
 namespace LC_weekly_198_2 {
 
-std::vector<int> Solution::countSubTrees(int n, std::vector<std::vector<int>> &edges, std::string labels) {
+std::vector<int> Solution::countSubTrees(int n, std::vector<std::vector<int>>& edges, std::string labels) {
   std::vector<std::vector<int64_t>> neighbours(n, std::vector<int64_t>());
   std::vector<std::vector<int64_t>> counts(n, std::vector<int64_t>(26, 0));
   std::vector<bool> visited(n, false);
   std::vector<int> ans(n, 0);
-  for (const auto &edge : edges) {
+  for (const auto& edge : edges) {
     neighbours[edge[0]].emplace_back(edge[1]);
     neighbours[edge[1]].emplace_back(edge[0]);
   }
-  auto Dfs = [&](auto &&Func, const int64_t node) -> void {
+  auto Dfs = [&](auto&& Func, const int64_t node) -> void {
     if (visited[node]) {
       return;
     }

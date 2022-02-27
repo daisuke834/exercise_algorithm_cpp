@@ -18,7 +18,7 @@ constexpr int32_t kMinArrayValue = 1;
 constexpr int32_t kMaxArrayValue = 10;
 constexpr int32_t kMaxNumberOfConditions = 50;
 
-void CallDepthFirstSearch(std::istream &input_stream) noexcept;
+void CallDepthFirstSearch(std::istream& input_stream) noexcept;
 
 struct Condition {
   int32_t size{0};

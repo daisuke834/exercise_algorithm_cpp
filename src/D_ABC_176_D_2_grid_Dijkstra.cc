@@ -5,6 +5,7 @@
  */
 
 #include "src/D_ABC_176_D_2_grid_Dijkstra.h"
+
 #include <queue>
 #include <string>
 #include <utility>
@@ -15,7 +16,7 @@ namespace D_ABC_176_D_2 {
 using Pair = std::pair<int64_t, int64_t>;
 constexpr int64_t kInf = INT64_MAX / 2L;
 
-int CallMain(std::istream &input_stream) {
+int CallMain(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

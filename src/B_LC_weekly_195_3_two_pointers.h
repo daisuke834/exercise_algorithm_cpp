@@ -17,7 +17,7 @@ namespace LC_weekly_195_3 {
 
 class Solution {
  public:
-  int numSubseq(std::vector<int> &nums, int target);
+  int numSubseq(std::vector<int>& nums, int target);
 };
 
 }  // namespace LC_weekly_195_3

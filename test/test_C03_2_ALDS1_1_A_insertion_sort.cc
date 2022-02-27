@@ -6,20 +6,18 @@
 
 #include <gtest/gtest.h>
 #include <gtest/internal/gtest-port.h>
+
 #include <iostream>
 #include <sstream>
+
 #include "src/C03_2_ALDS1_1_A_insertion_sort.h"
 
 namespace ALDS1_1_A {
 class Test_ALDS1_1_A : public ::testing::Test {
  protected:
-  InsertionSort *insertion_sort_;
-  virtual void SetUp() {
-    insertion_sort_ = new InsertionSort();
-  }
-  virtual void TearDown() {
-    delete insertion_sort_;
-  }
+  InsertionSort* insertion_sort_;
+  virtual void SetUp() { insertion_sort_ = new InsertionSort(); }
+  virtual void TearDown() { delete insertion_sort_; }
 };
 
 TEST_F(Test_ALDS1_1_A, LoadData_abnormal) {

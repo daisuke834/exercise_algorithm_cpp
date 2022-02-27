@@ -4,12 +4,13 @@
  */
 
 #include "src/B_DPL_1_C_knapsack_problem.h"
+
 #include <algorithm>
 #include <vector>
 
 namespace DPL_1_C {
 
-void CallKnapsackProblem(std::istream &input_stream) {
+void CallKnapsackProblem(std::istream& input_stream) {
   input_stream.tie(0);
   std::ios::sync_with_stdio(false);
 

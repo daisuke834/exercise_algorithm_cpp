@@ -17,7 +17,7 @@ namespace ALDS1_3_D_2 {
 
 constexpr int32_t kMaxNumberOfGridX = 20000;
 
-void CallCrossSectionDiagram(std::istream &input_stream) noexcept;
+void CallCrossSectionDiagram(std::istream& input_stream) noexcept;
 
 enum class Slope : int32_t { kFallingToRight = 0, kFlat, kRisingToRight };
 
@@ -34,10 +34,10 @@ class CrossSectionDiagram {
   void PrintAreas() noexcept;
 
  private:
-  CrossSectionDiagram(const CrossSectionDiagram &obj) = delete;
-  CrossSectionDiagram &operator=(const CrossSectionDiagram &rhs) = delete;
-  CrossSectionDiagram(CrossSectionDiagram &&obj) = delete;
-  CrossSectionDiagram &operator=(CrossSectionDiagram &&rhs) = delete;
+  CrossSectionDiagram(const CrossSectionDiagram& obj) = delete;
+  CrossSectionDiagram& operator=(const CrossSectionDiagram& rhs) = delete;
+  CrossSectionDiagram(CrossSectionDiagram&& obj) = delete;
+  CrossSectionDiagram& operator=(CrossSectionDiagram&& rhs) = delete;
 
   static Slope InterpretSlope(const char c);
 
