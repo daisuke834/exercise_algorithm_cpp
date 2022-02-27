@@ -1,0 +1,10 @@
+workspace(name = "exercise_algorithm_cpp")
+
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
+
+git_repository(
+    name = "googletest",
+    remote = "https://github.com/google/googletest",
+    tag = "release-1.11.0",
+)

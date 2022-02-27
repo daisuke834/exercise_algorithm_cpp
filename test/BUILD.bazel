@@ -1,0 +1,73 @@
+load("@rules_cc//cc:defs.bzl", "cc_test")
+
+cc_test(
+    name = "test_AOJ",
+    srcs = glob(
+        include = [
+            "AOJ/*/*.cc",
+            "AOJ/*/*/*.cc",
+        ],
+        allow_empty = False,
+    ),
+    deps = [
+        "//src/AOJ",
+        "//src/utils",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test_AtCoder",
+    srcs = glob([
+        "AtCoder/*/*.cc",
+    ]),
+    deps = [
+        "//src/AtCoder",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test_LeetCode",
+    srcs = glob([
+        "LeetCode/*.cc",
+        "LeetCode/*/*.cc",
+    ]),
+    deps = [
+        "//src/LeetCode",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test_others",
+    srcs = glob(["others/*.cc"]),
+    deps = [
+        "//src/others",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test_utils",
+    srcs = glob(["utils/*.cc"]),
+    deps = [
+        "//src/utils",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)
+
+cc_test(
+    name = "test_hoge",
+    srcs = glob(["*.cc"]),
+    deps = [
+        "//src",
+        "@googletest//:gtest",
+        "@googletest//:gtest_main",
+    ],
+)

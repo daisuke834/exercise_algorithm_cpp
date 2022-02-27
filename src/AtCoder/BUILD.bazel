@@ -1,0 +1,26 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "AtCoder",
+    srcs = glob(
+        include = [
+            "ABC/*.cc",
+            "AGC/*.cc",
+            "ddcc2020/*.cc",
+            "Educational_DP/*.cc",
+            "PAST/*.cc",
+        ],
+        allow_empty = False,
+    ),
+    hdrs = glob(
+        include = [
+            "ABC/*.h",
+            "AGC/*.h",
+            "ddcc2020/*.h",
+            "Educational_DP/*.h",
+            "PAST/*.h",
+        ],
+        allow_empty = False,
+    ),
+    visibility = ["//visibility:public"],
+)

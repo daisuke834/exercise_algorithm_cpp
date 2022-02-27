@@ -2,13 +2,14 @@
  * @copyright (c) 2020 Daisuke Hashimoto
  */
 
-#include "src/D_ABC_167_C_bit_search.h"
+#include "src/hoge.h"
 
-using ABC_167_C::CallBitSearch;
+using hoge::Hoge;
 
 int main() {
   try {
-    CallBitSearch(std::cin);
+    // Hoge(std::cin);
+    Hoge();
   } catch (...) {
     std::cerr << "ERROR: main()" << std::endl;
   }

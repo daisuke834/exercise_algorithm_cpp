@@ -1,0 +1,26 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
+
+cc_library(
+    name = "src",
+    srcs = glob(
+        include = ["*.cc"],
+        exclude = ["main.cc"],
+    ),
+    hdrs = glob(["*.h"]),
+    visibility = ["//visibility:public"],
+    deps = [
+        "//src/AOJ",
+        "//src/AtCoder",
+        "//src/LeetCode",
+        "//src/others",
+        "//src/utils",
+    ],
+)
+
+cc_binary(
+    name = "main",
+    srcs = ["main.cc"],
+    deps = [
+        ":src",
+    ],
+)

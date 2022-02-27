@@ -1,6 +1,6 @@
-bin/*
-!bin/.gitkeep
-src/*.o
-test/*.o
+bazel-bin
+bazel-exercise_algorithm_cpp
+bazel-out
+bazel-testlogs
 .DS_Store
-.gitignore.swp
+.vscode

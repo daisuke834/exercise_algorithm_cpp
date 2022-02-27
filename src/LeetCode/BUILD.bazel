@@ -1,0 +1,18 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "LeetCode",
+    srcs = glob(
+        include = [
+            "*.cc",
+            "weekly/*.cc",
+        ],
+    ),
+    hdrs = glob(
+        include = [
+            "*.h",
+            "weekly/*.h",
+        ],
+    ),
+    visibility = ["//visibility:public"],
+)
